@@ -7,7 +7,6 @@ enableEmoji = true
 
 # Site parameters
 [params]
-	logo = "images/logo.png"
 	title = "Robin Candau"
 	author = "Robin Candau"
 	description = """
