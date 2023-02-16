@@ -1,3 +1,11 @@
 .post{
 	width:80%;
-	max-width:999px;} 
+	max-width:999px;
+}
+
+.post.custom-post .custom-readmore{
+	background-color:blue;
+	color:white;
+	border-radius:3px;
+	padding:3px 8px;
+}

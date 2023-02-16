@@ -19,7 +19,6 @@ enableEmoji = true
 	customCss = ["css/custom.css"]
 	mainSections = []
 	postSectionName = "blog"
-	readMore = true
 
 	[[params.socialIcons]]
 	icon = "fab fa-github"
