@@ -13,7 +13,7 @@
           <li class="archive__list-item">
             <a class="archive__list-title" href="{{ .RelPermalink }}" title="{{ .Title }}">{{ .Title }}</a>
             <div class="archive__list-date">
-	    {{ .Summary }}
+	    	<a class="summary" summary="{{ .Summary }}">{{ .Summary }}</a>
               {{ if isset .Site.Params "listdateformat" }}
                 {{ if .Site.Params.localizedDates }}
                   {{ time.Format .Site.Params.listDateFormat .Date }}
