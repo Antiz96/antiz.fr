@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Antiz website</title>
-    <link>https://antiz.fr/</link>
-    <description>Recent content on Antiz website</description>
+    <title>Homes on Antiz website</title>
+    <link>https://antiz.fr/home/</link>
+    <description>Recent content in Homes on Antiz website</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://antiz.fr/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://antiz.fr/home/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title></title>
       <link>https://antiz.fr/home/home/</link>
