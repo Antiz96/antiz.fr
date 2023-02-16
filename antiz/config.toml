@@ -1,7 +1,7 @@
 # Global parameters
 baseURL = "https://antiz.fr/"
 languageCode = "en-us"
-title = "Antiz website"
+title = "Robin Candau"
 theme = "anatole" 
 enableEmoji = true
 
