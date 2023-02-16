@@ -20,7 +20,7 @@ Here are the main projects I actively contribute to:
 
 ![alt text](images/arch_linux-logo.png "Arch Linux logo")  
   
-https://archlinux.org  
+<center>https://archlinux.org</center>  
   
 - Trusted User/Package Maintainer: As part of the staff of the Arch Linux distribution, I contribute to its development by maintaining packages on Arch's official repositories. I also contribute to the AUR (Arch User Repository) moderation. Click <a href="https://wiki.archlinux.org/title/Trusted_Users" target="_blank">here</a> for more information.
 - Testing Team member: My role within the Arch Linux Testing team is to install, test and verify that the packages submitted to the Arch's "testing" repositories are working as intended and without regressions nor bugs in order to validate (or not) their "promotion" to the official stable repositories (done collaboratively with the other members of the Arch Linux Testing team). Click <a href="https://wiki.archlinux.org/title/Arch_Testing_Team" target="_blank">here</a> for more information.
@@ -31,7 +31,7 @@ https://archlinux.org
 
 ![alt text](images/crystal_linux-logo.png "Crystal Linux logo")  
   
-https://getcryst.al  
+<center>https://getcryst.al</center>  
   
 - Core Team member: I'm a member of the core development team of the Crystal Linux distribution.
 - Distribution Team lead: I'm the team lead of the Distribution team which is responsible for maintaining the Crystal Linux's specific packages, maintaining the ISOs build and release and maintaining the Crystal Docker image.
@@ -40,16 +40,16 @@ https://getcryst.al
 
 ## Unity for Arch
 
-![alt text](images/ubuntu_unity-logo.png) "Ubuntu Unity logo") 
+![alt text](images/ubuntu_unity-logo.png "Ubuntu Unity logo") 
   
-https://unity.ubuntuunity.org/  
+<center>https://unity.ubuntuunity.org/</center>  
   
 - Packaging contributor: I contribute to writing, improving and maintaining install/build scripts (PKGBUILD) of the packages needed for the "Unity" desktop environment (initially developed by Ubuntu) port to Arch Linux. Click <a href="https://unity.ubuntuunity.org/blog/unity-for-arch" target="_blank">here</a> for more information.
 
 ## Arch Update
 
-![alt text](images/arch_update-logo.svg) "Arch Update logo")  
+![alt text](images/arch_update-logo.png "Arch Update logo")  
   
-https://github.com/Antiz96/arch-update  
+<center>https://github.com/Antiz96/arch-update</center>  
   
 - Creator: Arch Update is a personal project I created, maintain and use myself. It's an update notifier/applier for Arch Linux (and Arch Linux based distribution) that assists you with important pre/post update tasks. It has a various features such has a clickeable icon, an automated systemd timer to check for update automatically and regularly, it offers to read Arch news, treat orphan packages and pacnew files, etc... It optionnally supports AUR packages and desktop notifications. Click <a href="https://github.com/Antiz96/arch-update" target="_blank">here</a> for more information.
