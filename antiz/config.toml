@@ -17,8 +17,8 @@ enableEmoji = true
 	"""
 	profilePicture = "images/pfp.jpg"
 	contentratio = 0.7
-
 	customCss = ["css/custom.css"]
+	mainSections = []
 
 	[[params.socialIcons]]
 	icon = "fab fa-github"
