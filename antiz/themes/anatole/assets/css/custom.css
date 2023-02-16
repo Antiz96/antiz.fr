@@ -4,8 +4,14 @@
 }
 
 .post.custom-post .custom-readmore{
-	background-color:blue;
+	background-color:#6086b4;
 	color:white;
 	border-radius:3px;
 	padding:3px 8px;
+margin:10px 0;
+border-bottom:solid 1px #464646;
+}
+
+.custom-post .post__footer {
+	border-bottom:none;
 }
