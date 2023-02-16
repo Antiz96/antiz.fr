@@ -2,14 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://antiz.fr/</loc>
-    <lastmod>2023-02-16T13:11:49+01:00</lastmod>
-  </url><url>
-    <loc>https://antiz.fr/home/home/</loc>
-    <lastmod>2023-02-16T13:11:49+01:00</lastmod>
-  </url><url>
     <loc>https://antiz.fr/home/</loc>
     <lastmod>2023-02-16T13:11:49+01:00</lastmod>
+  </url><url>
+    <loc>https://antiz.fr/</loc>
   </url><url>
     <loc>https://antiz.fr/categories/</loc>
   </url><url>
