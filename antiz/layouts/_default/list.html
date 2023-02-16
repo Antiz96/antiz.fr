@@ -11,8 +11,8 @@
         <ul class="archive__list">
           <li class="archive__list-item">
             <a class="archive__list-title" href="{{ .RelPermalink }}" title="{{ .Title }}">{{ .Title }}</a>
-            <div class="{{ .Date }}">
-            <div class="{{ .Summary }}">
+            <div class="archive__list-date" date="{{ .Date }}">
+            <div class="summary" summary="{{ .Summary }}">
               {{ if isset .Site.Params "listdateformat" }}
                 {{ if .Site.Params.localizedDates }}
                   {{ time.Format .Site.Params.listDateFormat .Date }}
@@ -35,5 +35,4 @@
 
     {{ end }}
   </div>
-  {{ .Summary }}
 {{ end }}
