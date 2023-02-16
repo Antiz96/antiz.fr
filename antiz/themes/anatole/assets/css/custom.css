@@ -1,6 +1,7 @@
 .post{
 	width:80%;
 	max-width:999px;
+	border-bottom:solid 1px #464646;
 }
 
 .post.custom-post .custom-readmore{
@@ -9,7 +10,6 @@
 	border-radius:3px;
 	padding:3px 8px;
 margin:10px 0;
-border-bottom:solid 1px #464646;
 }
 
 .custom-post .post__footer {
