@@ -1,14 +1,22 @@
 {{ define "main" }}
-<div class="post__content">
-        <h3><a href="{{ .RelPermalink }}">{{ upper .Title }}</a></h3>
-        {{ if .Site.Params.fullPostContent }}
-          <p>{{ .Content | markdownify }}</p>
-        {{ else }}
-          <p>{{ .Summary | markdownify }}</p>
-        {{ end }}
-        <!-- add read more -->
-        {{- if and (.Truncated) (.Site.Params.readMore) -}}
-          <a href="{{ .RelPermalink }}">{{ i18n "read_more" }}</a>
-        {{- end -}}
-</div>
+  <div
+    class="archive {{ with .Site.Params.doNotLoadAnimations }}
+      .
+    {{ else }}
+      animated fadeInDown
+    {{ end }}"
+  >
+    {{ range .Data.Pages.GroupByDate "2006" }}
+      {{ range .Pages }}
+        <ul class="archive__list">
+          <li class="archive__list-item">
+            <a class="archive__list-title" href="{{ .RelPermalink }}" title="{{ .Title }}">{{ .Title }}</a>
+            <div class="archive__list-date">{{ .Date.Format "02 January 2006"}}</div>
+            <div class="archive__post__content">{{ .Summary }}</div>
+          </li>
+        </ul>
+      {{ end }}
+
+    {{ end }}
+  </div>
 {{ end }}
