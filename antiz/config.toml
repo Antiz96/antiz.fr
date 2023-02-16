@@ -18,6 +18,7 @@ enableEmoji = true
 	contentratio = 0.7
 	customCss = ["css/custom.css"]
 	mainSections = []
+	postSectionName = "blog"
 	readMore = true
 
 	[[params.socialIcons]]
