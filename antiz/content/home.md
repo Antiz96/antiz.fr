@@ -18,7 +18,7 @@ Here are the main projects I actively contribute to:
 
 ## Arch Linux
 
-![alt text](archlinux-logo.png "Arch Linux logo")  
+![alt text](images/archlinux-logo.png "Arch Linux logo")  
   
 - Arch Linux Trusted User/Package Maintainer: As part of the staff of the Arch Linux distribution, I contribute to its development by maintaining packages on Arch's official repositories. I also with the AUR (Arch User Repository) moderation. Click [here](https://wiki.archlinux.org/title/Trusted_Users) for more information.
 - Arch Linux Testing Team member: My role within the Arch Linux Testing team is to install, test and verify that the packages submitted to the Arch's "testing" repositories are working as intended and without regressions nor bugs in order to validate (or not) their "promotion" to the official stable repositories (done collaboratively with the other members of the Arch Linux Testing team). Click [here](https://wiki.archlinux.org/title/Arch_Testing_Team) for more information.
