@@ -56,7 +56,6 @@ summaryLength = 50
 	[[menu.main]]
 	name = "Blog"
 	identifier = "blog"
-	title = "Blog"
 	weight = 200
 	url = "/blog/"
 
