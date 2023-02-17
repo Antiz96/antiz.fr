@@ -4,6 +4,7 @@ languageCode = "en-us"
 title = "Robin Candau"
 theme = "anatole" 
 enableEmoji = true
+summarylength = 50
 
 # Site parameters
 [params]
@@ -18,7 +19,7 @@ enableEmoji = true
 	contentratio = 0.7
 	customCss = ["css/custom.css"]
 	mainSections = []
-	postSectionName = "blog"
+	doNotLoadAnimations = true
 
 	[[params.socialIcons]]
 	icon = "fab fa-github"
