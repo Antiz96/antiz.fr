@@ -1,0 +1,24 @@
+{{ define "main" }}
+  <div
+    class="archive {{ with .Site.Params.doNotLoadAnimations }}
+      .
+    {{ else }}
+      animated fadeInDown
+    {{ end }}"
+  >
+    {{ range .Data.Pages.GroupByDate "2006" }}
+      {{ range .Pages }}
+        <div class="post custom-post">
+          <div class="post__content">
+            <a class="" href="{{ .RelPermalink }}" title="{{ .Title }}"><h3>{{ .Title }}</h3></a>
+            <div class="post__footer">{{ .Date.Format "02 January 2006"}}</div>
+            <p>{{ .Summary }}</p>
+            <p>[...]</p>
+            <a class="custom-readmore" href="{{ .RelPermalink }}" title="{{ .Title }}">Read More</a>
+          </div>
+        </div>
+      {{ end }}
+
+    {{ end }}
+  </div>
+{{ end }}

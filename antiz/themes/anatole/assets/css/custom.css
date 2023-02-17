@@ -1,0 +1,25 @@
+.post {
+    width:80%;
+    max-width:999px;
+    border-bottom:solid 1px #464646;
+    margin-bottom:35px;
+}
+
+.post.custom-post .custom-readmore{
+    background-color:#6086b4;
+    color:white;
+    border-radius:3px;
+    padding:3px 8px;
+margin:10px 0 50px;
+}
+
+.post.custom-post .post__content {
+    margin-bottom: 30px;
+  }
+
+.custom-post .post__footer {
+    border-bottom:none;
+    font-style: italic;
+    color:grey;
+    font-size:12px;
+}
