@@ -13,6 +13,10 @@
 margin:10px 0 50px;
 }
 
+.post.custom-post .post__content {
+    margin-bottom: 30px;
+  }
+
 .custom-post .post__footer {
     border-bottom:none;
     font-style: italic;
