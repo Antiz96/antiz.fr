@@ -8,7 +8,7 @@ draft: false
 
 My name is Robin Candau, also known as Antiz on the internet, I'm 27.
   
-I'm a french Linux system engineer passionate by skate, music, craft (beers) and, obviously, Linux!  
+I'm a french Linux system engineer passionate by skate, music, (craft) beers and, obviously, Linux!  
 This website serves as a central place to get general/contact info about me, as well as writing some [blog posts](https://antiz.fr/blog/) when I feel like it (read the "Welcome" blog post [here](https://antiz.fr/blog/welcome)).
 
 # Projects
@@ -52,4 +52,4 @@ Here are the main projects I actively contribute to:
   
 [Arch Update website](https://github.com/Antiz96/arch-update)  
   
-- Creator: Arch Update is a personal project I created, I maintain and I use myself. It's an update notifier/applier for Arch Linux (and Arch Linux based distributions) that assists you with important pre/post update tasks. It has a various features such has a clickeable icon, an automated systemd timer to check for update automatically and regularly, it offers to read Arch news, treat orphan packages and pacnew files, etc... It optionally supports AUR packages and desktop notifications. Click [here](https://github.com/Antiz96/arch-update) for more information.
+- Creator: Arch Update is a personal project I created, I maintain and I use myself. It's an update notifier/applier for Arch Linux (and Arch Linux based distributions) that assists you with important pre/post update tasks. It has various features such has a clickeable icon, an automated systemd timer to check for update automatically and regularly, it offers to read Arch news, treat orphan packages and pacnew files, etc... It optionally supports AUR packages and desktop notifications. Click [here](https://github.com/Antiz96/arch-update) for more information.
