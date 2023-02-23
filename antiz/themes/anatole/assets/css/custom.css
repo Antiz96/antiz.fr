@@ -5,12 +5,16 @@
     margin-bottom:35px;
 }
 
+.theme--light .post {
+    border-bottom:solid 1px #eee;
+}
+
 .post.custom-post .custom-readmore{
     background-color:#6086b4;
     color:white;
     border-radius:3px;
     padding:3px 8px;
-margin:10px 0 50px;
+    margin:10px 0 50px;
 }
 
 .post.custom-post .post__content {
