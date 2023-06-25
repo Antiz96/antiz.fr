@@ -35,8 +35,8 @@ Here are the main projects I actively contribute to:
   
 - Core Team member: I'm a member of the core development team of the Crystal Linux distribution.
 - Distribution Team lead: I'm the team lead of the Distribution team which is responsible for maintaining the Crystal Linux's specific packages, maintaining the ISOs build and release and maintaining the Crystal Docker image.
-- Infrastructure Team member: I'm a member of the Infrastructure team which is reponsible for maintaining the Crystal Linux's infrastructure and packages repositories.
-- Various other contributions: Additionally, I contribute to the french translation of the different Crystal Linux's ressources (software, website, etc...); I'm doing community technical support via the forum and the Crystal Discord server; as well as financial contributions.
+- Infrastructure Team member: I'm a member of the Infrastructure team which is responsible for maintaining the Crystal Linux's infrastructure and packages repositories.
+- Various other contributions: Additionally, I contribute to the french translation of the different Crystal Linux's resources (software, website, etc...); I'm doing community technical support via the forum and the Crystal Discord server; as well as financial contributions.
 
 ## Unity for Arch
 
