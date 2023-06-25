@@ -21,7 +21,6 @@ jobs:
 
       - name: Clone repo
         uses: actions/checkout@v3
-        run: pwd && ls -ltrA
 
       - name: Build website
         run: pwd && ls -ltrA
