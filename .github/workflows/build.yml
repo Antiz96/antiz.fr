@@ -27,11 +27,13 @@ jobs:
 
       - name: Configure git
         run: |
+          cd $REPO_NAME
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
 
       - name: Commit and push
         run: |
+          cd $REPO_NAME
           git add .
           git commit -m "Automatic build"
           git push
