@@ -20,20 +20,21 @@ jobs:
         run: apk add git hugo
 
       - name: Clone repo
-        run: git clone $GITHUB_SERVER_URL/$GITHUB_REPOSITORY && cd $REPO_NAME && git checkout $GITHUB_HEAD_REF
+        uses: actions/checkout@v3
+        run: pwd && ls -ltrA
 
       - name: Build website
-        run: cd $REPO_NAME/antiz/ && hugo
+        run: pwd && ls -ltrA
 
-      - name: Configure git
-        run: |
-          cd $REPO_NAME
-          git config --local user.email "actions@github.com"
-          git config --local user.name "GitHub Actions"
+#      - name: Configure git
+#        run: |
+#          cd $REPO_NAME
+#          git config --local user.email "actions@github.com"
+#          git config --local user.name "GitHub Actions"
 
-      - name: Commit and push
-        run: |
-          cd $REPO_NAME
-          git add .
-          git commit -m "Automatic build"
-          git push
+#      - name: Commit and push
+#        run: |
+#          cd $REPO_NAME
+#          git add .
+#          git commit -m "Automatic build"
+#          git push
