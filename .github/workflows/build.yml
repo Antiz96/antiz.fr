@@ -1,0 +1,37 @@
+name: Build website
+on: pull_request
+
+env:
+  REPO_NAME: ${{ github.event.repository.name }}
+
+jobs:
+  test_suite:
+    runs-on: ubuntu-latest
+
+    container:
+      image: docker.io/library/alpine:latest
+      options: --privileged
+
+    steps:
+      - name: Update container
+        run: apk update && apk upgrade
+
+      - name: Install packages
+        run: apk add git hugo
+
+      - name: Clone repo
+        run: git clone $GITHUB_SERVER_URL/$GITHUB_REPOSITORY && cd $REPO_NAME && git checkout $GITHUB_HEAD_REF
+
+      - name: Build website
+        run: cd $REPO_NAME/antiz/ && hugo
+
+      - name: Configure git
+        run: |
+	  git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+
+      - name: Commit and push
+        run: |
+	  git add .
+          git commit -m "Automatic build"
+          git push
