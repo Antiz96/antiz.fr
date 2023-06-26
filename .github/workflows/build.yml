@@ -10,10 +10,10 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Update runner
-        run: apt update && apt full-upgrade
+        run: sudo apt update && sudo apt full-upgrade
 
       - name: Install packages
-        run: apt install git hugo
+        run: sudo apt install git hugo
 
       - name: Build website
         run: cd antiz && hugo
