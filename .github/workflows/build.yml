@@ -1,0 +1,44 @@
+name: Build Website
+on: pull_request
+
+env:
+  REPO_NAME: ${{ github.event.repository.name }}
+
+jobs:
+  build_website:
+    runs-on: ubuntu-latest
+
+    container:
+      image: docker.io/library/alpine:latest
+      options: --privileged
+
+    steps:
+      - name: Update container
+        run: apk update && apk upgrade
+
+      - name: Install packages
+        run: apk add git hugo
+
+      - name: Clone repo and configure git
+        run: |
+          git clone https://github.com/$GITHUB_REPOSITORY
+          cd $REPO_NAME
+          git checkout $GITHUB_HEAD_REF
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git remote set-url origin "https://${{ secrets.BUILD_WEBSITE_TOKEN }}@github.com/$GITHUB_REPOSITORY.git"
+
+      - name: Build website
+        run: cd $REPO_NAME/antiz && rm -rf public && hugo
+
+      - name: Commit automated build
+        run: |
+          cd $REPO_NAME
+          if [ "$(git status --porcelain)" ]; then
+                  git add .
+                  git commit -m "Automated build"
+                  git push
+          else
+                  echo "No changes to commit"
+                  exit 0
+          fi
