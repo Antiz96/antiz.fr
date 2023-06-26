@@ -30,5 +30,6 @@ jobs:
           cd $REPO_NAME
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
-          git commit -am "Automated build"
+          git add .
+          git commit -m "Automated build"
           git push
