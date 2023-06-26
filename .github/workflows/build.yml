@@ -10,9 +10,6 @@ jobs:
       options: --privileged
 
     steps:
-      - name: Clone repo
-        uses: actions/checkout@v3
-        with:
           token: ${{ secrets.BUILD_WEBSITE_TOKEN }}
 
       - name: Update container
@@ -21,11 +18,15 @@ jobs:
       - name: Install packages
         run: apk add git hugo
 
+      - name: Clone repo
+        run: git clone $GITHUB_SERVER_URL/$GITHUB_REPOSITORY && cd $REPO_NAME && git checkout $GITHUB_HEAD_REF
+
       - name: Build website
-        run: cd antiz && rm -rf public && hugo
+        run: cd $REPO_NAME/antiz && rm -rf public && hugo
 
       - name: Commit automated build
         run: |
+          cd $REPO_NAME
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
           git commit -am "Automated build"
