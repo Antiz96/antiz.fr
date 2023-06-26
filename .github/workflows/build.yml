@@ -1,0 +1,30 @@
+name: Test suite
+on: pull_request
+
+jobs:
+  test_suite:
+    runs-on: ubuntu-latest
+
+    container:
+      image: docker.io/library/alpine:latest
+      options: --privileged
+
+    steps:
+      - name: Clone repo
+        uses: actions/checkout@v3
+
+      - name: Update container
+        run: apk update && apk upgrade
+
+      - name: Install packages
+        run: apk add hugo
+
+      - name: Build website
+        run: cd antiz && hugo
+
+      - name: Commit website
+        run: |
+	  git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+	  git commit -am "Automated build"
+          git push
