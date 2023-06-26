@@ -34,7 +34,7 @@ jobs:
       - name: Commit automated build
         run: |
           cd $REPO_NAME
-          if [ -n "$(git diff)" ]; then
+          if [ "$(git status --porcelain)" ]; then
                   git add .
                   git commit -m "Automated build"
                   git push
