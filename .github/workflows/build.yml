@@ -1,8 +1,8 @@
-name: Test suite
+name: Build Website
 on: pull_request
 
 jobs:
-  test_suite:
+  build_website:
     runs-on: ubuntu-latest
 
     container:
@@ -24,7 +24,7 @@ jobs:
 
       - name: Commit website
         run: |
-	  git config --local user.email "actions@github.com"
+          git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
-	  git commit -am "Automated build"
+          git commit -am "Automated build"
           git push
