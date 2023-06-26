@@ -5,20 +5,34 @@ jobs:
   build_website:
     runs-on: ubuntu-latest
 
+    container:
+      image: docker.io/library/alpine:latest
+      options: --privileged
+
     steps:
       - name: Clone repo
         uses: actions/checkout@v3
 
+      - name: Update container
+        run: apk update && apk upgrade
+
       - name: Install packages
-        run: sudo apt update && sudo apt install hugo
+        run: apk add git hugo
 
       - name: Build website
         run: cd antiz && rm -rf public && hugo
 
-      - name: Commit website
+      - name: Configure git
+        run: |
+	  pwd && ls -ltrA
+	  git init && pwd && ls -ltrA
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git remote set-url origin "https://${{ secrets.GITHUB_TOKEN }}@$GITHUB_SERVER_URL/$GITHUB_REPOSITORY.git"
+
+      - name: Commit automated build
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
-          git add .
-          git commit -m "Automated build"
-          git push origin HEAD:dev
+          git commit -am "Automated build"
+          git push
