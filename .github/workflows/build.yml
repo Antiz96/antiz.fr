@@ -27,7 +27,7 @@ jobs:
 
       - name: Commit website
         run: |
-          cd .. && pwd && ls -ltrA
+          pwd && ls -ltrA
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
           git commit -am "Automated build"
