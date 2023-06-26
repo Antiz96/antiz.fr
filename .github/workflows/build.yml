@@ -10,8 +10,6 @@ jobs:
       options: --privileged
 
     steps:
-          token: ${{ secrets.BUILD_WEBSITE_TOKEN }}
-
       - name: Update container
         run: apk update && apk upgrade
 
