@@ -27,7 +27,7 @@ jobs:
 
       - name: Commit automated build (if there are changes to commit)
         run: |
-          cd $REPO_NAME
+          cd $REPO_NAME && git diff
           if [ -n "$(git diff)" ]; then
                   git config --global user.name "GitHub Actions"
                   git config --global user.email "actions@github.com"
