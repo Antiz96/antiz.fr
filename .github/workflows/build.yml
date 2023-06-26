@@ -25,12 +25,17 @@ jobs:
       - name: Build website
         run: cd $REPO_NAME/antiz && rm -rf public && hugo
 
-      - name: Commit automated build
+      - name: Commit automated build (if there are changes to commit)
         run: |
           cd $REPO_NAME
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
-          git remote set-url origin "https://${{ secrets.BUILD_WEBSITE_TOKEN }}@github.com/$GITHUB_REPOSITORY.git"
-          git add .
-          git commit -m "Automated build"
-          git push
+          if [ $(git diff) ]; then
+                  git config --global user.name "GitHub Actions"
+                  git config --global user.email "actions@github.com"
+                  git remote set-url origin "https://${{ secrets.BUILD_WEBSITE_TOKEN }}@github.com/$GITHUB_REPOSITORY.git"
+                  git add .
+                  git commit -m "Automated build"
+                  git push
+          else
+                  echo "No changes to commit"
+                  exit 0
+          fi
