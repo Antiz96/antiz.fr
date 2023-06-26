@@ -9,11 +9,8 @@ jobs:
       - name: Clone repo
         uses: actions/checkout@v3
 
-      - name: Update runner
-        run: sudo apt update && sudo apt full-upgrade
-
       - name: Install packages
-        run: sudo apt install git hugo
+        run: sudo apt update && sudo apt install git hugo
 
       - name: Build website
         run: cd antiz && hugo
