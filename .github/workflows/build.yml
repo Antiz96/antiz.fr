@@ -5,19 +5,15 @@ jobs:
   build_website:
     runs-on: ubuntu-latest
 
-    container:
-      image: docker.io/library/alpine:latest
-      options: --privileged
-
     steps:
       - name: Clone repo
         uses: actions/checkout@v3
 
-      - name: Update container
-        run: apk update && apk upgrade
+      - name: Update runner
+        run: apt update && apt full-upgrade
 
       - name: Install packages
-        run: apk add git hugo
+        run: apt install git hugo
 
       - name: Build website
         run: cd antiz && hugo
