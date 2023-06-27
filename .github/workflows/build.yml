@@ -14,7 +14,7 @@ jobs:
 
     steps:
       - name: Update container
-        run: apk update && apk upgrade && echo $GITHUB_ACTOR
+        run: apk update && apk upgrade
 
       - name: Install packages
         run: apk add git hugo
@@ -29,7 +29,14 @@ jobs:
           git remote set-url origin "https://${{ secrets.BUILD_WEBSITE_TOKEN }}@github.com/$GITHUB_REPOSITORY.git"
 
       - name: Build website
-        run: cd $REPO_NAME/antiz && rm -rf public && hugo
+        run: |
+          cd $REPO_NAME/antiz
+          if [ "$(git log -n 1 --pretty=format:%an)" != "GitHub Actions" ]; then
+                  rm -rf public && hugo
+          else
+                  echo "Website already built in the latest commit"
+                  exit 0
+          fi
 
       - name: Commit automated build
         run: |
