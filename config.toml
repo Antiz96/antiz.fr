@@ -1,0 +1,57 @@
+# Global parameters
+baseURL = "https://antiz.fr/"
+languageCode = "en-us"
+title = "Robin Candau"
+theme = "anatole" 
+enableEmoji = true
+summaryLength = 50
+
+# Site parameters
+[params]
+	title = "Robin Candau"
+	author = "Robin Candau"
+	description = "French Linux system engineer passionate by skate, music, (craft) beers and, obviously, Linux!"
+	profilePicture = "images/pfp.jpg"
+	contentratio = 0.7
+	customCss = ["css/custom.css"]
+	mainSections = []
+	postSectionName = "blog"
+
+	[[params.socialIcons]]
+	icon = "fab fa-github"
+	title = "GitHub"
+	url = "https://github.com/Antiz96"
+
+	[[params.socialIcons]]
+	icon = "fab fa-discord"
+	title = "Discord"
+	url = "https://discord.com/users/369509114617004033"
+
+	[[params.socialIcons]]
+	icon = "fab fa-twitter"
+	title = "Twitter"
+	url = "https://twitter.com/Antiz96"
+
+	[[params.socialIcons]]
+	icon = "fab fa-linkedin"
+	title = "LinkedIn"
+	url = "https://www.linkedin.com/in/robin-candau-3083a2173/?locale=en_US"
+
+	[[params.socialIcons]]
+	icon = "fas fa-envelope"
+	title = "Mail"
+	url = "mailto:robincandau@protonmail.com"
+
+[menu]
+	[[menu.main]]
+	name = "Home"
+	identifier = "home"
+	weight = 100
+	url = "/"
+
+	[[menu.main]]
+	name = "Blog"
+	identifier = "blog"
+	weight = 200
+	url = "/blog/"
+

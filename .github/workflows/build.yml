@@ -30,7 +30,7 @@ jobs:
 
       - name: Build website
         run: |
-          cd $REPO_NAME/antiz
+          cd $REPO_NAME
           if [ "$(git log -n 1 --pretty=format:%an)" != "GitHub Actions" ]; then
                   rm -rf public && hugo
           else
