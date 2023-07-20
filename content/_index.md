@@ -56,5 +56,5 @@ Click [here](https://unity.ubuntuunity.org/blog/unity-for-arch) for more informa
   
 [Arch Update website](https://github.com/Antiz96/arch-update)  
   
-- Creator: Arch Update is a personal project I created, I maintain and I use myself. It's an update notifier/applier for Arch Linux (and Arch Linux based distributions) that assists you with important pre/post update tasks. It has various features such has a clickeable icon, an automated systemd timer to check for update automatically and regularly, it offers to read Arch news, treat orphan packages and pacnew files, etc... It optionally supports AUR packages and desktop notifications.  
+- Creator: Arch Update is a personal project I created, I maintain and I use myself. It's an update notifier/applier for Arch Linux (and Arch Linux based distributions) that assists you with important pre/post update tasks. It has various features such has a clickeable icon, an automated systemd timer to check for update automatically and regularly, it offers to read Arch news, treat orphan packages and pacnew files, etc... It optionally supports AUR packages updates and desktop notifications.  
 Click [here](https://github.com/Antiz96/arch-update) for more information.
