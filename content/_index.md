@@ -28,7 +28,7 @@ Click [here](https://wiki.archlinux.org/title/Trusted_Users) for more informatio
 Click [here](https://wiki.archlinux.org/title/Arch_Testing_Team) for more information.
 - AUR Package maintainer: In addition of maintaining packages in the official repositories (as part of my Package Maintainer role), I also submit and maintain packages on the AUR which is a community repository maintained by Arch users.  
 Click [here](https://wiki.archlinux.org/title/Arch_User_Repository) for more information.
-- Various other contributions: Additionally, I contribute to the Arch wiki; I'm interacting with the community via the forum, the IRC channels, the community subreddit and the mailing lists; as well as making regular financial contributions to the project.
+- Various other contributions: Additionally, I contribute to various other parts of the project such as the Arch wiki; I'm interacting with the community via the forum, the IRC channels, the community subreddit and the mailing lists; as well as making regular financial contributions.
 
 ## Crystal Linux
 
