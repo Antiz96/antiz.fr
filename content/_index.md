@@ -10,6 +10,7 @@ My name is Robin Candau, also known as Antiz on the internet, I'm 27.
   
 I'm a french Linux system engineer passionate by skate, music, (craft) beers and, obviously, Linux!  
 This website serves as a central place to get general/contact info about me, as well as writing some [blog posts](https://antiz.fr/blog/) when I feel like it.
+nd
 
 # Projects
 

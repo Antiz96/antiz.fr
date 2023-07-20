@@ -20,4 +20,4 @@ jobs:
         run: apk add py3-pip && pip install codespell
 
       - name: Run codespell
-        run: codespell --enable-colors antiz/content/
+        run: codespell --enable-colors content/
