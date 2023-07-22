@@ -11,12 +11,12 @@ My name is Robin Candau, I'm 27.
 I'm a french Linux system engineer passionate by skate, music, (craft) beers and, obviously, Linux!  
 This website serves as a central place to get general/contact info about me, as well as writing some [blog posts](https://antiz.fr/blog/) when I feel like it.
 
-# Projects
+## Projects
 
 I contribute to many Open Source projects and I'm always willing to help and learn in the process!  
 Here are the main projects I actively contribute to:
 
-## Arch Linux
+### Arch Linux
 
 ![alt text](images/arch_linux-logo.png "Arch Linux logo")
 
@@ -27,7 +27,7 @@ Here are the main projects I actively contribute to:
 - AUR Package maintainer: In addition of maintaining packages in the official repositories (as part of my Package Maintainer role), I also submit and maintain packages on the AUR which is a community repository maintained by Arch users. Click [here](https://wiki.archlinux.org/title/Arch_User_Repository) for more information.
 - Various other contributions: Additionally, I contribute to various other parts of the project such as the Arch wiki; I'm interacting with the community via the forum, the IRC channels, the community subreddit and the mailing lists; as well as making regular financial contributions.
 
-## Crystal Linux
+### Crystal Linux
 
 ![alt text](images/crystal_linux-logo.png "Crystal Linux logo")
 
@@ -38,7 +38,7 @@ Here are the main projects I actively contribute to:
 - Infrastructure Team member: I'm a member of the Infrastructure team which is responsible for maintaining the Crystal Linux's infrastructure and packages repositories.
 - Various other contributions: Additionally, I contribute to the french translation of the different Crystal Linux's resources (software, website, etc...); I'm interacting with the community via the forum and the Discord server; as well as making financial contributions.
 
-## Unity for Arch
+### Unity for Arch
 
 ![alt text](images/ubuntu_unity-logo.png "Ubuntu Unity logo")
 
@@ -46,7 +46,7 @@ Here are the main projects I actively contribute to:
 
 - Packaging contributor: I contribute to writing, improving and maintaining install/build scripts (PKGBUILDs) of the needed packages for the "Unity" desktop environment (initially developed by Ubuntu) port to Arch Linux. Click [here](https://unity.ubuntuunity.org/blog/unity-for-arch) for more information.
 
-## Arch Update
+### Arch Update
 
 ![alt text](images/arch_update-logo.png "Arch Update logo")
 
