@@ -8,6 +8,20 @@
     <language>en-us</language>
     <lastBuildDate>Thu, 16 Feb 2023 13:11:49 +0100</lastBuildDate><atom:link href="https://antiz.fr/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>The automated workflow I use to manage this website</title>
+      <link>https://antiz.fr/blog/website_workflow/</link>
+      <pubDate>Mon, 24 Jul 2023 13:20:26 +0200</pubDate>
+      
+      <guid>https://antiz.fr/blog/website_workflow/</guid>
+      
+        <description>The website This website is built with the HUGO static website generator using the anatole theme.
+It&amp;rsquo;s source code is hosted in this GitHub repository.
+Automated workflow To manage this website, I use an automated workflow based upon CI/CD (Continuous Integration/Continuous Delivery).
+CI I make my changes (creating an article, update the theme, add new parameters to the website, etc&amp;hellip;) locally on my computer inside the git repository in the dev branch.</description>
+      
+    </item>
+    
+    <item>
       <title>Welcome to antiz.fr!</title>
       <link>https://antiz.fr/blog/welcome/</link>
       <pubDate>Thu, 16 Feb 2023 15:55:47 +0100</pubDate>
