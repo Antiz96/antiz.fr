@@ -6,8 +6,8 @@ draft: false
 
 ## The website
 
-This website is built with the [HUGO](https://gohugo.io/) static website generator using the [anatole](https://anatole-demo.netlify.app/) theme.  
-It's source code is hosted in [this GitHub repository](https://github.com/Antiz96/antiz.fr/).
+This website is built with the [HUGO](https://gohugo.io/) static website generator using the [anatole](https://github.com/lxndrblz/anatole) theme.  
+The website's source code is hosted in [this GitHub repository](https://github.com/Antiz96/antiz.fr/).
 
 ## Automated workflow
 
