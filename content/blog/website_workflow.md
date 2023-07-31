@@ -30,7 +30,7 @@ The build task spawns an [Alpine Linux](https://www.alpinelinux.org/) container 
 
 ### CD
 
-Once both of the above `CI` tasks succeeded (meaning the tests went through without any errors and the website has successfully been built and pushed to the `dev` branch of the repository), I launch a job on my [Jenkins](https://www.jenkins.io/) server targeting the `dev` branch: 
+Once both of the above `CI` tasks succeeded (meaning the tests went through without any errors and the website has successfully been built and pushed to the `dev` branch of the repository), I launch a job on my [Jenkins](https://www.jenkins.io/) server targeting the `dev` branch:
 
 [Jenkins_Update_Website_Job_Dev](../images/Jenkins_Update_Website_Job_Dev.png)
 
