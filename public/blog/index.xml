@@ -15,7 +15,7 @@
       <guid>https://antiz.fr/blog/website_workflow/</guid>
       
         <description>The website This website is built with the HUGO static website generator using the anatole theme.
-It&amp;rsquo;s source code is hosted in this GitHub repository.
+The website&amp;rsquo;s source code is hosted in this GitHub repository.
 Automated workflow To manage this website, I use an automated workflow based upon CI/CD (Continuous Integration/Continuous Delivery).
 CI I make my changes (creating an article, update the theme, add new parameters to the website, etc&amp;hellip;) locally on my computer inside the git repository in the dev branch.</description>
       

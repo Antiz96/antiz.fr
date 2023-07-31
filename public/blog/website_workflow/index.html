@@ -125,7 +125,7 @@
   <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="The automated workflow I use to manage this website"/>
 <meta name="twitter:description" content="The website This website is built with the HUGO static website generator using the anatole theme.
-It&rsquo;s source code is hosted in this GitHub repository.
+The website&rsquo;s source code is hosted in this GitHub repository.
 Automated workflow To manage this website, I use an automated workflow based upon CI/CD (Continuous Integration/Continuous Delivery).
 CI I make my changes (creating an article, update the theme, add new parameters to the website, etc&hellip;) locally on my computer inside the git repository in the dev branch."/>
 
@@ -134,7 +134,7 @@ CI I make my changes (creating an article, update the theme, add new parameters 
   
   <meta property="og:title" content="The automated workflow I use to manage this website" />
 <meta property="og:description" content="The website This website is built with the HUGO static website generator using the anatole theme.
-It&rsquo;s source code is hosted in this GitHub repository.
+The website&rsquo;s source code is hosted in this GitHub repository.
 Automated workflow To manage this website, I use an automated workflow based upon CI/CD (Continuous Integration/Continuous Delivery).
 CI I make my changes (creating an article, update the theme, add new parameters to the website, etc&hellip;) locally on my computer inside the git repository in the dev branch." />
 <meta property="og:type" content="article" />
@@ -158,7 +158,7 @@ CI I make my changes (creating an article, update the theme, add new parameters 
         "alternativeHeadline": "",
         "description": "
       
-        The website This website is built with the HUGO static website generator using the anatole theme.\nIt\u0026rsquo;s source code is hosted in this GitHub repository.\nAutomated workflow To manage this website, I use an automated workflow based upon CI\/CD (Continuous Integration\/Continuous Delivery).\nCI I make my changes (creating an article, update the theme, add new parameters to the website, etc\u0026hellip;) locally on my computer inside the git repository in the dev branch.
+        The website This website is built with the HUGO static website generator using the anatole theme.\nThe website\u0026rsquo;s source code is hosted in this GitHub repository.\nAutomated workflow To manage this website, I use an automated workflow based upon CI\/CD (Continuous Integration\/Continuous Delivery).\nCI I make my changes (creating an article, update the theme, add new parameters to the website, etc\u0026hellip;) locally on my computer inside the git repository in the dev branch.
 
 
       
@@ -208,7 +208,7 @@ CI I make my changes (creating an article, update the theme, add new parameters 
 
     ,
         "url" : "https:\/\/antiz.fr\/blog\/website_workflow\/",
-        "wordCount" : "443",
+        "wordCount" : "454",
         "genre" : [ ],
         "keywords" : [ ]
     }
@@ -418,8 +418,8 @@ CI I make my changes (creating an article, update the theme, add new parameters 
           </li>
         </ul>
       <h2 id="the-website">The website</h2>
-<p>This website is built with the <a href="https://gohugo.io/">HUGO</a> static website generator using the <a href="https://anatole-demo.netlify.app/">anatole</a> theme.<br>
-It&rsquo;s source code is hosted in <a href="https://github.com/Antiz96/antiz.fr/">this GitHub repository</a>.</p>
+<p>This website is built with the <a href="https://gohugo.io/">HUGO</a> static website generator using the <a href="https://github.com/lxndrblz/anatole">anatole</a> theme.<br>
+The website&rsquo;s source code is hosted in <a href="https://github.com/Antiz96/antiz.fr/">this GitHub repository</a>.</p>
 <h2 id="automated-workflow">Automated workflow</h2>
 <p>To manage this website, I use an automated workflow based upon CI/CD (Continuous Integration/Continuous Delivery).</p>
 <h3 id="ci">CI</h3>
@@ -435,13 +435,13 @@ Once the changes are done, I push them to the GitHub repo and I create a <code>m
 </ul>
 <p>The test task spawns an <a href="https://www.alpinelinux.org/">Alpine Linux</a> container which automatically runs a bunch of tests/linters against the relevant files of the repository, to make sure the changes I made are correctly written/syntaxed. See a run of the test task <a href="https://github.com/Antiz96/antiz.fr/actions/runs/5719114527/job/15496350669">here</a>.</p>
 <h3 id="cd">CD</h3>
-<p>Once both of the above <code>CI</code> tasks succeeded (the website has successfully been built and pushed to the <code>dev</code> branch of the repository and the tests went through without any errors), I launch a job on my <a href="https://www.jenkins.io/">Jenkins</a> server targeting the <code>dev</code> branch:</p>
-<p><img src="../images/Jenkins_Update_Website_Job_Dev.png" alt="alt_text" title="Jenkins - Update Website Job Dev"></p>
-<p>This Jenkins job runs a simple <a href="https://www.ansible.com/">Ansible</a> playbook hunder the hood (see that playbook <a href="https://github.com/Antiz96/Linux-Server/blob/main/Ansible-Playbooks/roles/update_antiz.fr/tasks/main.yml">here</a> that aims to update the website&rsquo;s sources on my development server against the current state of the GitHub repository&rsquo;s <code>dev</code> branch:</p>
-<p><img src="../images/Jenkins_Update_Website_Job_Param.png" alt="alt_text" title="Jenkins - Update Website Job Parameters"></p>
+<p>Once both of the above <code>CI</code> tasks succeeded (meaning the website has successfully been built and pushed to the <code>dev</code> branch of the repository and the tests went through without any error), I launch a job on my <a href="https://www.jenkins.io/">Jenkins</a> server targeting the <code>dev</code> branch:</p>
+<p><img src="images/Jenkins_Update_Website_Job_Dev.png" alt="alt_text" title="Jenkins - Update Website Job Dev"></p>
+<p>This Jenkins job runs a simple <a href="https://www.ansible.com/">Ansible</a> playbook hunder the hood (see that playbook <a href="https://github.com/Antiz96/Linux-Server/blob/main/Ansible-Playbooks/roles/update_antiz.fr/tasks/main.yml">here</a>) that aims to update the website&rsquo;s sources on the environment targeted by the Jenkins job against the related GitHub branch (<code>dev</code> branch &ndash;&gt; development environment, <code>main</code> branch &ndash;&gt; production environment):</p>
+<p><img src="images/Jenkins_Update_Website_Job_Param.png" alt="alt_text" title="Jenkins - Update Website Job Parameters"></p>
 <p>I can then review myself what my changes look like on my development environment, which is identical to my production environment so I&rsquo;m guaranteed that what I&rsquo;m seeing when reviewing changes on my development environment is exactly what it will look like once pushed to my production environment.</p>
 <p>Once the changes have been reviewed and declared &ldquo;ready&rdquo; to go to production, the only thing I need to do is to merge the changes to the <code>main</code> branch on the GitHub repository (by &ldquo;accepting&rdquo; the pending merge request) and relaunch my Jenkins job, targeting the &ldquo;prod&rdquo; environment this time, so the changes are pushed to the <code>VPS</code> which hosts this website:</p>
-<p><img src="../images/Jenkins_Update_Website_Job_Prd.png" alt="alt_text" title="Jenkins - Update Website Job Prod"></p>
+<p><img src="images/Jenkins_Update_Website_Job_Prd.png" alt="alt_text" title="Jenkins - Update Website Job Prod"></p>
 <p>This workflow aims to evolve and be improved over time but it&rsquo;s a good example of a simple; yet effective, flexible and reliable; automated workflow with CI/CD you can use to manage your projects! 😁</p>
 </div>
     <div class="post__footer">
