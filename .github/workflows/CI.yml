@@ -1,11 +1,11 @@
-name: Build Website
+name: CI
 on: pull_request
 
 env:
   REPO_NAME: ${{ github.event.repository.name }}
 
 jobs:
-  build_website:
+  build:
     runs-on: ubuntu-latest
 
     container:
@@ -47,3 +47,26 @@ jobs:
           else
                   echo "No changes to commit"
           fi
+
+  test:
+    runs-on: ubuntu-latest
+
+    container:
+      image: docker.io/library/alpine:latest
+      options: --privileged
+
+    steps:
+      - name: Clone repo
+        uses: actions/checkout@v3
+
+      - name: Update container
+        run: apk update && apk upgrade
+
+      - name: Install packages
+        run: apk add py3-pip ruby && pip install codespell && gem install mdl
+
+      - name: Run codespell
+        run: codespell --enable-colors content
+
+      - name: Run mdl
+        run: mdl --style .github/workflows/mdl_style.rb README.md content
