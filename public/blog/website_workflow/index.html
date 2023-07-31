@@ -429,11 +429,11 @@ Once the changes are done, I push them to the GitHub repo and I create a <code>m
 <ul>
 <li>The build task:</li>
 </ul>
-<p>The build task spawns an <a href="https://www.alpinelinux.org/">Alpine Linux</a> container which automatically builds the website against the new changes I made via the <code>hugo</code> command and, if the build succeeded, it automatically pushes the built website to the <code>dev</code> branch (and thus, to the current <code>merge request</code>). See a run of the build task <a href="https://github.com/Antiz96/antiz.fr/actions/runs/5719045497/job/15496143825">here</a>.</p>
+<p>The build task spawns an <a href="https://www.alpinelinux.org/">Alpine Linux</a> container which automatically builds the website against the new changes I made via the <code>hugo</code> command and, if the build succeeded, it automatically pushes the built website to the <code>dev</code> branch (and thus, to the current <code>merge request</code>). See a run of the build task <a href="https://github.com/Antiz96/antiz.fr/actions/runs/5719114527/job/15496350459">here</a>.</p>
 <ul>
 <li>The test task:</li>
 </ul>
-<p>The test task spawns an <a href="https://www.alpinelinux.org/">Alpine Linux</a> container which automatically runs a bunch of tests/linters against the relevant files of the repository, to make sure the changes I made are correctly written/syntaxed. See a run of the test task <a href="https://github.com/Antiz96/antiz.fr/actions/runs/5719045497/job/15496143616">here</a>.</p>
+<p>The test task spawns an <a href="https://www.alpinelinux.org/">Alpine Linux</a> container which automatically runs a bunch of tests/linters against the relevant files of the repository, to make sure the changes I made are correctly written/syntaxed. See a run of the test task <a href="https://github.com/Antiz96/antiz.fr/actions/runs/5719114527/job/15496350669">here</a>.</p>
 <h3 id="cd">CD</h3>
 <p>Once both of the above <code>CI</code> tasks succeeded (the website has successfully been built and pushed to the <code>dev</code> branch of the repository and the tests went through without any errors), I launch a job on my <a href="https://www.jenkins.io/">Jenkins</a> server targeting the <code>dev</code> branch:</p>
 <p><img src="../images/Jenkins_Update_Website_Job_Dev.png" alt="alt_text" title="Jenkins - Update Website Job Dev"></p>
