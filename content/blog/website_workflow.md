@@ -30,11 +30,11 @@ The test task spawns an [Alpine Linux](https://www.alpinelinux.org/) container w
 
 ### CD
 
-Once both of the above `CI` tasks succeeded (the website has successfully been built and pushed to the `dev` branch of the repository and the tests went through without any errors), I launch a job on my [Jenkins](https://www.jenkins.io/) server targeting the `dev` branch:
+Once both of the above `CI` tasks succeeded (meaning the website has successfully been built and pushed to the `dev` branch of the repository and the tests went through without any error), I launch a job on my [Jenkins](https://www.jenkins.io/) server targeting the `dev` branch:
 
 ![alt_text](images/Jenkins_Update_Website_Job_Dev.png "Jenkins - Update Website Job Dev")
 
-This Jenkins job runs a simple [Ansible](https://www.ansible.com/) playbook hunder the hood (see that playbook [here](https://github.com/Antiz96/Linux-Server/blob/main/Ansible-Playbooks/roles/update_antiz.fr/tasks/main.yml) that aims to update the website's sources on my development server against the current state of the GitHub repository's `dev` branch:
+This Jenkins job runs a simple [Ansible](https://www.ansible.com/) playbook hunder the hood (see that playbook [here](https://github.com/Antiz96/Linux-Server/blob/main/Ansible-Playbooks/roles/update_antiz.fr/tasks/main.yml)) that aims to update the website's sources on the environment targeted by the Jenkins job against the related GitHub branch (`dev` branch --> development environment, `main` branch --> production environment):
 
 ![alt_text](images/Jenkins_Update_Website_Job_Param.png "Jenkins - Update Website Job Parameters")
 
