@@ -5,7 +5,7 @@ env:
   REPO_NAME: ${{ github.event.repository.name }}
 
 jobs:
-  build:
+  Build:
     runs-on: ubuntu-latest
 
     container:
@@ -48,7 +48,7 @@ jobs:
                   echo "No changes to commit"
           fi
 
-  test:
+  Test:
     runs-on: ubuntu-latest
 
     container:

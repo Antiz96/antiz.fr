@@ -18,19 +18,19 @@ To manage this website, I use an automated workflow based upon CI/CD (Continuous
 I make my changes *(creating an article, update the theme, add new parameters to the website, etc...)* locally on my computer inside the git repository in the `dev` branch.  
 Once the changes are done, I push them to the GitHub repo and I create a `merge request` from the `dev` branch to the `main` one, which will trigger a `CI` job.
 
-This `CI` job is divided into two tasks: The [test](https://github.com/Antiz96/antiz.fr/blob/main/.github/workflows/test.yml) one and the [build](https://github.com/Antiz96/antiz.fr/blob/main/.github/workflows/build.yml) one.
-
-- The test task:
-
-The test task spawns an [Alpine Linux](https://www.alpinelinux.org/) container which automatically runs a bunch of tests/linters against the relevant files of the repository, to make sure the changes I made are correctly written/syntaxed. See a run of the test task [here]().
+This `CI` job is divided into two tasks: The [build](https://github.com/Antiz96/antiz.fr/blob/main/.github/workflows/CI.yml#L8-L49) one and the [test](https://github.com/Antiz96/antiz.fr/blob/main/.github/workflows/CI.yml#L51-L72) one.
 
 - The build task:
 
-The build task spawns an [Alpine Linux](https://www.alpinelinux.org/) container which automatically builds the website against the new changes I made via the `hugo` command and, if the build succeeded, it automatically pushes the built website to the `dev` branch (and thus, to the current `merge request`). See a run of the build task [here]().
+The build task spawns an [Alpine Linux](https://www.alpinelinux.org/) container which automatically builds the website against the new changes I made via the `hugo` command and, if the build succeeded, it automatically pushes the built website to the `dev` branch (and thus, to the current `merge request`). See a run of the build task [here](https://github.com/Antiz96/antiz.fr/actions/runs/5719045497/job/15496143825).
+
+- The test task:
+
+The test task spawns an [Alpine Linux](https://www.alpinelinux.org/) container which automatically runs a bunch of tests/linters against the relevant files of the repository, to make sure the changes I made are correctly written/syntaxed. See a run of the test task [here](https://github.com/Antiz96/antiz.fr/actions/runs/5719045497/job/15496143616).
 
 ### CD
 
-Once both of the above `CI` tasks succeeded (meaning the tests went through without any errors and the website has successfully been built and pushed to the `dev` branch of the repository), I launch a job on my [Jenkins](https://www.jenkins.io/) server targeting the `dev` branch:
+Once both of the above `CI` tasks succeeded (the website has successfully been built and pushed to the `dev` branch of the repository and the tests went through without any errors), I launch a job on my [Jenkins](https://www.jenkins.io/) server targeting the `dev` branch:
 
 ![alt_text](../images/Jenkins_Update_Website_Job_Dev.png "Jenkins - Update Website Job Dev")
 
