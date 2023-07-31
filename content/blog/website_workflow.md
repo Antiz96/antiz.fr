@@ -32,16 +32,16 @@ The test task spawns an [Alpine Linux](https://www.alpinelinux.org/) container w
 
 Once both of the above `CI` tasks succeeded (the website has successfully been built and pushed to the `dev` branch of the repository and the tests went through without any errors), I launch a job on my [Jenkins](https://www.jenkins.io/) server targeting the `dev` branch:
 
-![alt_text](../images/Jenkins_Update_Website_Job_Dev.png "Jenkins - Update Website Job Dev")
+![alt_text](images/Jenkins_Update_Website_Job_Dev.png "Jenkins - Update Website Job Dev")
 
 This Jenkins job runs a simple [Ansible](https://www.ansible.com/) playbook hunder the hood (see that playbook [here](https://github.com/Antiz96/Linux-Server/blob/main/Ansible-Playbooks/roles/update_antiz.fr/tasks/main.yml) that aims to update the website's sources on my development server against the current state of the GitHub repository's `dev` branch:
 
-![alt_text](../images/Jenkins_Update_Website_Job_Param.png "Jenkins - Update Website Job Parameters")
+![alt_text](images/Jenkins_Update_Website_Job_Param.png "Jenkins - Update Website Job Parameters")
 
 I can then review myself what my changes look like on my development environment, which is identical to my production environment so I'm guaranteed that what I'm seeing when reviewing changes on my development environment is exactly what it will look like once pushed to my production environment.
 
 Once the changes have been reviewed and declared "ready" to go to production, the only thing I need to do is to merge the changes to the `main` branch on the GitHub repository (by "accepting" the pending merge request) and relaunch my Jenkins job, targeting the "prod" environment this time, so the changes are pushed to the `VPS` which hosts this website:
 
-![alt_text](../images/Jenkins_Update_Website_Job_Prd.png "Jenkins - Update Website Job Prod")
+![alt_text](images/Jenkins_Update_Website_Job_Prd.png "Jenkins - Update Website Job Prod")
 
 This workflow aims to evolve and be improved over time but it's a good example of a simple; yet effective, flexible and reliable; automated workflow with CI/CD you can use to manage your projects! :beaming_face_with_smiling_eyes:
