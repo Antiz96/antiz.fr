@@ -22,11 +22,11 @@ This `CI` job is divided into two tasks: The [test](https://github.com/Antiz96/a
 
 - The test task:
 
-The test task spawns an [Alpine Linux](https://www.alpinelinux.org/) container which automatically runs a bunch of tests/linters against the relevant files of the repository, to make sure the changes I made are correctly written/syntaxed.
+The test task spawns an [Alpine Linux](https://www.alpinelinux.org/) container which automatically runs a bunch of tests/linters against the relevant files of the repository, to make sure the changes I made are correctly written/syntaxed. See a run of the test task [here]().
 
 - The build task:
 
-The build task spawns an [Alpine Linux](https://www.alpinelinux.org/) container which automatically builds the website against the new changes I made via the `hugo` command and, if the build succeeded, it automatically pushes the built website to the `dev` branch (and thus, to the current `merge request`).
+The build task spawns an [Alpine Linux](https://www.alpinelinux.org/) container which automatically builds the website against the new changes I made via the `hugo` command and, if the build succeeded, it automatically pushes the built website to the `dev` branch (and thus, to the current `merge request`). See a run of the build task [here]().
 
 ### CD
 
