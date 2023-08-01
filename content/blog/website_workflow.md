@@ -20,17 +20,17 @@ Once the changes are done, I push them to the GitHub repo and I create a `merge 
 
 ![alt_text](../../images/Website_GitHub_MR_CI.png "Website - Merge Request CI Pipeline")
 
-This `CI` pipeline is divided into two jobs: The [build](https://github.com/Antiz96/antiz.fr/blob/main/.github/workflows/CI.yml#L8-L49) one and the [test](https://github.com/Antiz96/antiz.fr/blob/main/.github/workflows/CI.yml#L51-L72) one.
+This `CI` pipeline is divided into two jobs:
 
 ![alt_text](../../images/Website_GitHub_CI_Jobs.png "Website - Merge Request CI Jobs")
 
 - The build job:
 
-The build job spawns an [Alpine Linux](https://www.alpinelinux.org/) container which automatically builds the website against the new changes I made via the `hugo` command and, if the build succeeded, automatically pushes the built website to the `dev` branch (and thus, add it to the current `merge request`). See a run of the build job [here](https://github.com/Antiz96/antiz.fr/actions/runs/5719114527/job/15496350459).
+The [build job](https://github.com/Antiz96/antiz.fr/blob/main/.github/workflows/CI.yml#L8-L49) spawns an [Alpine Linux](https://www.alpinelinux.org/) container which automatically builds the website against the new changes I made via the `hugo` command and, if the build succeeded, automatically pushes the built website to the `dev` branch (and thus, add it to the current `merge request`). See a run of the build job [here](https://github.com/Antiz96/antiz.fr/actions/runs/5719114527/job/15496350459).
 
 - The test job:
 
-The test job spawns an [Alpine Linux](https://www.alpinelinux.org/) container which automatically runs a bunch of tests/linters against the relevant files of the repository, to make sure the changes I made are correctly written/syntaxed. See a run of the test job [here](https://github.com/Antiz96/antiz.fr/actions/runs/5719114527/job/15496350669).
+The [test job](https://github.com/Antiz96/antiz.fr/blob/main/.github/workflows/CI.yml#L51-L72) spawns an [Alpine Linux](https://www.alpinelinux.org/) container which automatically runs a bunch of tests/linters against the relevant files of the repository, to make sure the changes I made are correctly written/syntaxed. See a run of the test job [here](https://github.com/Antiz96/antiz.fr/actions/runs/5719114527/job/15496350669).
 
 ### CD
 
