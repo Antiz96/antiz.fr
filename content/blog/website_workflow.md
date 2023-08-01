@@ -48,4 +48,4 @@ Once the changes have been reviewed and declared "ready" to go to production, th
 
 ![alt_text](../../images/Jenkins_Update_Website_Job_Prd.png "Jenkins - Update Website Job Prod")
 
-This workflow aims to evolve and be improved over time but it's a good example of a simple; yet effective, flexible and reliable; automated workflow with CI/CD you can use to manage your projects! :beaming_face_with_smiling_eyes:
+This workflow aims to evolve and be improved over time but it's a good example of a simple; yet effective, flexible and reliable automated workflow with CI/CD you can use to manage your projects! :beaming_face_with_smiling_eyes:
