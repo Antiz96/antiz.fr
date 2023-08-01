@@ -208,7 +208,7 @@ CI I make my changes (creating an article, update the theme, add new parameters 
 
     ,
         "url" : "https:\/\/antiz.fr\/blog\/website_workflow\/",
-        "wordCount" : "457",
+        "wordCount" : "450",
         "genre" : [ ],
         "keywords" : [ ]
     }
@@ -426,16 +426,16 @@ The website&rsquo;s source code is hosted in <a href="https://github.com/Antiz96
 <p>I make my changes <em>(creating an article, update the theme, add new parameters to the website, etc&hellip;)</em> locally on my computer inside the git repository in the <code>dev</code> branch.<br>
 Once the changes are done, I push them to the GitHub repo and I create a <code>merge request</code> from the <code>dev</code> branch to the <code>main</code> one, which triggers a <code>CI</code> pipeline.</p>
 <p><img src="../../images/Website_GitHub_MR_CI.png" alt="alt_text" title="Website - Merge Request CI Pipeline"></p>
-<p>This <code>CI</code> pipeline is divided into two jobs: The <a href="https://github.com/Antiz96/antiz.fr/blob/main/.github/workflows/CI.yml#L8-L49">build</a> one and the <a href="https://github.com/Antiz96/antiz.fr/blob/main/.github/workflows/CI.yml#L51-L72">test</a> one.</p>
+<p>This <code>CI</code> pipeline is divided into two jobs:</p>
 <p><img src="../../images/Website_GitHub_CI_Jobs.png" alt="alt_text" title="Website - Merge Request CI Jobs"></p>
 <ul>
 <li>The build job:</li>
 </ul>
-<p>The build job spawns an <a href="https://www.alpinelinux.org/">Alpine Linux</a> container which automatically builds the website against the new changes I made via the <code>hugo</code> command and, if the build succeeded, automatically pushes the built website to the <code>dev</code> branch (and thus, add it to the current <code>merge request</code>). See a run of the build job <a href="https://github.com/Antiz96/antiz.fr/actions/runs/5719114527/job/15496350459">here</a>.</p>
+<p>The <a href="https://github.com/Antiz96/antiz.fr/blob/main/.github/workflows/CI.yml#L8-L49">build job</a> spawns an <a href="https://www.alpinelinux.org/">Alpine Linux</a> container which automatically builds the website against the new changes I made via the <code>hugo</code> command and, if the build succeeded, automatically pushes the built website to the <code>dev</code> branch (and thus, add it to the current <code>merge request</code>). See a run of the build job <a href="https://github.com/Antiz96/antiz.fr/actions/runs/5719114527/job/15496350459">here</a>.</p>
 <ul>
 <li>The test job:</li>
 </ul>
-<p>The test job spawns an <a href="https://www.alpinelinux.org/">Alpine Linux</a> container which automatically runs a bunch of tests/linters against the relevant files of the repository, to make sure the changes I made are correctly written/syntaxed. See a run of the test job <a href="https://github.com/Antiz96/antiz.fr/actions/runs/5719114527/job/15496350669">here</a>.</p>
+<p>The <a href="https://github.com/Antiz96/antiz.fr/blob/main/.github/workflows/CI.yml#L51-L72">test job</a> spawns an <a href="https://www.alpinelinux.org/">Alpine Linux</a> container which automatically runs a bunch of tests/linters against the relevant files of the repository, to make sure the changes I made are correctly written/syntaxed. See a run of the test job <a href="https://github.com/Antiz96/antiz.fr/actions/runs/5719114527/job/15496350669">here</a>.</p>
 <h3 id="cd">CD</h3>
 <p>Once both of the above <code>CI</code> jobs succeeded (meaning the website has been successfully built and pushed to the <code>dev</code> branch of the repository, and the tests went through without any error), I launch a job on my <a href="https://www.jenkins.io/">Jenkins</a> server targeting the <code>dev</code> branch:</p>
 <p><img src="../../images/Jenkins_Update_Website_Job_Dev.png" alt="alt_text" title="Jenkins - Update Website Job Dev"></p>
