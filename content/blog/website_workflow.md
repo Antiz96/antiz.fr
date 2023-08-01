@@ -16,21 +16,25 @@ To manage this website, I use an automated workflow based upon CI/CD (Continuous
 ### CI
 
 I make my changes *(creating an article, update the theme, add new parameters to the website, etc...)* locally on my computer inside the git repository in the `dev` branch.  
-Once the changes are done, I push them to the GitHub repo and I create a `merge request` from the `dev` branch to the `main` one, which triggers a `CI` job.
+Once the changes are done, I push them to the GitHub repo and I create a `merge request` from the `dev` branch to the `main` one, which triggers a `CI` pipeline.
 
-This `CI` job is divided into two tasks: The [build](https://github.com/Antiz96/antiz.fr/blob/main/.github/workflows/CI.yml#L8-L49) one and the [test](https://github.com/Antiz96/antiz.fr/blob/main/.github/workflows/CI.yml#L51-L72) one.
+![alt_text](../../images/Website_GitHub_MR_CI.png "Website - Merge Request CI Pipeline")
 
-- The build task:
+This `CI` pipeline is divided into two jobs: The [build](https://github.com/Antiz96/antiz.fr/blob/main/.github/workflows/CI.yml#L8-L49) one and the [test](https://github.com/Antiz96/antiz.fr/blob/main/.github/workflows/CI.yml#L51-L72) one.
 
-The build task spawns an [Alpine Linux](https://www.alpinelinux.org/) container which automatically builds the website against the new changes I made via the `hugo` command and, if the build succeeded, automatically pushes the built website to the `dev` branch (and thus, add it to the current `merge request`). See a run of the build task [here](https://github.com/Antiz96/antiz.fr/actions/runs/5719114527/job/15496350459).
+![alt_text](../../images/Website_GitHub_CI_Jobs.png "Website - Merge Request CI Jobs")
 
-- The test task:
+- The build job:
 
-The test task spawns an [Alpine Linux](https://www.alpinelinux.org/) container which automatically runs a bunch of tests/linters against the relevant files of the repository, to make sure the changes I made are correctly written/syntaxed. See a run of the test task [here](https://github.com/Antiz96/antiz.fr/actions/runs/5719114527/job/15496350669).
+The build job spawns an [Alpine Linux](https://www.alpinelinux.org/) container which automatically builds the website against the new changes I made via the `hugo` command and, if the build succeeded, automatically pushes the built website to the `dev` branch (and thus, add it to the current `merge request`). See a run of the build job [here](https://github.com/Antiz96/antiz.fr/actions/runs/5719114527/job/15496350459).
+
+- The test job:
+
+The test job spawns an [Alpine Linux](https://www.alpinelinux.org/) container which automatically runs a bunch of tests/linters against the relevant files of the repository, to make sure the changes I made are correctly written/syntaxed. See a run of the test job [here](https://github.com/Antiz96/antiz.fr/actions/runs/5719114527/job/15496350669).
 
 ### CD
 
-Once both of the above `CI` tasks succeeded (meaning the website has been successfully built and pushed to the `dev` branch of the repository, and the tests went through without any error), I launch a job on my [Jenkins](https://www.jenkins.io/) server targeting the `dev` branch:
+Once both of the above `CI` jobs succeeded (meaning the website has been successfully built and pushed to the `dev` branch of the repository, and the tests went through without any error), I launch a job on my [Jenkins](https://www.jenkins.io/) server targeting the `dev` branch:
 
 ![alt_text](../../images/Jenkins_Update_Website_Job_Dev.png "Jenkins - Update Website Job Dev")
 
