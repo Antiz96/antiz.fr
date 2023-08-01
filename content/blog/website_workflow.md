@@ -16,7 +16,7 @@ To manage this website, I use an automated workflow based upon CI/CD (Continuous
 ### CI
 
 I make my changes *(creating an article, update the theme, add new parameters to the website, etc...)* locally on my computer inside the git repository in the `dev` branch.  
-Once the changes are done, I push them to the GitHub repo and I create a `merge request` from the `dev` branch to the `main` one, which triggers a `CI` pipeline:
+Once the changes are done, I push them to the GitHub repository and I create a `merge request` from the `dev` branch to the `main` one, which triggers a `CI` pipeline:
 
 ![alt_text](../../images/Website_GitHub_MR_CI.png "Website - Merge Request CI Pipeline")
 
@@ -38,7 +38,7 @@ Once both of the above `CI` jobs succeeded (meaning the website has been success
 
 ![alt_text](../../images/Jenkins_Update_Website_Job_Dev.png "Jenkins - Update Website Job Dev")
 
-This Jenkins job runs a simple [Ansible](https://www.ansible.com/) playbook hunder the hood (see that playbook [here](https://github.com/Antiz96/Linux-Server/blob/main/Ansible-Playbooks/roles/update_antiz.fr/tasks/main.yml)) that aims to update the website's sources on the environment targeted by the Jenkins job against the related GitHub branch (`dev` branch --> development environment, `main` branch --> production environment):
+This Jenkins job runs a simple [Ansible](https://www.ansible.com/) playbook under the hood (see that playbook [here](https://github.com/Antiz96/Linux-Server/blob/main/Ansible-Playbooks/roles/update_antiz.fr/tasks/main.yml)) that aims to update the website's sources on the environment targeted by the Jenkins job against the related GitHub branch (`dev` branch --> development environment, `main` branch --> production environment):
 
 ![alt_text](../../images/Jenkins_Update_Website_Job_Param.png "Jenkins - Update Website Job Parameters")
 
