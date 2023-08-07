@@ -208,7 +208,7 @@ CI I make my changes (creating an article, update the theme, add new parameters 
 
     ,
         "url" : "https:\/\/antiz.fr\/blog\/website_workflow\/",
-        "wordCount" : "447",
+        "wordCount" : "441",
         "genre" : [ ],
         "keywords" : [ ]
     }
@@ -437,11 +437,11 @@ Once the changes are done, I push them to the GitHub repository and I create a <
 </ul>
 <p>The <a href="https://github.com/Antiz96/antiz.fr/blob/main/.github/workflows/CI.yml#L51-L72">test job</a> spawns an <a href="https://www.alpinelinux.org/">Alpine Linux</a> container which automatically runs a bunch of tests/linters against the relevant files of the repository, to make sure the changes I made are correctly written/syntaxed. See a run of the test job <a href="https://github.com/Antiz96/antiz.fr/actions/runs/5719114527/job/15496350669">here</a>.</p>
 <h3 id="cd">CD</h3>
-<p>Once both of the above <code>CI</code> jobs succeeded (meaning the website has been successfully built and pushed to the <code>dev</code> branch of the repository, and the tests went through without any error), I launch a job on my <a href="https://www.jenkins.io/">Jenkins</a> server targeting the <code>dev</code> branch:</p>
+<p>Once both of the above <code>CI</code> jobs succeeded (meaning the website has been successfully built and pushed to the <code>dev</code> branch of the repository, and the tests went through without any error), I launch a job on my <a href="https://www.jenkins.io/">Jenkins</a> server targeting the <code>dev</code> environment:</p>
 <p><img src="../../images/Jenkins_Update_Website_Job_Dev.png" alt="alt_text" title="Jenkins - Update Website Job Dev"></p>
-<p>This Jenkins job runs a simple <a href="https://www.ansible.com/">Ansible</a> playbook under the hood (see that playbook <a href="https://github.com/Antiz96/Linux-Server/blob/main/Ansible-Playbooks/roles/update_antiz.fr/tasks/main.yml">here</a>) that aims to update the website&rsquo;s sources on the environment targeted by the Jenkins job against the related GitHub branch (<code>dev</code> branch &ndash;&gt; development environment, <code>main</code> branch &ndash;&gt; production environment):</p>
+<p>This Jenkins job runs a simple <a href="https://www.ansible.com/">Ansible</a> playbook under the hood (see that playbook <a href="https://github.com/Antiz96/Linux-Server/blob/main/Ansible-Playbooks/roles/update_antiz.fr/tasks/main.yml">here</a>) that aims to update the website&rsquo;s sources on the targeted environment against the related GitHub branch (<code>dev</code> branch &ndash;&gt; development environment, <code>main</code> branch &ndash;&gt; production environment):</p>
 <p><img src="../../images/Jenkins_Update_Website_Job_Param.png" alt="alt_text" title="Jenkins - Update Website Job Parameters"></p>
-<p>I can then review what my changes look like on my development environment (which is identical to my production environment so I&rsquo;m guaranteed that what I&rsquo;m seeing on my development environment is exactly what it will look like once pushed to my production environment).</p>
+<p>I can then review what my changes on my development environment (which is identical to my production environment so I&rsquo;m guaranteed that what I&rsquo;m seeing on my development environment is exactly what it will look like once pushed to my production environment).</p>
 <p>Once the changes have been reviewed and declared &ldquo;ready&rdquo; to go to production, the only thing I need to do is to merge the changes to the <code>main</code> branch on the GitHub repository (by &ldquo;accepting&rdquo; the pending merge request) and relaunch my Jenkins job, targeting the &ldquo;prod&rdquo; environment this time, so the changes are pushed against the <code>main</code> branch to the <code>VPS</code> which hosts this website:</p>
 <p><img src="../../images/Jenkins_Update_Website_Job_Prd.png" alt="alt_text" title="Jenkins - Update Website Job Prod"></p>
 <p>This workflow aims to evolve and be improved over time but it&rsquo;s a good example of a simple; yet effective, flexible and reliable automated workflow with CI/CD you can use to manage your projects! 😁</p>

@@ -34,15 +34,15 @@ The [test job](https://github.com/Antiz96/antiz.fr/blob/main/.github/workflows/C
 
 ### CD
 
-Once both of the above `CI` jobs succeeded (meaning the website has been successfully built and pushed to the `dev` branch of the repository, and the tests went through without any error), I launch a job on my [Jenkins](https://www.jenkins.io/) server targeting the `dev` branch:
+Once both of the above `CI` jobs succeeded (meaning the website has been successfully built and pushed to the `dev` branch of the repository, and the tests went through without any error), I launch a job on my [Jenkins](https://www.jenkins.io/) server targeting the `dev` environment:
 
 ![alt_text](../../images/Jenkins_Update_Website_Job_Dev.png "Jenkins - Update Website Job Dev")
 
-This Jenkins job runs a simple [Ansible](https://www.ansible.com/) playbook under the hood (see that playbook [here](https://github.com/Antiz96/Linux-Server/blob/main/Ansible-Playbooks/roles/update_antiz.fr/tasks/main.yml)) that aims to update the website's sources on the environment targeted by the Jenkins job against the related GitHub branch (`dev` branch --> development environment, `main` branch --> production environment):
+This Jenkins job runs a simple [Ansible](https://www.ansible.com/) playbook under the hood (see that playbook [here](https://github.com/Antiz96/Linux-Server/blob/main/Ansible-Playbooks/roles/update_antiz.fr/tasks/main.yml)) that aims to update the website's sources on the targeted environment against the related GitHub branch (`dev` branch --> development environment, `main` branch --> production environment):
 
 ![alt_text](../../images/Jenkins_Update_Website_Job_Param.png "Jenkins - Update Website Job Parameters")
 
-I can then review what my changes look like on my development environment (which is identical to my production environment so I'm guaranteed that what I'm seeing on my development environment is exactly what it will look like once pushed to my production environment).
+I can then review what my changes on my development environment (which is identical to my production environment so I'm guaranteed that what I'm seeing on my development environment is exactly what it will look like once pushed to my production environment).
 
 Once the changes have been reviewed and declared "ready" to go to production, the only thing I need to do is to merge the changes to the `main` branch on the GitHub repository (by "accepting" the pending merge request) and relaunch my Jenkins job, targeting the "prod" environment this time, so the changes are pushed against the `main` branch to the `VPS` which hosts this website:
 
