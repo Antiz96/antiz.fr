@@ -1,14 +1,5 @@
 <footer class="footer footer__{{ .footerClassModifier }}">
   <ul class="footer__list">
-    <li class="footer__item">
-      &copy;
-      {{ if isset .context.Site.Params "copyright" }}
-        {{ replace .context.Site.Params.copyright "{{ YEAR }}" (now.Format "2006") | markdownify }}
-      {{ else }}
-        {{ .context.Site.Params.author }}
-        {{ now.Format "2006" }}
-      {{ end }}
-    </li>
     {{ range .context.Site.Menus.footer }}
       <li class="footer__item">
         <a
