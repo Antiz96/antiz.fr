@@ -6,14 +6,14 @@ draft: false
 
 # Hey
 
-My name is Robin Candau, I'm 27.
+My name is Robin Candau.  
+I'm a french Linux system engineer passionate by skate, music, (craft) beer and, obviously, Linux!
 
-I'm a french Linux system engineer passionate by skate, music, (craft) beers and, obviously, Linux!  
 This website serves as a central place to get general/contact info about me, as well as writing some [blog posts](https://antiz.fr/blog/) when I feel like it.
 
 ## Projects
 
-I contribute to many Open Source projects and I'm always willing to help and learn in the process!  
+I contribute to many open source projects and I'm always willing to help, share and learn in the process!  
 Here are the main projects I actively contribute to:
 
 ### Arch Linux
