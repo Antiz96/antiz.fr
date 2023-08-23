@@ -10,7 +10,7 @@ summaryLength = 50
 [params]
 	title = "Robin Candau"
 	author = "Robin Candau"
-	description = "French Linux system engineer passionate by skate, music, (craft) beers and, obviously, Linux!"
+	description = "French Linux system engineer passionate by skate, music, (craft) beer and, obviously, Linux!"
 	profilePicture = "images/pfp.jpg"
 	contentratio = 0.7
 	customCss = ["css/custom.css"]
