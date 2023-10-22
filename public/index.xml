@@ -8,6 +8,18 @@
     <language>en-us</language>
     <lastBuildDate>Thu, 16 Feb 2023 13:11:49 +0100</lastBuildDate><atom:link href="https://antiz.fr/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Power Outage Tolerance With a Raspberry Pi</title>
+      <link>https://antiz.fr/blog/power-outage-tolerance-with-a-raspberry-pi/</link>
+      <pubDate>Sun, 22 Oct 2023 18:35:13 +0200</pubDate>
+      
+      <guid>https://antiz.fr/blog/power-outage-tolerance-with-a-raspberry-pi/</guid>
+      
+        <description>A little bit of context I recently woke up with a non working network connection in my house, both internet and LAN access were down.
+I immediately checked on my internet provider but my router seemed running just fine and no breakages were reported on their side in my region.</description>
+      
+    </item>
+    
+    <item>
       <title>The automated workflow I use to manage this website</title>
       <link>https://antiz.fr/blog/website_workflow/</link>
       <pubDate>Mon, 24 Jul 2023 13:20:26 +0200</pubDate>
