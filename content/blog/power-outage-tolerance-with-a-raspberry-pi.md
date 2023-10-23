@@ -6,7 +6,7 @@ draft: false
 
 ## A little bit of context
 
-I recently woke up with a non working network connection in my house, both internet and LAN access were down.  
+I recently woke up with a non working network connection in my house, both internet and LAN accesses were down.  
 I immediately checked on my internet provider but my router seemed running just fine and no breakages were reported on their side in my region.
 
 I then decided to check on my own infrastructure and realised that both of my physical servers were down. Those servers host my DNS and DHCP services, which explains why I had a faulty network connection.  
@@ -31,6 +31,27 @@ Indeed, thanks to the way Raspberry PIs are automatically powered on when power 
 
 But before creating the script on the Raspberry PI, we have to make the monitored servers compatible with Wake On Lan in order for them to be able to handle the network packet sent by the script to power them on properly.
 
-### Configuring the monitored servers
+### Enabling Wake On Lan support on the monitored servers
 
-<https://wiki.debian.org/WakeOnLan>
+If your hardware/motherboard is fairly recent, it should be compatible with Wake On Lan but you may have to enable the related parameter in your UEFI/BIOS settings.  
+It is usually located under the "power management" or "network" section.
+
+If you can't find such parameter, it might be named differently or already enabled by default.  
+Check instructions from your motheroard vendor.
+
+Once enabled on the hardware side, the Wake On Lan support has to be enabled on the software side:  
+To enable Wake On Lan support on your network adapter **for the current session**, install the [ethtool package](https://fr.wikipedia.org/wiki/Ethtool) (if not done already) and run the following command:
+
+```bash
+sudo ethtool -s eth0 wol g #Replace "eth0" by the name of your network card
+```
+
+Then, to enable it **permanently**, follow the instructions related to the network manager you use:
+
+- [Debian Wiki](https://wiki.debian.org/WakeOnLan#Enabling_WOL) (contains instructions for `ifupdown` specific to Debian)
+- [Arch Wiki](https://wiki.archlinux.org/title/Wake-on-LAN#Make_it_persistent)
+
+### Configuring the Raspberry PI
+
+
+
