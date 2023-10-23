@@ -124,14 +124,14 @@
   
   <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Power Outage Tolerance With a Raspberry Pi"/>
-<meta name="twitter:description" content="A little bit of context I recently woke up with a non working network connection in my house, both internet and LAN access were down.
+<meta name="twitter:description" content="A little bit of context I recently woke up with a non working network connection in my house, both internet and LAN accesses were down.
 I immediately checked on my internet provider but my router seemed running just fine and no breakages were reported on their side in my region."/>
 
 
 
   
   <meta property="og:title" content="Power Outage Tolerance With a Raspberry Pi" />
-<meta property="og:description" content="A little bit of context I recently woke up with a non working network connection in my house, both internet and LAN access were down.
+<meta property="og:description" content="A little bit of context I recently woke up with a non working network connection in my house, both internet and LAN accesses were down.
 I immediately checked on my internet provider but my router seemed running just fine and no breakages were reported on their side in my region." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://antiz.fr/blog/power-outage-tolerance-with-a-raspberry-pi/" /><meta property="article:section" content="blog" />
@@ -154,7 +154,7 @@ I immediately checked on my internet provider but my router seemed running just 
         "alternativeHeadline": "",
         "description": "
       
-        A little bit of context I recently woke up with a non working network connection in my house, both internet and LAN access were down.\nI immediately checked on my internet provider but my router seemed running just fine and no breakages were reported on their side in my region.
+        A little bit of context I recently woke up with a non working network connection in my house, both internet and LAN accesses were down.\nI immediately checked on my internet provider but my router seemed running just fine and no breakages were reported on their side in my region.
 
 
       
@@ -204,7 +204,7 @@ I immediately checked on my internet provider but my router seemed running just 
 
     ,
         "url" : "https:\/\/antiz.fr\/blog\/power-outage-tolerance-with-a-raspberry-pi\/",
-        "wordCount" : "490",
+        "wordCount" : "645",
         "genre" : [ ],
         "keywords" : [ ]
     }
@@ -403,11 +403,11 @@ I immediately checked on my internet provider but my router seemed running just 
           </li>
           <li class="post__meta-item">
             <em class="fas fa-stopwatch post__meta-icon"></em>
-            <span class="post__meta-text">3-minute read</span>
+            <span class="post__meta-text">4-minute read</span>
           </li>
         </ul>
       <h2 id="a-little-bit-of-context">A little bit of context</h2>
-<p>I recently woke up with a non working network connection in my house, both internet and LAN access were down.<br>
+<p>I recently woke up with a non working network connection in my house, both internet and LAN accesses were down.<br>
 I immediately checked on my internet provider but my router seemed running just fine and no breakages were reported on their side in my region.</p>
 <p>I then decided to check on my own infrastructure and realised that both of my physical servers were down. Those servers host my DNS and DHCP services, which explains why I had a faulty network connection.<br>
 After a quick thought, I understood that a power outage occurred during the night (which wasn&rsquo;t so obvious at first as the power was back when I woke up), causing my servers to go down. While my router automatically switched back on when the power came back, my servers didn&rsquo;t. Indeed, <em>without extra configuration,</em> you physically need to press down the power button to power them on.</p>
@@ -422,8 +422,20 @@ There&rsquo;s no specific requirements in terms of performance, as long as it is
 <p>The solution consist of a script running on the Raspberry PI that monitors my servers health and make use of the <a href="https://en.wikipedia.org/wiki/Wake-on-LAN">&ldquo;Wake On Lan&rdquo; network standard</a> to power them back on remotely after a (configurable) period of downtime.<br>
 Indeed, thanks to the way Raspberry PIs are automatically powered on when power comes in, the Raspberry PI will automatically powers back on when the power is restored after a power outage, allowing it to check and power on my other physical servers in such cases.</p>
 <p>But before creating the script on the Raspberry PI, we have to make the monitored servers compatible with Wake On Lan in order for them to be able to handle the network packet sent by the script to power them on properly.</p>
-<h3 id="configuring-the-monitored-servers">Configuring the monitored servers</h3>
-<p><a href="https://wiki.debian.org/WakeOnLan">https://wiki.debian.org/WakeOnLan</a></p>
+<h3 id="enabling-wake-on-lan-support-on-the-monitored-servers">Enabling Wake On Lan support on the monitored servers</h3>
+<p>If your hardware/motherboard is fairly recent, it should be compatible with Wake On Lan but you may have to enable the related parameter in your UEFI/BIOS settings.<br>
+It is usually located under the &ldquo;power management&rdquo; or &ldquo;network&rdquo; section.</p>
+<p>If you can&rsquo;t find such parameter, it might be named differently or already enabled by default.<br>
+Check instructions from your motheroard vendor.</p>
+<p>Once enabled on the hardware side, the Wake On Lan support has to be enabled on the software side:<br>
+To enable Wake On Lan support on your network adapter <strong>for the current session</strong>, install the <a href="https://fr.wikipedia.org/wiki/Ethtool">ethtool package</a> (if not done already) and run the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo ethtool -s eth0 wol g <span style="color:#75715e">#Replace &#34;eth0&#34; by the name of your network card</span>
+</span></span></code></pre></div><p>Then, to enable it <strong>permanently</strong>, follow the instructions related to the network manager you use:</p>
+<ul>
+<li><a href="https://wiki.debian.org/WakeOnLan#Enabling_WOL">Debian Wiki</a> (contains instructions for <code>ifupdown</code> specific to Debian)</li>
+<li><a href="https://wiki.archlinux.org/title/Wake-on-LAN#Make_it_persistent">Arch Wiki</a></li>
+</ul>
+<h3 id="configuring-the-raspberry-pi">Configuring the Raspberry PI</h3>
 </div>
     <div class="post__footer">
       
