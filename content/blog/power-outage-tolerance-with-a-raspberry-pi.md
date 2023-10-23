@@ -52,6 +52,3 @@ Then, to enable it **permanently**, follow the instructions related to the netwo
 - [Arch Wiki](https://wiki.archlinux.org/title/Wake-on-LAN#Make_it_persistent)
 
 ### Configuring the Raspberry PI
-
-
-
