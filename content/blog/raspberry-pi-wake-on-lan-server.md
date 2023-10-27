@@ -29,7 +29,7 @@ Raspberry Pis are cheap, have a low power consumption and run Linux pretty well,
 The solution consist of a script running on the Raspberry Pi that monitors my servers health and make use of the ["Wake On Lan" network standard](https://en.wikipedia.org/wiki/Wake-on-LAN) to power them back on remotely after a (configurable) period of downtime.  
 Indeed, thanks to the way Raspberry Pis are automatically powered on when power comes in, the Raspberry Pi will automatically power back on when the power is restored after a power outage, allowing it to check and power on my other physical servers in such cases.
 
-But before creating the script on the Raspberry Pi, we have to make the monitored servers compatible with Wake On Lan so they can handle the network packet sent by the script properly.
+But before creating the script on the Raspberry Pi, we have to make the monitored servers compatible with Wake On Lan so they can handle the related network packet sent by the script properly.
 
 ### Enabling Wake On Lan support on the monitored servers
 
@@ -43,7 +43,7 @@ Once enabled on the hardware side, the Wake On Lan support has to be enabled on 
 To enable Wake On Lan support on your network adapter, install the [ethtool package](https://repology.org/project/ethtool/versions) (if not installed already) and run the following command (that enables Wake On Lan support for your current session only):
 
 ```bash
-sudo ethtool -s eth0 wol g #Replace "eth0" by the name of your network adapter
+sudo ethtool -s eth0 wol g # Replace "eth0" by the name of your network adapter
 ```
 
 Then, to enable it permanently, follow the instructions related to the network manager you use:
@@ -72,7 +72,7 @@ See the comments in the script to adapt it to your needs and environment.
 # If you use DNS names and your DNS server is running on the monitored servers (like it's the case for me), remember to fill in `/etc/hosts` accordingly.
 #
 # Then replace "MAC_address_of_the_network_adapter" by the MAC address of the network adapter of the corresponding server.
-# You can find it by running `ip link` on your server in the `link/ether` field.
+# You can find it in the `link/ether` field when running `ip link` on your server.
 #
 # Example:
 # servers["pmx01.rc"]="7c:10:c9:8c:88:9d"
@@ -172,8 +172,9 @@ sudo systemctl stop monitor-servers-wakeonlan.service
 
 ## Conclusion
 
-So this is it! A simple, easy and cheap solution to monitor your servers' responsiveness and power them back on if needed.
+So this is it! A simple, easy and cheap solution to monitor your servers' responsiveness and power them back on automatically if needed.
 
 However, while this solution works to power servers back on after a power outage, it does not prevent them to be brutally shut down when the power loss occurs.  
-For a proper tolerance to short power outage and a proper shutdown for your servers in case of a long one, buy a UPS.  
+For a proper tolerance to short power outage and a proper shutdown for your servers in case of a long one, buy a UPS.
+
 Note that this "Wake On Lan" solution can totally co-exist with a UPS, so your servers are properly shutdown in case of a long power outage and automatically powered by on when the power's back! :slight_smile:
