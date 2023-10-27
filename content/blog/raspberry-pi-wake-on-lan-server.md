@@ -6,8 +6,8 @@ draft: false
 
 ## Context
 
-I recently woke up with a non working network connection in my house, both internet and LAN accesses were down.  
-I immediately checked on my internet provider but my router seemed running just fine and no breakages were reported on their side in my region.
+I recently woke up with a non-working network connection in my house, both internet and LAN accesses were down.  
+I immediately checked on my internet provider, but my router seemed running just fine and no breakages were reported on their side in my region.
 
 I then decided to check on my own infrastructure and realised that both of my physical servers were down. Those servers host my DNS and DHCP services, which explains why I had a faulty network connection.  
 After a quick thought, I understood that a power outage occurred during the night (which wasn't so obvious at first as the power was back when I woke up), causing my servers to go down. While my router automatically switched back on when the power came back, my servers didn't. Indeed, *without extra configuration,* you physically need to press down the power button to power them on.
@@ -27,7 +27,7 @@ Raspberry Pis are cheap, have a low power consumption and run Linux pretty well,
 ## The solution
 
 The solution consist of a script running on the Raspberry Pi that monitors my servers health and make use of the ["Wake On Lan" network standard](https://en.wikipedia.org/wiki/Wake-on-LAN) to power them back on remotely after a (configurable) period of downtime.  
-Indeed, thanks to the way Raspberry Pis are automatically powered on when power comes in, the Raspberry Pi will automatically powers back on when the power is restored after a power outage, allowing it to check and power on my other physical servers in such cases.
+Indeed, thanks to the way Raspberry Pis are automatically powered on when power comes in, the Raspberry Pi will automatically power back on when the power is restored after a power outage, allowing it to check and power on my other physical servers in such cases.
 
 But before creating the script on the Raspberry Pi, we have to make the monitored servers compatible with Wake On Lan so they can handle the network packet sent by the script properly.
 
@@ -36,11 +36,11 @@ But before creating the script on the Raspberry Pi, we have to make the monitore
 If your hardware/motherboard is fairly recent, it should be compatible with Wake On Lan but you may have to enable the related parameter in your UEFI/BIOS settings.  
 It is usually located under the "power management" or "network" section.
 
-If you can't find such parameter, it might be named differently or already enabled by default.  
-Check instructions from your motheroard vendor.
+If you can't find such a parameter, it might be named differently or already enabled by default.  
+Check instructions from your motherboard vendor.
 
 Once enabled on the hardware side, the Wake On Lan support has to be enabled on the software side:  
-To enable Wake On Lan support on your network adapter install the [ethtool package](https://repology.org/project/ethtool/versions) (if not installed already) and run the following command (that enables Wake On Lan support for your current session only):
+To enable Wake On Lan support on your network adapter, install the [ethtool package](https://repology.org/project/ethtool/versions) (if not installed already) and run the following command (that enables Wake On Lan support for your current session only):
 
 ```bash
 sudo ethtool -s eth0 wol g #Replace "eth0" by the name of your network adapter
@@ -53,7 +53,7 @@ Then, to enable it permanently, follow the instructions related to the network m
 
 ### Configuring the Raspberry Pi
 
-The first thing we need is a Wake On Line application/utility capable of sending the network packet needed to power on the servers.  
+The first thing we need is a Wake On Lan application/utility capable of sending the network packet needed to power on the servers.  
 I personally use [this one](https://github.com/jpoliv/wakeonlan/) which is [packaged by most Linux distributions](https://repology.org/project/wakeonlan/versions).
 
 We then need a script to monitor servers and send a Wake On Lan packet if needed.  
@@ -78,7 +78,7 @@ See the comments in the script to adapt it to your needs and environment.
 # servers["pmx01.rc"]="7c:10:c9:8c:88:9d"
 # servers["pmx02.rc"]="68:1d:ef:30:cc:88"
 #
-# You can declare as much servers as you want.
+# You can declare as many servers as you want.
 declare -A servers
 servers["Server1"]="MAC_address_of_the_network_adapter"
 servers["Server2"]="MAC_address_of_the_network_adapter"
@@ -113,7 +113,7 @@ while true; do
 done
 ```
 
-Finally we can create a systemd service to launch the script automatically at boot (given that your Linux distribution uses systemd as its init system. If not, check your init system's documentation).
+Finally, we can create a systemd service to launch the script automatically at boot (given that your Linux distribution uses systemd as its init system. If not, check your init system's documentation).
 
 Here's the one I wrote, under `/usr/local/lib/systemd/system/monitor-servers-wakeonlan.service`:
 
