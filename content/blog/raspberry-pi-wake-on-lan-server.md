@@ -70,11 +70,11 @@ See the comments in the script to adapt it to your needs and environment.
 
 # Replace "Server1/Server2" by the DNS name or IP address of your servers.
 # If you use DNS names and your DNS server is running on the monitored servers (like it's the case for me), remember to fill in `/etc/hosts` accordingly.
-# 
+#
 # Then replace "MAC_address_of_the_network_adapter" by the MAC address of the network adapter of the corresponding server.
 # You can find it by running `ip link` on your server in the `link/ether` field.
 #
-# Example: 
+# Example:
 # servers["pmx01.rc"]="7c:10:c9:8c:88:9d"
 # servers["pmx02.rc"]="68:1d:ef:30:cc:88"
 #
