@@ -444,7 +444,7 @@ I personally use <a href="https://github.com/jpoliv/wakeonlan/">this one</a> whi
 <a href="https://github.com/Antiz96/Commands-Scripts/blob/main/monitor-servers-wakeonlan.sh">Here&rsquo;s</a> the one I wrote:</p>
 <p>It sends a ping to the given list of servers and increment a &ldquo;fail counter&rdquo; per server each time a ping doesn&rsquo;t get a response.<br>
 By default, a Wake On Lan packet is sent after 6 consecutive fails and there&rsquo;s a wait period of 5 minutes between each try, so that&rsquo;s a total of 30 minutes of downtime.<br>
-I chose to use those not too &ldquo;agressive&rdquo; values by default so I can still shutdown my servers for a maintenance (for instance) without the script being triggered instantly and sending Wake On Lan packets right away. But you can, of course, modify those values to your liking!</p>
+I chose to use those not too &ldquo;aggressive&rdquo; values by default so I can still shutdown my servers for a maintenance (for instance) without the script being triggered instantly and sending Wake On Lan packets right away. But you can, of course, modify those values to your liking!</p>
 <p>See the comments in the script to adapt it to your needs and environment.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
