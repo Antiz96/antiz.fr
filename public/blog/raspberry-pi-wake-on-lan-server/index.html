@@ -206,7 +206,7 @@ I then decided to check on my own infrastructure and realised that both of my ph
 
     ,
         "url" : "https:\/\/antiz.fr\/blog\/raspberry-pi-wake-on-lan-server\/",
-        "wordCount" : "1484",
+        "wordCount" : "1487",
         "genre" : [ ],
         "keywords" : [ ]
     }
@@ -423,7 +423,7 @@ There&rsquo;s no specific requirements in terms of performance, as long as it is
 <h2 id="the-solution">The solution</h2>
 <p>The solution consist of a script running on the Raspberry Pi that monitors my servers health and make use of the <a href="https://en.wikipedia.org/wiki/Wake-on-LAN">&ldquo;Wake On Lan&rdquo; network standard</a> to power them back on remotely after a (configurable) period of downtime.<br>
 Indeed, thanks to the way Raspberry Pis are automatically powered on when power comes in, the Raspberry Pi will automatically power back on when the power is restored after a power outage, allowing it to check and power on my other physical servers in such cases.</p>
-<p>But before creating the script on the Raspberry Pi, we have to make the monitored servers compatible with Wake On Lan so they can handle the network packet sent by the script properly.</p>
+<p>But before creating the script on the Raspberry Pi, we have to make the monitored servers compatible with Wake On Lan so they can handle the related network packet sent by the script properly.</p>
 <h3 id="enabling-wake-on-lan-support-on-the-monitored-servers">Enabling Wake On Lan support on the monitored servers</h3>
 <p>If your hardware/motherboard is fairly recent, it should be compatible with Wake On Lan but you may have to enable the related parameter in your UEFI/BIOS settings.<br>
 It is usually located under the &ldquo;power management&rdquo; or &ldquo;network&rdquo; section.</p>
@@ -431,7 +431,7 @@ It is usually located under the &ldquo;power management&rdquo; or &ldquo;network
 Check instructions from your motherboard vendor.</p>
 <p>Once enabled on the hardware side, the Wake On Lan support has to be enabled on the software side:<br>
 To enable Wake On Lan support on your network adapter, install the <a href="https://repology.org/project/ethtool/versions">ethtool package</a> (if not installed already) and run the following command (that enables Wake On Lan support for your current session only):</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo ethtool -s eth0 wol g <span style="color:#75715e">#Replace &#34;eth0&#34; by the name of your network adapter</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo ethtool -s eth0 wol g <span style="color:#75715e"># Replace &#34;eth0&#34; by the name of your network adapter</span>
 </span></span></code></pre></div><p>Then, to enable it permanently, follow the instructions related to the network manager you use:</p>
 <ul>
 <li><a href="https://wiki.debian.org/WakeOnLan#Enabling_WOL">Debian Wiki</a> (contains instructions for <code>ifupdown</code> specific to Debian)</li>
@@ -452,7 +452,7 @@ I chose to use those not too &ldquo;aggressive&rdquo; values by default so I can
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># If you use DNS names and your DNS server is running on the monitored servers (like it&#39;s the case for me), remember to fill in `/etc/hosts` accordingly.</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Then replace &#34;MAC_address_of_the_network_adapter&#34; by the MAC address of the network adapter of the corresponding server.</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># You can find it by running `ip link` on your server in the `link/ether` field.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># You can find it in the `link/ether` field when running `ip link` on your server.</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Example:</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># servers[&#34;pmx01.rc&#34;]=&#34;7c:10:c9:8c:88:9d&#34;</span>
@@ -532,10 +532,10 @@ I chose to use those not too &ldquo;aggressive&rdquo; values by default so I can
 </span></span></code></pre></div><p>You can also stop the script&rsquo;s execution if needed by simply stopping the associated service:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo systemctl stop monitor-servers-wakeonlan.service
 </span></span></code></pre></div><h2 id="conclusion">Conclusion</h2>
-<p>So this is it! A simple, easy and cheap solution to monitor your servers&rsquo; responsiveness and power them back on if needed.</p>
+<p>So this is it! A simple, easy and cheap solution to monitor your servers&rsquo; responsiveness and power them back on automatically if needed.</p>
 <p>However, while this solution works to power servers back on after a power outage, it does not prevent them to be brutally shut down when the power loss occurs.<br>
-For a proper tolerance to short power outage and a proper shutdown for your servers in case of a long one, buy a UPS.<br>
-Note that this &ldquo;Wake On Lan&rdquo; solution can totally co-exist with a UPS, so your servers are properly shutdown in case of a long power outage and automatically powered by on when the power&rsquo;s back! 🙂</p>
+For a proper tolerance to short power outage and a proper shutdown for your servers in case of a long one, buy a UPS.</p>
+<p>Note that this &ldquo;Wake On Lan&rdquo; solution can totally co-exist with a UPS, so your servers are properly shutdown in case of a long power outage and automatically powered by on when the power&rsquo;s back! 🙂</p>
 </div>
     <div class="post__footer">
       
