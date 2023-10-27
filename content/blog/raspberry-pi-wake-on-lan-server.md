@@ -61,7 +61,7 @@ We then need a script to monitor servers and send a Wake On Lan packet if needed
 
 It sends a ping to the given list of servers and increment a "fail counter" per server each time a ping doesn't get a response.  
 By default, a Wake On Lan packet is sent after 6 consecutive fails and there's a wait period of 5 minutes between each try, so that's a total of 30 minutes of downtime.  
-I chose to use those not too "agressive" values by default so I can still shutdown my servers for a maintenance (for instance) without the script being triggered instantly and sending Wake On Lan packets right away. But you can, of course, modify those values to your liking!
+I chose to use those not too "aggressive" values by default so I can still shutdown my servers for a maintenance (for instance) without the script being triggered instantly and sending Wake On Lan packets right away. But you can, of course, modify those values to your liking!
 
 See the comments in the script to adapt it to your needs and environment.  
 
