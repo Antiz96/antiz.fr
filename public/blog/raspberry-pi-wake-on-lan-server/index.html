@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html
+  dir="ltr"
+  lang="en"
+  data-theme=""
+  
+    class="html theme--light"
+  
+><head>
+  <title>
+    Robin Candau
+        |
+        Automatically power back on servers after a power outage with a Raspberry Pi and Wake On Lan
+      
+
+    
+
+  </title>
+
+  
+  <meta charset="utf-8" /><meta name="generator" content="Hugo 0.111.3"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="author" content="Robin Candau" />
+  <meta
+    name="description"
+    content="Linux system &amp; DevOps engineer passionate by skate, music, (craft) beer and, obviously, Linux!"
+  />
+  
+  
+    
+    
+    <link
+      rel="stylesheet"
+      href="/scss/main.min.26d8396ded3f4aa47cc8d77a9fcb09fee1d20d223c6b3f074a21c7e217bc8c6d.css"
+      integrity="sha256-Jtg5be0/SqR8yNd6n8sJ/uHSDSI8az8HSiHH4he8jG0="
+      crossorigin="anonymous"
+      type="text/css"
+    />
+  
+
+  
+  <link
+    rel="stylesheet"
+    href="/css/markupHighlight.min.73ccfdf28df555e11009c13c20ced067af3cb021504cba43644c705930428b00.css"
+    integrity="sha256-c8z98o31VeEQCcE8IM7QZ688sCFQTLpDZExwWTBCiwA="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+    
+    
+    <link
+      rel="stylesheet"
+      href="/css/custom.min.12eb7037bf07e9b3c877c4d2aad88722dbeeeb31ae96aba510fa53899abb61b0.css"
+      integrity="sha256-EutwN78H6bPId8TSqtiHItvu6zGulqulEPpTiZq7YbA="
+      crossorigin="anonymous"
+      media="screen"
+    />
+  
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/fontawesome.min.7d272de35b410fb165377550cdf9c4d3a80fbbcc961e111914e4d5c0eaf5729f.css"
+    integrity="sha256-fSct41tBD7FlN3VQzfnE06gPu8yWHhEZFOTVwOr1cp8="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/solid.min.55d8333481b07a08e07cf6f37319753a2b47e99f4c395394c5747b48b495aa9b.css"
+    integrity="sha256-VdgzNIGwegjgfPbzcxl1OitH6Z9MOVOUxXR7SLSVqps="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/regular.min.a7448d02590b43449364b6b5922ed9af5410abb4de4238412a830316dedb850b.css"
+    integrity="sha256-p0SNAlkLQ0STZLa1ki7Zr1QQq7TeQjhBKoMDFt7bhQs="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/brands.min.9ed75a5d670c953fe4df935937674b4646f92674367e9e66eb995bb04e821647.css"
+    integrity="sha256-ntdaXWcMlT/k35NZN2dLRkb5JnQ2fp5m65lbsE6CFkc="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+
+  <link rel="canonical" href="https://antiz.fr/blog/raspberry-pi-wake-on-lan-server/" />
+
+  
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/anatole-header.min.f9132794301a01ff16550ed66763482bd848f62243d278f5e550229a158bfd32.js"
+    integrity="sha256-&#43;RMnlDAaAf8WVQ7WZ2NIK9hI9iJD0nj15VAimhWL/TI="
+    crossorigin="anonymous"
+  ></script>
+
+  
+    
+    
+    <script
+      type="text/javascript"
+      src="/js/anatole-theme-switcher.min.d6d329d93844b162e8bed1e915619625ca91687952177552b9b3e211014a2957.js"
+      integrity="sha256-1tMp2ThEsWLovtHpFWGWJcqRaHlSF3VSubPiEQFKKVc="
+      crossorigin="anonymous"
+    ></script>
+  
+
+  
+
+
+  
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Automatically power back on servers after a power outage with a Raspberry Pi and Wake On Lan"/>
+<meta name="twitter:description" content="Context I recently woke up with a non-working network connection in my house, both internet and LAN accesses were down.
+I immediately checked on my internet provider, but my router seemed running just fine and no breakages were reported on their side in my region.
+I then decided to check on my own infrastructure and realised that both of my physical servers were down."/>
+
+
+
+  
+  <meta property="og:title" content="Automatically power back on servers after a power outage with a Raspberry Pi and Wake On Lan" />
+<meta property="og:description" content="Context I recently woke up with a non-working network connection in my house, both internet and LAN accesses were down.
+I immediately checked on my internet provider, but my router seemed running just fine and no breakages were reported on their side in my region.
+I then decided to check on my own infrastructure and realised that both of my physical servers were down." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://antiz.fr/blog/raspberry-pi-wake-on-lan-server/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2023-10-22T18:35:13+02:00" />
+<meta property="article:modified_time" content="2023-10-22T18:35:13+02:00" /><meta property="og:site_name" content="Robin Candau" />
+
+
+
+  
+  
+  
+  
+  <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "articleSection": "blog",
+        "name": "Automatically power back on servers after a power outage with a Raspberry Pi and Wake On Lan",
+        "headline": "Automatically power back on servers after a power outage with a Raspberry Pi and Wake On Lan",
+        "alternativeHeadline": "",
+        "description": "
+      
+        Context I recently woke up with a non-working network connection in my house, both internet and LAN accesses were down.\nI immediately checked on my internet provider, but my router seemed running just fine and no breakages were reported on their side in my region.\nI then decided to check on my own infrastructure and realised that both of my physical servers were down.
+
+
+      
+
+
+    ",
+        "inLanguage": "en-us",
+        "isFamilyFriendly": "true",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/antiz.fr\/blog\/raspberry-pi-wake-on-lan-server\/"
+        },
+        "author" : {
+            "@type": "Person",
+            "name": "Robin Candau"
+        },
+        "creator" : {
+            "@type": "Person",
+            "name": "Robin Candau"
+        },
+        "accountablePerson" : {
+            "@type": "Person",
+            "name": "Robin Candau"
+        },
+        "copyrightHolder" : {
+            "@type": "Person",
+            "name": "Robin Candau"
+        },
+        "copyrightYear" : "2023",
+        "dateCreated": "2023-10-22T18:35:13.00Z",
+        "datePublished": "2023-10-22T18:35:13.00Z",
+        "dateModified": "2023-10-22T18:35:13.00Z",
+        "publisher":{
+            "@type":"Organization",
+            "name": "Robin Candau",
+            "url": "https://antiz.fr/",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https:\/\/antiz.fr\/favicon-32x32.png",
+                "width":"32",
+                "height":"32"
+            }
+        },
+        "image": 
+      [
+      ]
+
+    ,
+        "url" : "https:\/\/antiz.fr\/blog\/raspberry-pi-wake-on-lan-server\/",
+        "wordCount" : "1487",
+        "genre" : [ ],
+        "keywords" : [ ]
+    }
+  </script>
+
+
+</head>
+<body class="body">
+    <div class="wrapper">
+      <aside
+        
+          class="wrapper__sidebar"
+        
+      ><div
+  class="sidebar
+    animated fadeInDown
+  "
+>
+  <div class="sidebar__content">
+    <div class="sidebar__introduction">
+      <img
+        class="sidebar__introduction-profileimage"
+        src="/images/pfp.jpg"
+        alt="profile picture"
+      />
+      
+        <div class="sidebar__introduction-title">
+          <a href="/">Robin Candau</a>
+        </div>
+      
+      <div class="sidebar__introduction-description">
+        <p>Linux system & DevOps engineer passionate by skate, music, (craft) beer and, obviously, Linux!</p>
+      </div>
+    </div>
+    <ul class="sidebar__list">
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://github.com/Antiz96"
+            target="_blank"
+            rel="noopener me"
+            aria-label="GitHub"
+            title="GitHub"
+          >
+            <i class="fab fa-github fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://discord.com/users/369509114617004033"
+            target="_blank"
+            rel="noopener me"
+            aria-label="Discord"
+            title="Discord"
+          >
+            <i class="fab fa-discord fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://twitter.com/Antiz96"
+            target="_blank"
+            rel="noopener me"
+            aria-label="Twitter"
+            title="Twitter"
+          >
+            <i class="fab fa-twitter fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://www.linkedin.com/in/robin-candau-3083a2173/?locale=en_US"
+            target="_blank"
+            rel="noopener me"
+            aria-label="LinkedIn"
+            title="LinkedIn"
+          >
+            <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+        <li class="sidebar__list-item">
+          <a
+            href="mailto:robincandau@protonmail.com"
+            target="_blank"
+            rel="noopener me"
+            aria-label="Mail"
+            title="Mail"
+          >
+            <i class="fas fa-envelope fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+    </ul>
+  </div><footer class="footer footer__sidebar">
+  <ul class="footer__list">
+    
+  </ul>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.1248fa75275e5ef0cbef27e8c1e27dc507c445ae3a2c7d2ed0be0809555dac64.js"
+    integrity="sha256-Ekj6dSdeXvDL7yfoweJ9xQfERa46LH0u0L4ICVVdrGQ="
+    crossorigin="anonymous"
+  ></script></div>
+</aside>
+      <main
+        
+          class="wrapper__main"
+        
+      >
+        <header class="header"><div
+  class="
+    animated fadeInDown
+  "
+>
+  <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+  </a>
+  <nav class="nav">
+    <ul class="nav__list" id="navMenu">
+      
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/"
+              
+              title=""
+              >Home</a
+            >
+          </li>
+        
+
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/blog/"
+              
+              title=""
+              >Blog</a
+            >
+          </li>
+        
+
+      
+    </ul>
+    <ul class="nav__list nav__list--end">
+      
+      
+        <li class="nav__list-item">
+          <div class="themeswitch">
+            <a title="Switch Theme">
+              <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a>
+          </div>
+        </li>
+      
+    </ul>
+  </nav>
+</div>
+</header>
+  <div
+    class="post 
+      animated fadeInDown
+    "
+  >
+    
+    <div class="post__content">
+      <h1>Automatically Power Back on Servers After a Power Outage With a Raspberry Pi and Wake on Lan</h1>
+      
+        <ul class="post__meta">
+          <li class="post__meta-item">
+            <em class="fas fa-calendar-day post__meta-icon"></em>
+            <span class="post__meta-text"
+              >
+                
+                  Sun, Oct 22, 2023
+                
+
+              
+            </span>
+          </li>
+          <li class="post__meta-item">
+            <em class="fas fa-stopwatch post__meta-icon"></em>
+            <span class="post__meta-text">7-minute read</span>
+          </li>
+        </ul>
+      <h2 id="context">Context</h2>
+<p>I recently woke up with a non-working network connection in my house, both internet and LAN accesses were down.<br>
+I immediately checked on my internet provider, but my router seemed running just fine and no breakages were reported on their side in my region.</p>
+<p>I then decided to check on my own infrastructure and realised that both of my physical servers were down. Those servers host my DNS and DHCP services, which explains why I had a faulty network connection.<br>
+After a quick thought, I understood that a power outage occurred during the night (which wasn&rsquo;t so obvious at first as the power was back when I woke up), causing my servers to go down. While my router automatically switched back on when the power came back, my servers didn&rsquo;t. Indeed, <em>without extra configuration,</em> you physically need to press down the power button to power them on.</p>
+<p>During my reflexion about how to prevent that for the future, I obviously thought of buying a <a href="https://en.wikipedia.org/wiki/Uninterruptible_power_supply">UPS</a> to get a fault tolerance in case of short power outage or at least have the servers shutdown properly in case of long ones. But the low frequency of power cuts in my current place and the low impact of an eventual downtime of my services/infrastructure when those happen simply doesn&rsquo;t worth the (high) cost.<br>
+So I ended up thinking about a cheap, modular and easy solution to add a sort of power outage &ldquo;tolerance&rdquo; to my servers thanks to a simple <a href="https://en.wikipedia.org/wiki/Raspberry_Pi">Raspberry Pi</a> that I&rsquo;ll present to you through this article.</p>
+<h2 id="the-hardware">The hardware</h2>
+<p>I personally used a Raspberry Pi (3B+) that was sleeping in my drawer, but any model would do.<br>
+There&rsquo;s no specific requirements in terms of performance, as long as it is capable of running a simple Linux server you&rsquo;re good.</p>
+<p>The only prerequisite is to get hardware that automatically powers on when the power comes in, like it&rsquo;s the case for Raspberry Pis (and for most other small single board computers that do not have a power button).</p>
+<p>Raspberry Pis are cheap, have a low power consumption and run Linux pretty well, hence why I recommend them. But if you have another hardware that respect the above prerequisites (automatic power on and runs Linux), that&rsquo;s perfect!</p>
+<h2 id="the-solution">The solution</h2>
+<p>The solution consist of a script running on the Raspberry Pi that monitors my servers health and make use of the <a href="https://en.wikipedia.org/wiki/Wake-on-LAN">&ldquo;Wake On Lan&rdquo; network standard</a> to power them back on remotely after a (configurable) period of downtime.<br>
+Indeed, thanks to the way Raspberry Pis are automatically powered on when power comes in, the Raspberry Pi will automatically power back on when the power is restored after a power outage, allowing it to check and power on my other physical servers in such cases.</p>
+<p>But before creating the script on the Raspberry Pi, we have to make the monitored servers compatible with Wake On Lan so they can handle the related network packet sent by the script properly.</p>
+<h3 id="enabling-wake-on-lan-support-on-the-monitored-servers">Enabling Wake On Lan support on the monitored servers</h3>
+<p>If your hardware/motherboard is fairly recent, it should be compatible with Wake On Lan but you may have to enable the related parameter in your UEFI/BIOS settings.<br>
+It is usually located under the &ldquo;power management&rdquo; or &ldquo;network&rdquo; section.</p>
+<p>If you can&rsquo;t find such a parameter, it might be named differently or already enabled by default.<br>
+Check instructions from your motherboard vendor.</p>
+<p>Once enabled on the hardware side, the Wake On Lan support has to be enabled on the software side:<br>
+To enable Wake On Lan support on your network adapter, install the <a href="https://repology.org/project/ethtool/versions">ethtool package</a> (if not installed already) and run the following command (that enables Wake On Lan support for your current session only):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo ethtool -s eth0 wol g <span style="color:#75715e"># Replace &#34;eth0&#34; by the name of your network adapter</span>
+</span></span></code></pre></div><p>Then, to enable it permanently, follow the instructions related to the network manager you use:</p>
+<ul>
+<li><a href="https://wiki.debian.org/WakeOnLan#Enabling_WOL">Debian Wiki</a> (contains instructions for <code>ifupdown</code> specific to Debian)</li>
+<li><a href="https://wiki.archlinux.org/title/Wake-on-LAN#Make_it_persistent">Arch Wiki</a></li>
+</ul>
+<h3 id="configuring-the-raspberry-pi">Configuring the Raspberry Pi</h3>
+<p>The first thing we need is a Wake On Lan application/utility capable of sending the network packet needed to power on the servers.<br>
+I personally use <a href="https://github.com/jpoliv/wakeonlan/">this one</a> which is <a href="https://repology.org/project/wakeonlan/versions">packaged by most Linux distributions</a>.</p>
+<p>We then need a script to monitor servers and send a Wake On Lan packet if needed.<br>
+<a href="https://github.com/Antiz96/Commands-Scripts/blob/main/monitor-servers-wakeonlan.sh">Here&rsquo;s</a> the one I wrote:</p>
+<p>It sends a ping to the given list of servers and increment a &ldquo;fail counter&rdquo; per server each time a ping doesn&rsquo;t get a response.<br>
+By default, a Wake On Lan packet is sent after 6 consecutive fails and there&rsquo;s a wait period of 5 minutes between each try, so that&rsquo;s a total of 30 minutes of downtime.<br>
+I chose to use those not too &ldquo;aggressive&rdquo; values by default so I can still shutdown my servers for a maintenance (for instance) without the script being triggered instantly and sending Wake On Lan packets right away. But you can, of course, modify those values to your liking!</p>
+<p>See the comments in the script to adapt it to your needs and environment.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Replace &#34;Server1/Server2&#34; by the DNS name or IP address of your servers.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># If you use DNS names and your DNS server is running on the monitored servers (like it&#39;s the case for me), remember to fill in `/etc/hosts` accordingly.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Then replace &#34;MAC_address_of_the_network_adapter&#34; by the MAC address of the network adapter of the corresponding server.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># You can find it in the `link/ether` field when running `ip link` on your server.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Example:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># servers[&#34;pmx01.rc&#34;]=&#34;7c:10:c9:8c:88:9d&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># servers[&#34;pmx02.rc&#34;]=&#34;68:1d:ef:30:cc:88&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># You can declare as many servers as you want.</span>
+</span></span><span style="display:flex;"><span>declare -A servers
+</span></span><span style="display:flex;"><span>servers<span style="color:#f92672">[</span><span style="color:#e6db74">&#34;Server1&#34;</span><span style="color:#f92672">]=</span><span style="color:#e6db74">&#34;MAC_address_of_the_network_adapter&#34;</span>
+</span></span><span style="display:flex;"><span>servers<span style="color:#f92672">[</span><span style="color:#e6db74">&#34;Server2&#34;</span><span style="color:#f92672">]=</span><span style="color:#e6db74">&#34;MAC_address_of_the_network_adapter&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>declare -A fail_counter
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># This log file is used to collect logs for sent Wake On Lan packets.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Put it wherever you want but make sure the parent directories have been created beforehand.</span>
+</span></span><span style="display:flex;"><span>logfile<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/var/log/monitor-servers-wakeonlan/wol_packet.log&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> true; <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> server in <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>!servers[@]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>; <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> ping -c1 <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>server<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> &amp;&gt;/dev/null; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>                        fail_counter<span style="color:#f92672">[</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>server<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">]=</span><span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>                        echo <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>server<span style="color:#e6db74">}</span><span style="color:#e6db74"> fail counter: </span><span style="color:#e6db74">${</span>fail_counter[<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>server<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>                        fail_counter<span style="color:#f92672">[</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>server<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">]=</span><span style="color:#66d9ef">$((</span>fail_counter<span style="color:#f92672">[</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>server<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">]</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#66d9ef">))</span>
+</span></span><span style="display:flex;"><span>                        echo <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>server<span style="color:#e6db74">}</span><span style="color:#e6db74"> fail counter: </span><span style="color:#e6db74">${</span>fail_counter[<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>server<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#75715e"># Here is defined the number of consecutive fails needed to send a Wake On Lan packet.</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#75715e"># You can adapt it if needed.</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>fail_counter[<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>server<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> -eq <span style="color:#ae81ff">6</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>                                wakeonlan <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>servers[<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>server<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">&amp;&amp;</span> echo <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>date<span style="color:#66d9ef">)</span><span style="color:#e6db74"> - Wake On Lan packet sent to </span><span style="color:#e6db74">${</span>server<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> &gt;&gt; <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>logfile<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">||</span> echo <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>date<span style="color:#66d9ef">)</span><span style="color:#e6db74"> - Error sending a Wake On Lan packet to </span><span style="color:#e6db74">${</span>server<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> &gt;&gt; <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>logfile<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>                                fail_counter<span style="color:#f92672">[</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>server<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">]=</span><span style="color:#66d9ef">$((</span>fail_counter<span style="color:#f92672">[</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>server<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">]</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span><span style="color:#66d9ef">))</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">done</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Here is defined the wait period between each try (in seconds).</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># You can adapt it if needed.</span>
+</span></span><span style="display:flex;"><span>        sleep <span style="color:#ae81ff">300</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span></code></pre></div><p>Finally, we can create a systemd service to launch the script automatically at boot (given that your Linux distribution uses systemd as its init system. If not, check your init system&rsquo;s documentation).</p>
+<p>Here&rsquo;s the one I wrote, under <code>/usr/local/lib/systemd/system/monitor-servers-wakeonlan.service</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>[Unit]
+</span></span><span style="display:flex;"><span>Description=Run the script that monitors physical servers&#39; responsiveness and power them back on if needed
+</span></span><span style="display:flex;"><span>After=network-online.target
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[Service]
+</span></span><span style="display:flex;"><span>Type=oneshot
+</span></span><span style="display:flex;"><span>ExecStart=/path/to/the/script # Adapt this line to the path of your script
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[Install]
+</span></span><span style="display:flex;"><span>WantedBy=default.target
+</span></span></code></pre></div><p>Then start the service and enable it at boot:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo systemctl enable --now monitor-servers-wakeonlan.service
+</span></span></code></pre></div><p>Since the script is launched via a systemd service, you can actually see the output of the script in real time with <code>journalctl</code>/<code>systemctl status</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo systemctl status monitor-servers-wakeonlan.service
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>● monitor-servers-wakeonlan.service - Run the script that monitors physical servers<span style="color:#960050;background-color:#1e0010">&#39;</span> responsiveness and power them back on <span style="color:#66d9ef">if</span> needed
+</span></span><span style="display:flex;"><span>     Loaded: loaded <span style="color:#f92672">(</span>/usr/local/lib/systemd/system/monitor-servers-wakeonlan.service; enabled; preset: enabled<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>     Active: activating <span style="color:#f92672">(</span>start<span style="color:#f92672">)</span> since Wed 2023-09-20 14:15:24 CEST; <span style="color:#ae81ff">1</span> month <span style="color:#ae81ff">6</span> days ago
+</span></span><span style="display:flex;"><span>   Main PID: <span style="color:#ae81ff">492</span> <span style="color:#f92672">(</span>monitor-servers<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>      Tasks: <span style="color:#ae81ff">2</span> <span style="color:#f92672">(</span>limit: 963<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>     Memory: 2.7M
+</span></span><span style="display:flex;"><span>        CPU: 11.972s
+</span></span><span style="display:flex;"><span>     CGroup: /system.slice/monitor-servers-wakeonlan.service
+</span></span><span style="display:flex;"><span>             ├─  <span style="color:#ae81ff">492</span> /bin/bash /usr/local/bin/monitor-servers-wakeonlan
+</span></span><span style="display:flex;"><span>             └─20701 sleep <span style="color:#ae81ff">300</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Oct <span style="color:#ae81ff">27</span> 12:46:23 rasp01.rc monitor-servers-wakeonlan<span style="color:#f92672">[</span>492<span style="color:#f92672">]</span>: pmx02.rc fail counter: <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>Oct <span style="color:#ae81ff">27</span> 12:46:23 rasp01.rc monitor-servers-wakeonlan<span style="color:#f92672">[</span>492<span style="color:#f92672">]</span>: pmx01.rc fail counter: <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>Oct <span style="color:#ae81ff">27</span> 12:51:23 rasp01.rc monitor-servers-wakeonlan<span style="color:#f92672">[</span>492<span style="color:#f92672">]</span>: pmx02.rc fail counter: <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>Oct <span style="color:#ae81ff">27</span> 12:51:23 rasp01.rc monitor-servers-wakeonlan<span style="color:#f92672">[</span>492<span style="color:#f92672">]</span>: pmx01.rc fail counter: <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>Oct <span style="color:#ae81ff">27</span> 12:56:23 rasp01.rc monitor-servers-wakeonlan<span style="color:#f92672">[</span>492<span style="color:#f92672">]</span>: pmx02.rc fail counter: <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>Oct <span style="color:#ae81ff">27</span> 12:56:23 rasp01.rc monitor-servers-wakeonlan<span style="color:#f92672">[</span>492<span style="color:#f92672">]</span>: pmx01.rc fail counter: <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>Oct <span style="color:#ae81ff">27</span> 13:01:23 rasp01.rc monitor-servers-wakeonlan<span style="color:#f92672">[</span>492<span style="color:#f92672">]</span>: pmx02.rc fail counter: <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>Oct <span style="color:#ae81ff">27</span> 13:01:23 rasp01.rc monitor-servers-wakeonlan<span style="color:#f92672">[</span>492<span style="color:#f92672">]</span>: pmx01.rc fail counter: <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>Oct <span style="color:#ae81ff">27</span> 13:06:23 rasp01.rc monitor-servers-wakeonlan<span style="color:#f92672">[</span>492<span style="color:#f92672">]</span>: pmx02.rc fail counter: <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>Oct <span style="color:#ae81ff">27</span> 13:06:23 rasp01.rc monitor-servers-wakeonlan<span style="color:#f92672">[</span>492<span style="color:#f92672">]</span>: pmx01.rc fail counter: <span style="color:#ae81ff">0</span>
+</span></span></code></pre></div><p>You can also stop the script&rsquo;s execution if needed by simply stopping the associated service:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo systemctl stop monitor-servers-wakeonlan.service
+</span></span></code></pre></div><h2 id="conclusion">Conclusion</h2>
+<p>So this is it! A simple, easy and cheap solution to monitor your servers&rsquo; responsiveness and power them back on automatically if needed.</p>
+<p>However, while this solution works to power servers back on after a power outage, it does not prevent them to be brutally shut down when the power loss occurs.<br>
+For a proper tolerance to short power outage and a proper shutdown for your servers in case of a long one, buy a UPS.</p>
+<p>Note that this &ldquo;Wake On Lan&rdquo; solution can totally co-exist with a UPS, so your servers are properly shutdown in case of a long power outage and automatically powered by on when the power&rsquo;s back! 🙂</p>
+</div>
+    <div class="post__footer">
+      
+
+      
+    </div>
+
+    
+  </div>
+
+      </main>
+    </div><footer class="footer footer__base">
+  <ul class="footer__list">
+    
+  </ul>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.1248fa75275e5ef0cbef27e8c1e27dc507c445ae3a2c7d2ed0be0809555dac64.js"
+    integrity="sha256-Ekj6dSdeXvDL7yfoweJ9xQfERa46LH0u0L4ICVVdrGQ="
+    crossorigin="anonymous"
+  ></script></body>
+</html>
