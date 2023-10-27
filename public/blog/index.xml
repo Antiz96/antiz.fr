@@ -22,10 +22,10 @@ I then decided to check on my own infrastructure and realised that both of my ph
     
     <item>
       <title>The automated workflow I use to manage this website</title>
-      <link>https://antiz.fr/blog/website_workflow/</link>
+      <link>https://antiz.fr/blog/website-workflow/</link>
       <pubDate>Mon, 24 Jul 2023 13:20:26 +0200</pubDate>
       
-      <guid>https://antiz.fr/blog/website_workflow/</guid>
+      <guid>https://antiz.fr/blog/website-workflow/</guid>
       
         <description>The website This website is built with the HUGO static website generator using the anatole theme.
 The website&amp;rsquo;s source code is hosted in this GitHub repository.
