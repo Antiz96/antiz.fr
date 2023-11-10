@@ -12,7 +12,7 @@ jobs:
           token: ${{ secrets.BUILD_WEBSITE_TOKEN }} 
 
       - name: Update env
-        run: sudo apt update && sudo apt fullupgrade
+        run: sudo apt update && sudo apt full-upgrade
 
       - name: Install packages
         run: sudo apt install hugo
