@@ -5,6 +5,10 @@ jobs:
   Build:
     runs-on: ubuntu-latest
 
+    container:
+      image: docker.io/library/alpine:latest
+      options: --privileged
+
     steps:
       - name: Clone repo
         uses: actions/checkout@v4
@@ -12,8 +16,11 @@ jobs:
           token: ${{ secrets.BUILD_WEBSITE_TOKEN }}
           ref: ${{ github.event.pull_request.head.ref }}
 
+      - name: Update container
+        run: apk update && apk upgrade
+
       - name: Install packages
-        run: sudo apt install hugo
+        run: apk add git hugo
 
       - name: Build website
         run: rm -rf public && hugo
