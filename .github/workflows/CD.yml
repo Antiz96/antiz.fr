@@ -13,7 +13,7 @@ jobs:
           ref: ${{ github.event.pull_request.head.ref }}
 
       - name: Install packages
-        run: sudo apt install hugo
+        run: sudo snap install hugo
 
       - name: Build website
         run: rm -rf public && hugo
