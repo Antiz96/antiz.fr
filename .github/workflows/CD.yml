@@ -4,10 +4,7 @@ on: pull_request
 jobs:
   Build:
     runs-on: ubuntu-latest
-
-    container:
-      image: docker.io/library/alpine:latest
-      options: --privileged
+    options: --privileged
 
     steps:
       - name: Clone repo
@@ -15,18 +12,17 @@ jobs:
         with: 
           token: ${{ secrets.BUILD_WEBSITE_TOKEN }} 
 
-      - name: Update container
-        run: apk update && apk upgrade
+      - name: Update env
+        run: apt update && apt fullupgrade
 
       - name: Install packages
-        run: apk add git hugo
+        run: apt install hugo
 
       - name: Build website
-        run: pwd && rm -rf public && hugo
+        run: rm -rf public && hugo
 
       - name: Commit automated build
         run: |
-          pwd
           git config user.name github-actions
           git config user.email github-actions@github.com
           git add .
