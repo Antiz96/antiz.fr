@@ -22,10 +22,11 @@ jobs:
         run: apk add git hugo
 
       - name: Build website
-        run: rm -rf public && hugo
+        run: pwd && rm -rf public && hugo
 
       - name: Commit automated build
         run: |
+          pwd
           git config user.name github-actions
           git config user.email github-actions@github.com
           git add .
