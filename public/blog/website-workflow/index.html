@@ -209,7 +209,7 @@ CI I make my changes (creating an article, update the theme, add new parameters 
 
     ,
         "url" : "https:\/\/antiz.fr\/blog\/website-workflow\/",
-        "wordCount" : "441",
+        "wordCount" : "440",
         "genre" : [ ],
         "keywords" : [ ]
     }
@@ -425,11 +425,11 @@ Once the changes are done, I push them to the GitHub repository and I create a <
 <ul>
 <li>The build job:</li>
 </ul>
-<p>The <a href="https://github.com/Antiz96/antiz.fr/blob/main/.github/workflows/CI.yml#L8-L49">build job</a> spawns an <a href="https://www.alpinelinux.org/">Alpine Linux</a> container which automatically builds the website against the new changes I made via the <code>hugo</code> command and, if the build succeeded, automatically pushes the built website to the <code>dev</code> branch (and thus, add it to the current <code>merge request</code>). See a run of the build job <a href="https://github.com/Antiz96/antiz.fr/actions/runs/5719114527/job/15496350459">here</a>.</p>
+<p>The <a href="https://github.com/Antiz96/antiz.fr/blob/main/.github/workflows/CD.yml">build job</a> spawns an Ubuntu runner which automatically builds the website against the new changes I made via the <code>hugo</code> command and, if the build succeeded, automatically pushes the built website to the <code>dev</code> branch (and thus, add it to the current <code>merge request</code>). See a run of the build job <a href="https://github.com/Antiz96/antiz.fr/actions/runs/6830207537/job/18577735916">here</a>.</p>
 <ul>
 <li>The test job:</li>
 </ul>
-<p>The <a href="https://github.com/Antiz96/antiz.fr/blob/main/.github/workflows/CI.yml#L51-L72">test job</a> spawns an <a href="https://www.alpinelinux.org/">Alpine Linux</a> container which automatically runs a bunch of tests/linters against the relevant files of the repository, to make sure the changes I made are correctly written/syntaxed. See a run of the test job <a href="https://github.com/Antiz96/antiz.fr/actions/runs/5719114527/job/15496350669">here</a>.</p>
+<p>The <a href="https://github.com/Antiz96/antiz.fr/blob/main/.github/workflows/CI.yml">test job</a> spawns an <a href="https://www.alpinelinux.org/">Alpine Linux</a> container which automatically runs a bunch of tests/linters against the relevant files of the repository, to make sure the changes I made are correctly written/syntaxed. See a run of the test job <a href="https://github.com/Antiz96/antiz.fr/actions/runs/6830207538/job/18577735920">here</a>.</p>
 <h3 id="cd">CD</h3>
 <p>Once both of the above <code>CI</code> jobs succeeded (meaning the website has been successfully built and pushed to the <code>dev</code> branch of the repository, and the tests went through without any error), I launch a job on my <a href="https://www.jenkins.io/">Jenkins</a> server targeting the <code>dev</code> environment:</p>
 <p><img src="../../images/Jenkins_Update_Website_Job_Dev.png" alt="alt_text" title="Jenkins - Update Website Job Dev"></p>
