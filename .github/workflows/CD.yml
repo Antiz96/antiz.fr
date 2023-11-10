@@ -20,7 +20,7 @@ jobs:
 
       - name: Commit automated build
         run: |
-	  git config user.name "GitHub Actions"
+          git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
           if [ "$(git status --porcelain)" ]; then
                   git add .
