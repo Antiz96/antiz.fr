@@ -26,11 +26,11 @@ This `CI` pipeline is divided into two jobs:
 
 - The build job:
 
-The [build job](https://github.com/Antiz96/antiz.fr/blob/main/.github/workflows/CI.yml#L8-L49) spawns an [Alpine Linux](https://www.alpinelinux.org/) container which automatically builds the website against the new changes I made via the `hugo` command and, if the build succeeded, automatically pushes the built website to the `dev` branch (and thus, add it to the current `merge request`). See a run of the build job [here](https://github.com/Antiz96/antiz.fr/actions/runs/5719114527/job/15496350459).
+The [build job](https://github.com/Antiz96/antiz.fr/blob/main/.github/workflows/CD.yml) spawns an Ubuntu runner which automatically builds the website against the new changes I made via the `hugo` command and, if the build succeeded, automatically pushes the built website to the `dev` branch (and thus, add it to the current `merge request`). See a run of the build job [here](https://github.com/Antiz96/antiz.fr/actions/runs/6830207537/job/18577735916).
 
 - The test job:
 
-The [test job](https://github.com/Antiz96/antiz.fr/blob/main/.github/workflows/CI.yml#L51-L72) spawns an [Alpine Linux](https://www.alpinelinux.org/) container which automatically runs a bunch of tests/linters against the relevant files of the repository, to make sure the changes I made are correctly written/syntaxed. See a run of the test job [here](https://github.com/Antiz96/antiz.fr/actions/runs/5719114527/job/15496350669).
+The [test job](https://github.com/Antiz96/antiz.fr/blob/main/.github/workflows/CI.yml) spawns an [Alpine Linux](https://www.alpinelinux.org/) container which automatically runs a bunch of tests/linters against the relevant files of the repository, to make sure the changes I made are correctly written/syntaxed. See a run of the test job [here](https://github.com/Antiz96/antiz.fr/actions/runs/6830207538/job/18577735920).
 
 ### CD
 
@@ -48,4 +48,4 @@ Once the changes have been reviewed and declared "ready" to go to production, th
 
 ![alt_text](../../images/Jenkins_Update_Website_Job_Prd.png "Jenkins - Update Website Job Prod")
 
-This workflow aims to evolve and be improved over time but it's a good example of a simple; yet effective, flexible and reliable automated workflow with CI/CD you can use to manage your projects! :beaming_face_with_smiling_eyes:
+This workflow aims to evolve and be improved over time but it's a good example of a simple; yet effective, flexible and reliable automated workflow with CI/CD you can use to manage your projects! :smile:

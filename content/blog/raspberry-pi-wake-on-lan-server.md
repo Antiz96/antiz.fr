@@ -177,4 +177,4 @@ So this is it! A simple, easy and cheap solution to monitor your servers' respon
 However, while this solution works to power servers back on after a power outage, it does not prevent them to be brutally shut down when the power loss occurs.  
 For a proper tolerance to short power outage and a proper shutdown for your servers in case of a long one, buy a UPS.
 
-Note that this "Wake On Lan" solution can totally co-exist with a UPS, so your servers are properly shutdown in case of a long power outage and automatically powered back on when the power's back! :slight_smile:
+Note that this "Wake On Lan" solution can totally co-exist with a UPS, so your servers are properly shutdown in case of a long power outage and automatically powered back on when the power's back! :slightly_smiling_face:
