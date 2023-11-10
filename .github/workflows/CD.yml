@@ -12,10 +12,10 @@ jobs:
           token: ${{ secrets.BUILD_WEBSITE_TOKEN }} 
 
       - name: Update env
-        run: apt update && apt fullupgrade
+        run: sudo apt update && sudo apt fullupgrade
 
       - name: Install packages
-        run: apt install hugo
+        run: sudo apt install hugo
 
       - name: Build website
         run: rm -rf public && hugo
