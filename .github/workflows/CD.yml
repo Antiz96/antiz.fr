@@ -9,10 +9,8 @@ jobs:
       - name: Clone repo
         uses: actions/checkout@v4
         with: 
-          token: ${{ secrets.BUILD_WEBSITE_TOKEN }} 
-
-      - name: Update env
-        run: sudo apt update && sudo apt full-upgrade
+          token: ${{ secrets.BUILD_WEBSITE_TOKEN }}
+          fetch-depth: 0
 
       - name: Install packages
         run: sudo apt install hugo
