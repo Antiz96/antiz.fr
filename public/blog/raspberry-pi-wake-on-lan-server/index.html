@@ -18,7 +18,7 @@
   </title>
 
   
-  <meta charset="utf-8" /><meta name="generator" content="Hugo 0.92.2" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta charset="utf-8" /><meta name="generator" content="Hugo 0.120.4"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <meta name="author" content="Robin Candau" />
   <meta
     name="description"
@@ -102,8 +102,8 @@
   
   <script
     type="text/javascript"
-    src="/js/anatole-header.min.46e6a54097480084f8f52c20ca1aa7425b4fad17029a887fd4017b12e311a72d.js"
-    integrity="sha256-RualQJdIAIT49SwgyhqnQltPrRcCmoh/1AF7EuMRpy0="
+    src="/js/anatole-header.min.f9132794301a01ff16550ed66763482bd848f62243d278f5e550229a158bfd32.js"
+    integrity="sha256-&#43;RMnlDAaAf8WVQ7WZ2NIK9hI9iJD0nj15VAimhWL/TI="
     crossorigin="anonymous"
   ></script>
 
@@ -112,8 +112,8 @@
     
     <script
       type="text/javascript"
-      src="/js/anatole-theme-switcher.min.4c31f3cf7e8e609c897dba88aecac0e8db1ebb4e5c841d3f9ffb01d463973678.js"
-      integrity="sha256-TDHzz36OYJyJfbqIrsrA6Nseu05chB0/n/sB1GOXNng="
+      src="/js/anatole-theme-switcher.min.d6d329d93844b162e8bed1e915619625ca91687952177552b9b3e211014a2957.js"
+      integrity="sha256-1tMp2ThEsWLovtHpFWGWJcqRaHlSF3VSubPiEQFKKVc="
       crossorigin="anonymous"
     ></script>
   
@@ -207,7 +207,7 @@ I then decided to check on my own infrastructure and realised that both of my ph
 
     ,
         "url" : "https:\/\/antiz.fr\/blog\/raspberry-pi-wake-on-lan-server\/",
-        "wordCount" : "1483",
+        "wordCount" : "1487",
         "genre" : [ ],
         "keywords" : [ ]
     }
@@ -313,8 +313,8 @@ I then decided to check on my own infrastructure and realised that both of my ph
   
   <script
     type="text/javascript"
-    src="/js/medium-zoom.min.fae9ac8895995fe91958b3954be11e96025824a04770726a3531e119ddd2d576.js"
-    integrity="sha256-&#43;umsiJWZX&#43;kZWLOVS&#43;EelgJYJKBHcHJqNTHhGd3S1XY="
+    src="/js/medium-zoom.min.1248fa75275e5ef0cbef27e8c1e27dc507c445ae3a2c7d2ed0be0809555dac64.js"
+    integrity="sha256-Ekj6dSdeXvDL7yfoweJ9xQfERa46LH0u0L4ICVVdrGQ="
     crossorigin="anonymous"
   ></script></div>
 </aside>
@@ -432,8 +432,8 @@ It is usually located under the &ldquo;power management&rdquo; or &ldquo;network
 Check instructions from your motherboard vendor.</p>
 <p>Once enabled on the hardware side, the Wake On Lan support has to be enabled on the software side:<br>
 To enable Wake On Lan support on your network adapter, install the <a href="https://repology.org/project/ethtool/versions">ethtool package</a> (if not installed already) and run the following command (that enables Wake On Lan support for your current session only):</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo ethtool -s eth0 wol g <span style="color:#75715e"># Replace &#34;eth0&#34; by the name of your network adapter</span>
-</code></pre></div><p>Then, to enable it permanently, follow the instructions related to the network manager you use:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo ethtool -s eth0 wol g <span style="color:#75715e"># Replace &#34;eth0&#34; by the name of your network adapter</span>
+</span></span></code></pre></div><p>Then, to enable it permanently, follow the instructions related to the network manager you use:</p>
 <ul>
 <li><a href="https://wiki.debian.org/WakeOnLan#Enabling_WOL">Debian Wiki</a> (contains instructions for <code>ifupdown</code> specific to Debian)</li>
 <li><a href="https://wiki.archlinux.org/title/Wake-on-LAN#Make_it_persistent">Arch Wiki</a></li>
@@ -447,96 +447,96 @@ I personally use <a href="https://github.com/jpoliv/wakeonlan/">this one</a> whi
 By default, a Wake On Lan packet is sent after 6 consecutive fails and there&rsquo;s a wait period of 5 minutes between each try, so that&rsquo;s a total of 30 minutes of downtime.<br>
 I chose to use those not too &ldquo;aggressive&rdquo; values by default so I can still shutdown my servers for a maintenance (for instance) without the script being triggered instantly and sending Wake On Lan packets right away. But you can, of course, modify those values to your liking!</p>
 <p>See the comments in the script to adapt it to your needs and environment.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
-</span><span style="color:#75715e"></span>
-<span style="color:#75715e"># Replace &#34;Server1/Server2&#34; by the DNS name or IP address of your servers.</span>
-<span style="color:#75715e"># If you use DNS names and your DNS server is running on the monitored servers (like it&#39;s the case for me), remember to fill in `/etc/hosts` accordingly.</span>
-<span style="color:#75715e">#</span>
-<span style="color:#75715e"># Then replace &#34;MAC_address_of_the_network_adapter&#34; by the MAC address of the network adapter of the corresponding server.</span>
-<span style="color:#75715e"># You can find it in the `link/ether` field when running `ip link` on your server.</span>
-<span style="color:#75715e">#</span>
-<span style="color:#75715e"># Example:</span>
-<span style="color:#75715e"># servers[&#34;pmx01.rc&#34;]=&#34;7c:10:c9:8c:88:9d&#34;</span>
-<span style="color:#75715e"># servers[&#34;pmx02.rc&#34;]=&#34;68:1d:ef:30:cc:88&#34;</span>
-<span style="color:#75715e">#</span>
-<span style="color:#75715e"># You can declare as many servers as you want.</span>
-declare -A servers
-servers<span style="color:#f92672">[</span><span style="color:#e6db74">&#34;Server1&#34;</span><span style="color:#f92672">]=</span><span style="color:#e6db74">&#34;MAC_address_of_the_network_adapter&#34;</span>
-servers<span style="color:#f92672">[</span><span style="color:#e6db74">&#34;Server2&#34;</span><span style="color:#f92672">]=</span><span style="color:#e6db74">&#34;MAC_address_of_the_network_adapter&#34;</span>
-
-declare -A fail_counter
-
-<span style="color:#75715e"># This log file is used to collect logs for sent Wake On Lan packets.</span>
-<span style="color:#75715e"># Put it wherever you want but make sure the parent directories have been created beforehand.</span>
-logfile<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/var/log/monitor-servers-wakeonlan/wol_packet.log&#34;</span>
-
-<span style="color:#66d9ef">while</span> true; <span style="color:#66d9ef">do</span>
-        <span style="color:#66d9ef">for</span> server in <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>!servers[@]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>; <span style="color:#66d9ef">do</span>
-                <span style="color:#66d9ef">if</span> ping -c1 <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>server<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> &amp;&gt;/dev/null; <span style="color:#66d9ef">then</span>
-                        fail_counter<span style="color:#f92672">[</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>server<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">]=</span><span style="color:#ae81ff">0</span>
-                        echo <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>server<span style="color:#e6db74">}</span><span style="color:#e6db74"> fail counter: </span><span style="color:#e6db74">${</span>fail_counter[<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>server<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
-                <span style="color:#66d9ef">else</span>
-                        fail_counter<span style="color:#f92672">[</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>server<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">]=</span><span style="color:#66d9ef">$((</span>fail_counter<span style="color:#f92672">[</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>server<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">]</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#66d9ef">))</span>
-                        echo <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>server<span style="color:#e6db74">}</span><span style="color:#e6db74"> fail counter: </span><span style="color:#e6db74">${</span>fail_counter[<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>server<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
-
-                        <span style="color:#75715e"># Here is defined the number of consecutive fails needed to send a Wake On Lan packet.</span>
-                        <span style="color:#75715e"># You can adapt it if needed.</span>
-                        <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>fail_counter[<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>server<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> -eq <span style="color:#ae81ff">6</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
-                                wakeonlan <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>servers[<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>server<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">&amp;&amp;</span> echo <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>date<span style="color:#66d9ef">)</span><span style="color:#e6db74"> - Wake On Lan packet sent to </span><span style="color:#e6db74">${</span>server<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> &gt;&gt; <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>logfile<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">||</span> echo <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>date<span style="color:#66d9ef">)</span><span style="color:#e6db74"> - Error sending a Wake On Lan packet to </span><span style="color:#e6db74">${</span>server<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> &gt;&gt; <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>logfile<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
-                                fail_counter<span style="color:#f92672">[</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>server<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">]=</span><span style="color:#66d9ef">$((</span>fail_counter<span style="color:#f92672">[</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>server<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">]</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span><span style="color:#66d9ef">))</span>
-                        <span style="color:#66d9ef">fi</span>
-                <span style="color:#66d9ef">fi</span>
-        <span style="color:#66d9ef">done</span>
-
-        <span style="color:#75715e"># Here is defined the wait period between each try (in seconds).</span>
-        <span style="color:#75715e"># You can adapt it if needed.</span>
-        sleep <span style="color:#ae81ff">300</span>
-<span style="color:#66d9ef">done</span>
-</code></pre></div><p>Finally, we can create a systemd service to launch the script automatically at boot (given that your Linux distribution uses systemd as its init system. If not, check your init system&rsquo;s documentation).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Replace &#34;Server1/Server2&#34; by the DNS name or IP address of your servers.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># If you use DNS names and your DNS server is running on the monitored servers (like it&#39;s the case for me), remember to fill in `/etc/hosts` accordingly.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Then replace &#34;MAC_address_of_the_network_adapter&#34; by the MAC address of the network adapter of the corresponding server.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># You can find it in the `link/ether` field when running `ip link` on your server.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Example:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># servers[&#34;pmx01.rc&#34;]=&#34;7c:10:c9:8c:88:9d&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># servers[&#34;pmx02.rc&#34;]=&#34;68:1d:ef:30:cc:88&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># You can declare as many servers as you want.</span>
+</span></span><span style="display:flex;"><span>declare -A servers
+</span></span><span style="display:flex;"><span>servers<span style="color:#f92672">[</span><span style="color:#e6db74">&#34;Server1&#34;</span><span style="color:#f92672">]=</span><span style="color:#e6db74">&#34;MAC_address_of_the_network_adapter&#34;</span>
+</span></span><span style="display:flex;"><span>servers<span style="color:#f92672">[</span><span style="color:#e6db74">&#34;Server2&#34;</span><span style="color:#f92672">]=</span><span style="color:#e6db74">&#34;MAC_address_of_the_network_adapter&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>declare -A fail_counter
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># This log file is used to collect logs for sent Wake On Lan packets.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Put it wherever you want but make sure the parent directories have been created beforehand.</span>
+</span></span><span style="display:flex;"><span>logfile<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/var/log/monitor-servers-wakeonlan/wol_packet.log&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> true; <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> server in <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>!servers[@]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>; <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> ping -c1 <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>server<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> &amp;&gt;/dev/null; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>                        fail_counter<span style="color:#f92672">[</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>server<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">]=</span><span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>                        echo <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>server<span style="color:#e6db74">}</span><span style="color:#e6db74"> fail counter: </span><span style="color:#e6db74">${</span>fail_counter[<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>server<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>                        fail_counter<span style="color:#f92672">[</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>server<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">]=</span><span style="color:#66d9ef">$((</span>fail_counter<span style="color:#f92672">[</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>server<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">]</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#66d9ef">))</span>
+</span></span><span style="display:flex;"><span>                        echo <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>server<span style="color:#e6db74">}</span><span style="color:#e6db74"> fail counter: </span><span style="color:#e6db74">${</span>fail_counter[<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>server<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#75715e"># Here is defined the number of consecutive fails needed to send a Wake On Lan packet.</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#75715e"># You can adapt it if needed.</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>fail_counter[<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>server<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> -eq <span style="color:#ae81ff">6</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>                                wakeonlan <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>servers[<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>server<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">&amp;&amp;</span> echo <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>date<span style="color:#66d9ef">)</span><span style="color:#e6db74"> - Wake On Lan packet sent to </span><span style="color:#e6db74">${</span>server<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> &gt;&gt; <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>logfile<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">||</span> echo <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>date<span style="color:#66d9ef">)</span><span style="color:#e6db74"> - Error sending a Wake On Lan packet to </span><span style="color:#e6db74">${</span>server<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> &gt;&gt; <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>logfile<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>                                fail_counter<span style="color:#f92672">[</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>server<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">]=</span><span style="color:#66d9ef">$((</span>fail_counter<span style="color:#f92672">[</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>server<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">]</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span><span style="color:#66d9ef">))</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">done</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Here is defined the wait period between each try (in seconds).</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># You can adapt it if needed.</span>
+</span></span><span style="display:flex;"><span>        sleep <span style="color:#ae81ff">300</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span></code></pre></div><p>Finally, we can create a systemd service to launch the script automatically at boot (given that your Linux distribution uses systemd as its init system. If not, check your init system&rsquo;s documentation).</p>
 <p>Here&rsquo;s the one I wrote, under <code>/usr/local/lib/systemd/system/monitor-servers-wakeonlan.service</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">[Unit]
-Description=Run the script that monitors physical servers&#39; responsiveness and power them back on if needed
-After=network-online.target
-
-[Service]
-Type=oneshot
-ExecStart=/path/to/the/script # Adapt this line to the path of your script
-
-[Install]
-WantedBy=default.target
-</code></pre></div><p>Then start the service and enable it at boot:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo systemctl enable --now monitor-servers-wakeonlan.service
-</code></pre></div><p>Since the script is launched via a systemd service, you can actually see the output of the script in real time with <code>journalctl</code>/<code>systemctl status</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo systemctl status monitor-servers-wakeonlan.service
-
-● monitor-servers-wakeonlan.service - Run the script that monitors physical servers<span style="color:#960050;background-color:#1e0010">&#39;</span> responsiveness and power them back on <span style="color:#66d9ef">if</span> needed
-     Loaded: loaded <span style="color:#f92672">(</span>/usr/local/lib/systemd/system/monitor-servers-wakeonlan.service; enabled; preset: enabled<span style="color:#f92672">)</span>
-     Active: activating <span style="color:#f92672">(</span>start<span style="color:#f92672">)</span> since Wed 2023-09-20 14:15:24 CEST; <span style="color:#ae81ff">1</span> month <span style="color:#ae81ff">6</span> days ago
-   Main PID: <span style="color:#ae81ff">492</span> <span style="color:#f92672">(</span>monitor-servers<span style="color:#f92672">)</span>
-      Tasks: <span style="color:#ae81ff">2</span> <span style="color:#f92672">(</span>limit: 963<span style="color:#f92672">)</span>
-     Memory: 2.7M
-        CPU: 11.972s
-     CGroup: /system.slice/monitor-servers-wakeonlan.service
-             ├─  <span style="color:#ae81ff">492</span> /bin/bash /usr/local/bin/monitor-servers-wakeonlan
-             └─20701 sleep <span style="color:#ae81ff">300</span>
-
-Oct <span style="color:#ae81ff">27</span> 12:46:23 rasp01.rc monitor-servers-wakeonlan<span style="color:#f92672">[</span>492<span style="color:#f92672">]</span>: pmx02.rc fail counter: <span style="color:#ae81ff">0</span>
-Oct <span style="color:#ae81ff">27</span> 12:46:23 rasp01.rc monitor-servers-wakeonlan<span style="color:#f92672">[</span>492<span style="color:#f92672">]</span>: pmx01.rc fail counter: <span style="color:#ae81ff">0</span>
-Oct <span style="color:#ae81ff">27</span> 12:51:23 rasp01.rc monitor-servers-wakeonlan<span style="color:#f92672">[</span>492<span style="color:#f92672">]</span>: pmx02.rc fail counter: <span style="color:#ae81ff">0</span>
-Oct <span style="color:#ae81ff">27</span> 12:51:23 rasp01.rc monitor-servers-wakeonlan<span style="color:#f92672">[</span>492<span style="color:#f92672">]</span>: pmx01.rc fail counter: <span style="color:#ae81ff">0</span>
-Oct <span style="color:#ae81ff">27</span> 12:56:23 rasp01.rc monitor-servers-wakeonlan<span style="color:#f92672">[</span>492<span style="color:#f92672">]</span>: pmx02.rc fail counter: <span style="color:#ae81ff">0</span>
-Oct <span style="color:#ae81ff">27</span> 12:56:23 rasp01.rc monitor-servers-wakeonlan<span style="color:#f92672">[</span>492<span style="color:#f92672">]</span>: pmx01.rc fail counter: <span style="color:#ae81ff">0</span>
-Oct <span style="color:#ae81ff">27</span> 13:01:23 rasp01.rc monitor-servers-wakeonlan<span style="color:#f92672">[</span>492<span style="color:#f92672">]</span>: pmx02.rc fail counter: <span style="color:#ae81ff">0</span>
-Oct <span style="color:#ae81ff">27</span> 13:01:23 rasp01.rc monitor-servers-wakeonlan<span style="color:#f92672">[</span>492<span style="color:#f92672">]</span>: pmx01.rc fail counter: <span style="color:#ae81ff">0</span>
-Oct <span style="color:#ae81ff">27</span> 13:06:23 rasp01.rc monitor-servers-wakeonlan<span style="color:#f92672">[</span>492<span style="color:#f92672">]</span>: pmx02.rc fail counter: <span style="color:#ae81ff">0</span>
-Oct <span style="color:#ae81ff">27</span> 13:06:23 rasp01.rc monitor-servers-wakeonlan<span style="color:#f92672">[</span>492<span style="color:#f92672">]</span>: pmx01.rc fail counter: <span style="color:#ae81ff">0</span>
-</code></pre></div><p>You can also stop the script&rsquo;s execution if needed by simply stopping the associated service:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo systemctl stop monitor-servers-wakeonlan.service
-</code></pre></div><h2 id="conclusion">Conclusion</h2>
-<p>So this is it! A simple, easy and cheap solution to monitor your servers' responsiveness and power them back on automatically if needed.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>[Unit]
+</span></span><span style="display:flex;"><span>Description=Run the script that monitors physical servers&#39; responsiveness and power them back on if needed
+</span></span><span style="display:flex;"><span>After=network-online.target
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[Service]
+</span></span><span style="display:flex;"><span>Type=oneshot
+</span></span><span style="display:flex;"><span>ExecStart=/path/to/the/script # Adapt this line to the path of your script
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[Install]
+</span></span><span style="display:flex;"><span>WantedBy=default.target
+</span></span></code></pre></div><p>Then start the service and enable it at boot:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo systemctl enable --now monitor-servers-wakeonlan.service
+</span></span></code></pre></div><p>Since the script is launched via a systemd service, you can actually see the output of the script in real time with <code>journalctl</code>/<code>systemctl status</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo systemctl status monitor-servers-wakeonlan.service
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>● monitor-servers-wakeonlan.service - Run the script that monitors physical servers<span style="color:#960050;background-color:#1e0010">&#39;</span> responsiveness and power them back on <span style="color:#66d9ef">if</span> needed
+</span></span><span style="display:flex;"><span>     Loaded: loaded <span style="color:#f92672">(</span>/usr/local/lib/systemd/system/monitor-servers-wakeonlan.service; enabled; preset: enabled<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>     Active: activating <span style="color:#f92672">(</span>start<span style="color:#f92672">)</span> since Wed 2023-09-20 14:15:24 CEST; <span style="color:#ae81ff">1</span> month <span style="color:#ae81ff">6</span> days ago
+</span></span><span style="display:flex;"><span>   Main PID: <span style="color:#ae81ff">492</span> <span style="color:#f92672">(</span>monitor-servers<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>      Tasks: <span style="color:#ae81ff">2</span> <span style="color:#f92672">(</span>limit: 963<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>     Memory: 2.7M
+</span></span><span style="display:flex;"><span>        CPU: 11.972s
+</span></span><span style="display:flex;"><span>     CGroup: /system.slice/monitor-servers-wakeonlan.service
+</span></span><span style="display:flex;"><span>             ├─  <span style="color:#ae81ff">492</span> /bin/bash /usr/local/bin/monitor-servers-wakeonlan
+</span></span><span style="display:flex;"><span>             └─20701 sleep <span style="color:#ae81ff">300</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Oct <span style="color:#ae81ff">27</span> 12:46:23 rasp01.rc monitor-servers-wakeonlan<span style="color:#f92672">[</span>492<span style="color:#f92672">]</span>: pmx02.rc fail counter: <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>Oct <span style="color:#ae81ff">27</span> 12:46:23 rasp01.rc monitor-servers-wakeonlan<span style="color:#f92672">[</span>492<span style="color:#f92672">]</span>: pmx01.rc fail counter: <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>Oct <span style="color:#ae81ff">27</span> 12:51:23 rasp01.rc monitor-servers-wakeonlan<span style="color:#f92672">[</span>492<span style="color:#f92672">]</span>: pmx02.rc fail counter: <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>Oct <span style="color:#ae81ff">27</span> 12:51:23 rasp01.rc monitor-servers-wakeonlan<span style="color:#f92672">[</span>492<span style="color:#f92672">]</span>: pmx01.rc fail counter: <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>Oct <span style="color:#ae81ff">27</span> 12:56:23 rasp01.rc monitor-servers-wakeonlan<span style="color:#f92672">[</span>492<span style="color:#f92672">]</span>: pmx02.rc fail counter: <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>Oct <span style="color:#ae81ff">27</span> 12:56:23 rasp01.rc monitor-servers-wakeonlan<span style="color:#f92672">[</span>492<span style="color:#f92672">]</span>: pmx01.rc fail counter: <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>Oct <span style="color:#ae81ff">27</span> 13:01:23 rasp01.rc monitor-servers-wakeonlan<span style="color:#f92672">[</span>492<span style="color:#f92672">]</span>: pmx02.rc fail counter: <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>Oct <span style="color:#ae81ff">27</span> 13:01:23 rasp01.rc monitor-servers-wakeonlan<span style="color:#f92672">[</span>492<span style="color:#f92672">]</span>: pmx01.rc fail counter: <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>Oct <span style="color:#ae81ff">27</span> 13:06:23 rasp01.rc monitor-servers-wakeonlan<span style="color:#f92672">[</span>492<span style="color:#f92672">]</span>: pmx02.rc fail counter: <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>Oct <span style="color:#ae81ff">27</span> 13:06:23 rasp01.rc monitor-servers-wakeonlan<span style="color:#f92672">[</span>492<span style="color:#f92672">]</span>: pmx01.rc fail counter: <span style="color:#ae81ff">0</span>
+</span></span></code></pre></div><p>You can also stop the script&rsquo;s execution if needed by simply stopping the associated service:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo systemctl stop monitor-servers-wakeonlan.service
+</span></span></code></pre></div><h2 id="conclusion">Conclusion</h2>
+<p>So this is it! A simple, easy and cheap solution to monitor your servers&rsquo; responsiveness and power them back on automatically if needed.</p>
 <p>However, while this solution works to power servers back on after a power outage, it does not prevent them to be brutally shut down when the power loss occurs.<br>
 For a proper tolerance to short power outage and a proper shutdown for your servers in case of a long one, buy a UPS.</p>
-<p>Note that this &ldquo;Wake On Lan&rdquo; solution can totally co-exist with a UPS, so your servers are properly shutdown in case of a long power outage and automatically powered back on when the power&rsquo;s back! 🙂</p>
+<p>Note that this &ldquo;Wake On Lan&rdquo; solution can totally co-exist with a UPS, so your servers are properly shutdown in case of a long power outage and automatically powered back on when the power&rsquo;s back! :slight_smile:</p>
 </div>
     <div class="post__footer">
       
@@ -556,8 +556,8 @@ For a proper tolerance to short power outage and a proper shutdown for your serv
   
   <script
     type="text/javascript"
-    src="/js/medium-zoom.min.fae9ac8895995fe91958b3954be11e96025824a04770726a3531e119ddd2d576.js"
-    integrity="sha256-&#43;umsiJWZX&#43;kZWLOVS&#43;EelgJYJKBHcHJqNTHhGd3S1XY="
+    src="/js/medium-zoom.min.1248fa75275e5ef0cbef27e8c1e27dc507c445ae3a2c7d2ed0be0809555dac64.js"
+    integrity="sha256-Ekj6dSdeXvDL7yfoweJ9xQfERa46LH0u0L4ICVVdrGQ="
     crossorigin="anonymous"
   ></script></body>
 </html>
