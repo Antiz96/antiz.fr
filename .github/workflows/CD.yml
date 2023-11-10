@@ -19,7 +19,7 @@ jobs:
         run: apk update && apk upgrade
 
       - name: Install packages
-        run: apk add hugo
+        run: apk add git hugo
 
       - name: Build website
         run: rm -rf public && hugo
