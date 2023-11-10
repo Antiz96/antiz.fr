@@ -4,7 +4,6 @@ on: pull_request
 jobs:
   Build:
     runs-on: ubuntu-latest
-    options: --privileged
 
     steps:
       - name: Clone repo
