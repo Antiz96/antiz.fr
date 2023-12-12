@@ -3,7 +3,9 @@ on: pull_request
 
 jobs:
   Build:
-    runs-on: ubuntu-latest
+    runs-on:
+      - self-hosted
+      - CI-CD
 
     steps:
       - name: Clone repo
@@ -11,9 +13,6 @@ jobs:
         with: 
           token: ${{ secrets.BUILD_WEBSITE_TOKEN }}
           ref: ${{ github.event.pull_request.head.ref }}
-
-      - name: Install packages
-        run: sudo snap install hugo
 
       - name: Build website
         run: rm -rf public && hugo
