@@ -19,3 +19,6 @@ jobs:
 
       - name: Run mdl
         run: mdl --style .github/workflows/mdl_style.rb README.md content
+
+      - name: Cleanup env
+        run: rm -rvf /opt/github-runner/*/_diag/* /opt/github-runner/*/_work/*
