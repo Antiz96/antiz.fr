@@ -47,7 +47,7 @@ While package maintainers can make changes on their sides to bring more transpar
 Ideally, such questions as “should I prefer a signed source or a transparent one?” shouldn’t be a thing anymore. Realistically, only auto-generated source tarballs + GPG signatures or signed tags (+ eventual additional trust paths) are viable.
 
 So, for eventual upstream developers passing by: If you don’t already, please (:pleading_face:) consider starting to sign tags/auto-generated source tarballs and provide information about additional steps that may be required to make your sources usable (if needed and if possible, obviously).  
-*(I’ll start doing it myself for the few projects I’m developing* :grinning:*).* 
+*(I’ll start doing it myself for the few projects I’m developing* :grinning:*).*
 
 Now, I’m aware that things may not be as easy as they might sound, and I assume that there are some potential blockers for specific cases I don’t fully understand nor even be aware of.
 
