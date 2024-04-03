@@ -1,5 +1,5 @@
 ---
-title: "What should we learn from the xz situation as Packagers?"
+title: "What should we learn from the XZ situation as Packagers?"
 date: 2024-04-03T14:56:04+02:00
 draft: false
 ---
