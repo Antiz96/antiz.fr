@@ -38,7 +38,7 @@ I already started the effort of switching the source of the packages I maintain 
 
 With the recent xz situation, I think that basing our packages on a more transparent source, at the potential cost of [more complex](https://gitlab.archlinux.org/archlinux/packaging/packages/mupdf/-/commit/9e7f9c55b141833762d7951b81c0a574aa9353d9) packages to maintain (as the eventual pre-required steps needed for the source to be usable in the first place would now be on our side), is worth the price.
 
-Additionnaly, together with David Runge (an Arch Linux Developer), we decided to jointly write two RFCs (namely about “how to deal with sources in our packages?” and “how to deal with signed sources and trust path?”) to try to establish general guidelines on those matters on Arch Linux side *(I’ll update this part of the article with the links to those RFCs once they have been written and published)*.
+Additionally, together with David Runge (an Arch Linux Developer), we decided to jointly write two RFCs (namely about “how to deal with sources in our packages?” and “how to deal with signed sources and trust path?”) to try to establish general guidelines on those matters on Arch Linux side *(I’ll update this part of the article with the links to those RFCs once they have been written and published)*.
 
 ## This is not only a downstream/packaging matter but also an upstream one
 
