@@ -42,6 +42,11 @@ summaryLength = 50
 	title = "Mail"
 	url = "mailto:robincandau@protonmail.com"
 
+	[[params.socialIcons]]
+	icon = "fas fa-key"
+	title = "GPG Key"
+	url = "https://keyserver.ubuntu.com/pks/lookup?search=D33FAA16B937F3B2&fingerprint=on&op=index"
+
 [menu]
 	[[menu.main]]
 	name = "Home"
