@@ -8,7 +8,7 @@ draft: false
 
 As you probably already know by now, a backdoor/security vulnerability has been [recently discovered in xz](https://www.openwall.com/lists/oss-security/2024/03/29/4). In this article, I won’t cover the technical aspect or the potential consequences of it (it has already been done by people way more knowledgeable than am I on that matter) but I will expose what I think we should learn from it, from a packaging stand point.
 
-To sum up the situation briefly (as a context for the rest of this article), the xz (co-)maintainer himself introduced a [backdoor](https://en.wikipedia.org/wiki/Backdoor_(computing)) in the code, obfuscated by the fact that the malicious code (or at least parts of it) was only present in the *custom* made tarball (basically an archive) of the sources (but not present in the "raw" sources hosted in the git repo itself). The said tarball/archive was signed with his GPG key and manually uploaded as an asset/artifact of the releases, which package maintainers used as a source for their package.
+To sum up the situation briefly (as a context for the rest of this article), the xz (co-)maintainer himself introduced a [backdoor](https://en.wikipedia.org/wiki/Backdoor_(computing)) in the code, obfuscated by the fact that the malicious code (or at least parts of it) was only present in the *custom* made tarball (basically an archive) of the sources (but not present in the "raw" sources hosted in the git repo itself). The said tarball/archive was signed with his OpenPGP key and manually uploaded as an asset/artifact of the releases, which package maintainers used as a source for their package.
 
 ## Why relying on a custom made tarball of the sources over the sources themselves in the first place?
 
@@ -26,7 +26,7 @@ It’s undeniable that if the xz malicious code was present in the “raw” sou
 
 As said previously in this article, it’s *unfortunately* quite common that upstream developers only sign such custom made tarballs and not commits/tags on the git sources themselves (which is one of the reason package maintainers may choose to base their packages on them).
 
-However, as said in the [first chapter](#context) of this article, it’s important to remind that the *infected* xz tarball **was signed** with the GPG key of the (co-)maintainer of the project himself (who also introduced the backdoor). That raise an important question: "To which degree do we want to trust a GPG signature over anything else (in this particular case, over a more transparent source)?"
+However, as said in the [first chapter](#context) of this article, it’s important to remind that the *infected* xz tarball **was signed** with the OpenPGP key of the (co-)maintainer of the project himself (who also introduced the backdoor). That raise an important question: "To which degree do we want to trust a GPG signature over anything else (in this particular case, over a more transparent source)?"
 
 While the signature on its own indeed proved the identity of the person that created the tarball (and that it has not been altered since it got signed), it does not guarantee **anything** about the content of the archive in the first place (as the xz situation demonstrated)! When the people themselves are compromised, the signatures worth nothing.
 
