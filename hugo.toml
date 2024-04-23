@@ -44,7 +44,7 @@ summaryLength = 50
 
 	[[params.socialIcons]]
 	icon = "fas fa-key"
-	title = "GPG Key"
+	title = "OpenPGP Key"
 	url = "https://keyserver.ubuntu.com/pks/lookup?search=D33FAA16B937F3B2&fingerprint=on&op=index"
 
 [menu]
