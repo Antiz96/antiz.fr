@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html
   dir="ltr"
   lang="en"
@@ -7,6 +7,7 @@
     class="html theme--light"
   
 ><head>
+  <meta charset="utf-8" />
   <title>
     Robin Candau
         |
@@ -17,8 +18,7 @@
 
   </title>
 
-  
-  <meta charset="utf-8" /><meta name="generator" content="Hugo 0.124.1"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="generator" content="Hugo 0.125.3"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <meta name="author" content="Robin Candau" />
   <meta
     name="description"
@@ -30,8 +30,8 @@
     
     <link
       rel="stylesheet"
-      href="/scss/main.min.26d8396ded3f4aa47cc8d77a9fcb09fee1d20d223c6b3f074a21c7e217bc8c6d.css"
-      integrity="sha256-Jtg5be0/SqR8yNd6n8sJ/uHSDSI8az8HSiHH4he8jG0="
+      href="/scss/main.min.abf5696f0b1a46c16ef0764f02d5faae79efc39bd3e6494fbcb03a9a42d38a2a.css"
+      integrity="sha256-q/VpbwsaRsFu8HZPAtX6rnnvw5vT5klPvLA6mkLTiio="
       crossorigin="anonymous"
       type="text/css"
     />
@@ -120,20 +120,25 @@
 
   
 
-
   
-  <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="What should we learn from the XZ situation as Package Maintainers?"/>
-<meta name="twitter:description" content="Context As you probably already know by now, a backdoor/security vulnerability has been recently discovered in xz. In this article, I won’t cover the technical aspect or the potential consequences of it (it has already been done by people way more knowledgeable than am I on that matter) but I will expose what I think we should learn from it, from a packaging stand point."/>
-
 
 
   
-  <meta property="og:title" content="What should we learn from the XZ situation as Package Maintainers?" />
-<meta property="og:description" content="Context As you probably already know by now, a backdoor/security vulnerability has been recently discovered in xz. In this article, I won’t cover the technical aspect or the potential consequences of it (it has already been done by people way more knowledgeable than am I on that matter) but I will expose what I think we should learn from it, from a packaging stand point." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://antiz.fr/blog/what-should-we-learn-from-the-xz-situation-as-package-maintainers/" /><meta property="article:section" content="blog" />
-<meta property="article:published_time" content="2024-04-03T14:56:04+02:00" />
-<meta property="article:modified_time" content="2024-04-03T14:56:04+02:00" /><meta property="og:site_name" content="Robin Candau" />
+  <meta name="twitter:card" content="summary"><meta name="twitter:title" content="What should we learn from the XZ situation as Package Maintainers?">
+<meta name="twitter:description" content="Context As you probably already know by now, a backdoor/security vulnerability has been recently discovered in xz. In this article, I won’t cover the technical aspect or the potential consequences of it (it has already been done by people way more knowledgeable than am I on that matter) but I will expose what I think we should learn from it, from a packaging stand point.">
+
+
+
+  
+  <meta property="og:url" content="https://antiz.fr/blog/what-should-we-learn-from-the-xz-situation-as-package-maintainers/">
+  <meta property="og:site_name" content="Robin Candau">
+  <meta property="og:title" content="What should we learn from the XZ situation as Package Maintainers?">
+  <meta property="og:description" content="Context As you probably already know by now, a backdoor/security vulnerability has been recently discovered in xz. In this article, I won’t cover the technical aspect or the potential consequences of it (it has already been done by people way more knowledgeable than am I on that matter) but I will expose what I think we should learn from it, from a packaging stand point.">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+  <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2024-04-03T14:56:04+02:00">
+    <meta property="article:modified_time" content="2024-04-03T14:56:04+02:00">
 
 
 
@@ -303,8 +308,8 @@
             href="https://keyserver.ubuntu.com/pks/lookup?search=D33FAA16B937F3B2&amp;fingerprint=on&amp;op=index"
             target="_blank"
             rel="noopener me"
-            aria-label="GPG Key"
-            title="GPG Key"
+            aria-label="OpenPGP Key"
+            title="OpenPGP Key"
           >
             <i class="fas fa-key fa-2x" aria-hidden="true"></i>
           </a>
@@ -313,6 +318,13 @@
     </ul>
   </div><footer class="footer footer__sidebar">
   <ul class="footer__list">
+    <li class="footer__item">
+      &copy;
+      
+        Robin Candau
+        2024
+      
+    </li>
     
   </ul>
 </footer>
@@ -417,7 +429,7 @@
         </ul>
       <h2 id="context">Context</h2>
 <p>As you probably already know by now, a backdoor/security vulnerability has been <a href="https://www.openwall.com/lists/oss-security/2024/03/29/4">recently discovered in xz</a>. In this article, I won’t cover the technical aspect or the potential consequences of it (it has already been done by people way more knowledgeable than am I on that matter) but I will expose what I think we should learn from it, from a packaging stand point.</p>
-<p>To sum up the situation briefly (as a context for the rest of this article), the xz (co-)maintainer himself introduced a <a href="https://en.wikipedia.org/wiki/Backdoor_(computing)">backdoor</a> in the code, obfuscated by the fact that the malicious code (or at least parts of it) was only present in the <em>custom</em> made tarball (basically an archive) of the sources (but not present in the &ldquo;raw&rdquo; sources hosted in the git repo itself). The said tarball/archive was signed with his GPG key and manually uploaded as an asset/artifact of the releases, which package maintainers used as a source for their package.</p>
+<p>To sum up the situation briefly (as a context for the rest of this article), the xz (co-)maintainer himself introduced a <a href="https://en.wikipedia.org/wiki/Backdoor_(computing)">backdoor</a> in the code, obfuscated by the fact that the malicious code (or at least parts of it) was only present in the <em>custom</em> made tarball (basically an archive) of the sources (but not present in the &ldquo;raw&rdquo; sources hosted in the git repo itself). The said tarball/archive was signed with his OpenPGP key and manually uploaded as an asset/artifact of the releases, which package maintainers used as a source for their package.</p>
 <h2 id="why-relying-on-a-custom-made-tarball-of-the-sources-over-the-sources-themselves-in-the-first-place">Why relying on a custom made tarball of the sources over the sources themselves in the first place?</h2>
 <p>Firstly, depending on how a software is developed and what it relies/depends on, the <em>raw</em> sources might not be usable <em>as is</em> (sometimes even at all). It happens that some software’s sources require additional steps/pre-configuration in order to be properly compiled and packaged (for instance projects that relies on <a href="https://en.wikipedia.org/wiki/GNU_Autotools">autotools</a> or <a href="https://git-scm.com/book/en/v2/Git-Tools-Submodules">git submodules</a> to configure sources or pull required third party dependencies). As a matter of convenience, it is quite common that upstream developers provide custom made tarballs of their software&rsquo;s sources with those pre-required additional steps already done, allowing package maintainers to get sources usable as is.</p>
 <p>The other reason why package maintainers often rely on such custom made tarballs over “raw” sources is because it’s quite common for upstream developers to not <del>bother integrating</del> integrate <a href="https://www.gnupg.org/gph/en/manual/x135.html">GPG signing</a> in their development and release workflows (basically sign their commits and tags) but only sign these custom made tarballs instead (probably as a way to “promote” them over raw sources regarding the previous point about convenience). A GPG signed source tarball represents an additional level of trust for package maintainers as it constitutes a reliable way to proves the identity of the person that generated/made the said tarball, but also that it hasn’t been modified in any way after being signed.</p>
@@ -426,7 +438,7 @@
 <p>It’s undeniable that if the xz malicious code was present in the “raw” sources themselves, it would have been detected way faster and more easily (which is why it was only injected in the custom made tarball as a way to obfuscate it).  My personal take on that is, <em>when possible,</em> we should prefer using a more transparent source (over a more convenient one) which is, by definition, more audited and thus eventually more trustworthy.</p>
 <h2 id="what-about-the-gpg-signature-though">What about the GPG signature, though?</h2>
 <p>As said previously in this article, it’s <em>unfortunately</em> quite common that upstream developers only sign such custom made tarballs and not commits/tags on the git sources themselves (which is one of the reason package maintainers may choose to base their packages on them).</p>
-<p>However, as said in the <a href="#context">first chapter</a> of this article, it’s important to remind that the <em>infected</em> xz tarball <strong>was signed</strong> with the GPG key of the (co-)maintainer of the project himself (who also introduced the backdoor). That raise an important question: &ldquo;To which degree do we want to trust a GPG signature over anything else (in this particular case, over a more transparent source)?&rdquo;</p>
+<p>However, as said in the <a href="#context">first chapter</a> of this article, it’s important to remind that the <em>infected</em> xz tarball <strong>was signed</strong> with the OpenPGP key of the (co-)maintainer of the project himself (who also introduced the backdoor). That raise an important question: &ldquo;To which degree do we want to trust a GPG signature over anything else (in this particular case, over a more transparent source)?&rdquo;</p>
 <p>While the signature on its own indeed proved the identity of the person that created the tarball (and that it has not been altered since it got signed), it does not guarantee <strong>anything</strong> about the content of the archive in the first place (as the xz situation demonstrated)! When the people themselves are compromised, the signatures worth nothing.</p>
 <p>My personal opinion is that, while a GPG signature is an important and valuable addition to the “<a href="https://en.wikipedia.org/wiki/Trusted_path">trust path</a>” upstream developers are building towards users/package maintainers, a transparent source (that does not require any additional effort to be proven reliable/trustworthy when compared to “raw” sources) outweighs it.</p>
 <h2 id="so-what-action-will-i-take-on-my-side">So, what action will I take on my side?</h2>
@@ -456,6 +468,13 @@ Let’s move toward a better (and safer) place together! &#x270c;&#xfe0f;</p>
       </main>
     </div><footer class="footer footer__base">
   <ul class="footer__list">
+    <li class="footer__item">
+      &copy;
+      
+        Robin Candau
+        2024
+      
+    </li>
     
   </ul>
 </footer>
