@@ -2,7 +2,7 @@
 baseURL = "https://antiz.fr/"
 languageCode = "en-us"
 title = "Robin Candau"
-theme = "anatole" 
+theme = "Anatole" 
 enableEmoji = true
 summaryLength = 50
 
