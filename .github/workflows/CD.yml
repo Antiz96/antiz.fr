@@ -14,6 +14,12 @@ jobs:
           token: ${{ secrets.BUILD_WEBSITE_TOKEN }}
           ref: ${{ github.event.pull_request.head.ref }}
 
+      - name: Init theme submodule
+        run: git submodule update --init
+
+      - name: Copy custom CSS in theme
+        run: cp custom.css themes/anatole/assets/css/custom.css 
+
       - name: Build website
         run: rm -rf public && hugo
 
@@ -21,8 +27,8 @@ jobs:
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
-          if [ "$(git status --porcelain)" ]; then
-                  git add .
+          if [ "$(git status --porcelain public)" ]; then
+                  git add public
                   git commit -m "Automated build"
                   git push
           else
