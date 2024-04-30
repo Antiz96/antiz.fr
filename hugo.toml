@@ -23,14 +23,9 @@ summaryLength = 50
 	url = "https://github.com/Antiz96"
 
 	[[params.socialIcons]]
-	icon = "fab fa-discord"
-	title = "Discord"
-	url = "https://discord.com/users/369509114617004033"
-
-	[[params.socialIcons]]
-	icon = "fab fa-twitter"
-	title = "Twitter"
-	url = "https://twitter.com/Antiz96"
+	icon = "fab fa-mastodon"
+	title = "Mastodon"
+	url = "https://fosstodon.org/@Antiz"
 
 	[[params.socialIcons]]
 	icon = "fab fa-linkedin"
