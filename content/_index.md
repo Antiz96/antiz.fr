@@ -40,7 +40,7 @@ Here are the main projects I actively contribute to:
 
 ### Arch-Update
 
-![alt text](images/arch-update.svg "Arch Update logo")
+![alt text](images/arch-update.svg "Arch Update logo" =128x128)
 
 [Arch-Update repo](https://github.com/Antiz96/arch-update)
 
