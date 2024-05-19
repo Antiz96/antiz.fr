@@ -8,5 +8,5 @@ exclude_tag :line_length
 exclude_rule 'MD002'
 exclude_rule 'MD041'
 
-# Allow question marks (?) in headers
-rule 'MD026',  :punctuation => '.,;:!'
+# Allow punctuation in headers
+exclude_rule 'MD026'
