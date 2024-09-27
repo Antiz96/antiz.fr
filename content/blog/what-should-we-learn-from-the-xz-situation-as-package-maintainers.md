@@ -26,20 +26,20 @@ It’s undeniable that if the xz malicious code was present in the “raw” sou
 
 As said previously in this article, it’s *unfortunately* quite common that upstream developers only sign such custom made tarballs and not commits/tags on the git sources themselves (which is one of the reason package maintainers may choose to base their packages on them).
 
-However, as said in the [first chapter](#context) of this article, it’s important to remind that the *infected* xz tarball **was signed** with the OpenPGP key of the (co-)maintainer of the project himself (who also introduced the backdoor). That raise an important question: "To which degree do we want to trust a GPG signature over anything else (in this particular case, over a more transparent source)?"
+However, as said in the [first chapter](#context) of this article, it’s important to remind that the *infected* xz tarball **was signed** with the OpenPGP key of the (co-)maintainer of the project himself (who also introduced the backdoor). That raises an important question: "To which degree do we want to trust a GPG signature over anything else (in this particular case, over a more transparent source)?"
 
 While the signature on its own indeed proved the identity of the person that created/signed the tarball (and that it has not been altered since it got signed), it does not guarantee **anything** about the content of the archive in the first place (as the xz situation demonstrated)! When the people themselves are compromised, the signatures worth nothing.
 
-My personal opinion is that, while a GPG signatures are important, a transparent source (that does not require any additional effort to be proven reliable/trustworthy when compared to “raw” sources) outweighs it.  
+My personal opinion is that, while GPG signatures are important, a transparent source (that does not require any additional effort to be proven reliable/trustworthy when compared to “raw” sources) outweighs it.  
 Also, realistically, a GPG signature is only valuable if it is accompanied by a [trust path](https://en.wikipedia.org/wiki/Trusted_path) (such as a [MAINTAINERS file](https://github.com/Nitrokey/pynitrokey/blob/master/MAINTAINERS.md) for instance).
 
 ## So, what action will I take on my side?
 
 I already started the effort of switching the source of the packages I maintain on Arch Linux side that are currently based on such custom made tarballs to either the auto-generated tarball made by the git platform the code is hosted on, or to the git sources themselves directly (hopefully not at the expense of a GPG signature but I will *probably* do it if there's no other choice).
 
-With the recent xz situation, I think that basing our packages on a more transparent source, at the potential cost of [more complex](https://gitlab.archlinux.org/archlinux/packaging/packages/mupdf/-/commit/9e7f9c55b141833762d7951b81c0a574aa9353d9) packages to maintain (as the eventual pre-required steps needed for the source to be usable in the first place would now be on our side), is worth the price.
+With the recent xz situation, I think that basing our packages on a more transparent source, at the potential cost of [more complex](https://gitlab.archlinux.org/archlinux/packaging/packages/mupdf/-/commit/9e7f9c55b141833762d7951b81c0a574aa9353d9) packages to maintain (as the eventual pre-required steps needed for the source to be usable in the first place would now be on our side) is worth the price.
 
-Additionally, together with David Runge (an Arch Linux Developer), we decided to jointly write two RFCs (namely about “how to deal with sources in our packages?” and “how to deal with signed sources and trust path?”) to try to establish general guidelines on those matters on Arch Linux side *(I’ll update this part of the article with the links to those RFCs once they have been written and published)*.
+Additionally, together with David Runge (Arch Linux Developer), we decided to jointly write an RFC (namely about “how to deal with sources in our packages?”) as a trial/suggestion to establish general guidelines on those matters on Arch Linux side *(I’ll update this part of the article with the links to those RFCs once they have been written and published)*.
 
 ## This is not only a downstream/packaging matter but also an upstream one
 
