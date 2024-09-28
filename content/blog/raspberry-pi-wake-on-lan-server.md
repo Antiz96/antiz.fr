@@ -22,7 +22,7 @@ You need hardware that automatically powers on when the power comes in, like it'
 I personally used a Raspberry Pi (3B+) that was sleeping in my drawer.  
 There's no specific requirements in terms of performance, as long as it is capable of running a simple Linux server.
 
-Raspberry Pis are cheap, have a low power consumption and run Linux pretty well, so they are a great fit for this, but any other hardware that match the above requirements will do.
+Raspberry Pis are cheap, have a low power consumption and run Linux pretty well, so they are a great fit for this, but any other hardware that matches the above requirements will do.
 
 ## The solution
 
