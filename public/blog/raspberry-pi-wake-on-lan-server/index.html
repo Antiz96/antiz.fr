@@ -458,7 +458,7 @@ To enable Wake On Lan support on your network adapter, install the <a href="http
 <p>The first thing we need is a Wake On Lan application/utility capable of sending the network packet needed to power on the servers.<br>
 I personally use <a href="https://github.com/jpoliv/wakeonlan/">this one</a> which is <a href="https://repology.org/project/wakeonlan-jpoliv/versions">packaged by most Linux distributions</a>.</p>
 <p>We then need a script to monitor servers and send a Wake On Lan packet if needed.<br>
-<a href="https://github.com/Antiz96/Commands-Scripts/blob/main/monitor-servers-wakeonlan.sh">Here is</a> the one I wrote:</p>
+Here is the one I wrote:</p>
 <p>It sends a ping to the given list of servers and increment a &ldquo;fail counter&rdquo; per server each time a ping doesn&rsquo;t get a response.<br>
 By default, a Wake On Lan packet is sent after 6 consecutive fails and there&rsquo;s a wait period of 5 minutes between each try, so that&rsquo;s a total of 30 minutes of downtime.<br>
 I chose to use those not too &ldquo;aggressive&rdquo; values by default so I can still shutdown my servers for maintenance purposes (for instance) without the script being triggered instantly and sending Wake On Lan packets right away. But you can, of course, modify those values to your liking!</p>
