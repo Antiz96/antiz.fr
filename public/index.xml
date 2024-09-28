@@ -45,9 +45,9 @@ After a quick thought, I understood that a power outage occurred during the nigh
 &lt;p&gt;This website is built with the &lt;a href=&#34;https://gohugo.io/&#34;&gt;HUGO&lt;/a&gt; static website generator using the &lt;a href=&#34;https://github.com/lxndrblz/anatole&#34;&gt;anatole&lt;/a&gt; theme.&lt;br&gt;
 The website&amp;rsquo;s source code is hosted in &lt;a href=&#34;https://github.com/Antiz96/antiz.fr/&#34;&gt;this GitHub repository&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;automated-workflow&#34;&gt;Automated workflow&lt;/h2&gt;
-&lt;p&gt;To manage this website, I use an automated workflow based upon CI/CD (Continuous Integration/Continuous Delivery).&lt;/p&gt;
+&lt;p&gt;To manage this website, I use an automated CI/CD workflow:&lt;/p&gt;
 &lt;h3 id=&#34;ci&#34;&gt;CI&lt;/h3&gt;
-&lt;p&gt;I make my changes &lt;em&gt;(creating an article, update the theme, add new parameters to the website, etc&amp;hellip;)&lt;/em&gt; locally on my computer inside the git repository in the &lt;code&gt;dev&lt;/code&gt; branch.&lt;br&gt;
+&lt;p&gt;I make my changes &lt;em&gt;(creating an new article, update the theme, add new parameters to the website, etc&amp;hellip;)&lt;/em&gt; locally on my computer inside the git repository in the &lt;code&gt;dev&lt;/code&gt; branch.&lt;br&gt;
 Once the changes are done, I push them to the GitHub repository and I create a &lt;code&gt;merge request&lt;/code&gt; from the &lt;code&gt;dev&lt;/code&gt; branch to the &lt;code&gt;main&lt;/code&gt; one, which triggers a &lt;code&gt;CI&lt;/code&gt; pipeline:&lt;/p&gt;</description>
       
     </item>
