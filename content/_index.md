@@ -42,7 +42,7 @@ Here are the main projects I actively contribute to:
 
 ![alt text](images/arch_update-logo.png "Arch-Update logo")
 
-[Arch-Update](https://github.com/Antiz96/arch-update) is an update notifier/applier for Arch Linux that assists you with important pre/post update tasks. 
+[Arch-Update](https://github.com/Antiz96/arch-update) is an update notifier/applier for Arch Linux that assists you with important pre/post update tasks.
 
 It has various features such as a clickeable systay applet & an automated check for update, and is designed to follow usual system maintenance steps, as described in the [Arch Wiki](https://wiki.archlinux.org/title/System_maintenance):  
 It offers to read latest Arch news before updating the system, offers to remove orphan & old cached packages, to process pacnew files, to restart services that need a post upgrade restart, it checks for pending kernel updates requiring a reboot to be applied, etc... It optionally supports AUR & Flatpak packages as well as desktop notifications.
