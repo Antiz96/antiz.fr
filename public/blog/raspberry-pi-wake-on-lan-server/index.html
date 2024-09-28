@@ -214,7 +214,7 @@ After a quick thought, I understood that a power outage occurred during the nigh
 
     ,
         "url" : "https:\/\/antiz.fr\/blog\/raspberry-pi-wake-on-lan-server\/",
-        "wordCount" : "1487",
+        "wordCount" : "1431",
         "genre" : [ ],
         "keywords" : [ ]
     }
@@ -430,38 +430,38 @@ After a quick thought, I understood that a power outage occurred during the nigh
 I immediately checked on my internet provider, but my router seemed running just fine and no breakages were reported on their side in my region.</p>
 <p>I then decided to check on my own infrastructure and realised that both of my physical servers were down. Those servers host my DNS and DHCP services, which explains why I had a faulty network connection.<br>
 After a quick thought, I understood that a power outage occurred during the night (which wasn&rsquo;t so obvious at first as the power was back when I woke up), causing my servers to go down. While my router automatically switched back on when the power came back, my servers didn&rsquo;t. Indeed, <em>without extra configuration,</em> you physically need to press down the power button to power them on.</p>
-<p>During my reflexion about how to prevent that for the future, I obviously thought of buying a <a href="https://en.wikipedia.org/wiki/Uninterruptible_power_supply">UPS</a> to get a fault tolerance in case of short power outage or at least have the servers shutdown properly in case of long ones. But the low frequency of power cuts in my current place and the low impact of an eventual downtime of my services/infrastructure when those happen simply doesn&rsquo;t worth the (high) cost.<br>
-So I ended up thinking about a cheap, modular and easy solution to add a sort of power outage &ldquo;tolerance&rdquo; to my servers thanks to a simple <a href="https://en.wikipedia.org/wiki/Raspberry_Pi">Raspberry Pi</a> that I&rsquo;ll present to you through this article.</p>
+<p>During my reflexion about how to prevent that for the future, I obviously thought of buying a <a href="https://en.wikipedia.org/wiki/Uninterruptible_power_supply">UPS</a> to get a fault tolerance in case of short power outage or at least have the servers shutdown properly in case of long ones. But the low frequency of power cuts in my current place and the low impact of an eventual downtime of my services/infrastructure when those happen isn&rsquo;t worth the (high) cost.<br>
+So I ended up thinking about a cheap, modular and easy solution to add a sort of power outage &ldquo;tolerance&rdquo; to my servers thanks to a simple <a href="https://en.wikipedia.org/wiki/Raspberry_Pi">Raspberry Pi</a>.</p>
 <h2 id="the-hardware">The hardware</h2>
-<p>I personally used a Raspberry Pi (3B+) that was sleeping in my drawer, but any model would do.<br>
-There&rsquo;s no specific requirements in terms of performance, as long as it is capable of running a simple Linux server you&rsquo;re good.</p>
-<p>The only prerequisite is to get hardware that automatically powers on when the power comes in, like it&rsquo;s the case for Raspberry Pis (and for most other small single board computers that do not have a power button).</p>
-<p>Raspberry Pis are cheap, have a low power consumption and run Linux pretty well, hence why I recommend them. But if you have another hardware that respect the above prerequisites (automatic power on and runs Linux), that&rsquo;s perfect!</p>
+<p>You need hardware that automatically powers on when the power comes in, like it&rsquo;s the case for most small single board computers.</p>
+<p>I personally used a Raspberry Pi (3B+) that was sleeping in my drawer.<br>
+There&rsquo;s no specific requirements in terms of performance, as long as it is capable of running a simple Linux server.</p>
+<p>Raspberry Pis are cheap, have a low power consumption and run Linux pretty well, so they are a great fit for this, but any other hardware that match the above prerequisites will do.</p>
 <h2 id="the-solution">The solution</h2>
-<p>The solution consist of a script running on the Raspberry Pi that monitors my servers health and make use of the <a href="https://en.wikipedia.org/wiki/Wake-on-LAN">&ldquo;Wake On Lan&rdquo; network standard</a> to power them back on remotely after a (configurable) period of downtime.<br>
-Indeed, thanks to the way Raspberry Pis are automatically powered on when power comes in, the Raspberry Pi will automatically power back on when the power is restored after a power outage, allowing it to check and power on my other physical servers in such cases.</p>
-<p>But before creating the script on the Raspberry Pi, we have to make the monitored servers compatible with Wake On Lan so they can handle the related network packet sent by the script properly.</p>
+<p>The solution consist of a simple script running on the Raspberry Pi that monitors my servers health and make use of the <a href="https://en.wikipedia.org/wiki/Wake-on-LAN">&ldquo;Wake On Lan&rdquo; network standard</a> to power them back on remotely after a (configurable) period of downtime.<br>
+Indeed, thanks to the way Raspberry Pis are automatically powered on when power comes in, the Raspberry Pi will automatically power back on when the power is restored after a power outage, allowing it to check my other physical servers health / responsiveness, and power them back on if needed.</p>
+<p>But before writing such a script on the Raspberry Pi, we have to make the monitored servers compatible with Wake On Lan so they can properly handle the related network packet sent by the script.</p>
 <h3 id="enabling-wake-on-lan-support-on-the-monitored-servers">Enabling Wake On Lan support on the monitored servers</h3>
-<p>If your hardware/motherboard is fairly recent, it should be compatible with Wake On Lan but you may have to enable the related parameter in your UEFI/BIOS settings.<br>
+<p>If your hardware/motherboard is fairly recent, it should be compatible with Wake On Lan but you may have to enable the associated parameter in your UEFI/BIOS settings.<br>
 It is usually located under the &ldquo;power management&rdquo; or &ldquo;network&rdquo; section.</p>
-<p>If you can&rsquo;t find such a parameter, it might be named differently or already enabled by default.<br>
+<p>If you can&rsquo;t find such a parameter, it might be named differently or it may be already enabled by default.<br>
 Check instructions from your motherboard vendor.</p>
 <p>Once enabled on the hardware side, the Wake On Lan support has to be enabled on the software side:<br>
-To enable Wake On Lan support on your network adapter, install the <a href="https://repology.org/project/ethtool/versions">ethtool package</a> (if not installed already) and run the following command (that enables Wake On Lan support for your current session only):</p>
+To enable Wake On Lan support on your network adapter, install the <a href="https://repology.org/project/ethtool/versions">ethtool package</a> (if not installed already) and run the following command to enable Wake On Lan support for the current boot:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo ethtool -s eth0 wol g <span style="color:#75715e"># Replace &#34;eth0&#34; by the name of your network adapter</span>
-</span></span></code></pre></div><p>Then, to enable it permanently, follow the instructions related to the network manager you use:</p>
+</span></span></code></pre></div><p>Then, to enable it persistently, follow the instructions related to the network manager you use:</p>
 <ul>
-<li><a href="https://wiki.debian.org/WakeOnLan#Enabling_WOL">Debian Wiki</a> (contains instructions for <code>ifupdown</code> specific to Debian)</li>
+<li><a href="https://wiki.debian.org/WakeOnLan#Enabling_WOL">Debian Wiki</a> (contains instructions for <code>ifupdown</code>, specific to Debian)</li>
 <li><a href="https://wiki.archlinux.org/title/Wake-on-LAN#Make_it_persistent">Arch Wiki</a></li>
 </ul>
 <h3 id="configuring-the-raspberry-pi">Configuring the Raspberry Pi</h3>
 <p>The first thing we need is a Wake On Lan application/utility capable of sending the network packet needed to power on the servers.<br>
-I personally use <a href="https://github.com/jpoliv/wakeonlan/">this one</a> which is <a href="https://repology.org/project/wakeonlan/versions">packaged by most Linux distributions</a>.</p>
+I personally use <a href="https://github.com/jpoliv/wakeonlan/">this one</a> which is <a href="https://repology.org/project/wakeonlan-jpoliv/versions">packaged by most Linux distributions</a>.</p>
 <p>We then need a script to monitor servers and send a Wake On Lan packet if needed.<br>
-<a href="https://github.com/Antiz96/Commands-Scripts/blob/main/monitor-servers-wakeonlan.sh">Here&rsquo;s</a> the one I wrote:</p>
+<a href="https://github.com/Antiz96/Commands-Scripts/blob/main/monitor-servers-wakeonlan.sh">Here is</a> the one I wrote:</p>
 <p>It sends a ping to the given list of servers and increment a &ldquo;fail counter&rdquo; per server each time a ping doesn&rsquo;t get a response.<br>
 By default, a Wake On Lan packet is sent after 6 consecutive fails and there&rsquo;s a wait period of 5 minutes between each try, so that&rsquo;s a total of 30 minutes of downtime.<br>
-I chose to use those not too &ldquo;aggressive&rdquo; values by default so I can still shutdown my servers for a maintenance (for instance) without the script being triggered instantly and sending Wake On Lan packets right away. But you can, of course, modify those values to your liking!</p>
+I chose to use those not too &ldquo;aggressive&rdquo; values by default so I can still shutdown my servers for maintenance purposes (for instance) without the script being triggered instantly and sending Wake On Lan packets right away. But you can, of course, modify those values to your liking!</p>
 <p>See the comments in the script to adapt it to your needs and environment.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
@@ -471,10 +471,6 @@ I chose to use those not too &ldquo;aggressive&rdquo; values by default so I can
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Then replace &#34;MAC_address_of_the_network_adapter&#34; by the MAC address of the network adapter of the corresponding server.</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># You can find it in the `link/ether` field when running `ip link` on your server.</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Example:</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># servers[&#34;pmx01.rc&#34;]=&#34;7c:10:c9:8c:88:9d&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># servers[&#34;pmx02.rc&#34;]=&#34;68:1d:ef:30:cc:88&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># You can declare as many servers as you want.</span>
 </span></span><span style="display:flex;"><span>declare -A servers
 </span></span><span style="display:flex;"><span>servers<span style="color:#f92672">[</span><span style="color:#e6db74">&#34;Server1&#34;</span><span style="color:#f92672">]=</span><span style="color:#e6db74">&#34;MAC_address_of_the_network_adapter&#34;</span>
@@ -483,7 +479,6 @@ I chose to use those not too &ldquo;aggressive&rdquo; values by default so I can
 </span></span><span style="display:flex;"><span>declare -A fail_counter
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># This log file is used to collect logs for sent Wake On Lan packets.</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Put it wherever you want but make sure the parent directories have been created beforehand.</span>
 </span></span><span style="display:flex;"><span>logfile<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/var/log/monitor-servers-wakeonlan/wol_packet.log&#34;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> true; <span style="color:#66d9ef">do</span>
@@ -504,14 +499,14 @@ I chose to use those not too &ldquo;aggressive&rdquo; values by default so I can
 </span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">fi</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">done</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Here is defined the wait period between each try (in seconds).</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Here is defined the wait time period between each try (in seconds).</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#75715e"># You can adapt it if needed.</span>
 </span></span><span style="display:flex;"><span>        sleep <span style="color:#ae81ff">300</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
 </span></span></code></pre></div><p>Finally, we can create a systemd service to launch the script automatically at boot (given that your Linux distribution uses systemd as its init system. If not, check your init system&rsquo;s documentation).</p>
 <p>Here&rsquo;s the one I wrote, under <code>/usr/local/lib/systemd/system/monitor-servers-wakeonlan.service</code>:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>[Unit]
-</span></span><span style="display:flex;"><span>Description=Run the script that monitors physical servers&#39; responsiveness and power them back on if needed
+</span></span><span style="display:flex;"><span>Description=Monitor physical servers responsiveness and power them back on if needed
 </span></span><span style="display:flex;"><span>After=network-online.target
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>[Service]
@@ -522,7 +517,7 @@ I chose to use those not too &ldquo;aggressive&rdquo; values by default so I can
 </span></span><span style="display:flex;"><span>WantedBy=default.target
 </span></span></code></pre></div><p>Then start the service and enable it at boot:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo systemctl enable --now monitor-servers-wakeonlan.service
-</span></span></code></pre></div><p>Since the script is launched via a systemd service, you can actually see the output of the script in real time with <code>journalctl</code>/<code>systemctl status</code>:</p>
+</span></span></code></pre></div><p>Since the script is launched via a systemd service, you can see the output in real time with <code>journalctl</code>/<code>systemctl status</code>:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo systemctl status monitor-servers-wakeonlan.service
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>● monitor-servers-wakeonlan.service - Run the script that monitors physical servers<span style="color:#960050;background-color:#1e0010">&#39;</span> responsiveness and power them back on <span style="color:#66d9ef">if</span> needed
@@ -551,7 +546,7 @@ I chose to use those not too &ldquo;aggressive&rdquo; values by default so I can
 </span></span></code></pre></div><h2 id="conclusion">Conclusion</h2>
 <p>So this is it! A simple, easy and cheap solution to monitor your servers&rsquo; responsiveness and power them back on automatically if needed.</p>
 <p>However, while this solution works to power servers back on after a power outage, it does not prevent them to be brutally shut down when the power loss occurs.<br>
-For a proper tolerance to short power outage and a proper shutdown for your servers in case of a long one, buy a UPS.</p>
+For a proper tolerance to short power outage and a proper shutdown for your servers in case of a long one, yous should buy a UPS.</p>
 <p>Note that this &ldquo;Wake On Lan&rdquo; solution can totally co-exist with a UPS, so your servers are properly shutdown in case of a long power outage and automatically powered back on when the power&rsquo;s back! &#x1f642;</p>
 </div>
     <div class="post__footer">
