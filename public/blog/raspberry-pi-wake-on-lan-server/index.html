@@ -436,7 +436,7 @@ So I ended up thinking about a cheap, modular and easy solution to add a sort of
 <p>You need hardware that automatically powers on when the power comes in, like it&rsquo;s the case for most small single board computers.</p>
 <p>I personally used a Raspberry Pi (3B+) that was sleeping in my drawer.<br>
 There&rsquo;s no specific requirements in terms of performance, as long as it is capable of running a simple Linux server.</p>
-<p>Raspberry Pis are cheap, have a low power consumption and run Linux pretty well, so they are a great fit for this, but any other hardware that match the above prerequisites will do.</p>
+<p>Raspberry Pis are cheap, have a low power consumption and run Linux pretty well, so they are a great fit for this, but any other hardware that match the above requirements will do.</p>
 <h2 id="the-solution">The solution</h2>
 <p>The solution consist of a simple script running on the Raspberry Pi that monitors my servers health and make use of the <a href="https://en.wikipedia.org/wiki/Wake-on-LAN">&ldquo;Wake On Lan&rdquo; network standard</a> to power them back on remotely after a (configurable) period of downtime.<br>
 Indeed, thanks to the way Raspberry Pis are automatically powered on when power comes in, the Raspberry Pi will automatically power back on when the power is restored after a power outage, allowing it to check my other physical servers health / responsiveness, and power them back on if needed.</p>
