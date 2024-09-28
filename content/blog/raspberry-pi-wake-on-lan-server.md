@@ -57,7 +57,7 @@ The first thing we need is a Wake On Lan application/utility capable of sending 
 I personally use [this one](https://github.com/jpoliv/wakeonlan/) which is [packaged by most Linux distributions](https://repology.org/project/wakeonlan-jpoliv/versions).
 
 We then need a script to monitor servers and send a Wake On Lan packet if needed.  
-[Here is](https://github.com/Antiz96/Commands-Scripts/blob/main/monitor-servers-wakeonlan.sh) the one I wrote:
+Here is the one I wrote:
 
 It sends a ping to the given list of servers and increment a "fail counter" per server each time a ping doesn't get a response.  
 By default, a Wake On Lan packet is sent after 6 consecutive fails and there's a wait period of 5 minutes between each try, so that's a total of 30 minutes of downtime.  
