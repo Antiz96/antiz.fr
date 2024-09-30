@@ -214,7 +214,7 @@ After a quick thought, I understood that a power outage occurred during the nigh
 
     ,
         "url" : "https:\/\/antiz.fr\/blog\/raspberry-pi-wake-on-lan-server\/",
-        "wordCount" : "1431",
+        "wordCount" : "1441",
         "genre" : [ ],
         "keywords" : [ ]
     }
@@ -430,7 +430,7 @@ After a quick thought, I understood that a power outage occurred during the nigh
 I immediately checked on my internet provider, but my router seemed running just fine and no breakages were reported on their side in my region.</p>
 <p>I then decided to check on my own infrastructure and realised that both of my physical servers were down. Those servers host my DNS and DHCP services, which explains why I had a faulty network connection.<br>
 After a quick thought, I understood that a power outage occurred during the night (which wasn&rsquo;t so obvious at first as the power was back when I woke up), causing my servers to go down. While my router automatically switched back on when the power came back, my servers didn&rsquo;t. Indeed, <em>without extra configuration,</em> you physically need to press down the power button to power them on.</p>
-<p>During my reflexion about how to prevent that for the future, I obviously thought of buying a <a href="https://en.wikipedia.org/wiki/Uninterruptible_power_supply">UPS</a> to get a fault tolerance in case of short power outage or at least have the servers shutdown properly in case of long ones. But the low frequency of power cuts in my current place and the low impact of an eventual downtime of my services/infrastructure when those happen isn&rsquo;t worth the (high) cost.<br>
+<p>During my reflexion about how to prevent that for the future, I obviously thought of buying a <a href="https://en.wikipedia.org/wiki/Uninterruptible_power_supply">UPS</a> to get a fault tolerance in case of short power outage or at least have the servers shutdown properly in case of long ones. But the low frequency of power cuts in my current place and the low impact of an eventual downtime of my services / infrastructure when those happen isn&rsquo;t worth the (high) cost.<br>
 So I ended up thinking about a cheap, modular and easy solution to add a sort of power outage &ldquo;tolerance&rdquo; to my servers thanks to a simple <a href="https://en.wikipedia.org/wiki/Raspberry_Pi">Raspberry Pi</a>.</p>
 <h2 id="the-hardware">The hardware</h2>
 <p>You need hardware that automatically powers on when the power comes in, like it&rsquo;s the case for most small single board computers.</p>
@@ -442,7 +442,7 @@ There&rsquo;s no specific requirements in terms of performance, as long as it is
 Indeed, thanks to the way Raspberry Pis are automatically powered on when power comes in, the Raspberry Pi will automatically power back on when the power is restored after a power outage, allowing it to check my other physical servers health / responsiveness, and power them back on if needed.</p>
 <p>But before writing such a script on the Raspberry Pi, we have to make the monitored servers compatible with Wake On Lan so they can properly handle the related network packet sent by the script.</p>
 <h3 id="enabling-wake-on-lan-support-on-the-monitored-servers">Enabling Wake On Lan support on the monitored servers</h3>
-<p>If your hardware/motherboard is fairly recent, it should be compatible with Wake On Lan but you may have to enable the associated parameter in your UEFI/BIOS settings.<br>
+<p>If your hardware / motherboard is fairly recent, it should be compatible with Wake On Lan but you may have to enable the associated parameter in your UEFI / BIOS settings.<br>
 It is usually located under the &ldquo;power management&rdquo; or &ldquo;network&rdquo; section.</p>
 <p>If you can&rsquo;t find such a parameter, it might be named differently or it may be already enabled by default.<br>
 Check instructions from your motherboard vendor.</p>
@@ -455,7 +455,7 @@ To enable Wake On Lan support on your network adapter, install the <a href="http
 <li><a href="https://wiki.archlinux.org/title/Wake-on-LAN#Make_it_persistent">Arch Wiki</a></li>
 </ul>
 <h3 id="configuring-the-raspberry-pi">Configuring the Raspberry Pi</h3>
-<p>The first thing we need is a Wake On Lan application/utility capable of sending the network packet needed to power on the servers.<br>
+<p>The first thing we need is a Wake On Lan application / utility capable of sending the network packet needed to power on the servers.<br>
 I personally use <a href="https://github.com/jpoliv/wakeonlan/">this one</a> which is <a href="https://repology.org/project/wakeonlan-jpoliv/versions">packaged by most Linux distributions</a>.</p>
 <p>We then need a script to monitor servers and send a Wake On Lan packet if needed.<br>
 Here is the one I wrote:</p>
@@ -517,7 +517,7 @@ I chose to use those not too &ldquo;aggressive&rdquo; values by default so I can
 </span></span><span style="display:flex;"><span>WantedBy=default.target
 </span></span></code></pre></div><p>Then start the service and enable it at boot:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo systemctl enable --now monitor-servers-wakeonlan.service
-</span></span></code></pre></div><p>Since the script is launched via a systemd service, you can see the output in real time with <code>journalctl</code>/<code>systemctl status</code>:</p>
+</span></span></code></pre></div><p>Since the script is launched via a systemd service, you can see the output in real time with <code>journalctl</code> / <code>systemctl status</code>:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo systemctl status monitor-servers-wakeonlan.service
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>● monitor-servers-wakeonlan.service - Run the script that monitors physical servers<span style="color:#960050;background-color:#1e0010">&#39;</span> responsiveness and power them back on <span style="color:#66d9ef">if</span> needed
