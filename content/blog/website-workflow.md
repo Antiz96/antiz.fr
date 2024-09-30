@@ -11,7 +11,7 @@ The website's source code is hosted in [this GitHub repository](https://github.c
 
 ## Automated workflow
 
-To manage this website, I use an automated CI/CD workflow:
+To manage this website, I use an automated CI / CD workflow:
 
 ### CI
 
@@ -30,7 +30,7 @@ The [build job](https://github.com/Antiz96/antiz.fr/blob/main/.github/workflows/
 
 - The test job:
 
-The [test job](https://github.com/Antiz96/antiz.fr/blob/main/.github/workflows/CI.yml) automatically runs a bunch of tests/linters against the website's files in the repository, to make sure the changes I made are correctly written/syntaxed.
+The [test job](https://github.com/Antiz96/antiz.fr/blob/main/.github/workflows/CI.yml) automatically runs a bunch of tests / linters against the website's files in the repository, to make sure the changes I made are correctly written / syntaxed.
 
 ### CD
 
@@ -48,4 +48,4 @@ Once the changes have been reviewed and declared "ready" to go to production, th
 
 ![alt_text](../../images/Jenkins_Update_Website_Job_Prd.png "Jenkins - Update Website Job Prod")
 
-This workflow aims to evolve and be improved over time but it's a good example of a simple; yet effective, flexible and reliable automated CI/CD workflow you can use to manage your projects! :smile:
+This workflow aims to evolve and be improved over time but it's a good example of a simple; yet effective, flexible and reliable automated CI / CD workflow you can use to manage your projects! :smile:

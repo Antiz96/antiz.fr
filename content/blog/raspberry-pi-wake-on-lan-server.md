@@ -12,7 +12,7 @@ I immediately checked on my internet provider, but my router seemed running just
 I then decided to check on my own infrastructure and realised that both of my physical servers were down. Those servers host my DNS and DHCP services, which explains why I had a faulty network connection.  
 After a quick thought, I understood that a power outage occurred during the night (which wasn't so obvious at first as the power was back when I woke up), causing my servers to go down. While my router automatically switched back on when the power came back, my servers didn't. Indeed, *without extra configuration,* you physically need to press down the power button to power them on.
 
-During my reflexion about how to prevent that for the future, I obviously thought of buying a [UPS](https://en.wikipedia.org/wiki/Uninterruptible_power_supply) to get a fault tolerance in case of short power outage or at least have the servers shutdown properly in case of long ones. But the low frequency of power cuts in my current place and the low impact of an eventual downtime of my services/infrastructure when those happen isn't worth the (high) cost.  
+During my reflexion about how to prevent that for the future, I obviously thought of buying a [UPS](https://en.wikipedia.org/wiki/Uninterruptible_power_supply) to get a fault tolerance in case of short power outage or at least have the servers shutdown properly in case of long ones. But the low frequency of power cuts in my current place and the low impact of an eventual downtime of my services / infrastructure when those happen isn't worth the (high) cost.  
 So I ended up thinking about a cheap, modular and easy solution to add a sort of power outage "tolerance" to my servers thanks to a simple [Raspberry Pi](https://en.wikipedia.org/wiki/Raspberry_Pi).
 
 ## The hardware
@@ -33,7 +33,7 @@ But before writing such a script on the Raspberry Pi, we have to make the monito
 
 ### Enabling Wake On Lan support on the monitored servers
 
-If your hardware/motherboard is fairly recent, it should be compatible with Wake On Lan but you may have to enable the associated parameter in your UEFI/BIOS settings.  
+If your hardware / motherboard is fairly recent, it should be compatible with Wake On Lan but you may have to enable the associated parameter in your UEFI / BIOS settings.  
 It is usually located under the "power management" or "network" section.
 
 If you can't find such a parameter, it might be named differently or it may be already enabled by default.  
@@ -53,7 +53,7 @@ Then, to enable it persistently, follow the instructions related to the network 
 
 ### Configuring the Raspberry Pi
 
-The first thing we need is a Wake On Lan application/utility capable of sending the network packet needed to power on the servers.  
+The first thing we need is a Wake On Lan application / utility capable of sending the network packet needed to power on the servers.  
 I personally use [this one](https://github.com/jpoliv/wakeonlan/) which is [packaged by most Linux distributions](https://repology.org/project/wakeonlan-jpoliv/versions).
 
 We then need a script to monitor servers and send a Wake On Lan packet if needed.  
@@ -131,7 +131,7 @@ Then start the service and enable it at boot:
 sudo systemctl enable --now monitor-servers-wakeonlan.service
 ```
 
-Since the script is launched via a systemd service, you can see the output in real time with `journalctl`/`systemctl status`:
+Since the script is launched via a systemd service, you can see the output in real time with `journalctl` / `systemctl status`:
 
 ```bash
 $ sudo systemctl status monitor-servers-wakeonlan.service
