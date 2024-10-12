@@ -36,7 +36,7 @@ Here are the main projects I actively contribute to:
 
 [Alpine Linux](https://www.alpinelinux.org) is a security-oriented, lightweight Linux distribution based on musl libc and busybox.
 
-- Packaging: I maintain [some packages](https://pkgs.alpinelinux.org/packages?name=&branch=edge&repo=&arch=&maintainer=Robin+Candau) in Alpine's official testing repository and I'm opening (GitLab) issues & merge requests to fix some packaging issues.
+- Packaging: I maintain [some packages](https://pkgs.alpinelinux.org/packages?name=&branch=edge&repo=&arch=&maintainer=Robin+Candau) in Alpine's official testing repository and I'm opening (GitLab) issues & merge requests to fix some packaging issues. I am also maintaining [some of Alpine's packaging tooling](https://archlinux.org/packages/?sort=&q=alpine&maintainer=Antiz&flagged=) in Arch Linux repositories.
 
 ### Arch-Update
 
