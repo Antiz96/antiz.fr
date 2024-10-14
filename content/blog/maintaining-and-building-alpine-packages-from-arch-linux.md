@@ -40,7 +40,7 @@ See the [Alpine wiki](https://wiki.alpinelinux.org/wiki/Creating_an_Alpine_packa
 With the above setup, I'm able to perform my basic and regular Alpine packaging workflow directly from my Arch Linux system:
 
 ```bash
-newapkbuild "package_name" && cd "package_name" # Create a new port for a package (if required) and `cd` into it
+newapkbuild "package_name" && cd "package_name" # Create a new port for a package and `cd` into it
 vim APKBUILD # Edit the APKUILD
 apkbuild-lint APKBUILD # Run the apkbuild linter
 apkbuild-fixer APKBUILD # Attempt to automatically fix potential warnings raised by `apkbuild-lint`
