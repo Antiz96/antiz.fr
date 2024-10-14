@@ -48,8 +48,8 @@ abuild checksum # Generate / upgrade checksum for the source(s) contained in the
 abuild rootbld # Build the package in an Alpine clean chroot
 ```
 
-That's it! 
+That's it!
 
-I was initially using an Alpine container to access the necessary tooling to perform my Alpine packaging workflow, but it had some flaws. Indeed, apart from the fact that working inside a container is not as handy as working from my actual system; building packages in a clean chroot using `abuild rootbld` inside a Docker container eventually requires some [additional setup](https://wiki.alpinelinux.org/wiki/Build_with_abuild_rootbld_in_Docker_container), and `fakeroot` (used during packages build) has some issues when used inside containers which, for instance, cause it to be *extremely* slow (see [this](https://github.com/moby/moby/issues/45436) and [this](https://github.com/moby/moby/issues/38814) bug reports).
+I was initially using an Alpine container to access the necessary tooling to perform my Alpine packaging workflow, but this method had some flaws. Indeed, apart from the fact that working inside a container is not as handy as working from my actual system; building packages in a clean chroot using `abuild rootbld` inside a Docker container eventually requires some [additional setup](https://wiki.alpinelinux.org/wiki/Build_with_abuild_rootbld_in_Docker_container), and `fakeroot` (used during packages build) has some issues when used inside containers which, for instance, cause it to be *extremely* slow (see [this](https://github.com/moby/moby/issues/45436) and [this](https://github.com/moby/moby/issues/38814) bug reports).
 
 Being able to run such Alpine packaging tooling directly from my Arch Linux system streamlines the packaging workflow I use to maintain [my Alpine packages](https://pkgs.alpinelinux.org/packages?name=&branch=edge&repo=&arch=&maintainer=Robin+Candau) (and hopefully the one of other Arch users & Alpine contributors too :v:).
