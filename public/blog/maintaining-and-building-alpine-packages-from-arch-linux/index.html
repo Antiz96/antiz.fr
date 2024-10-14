@@ -1,0 +1,476 @@
+<!doctype html>
+<html
+  dir="ltr"
+  lang="en"
+  data-theme=""
+  
+    class="html theme--light"
+  
+><head>
+  <meta charset="utf-8" />
+  <title>
+    Robin Candau
+        |
+        Maintaining and building Alpine packages from Arch Linux
+      
+
+    
+
+  </title>
+
+  <meta name="generator" content="Hugo 0.135.0"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="author" content="Robin Candau" />
+  <meta
+    name="description"
+    content="Linux system &amp; DevOps engineer passionate by skate, music, (craft) beer and, obviously, Linux!"
+  />
+  
+  
+    
+    
+    <link
+      rel="stylesheet"
+      href="/scss/main.min.1cac29897bb941adf4246700acb99deffbfdf35a02ffc4ae81484456ebe430c3.css"
+      integrity="sha256-HKwpiXu5Qa30JGcArLmd7/v981oC/8SugUhEVuvkMMM="
+      crossorigin="anonymous"
+      type="text/css"
+    />
+  
+
+  
+  <link
+    rel="stylesheet"
+    href="/css/markupHighlight.min.73ccfdf28df555e11009c13c20ced067af3cb021504cba43644c705930428b00.css"
+    integrity="sha256-c8z98o31VeEQCcE8IM7QZ688sCFQTLpDZExwWTBCiwA="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+    
+    
+    <link
+      rel="stylesheet"
+      href="/css/custom.min.12eb7037bf07e9b3c877c4d2aad88722dbeeeb31ae96aba510fa53899abb61b0.css"
+      integrity="sha256-EutwN78H6bPId8TSqtiHItvu6zGulqulEPpTiZq7YbA="
+      crossorigin="anonymous"
+      media="screen"
+    />
+  
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/fontawesome.min.137b1cf3cea9a8adb7884343a9a5ddddf4280f59153f74dc782fb7f7bf0d0519.css"
+    integrity="sha256-E3sc886pqK23iENDqaXd3fQoD1kVP3TceC&#43;3978NBRk="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/solid.min.e65dc5b48fb5f39b142360c57c3a215744c94e56c755c929cc3e88fe12aab4d3.css"
+    integrity="sha256-5l3FtI&#43;185sUI2DFfDohV0TJTlbHVckpzD6I/hKqtNM="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/regular.min.6f4f16d58da1c82c0c3a3436e021a3d39b4742f741192c546e73e947eacfd92f.css"
+    integrity="sha256-b08W1Y2hyCwMOjQ24CGj05tHQvdBGSxUbnPpR&#43;rP2S8="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/brands.min.e10425ad768bc98ff1fb272a0ac8420f9d1ba22f0612c08ff1010c95080ffe7e.css"
+    integrity="sha256-4QQlrXaLyY/x&#43;ycqCshCD50boi8GEsCP8QEMlQgP/n4="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+
+  <link rel="canonical" href="https://antiz.fr/blog/maintaining-and-building-alpine-packages-from-arch-linux/" />
+
+  
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/anatole-header.min.f9132794301a01ff16550ed66763482bd848f62243d278f5e550229a158bfd32.js"
+    integrity="sha256-&#43;RMnlDAaAf8WVQ7WZ2NIK9hI9iJD0nj15VAimhWL/TI="
+    crossorigin="anonymous"
+  ></script>
+
+  
+    
+    
+    <script
+      type="text/javascript"
+      src="/js/anatole-theme-switcher.min.d6d329d93844b162e8bed1e915619625ca91687952177552b9b3e211014a2957.js"
+      integrity="sha256-1tMp2ThEsWLovtHpFWGWJcqRaHlSF3VSubPiEQFKKVc="
+      crossorigin="anonymous"
+    ></script>
+  
+
+  
+
+  
+
+
+  
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Maintaining and building Alpine packages from Arch Linux">
+  <meta name="twitter:description" content="Alpine packaging tooling are now available in the Arch Linux [extra] repository! I recently added the abuild and atools Alpine packaging tooling to the Arch-Linux [extra] repository.
+Thanks to that, these tooling can now be used from an Arch Linux system to maintain and build Alpine packages (in a clean chroot), without requiring to rely on a separate Alpine installation, such as a container or a VM. It enables the Alpine packaging workflow directly from an Arch Linux system, streamlining the process of maintaining Alpine packages for Arch users that also contributes to Alpine Linux (like I do).">
+
+
+
+  
+  <meta property="og:url" content="https://antiz.fr/blog/maintaining-and-building-alpine-packages-from-arch-linux/">
+  <meta property="og:site_name" content="Robin Candau">
+  <meta property="og:title" content="Maintaining and building Alpine packages from Arch Linux">
+  <meta property="og:description" content="Alpine packaging tooling are now available in the Arch Linux [extra] repository! I recently added the abuild and atools Alpine packaging tooling to the Arch-Linux [extra] repository.
+Thanks to that, these tooling can now be used from an Arch Linux system to maintain and build Alpine packages (in a clean chroot), without requiring to rely on a separate Alpine installation, such as a container or a VM. It enables the Alpine packaging workflow directly from an Arch Linux system, streamlining the process of maintaining Alpine packages for Arch users that also contributes to Alpine Linux (like I do).">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2024-10-14T10:42:00+02:00">
+    <meta property="article:modified_time" content="2024-10-14T10:42:00+02:00">
+
+
+
+  
+  
+  
+  
+  <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "articleSection": "blog",
+        "name": "Maintaining and building Alpine packages from Arch Linux",
+        "headline": "Maintaining and building Alpine packages from Arch Linux",
+        "alternativeHeadline": "",
+        "description": "
+      
+        \u003ch2 id=\u0022alpine-packaging-tooling-are-now-available-in-the-arch-linux-extra-repository\u0022\u003eAlpine packaging tooling are now available in the Arch Linux [extra] repository!\u003c\/h2\u003e\n\u003cp\u003eI recently added the \u003ca href=\u0022https:\/\/gitlab.alpinelinux.org\/alpine\/abuild\u0022\u003eabuild\u003c\/a\u003e and \u003ca href=\u0022https:\/\/gitlab.alpinelinux.org\/Leo\/atools\u0022\u003eatools\u003c\/a\u003e Alpine packaging tooling to the Arch-Linux [extra] repository.\u003c\/p\u003e\n\u003cp\u003eThanks to that, these tooling can now be used from an Arch Linux system to maintain and build Alpine packages (in a clean chroot), without requiring to rely on a separate Alpine installation, such as a container or a VM. It enables the Alpine packaging workflow directly from an Arch Linux system, streamlining the process of maintaining Alpine packages for Arch users that \u003cem\u003ealso\u003c\/em\u003e contributes to Alpine Linux (like I do).\u003c\/p\u003e
+
+
+      
+
+
+    ",
+        "inLanguage": "en-us",
+        "isFamilyFriendly": "true",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/antiz.fr\/blog\/maintaining-and-building-alpine-packages-from-arch-linux\/"
+        },
+        "author" : {
+            "@type": "Person",
+            "name": "Robin Candau"
+        },
+        "creator" : {
+            "@type": "Person",
+            "name": "Robin Candau"
+        },
+        "accountablePerson" : {
+            "@type": "Person",
+            "name": "Robin Candau"
+        },
+        "copyrightHolder" : {
+            "@type": "Person",
+            "name": "Robin Candau"
+        },
+        "copyrightYear" : "2024",
+        "dateCreated": "2024-10-14T10:42:00.00Z",
+        "datePublished": "2024-10-14T10:42:00.00Z",
+        "dateModified": "2024-10-14T10:42:00.00Z",
+        "publisher":{
+            "@type":"Organization",
+            "name": "Robin Candau",
+            "url": "https://antiz.fr/",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https:\/\/antiz.fr\/favicon-32x32.png",
+                "width":"32",
+                "height":"32"
+            }
+        },
+        "image": 
+      [
+      ]
+
+    ,
+        "url" : "https:\/\/antiz.fr\/blog\/maintaining-and-building-alpine-packages-from-arch-linux\/",
+        "wordCount" : "519",
+        "genre" : [ ],
+        "keywords" : [ ]
+    }
+  </script>
+
+
+</head>
+<body class="body">
+    <div class="wrapper">
+      <aside
+        
+          class="wrapper__sidebar"
+        
+      ><div
+  class="sidebar
+    animated fadeInDown
+  "
+>
+  <div class="sidebar__content">
+    <div class="sidebar__introduction">
+      <img
+        class="sidebar__introduction-profileimage"
+        src="/images/pfp.jpg"
+        alt="profile picture"
+      />
+      
+        <div class="sidebar__introduction-title">
+          <a href="/">Robin Candau</a>
+        </div>
+      
+      <div class="sidebar__introduction-description">
+        <p>Linux system & DevOps engineer passionate by skate, music, (craft) beer and, obviously, Linux!</p>
+      </div>
+    </div>
+    <ul class="sidebar__list">
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://github.com/Antiz96"
+            target="_blank"
+            rel="noopener me"
+            aria-label="GitHub"
+            title="GitHub"
+          >
+            <i class="fab fa-github fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://fosstodon.org/@Antiz"
+            target="_blank"
+            rel="noopener me"
+            aria-label="Mastodon"
+            title="Mastodon"
+          >
+            <i class="fab fa-mastodon fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://www.linkedin.com/in/robin-candau-3083a2173/?locale=en_US"
+            target="_blank"
+            rel="noopener me"
+            aria-label="LinkedIn"
+            title="LinkedIn"
+          >
+            <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+        <li class="sidebar__list-item">
+          <a
+            href="mailto:robincandau@protonmail.com"
+            target="_blank"
+            rel="noopener me"
+            aria-label="Mail"
+            title="Mail"
+          >
+            <i class="fas fa-envelope fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://keyserver.ubuntu.com/pks/lookup?search=D33FAA16B937F3B2&amp;fingerprint=on&amp;op=index"
+            target="_blank"
+            rel="noopener me"
+            aria-label="OpenPGP Key"
+            title="OpenPGP Key"
+          >
+            <i class="fas fa-key fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+    </ul>
+  </div><footer class="footer footer__sidebar">
+  <ul class="footer__list">
+    <li class="footer__item">
+      &copy;
+      
+        Robin Candau
+        2024
+      
+    </li>
+    
+  </ul>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.1248fa75275e5ef0cbef27e8c1e27dc507c445ae3a2c7d2ed0be0809555dac64.js"
+    integrity="sha256-Ekj6dSdeXvDL7yfoweJ9xQfERa46LH0u0L4ICVVdrGQ="
+    crossorigin="anonymous"
+  ></script></div>
+</aside>
+      <main
+        
+          class="wrapper__main"
+        
+      >
+        <header class="header"><div
+  class="
+    animated fadeInDown
+  "
+>
+  <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+  </a>
+  <nav class="nav">
+    <ul class="nav__list" id="navMenu">
+      
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/"
+              
+              title=""
+              >Home</a
+            >
+          </li>
+        
+
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/blog/"
+              
+              title=""
+              >Blog</a
+            >
+          </li>
+        
+
+      
+    </ul>
+    <ul class="nav__list nav__list--end">
+      
+      
+        <li class="nav__list-item">
+          <div class="themeswitch">
+            <a title="Switch Theme">
+              <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a>
+          </div>
+        </li>
+      
+    </ul>
+  </nav>
+</div>
+</header>
+  <div
+    class="post 
+      animated fadeInDown
+    "
+  >
+    
+    <div class="post__content">
+      
+        <h1>Maintaining and Building Alpine Packages From Arch Linux</h1>
+      
+      
+        <ul class="post__meta">
+          <li class="post__meta-item">
+            <em class="fas fa-calendar-day post__meta-icon"></em>
+            <span class="post__meta-text"
+              >
+                
+                  Mon, Oct 14, 2024
+                
+
+              
+            </span>
+          </li>
+          <li class="post__meta-item">
+            <em class="fas fa-stopwatch post__meta-icon"></em>
+            <span class="post__meta-text">3-minute read</span>
+          </li>
+        </ul>
+      <h2 id="alpine-packaging-tooling-are-now-available-in-the-arch-linux-extra-repository">Alpine packaging tooling are now available in the Arch Linux [extra] repository!</h2>
+<p>I recently added the <a href="https://gitlab.alpinelinux.org/alpine/abuild">abuild</a> and <a href="https://gitlab.alpinelinux.org/Leo/atools">atools</a> Alpine packaging tooling to the Arch-Linux [extra] repository.</p>
+<p>Thanks to that, these tooling can now be used from an Arch Linux system to maintain and build Alpine packages (in a clean chroot), without requiring to rely on a separate Alpine installation, such as a container or a VM. It enables the Alpine packaging workflow directly from an Arch Linux system, streamlining the process of maintaining Alpine packages for Arch users that <em>also</em> contributes to Alpine Linux (like I do).</p>
+<p>Of course, due to technical differences between Alpine and Arch Linux (e.g. in terms of package manager, init system and C library implementation), building Alpine packages on an Arch system outside of an Alpine clean chroot is not possible. As such, when <strong>building</strong> Alpine packages on an Arch system, only <code>abuild rootbld</code> is relevant to use.</p>
+<h2 id="environment-setup-to-perform-alpine-packaging-from-arch-linux">Environment setup to perform Alpine packaging from Arch Linux</h2>
+<p>Install the <a href="https://archlinux.org/packages/extra/x86_64/abuild/">abuild</a> and <a href="https://archlinux.org/packages/extra/x86_64/atools/">atools</a> packages:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo pacman -S abuild atools
+</span></span></code></pre></div><p>To be able to build Alpine packages in a clean chroot with <code>abuild rootbld</code>, you need to generate a public / private rsa key pair with the <code>abuild-keygen</code> tool and add your user to the <code>abuild</code> group (which is created when installing the <a href="https://archlinux.org/packages/extra/x86_64/abuild/">abuild package</a>):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>abuild-keygen -a -i
+</span></span><span style="display:flex;"><span>sudo usermod -aG abuild <span style="color:#e6db74">&#34;username&#34;</span> <span style="color:#75715e"># Requires a logout / login to take effect</span>
+</span></span></code></pre></div><p>One can optionally edit the <code>/etc/abuild.conf</code> configuration file to their liking and requirements. For instance, the paths used to store downloaded sources (<code>/var/cache/distfiles</code> by default) and built packages (<code>~/packages</code> by default) can be customized by modifying the <code>SRCDEST</code> and <code>REPODEST</code> parameters respectively in that configuration file.</p>
+<p>See the <a href="https://wiki.archlinux.org/title/Abuild">Arch wiki abuild page</a> for more details.</p>
+<h2 id="basic-alpine-packaging-workflow-from-arch-linux">Basic Alpine packaging workflow from Arch Linux</h2>
+<p>With the above setup, I&rsquo;m able to perform my usual basic Alpine packaging workflow directly from my Arch Linux system:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>newapkbuild <span style="color:#e6db74">&#34;package_name&#34;</span> <span style="color:#f92672">&amp;&amp;</span> cd <span style="color:#e6db74">&#34;package_name&#34;</span> <span style="color:#75715e"># Create a new port for a package and `cd` into it</span>
+</span></span><span style="display:flex;"><span>vim APKBUILD <span style="color:#75715e"># Edit the APKBUILD</span>
+</span></span><span style="display:flex;"><span>apkbuild-lint APKBUILD <span style="color:#75715e"># Run the apkbuild linter</span>
+</span></span><span style="display:flex;"><span>apkbuild-fixer APKBUILD <span style="color:#75715e"># Attempt to automatically fix potential warnings raised by `apkbuild-lint`</span>
+</span></span><span style="display:flex;"><span>abuild checksum <span style="color:#75715e"># Generate / upgrade checksum for the source(s) contained in the APKBUILD source array</span>
+</span></span><span style="display:flex;"><span>abuild rootbld <span style="color:#75715e"># Build the package in an Alpine clean chroot</span>
+</span></span></code></pre></div><p>I was initially using an Alpine container to access the necessary tooling to perform my Alpine packaging workflow, but this method had some flaws. Indeed, in addition to the fact that working from a container is not as comfortable as working from my actual system; building packages in a clean chroot using <code>abuild rootbld</code> inside a Docker container eventually requires some <a href="https://wiki.alpinelinux.org/wiki/Build_with_abuild_rootbld_in_Docker_container">additional setup</a>, and <code>fakeroot</code> (used during the packages build process) currently has some issues when used inside containers which, for instance, cause it to be <em>extremely</em> slow (see <a href="https://github.com/moby/moby/issues/45436">this</a> and <a href="https://github.com/moby/moby/issues/38814">this</a> bug reports).</p>
+<p>Being able to run such Alpine packaging tooling directly from my Arch Linux system streamlines the packaging workflow I use to maintain <a href="https://pkgs.alpinelinux.org/packages?name=&amp;branch=edge&amp;repo=&amp;arch=&amp;maintainer=Robin+Candau">my Alpine packages</a> (and hopefully the one of other Arch users &amp; Alpine contributors too &#x270c;&#xfe0f;).</p>
+</div>
+    <div class="post__footer">
+      
+
+      
+    </div>
+
+    
+  </div>
+
+      </main>
+    </div><footer class="footer footer__base">
+  <ul class="footer__list">
+    <li class="footer__item">
+      &copy;
+      
+        Robin Candau
+        2024
+      
+    </li>
+    
+  </ul>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.1248fa75275e5ef0cbef27e8c1e27dc507c445ae3a2c7d2ed0be0809555dac64.js"
+    integrity="sha256-Ekj6dSdeXvDL7yfoweJ9xQfERa46LH0u0L4ICVVdrGQ="
+    crossorigin="anonymous"
+  ></script></body>
+</html>
