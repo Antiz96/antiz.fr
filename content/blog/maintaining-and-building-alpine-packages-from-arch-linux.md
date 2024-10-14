@@ -8,7 +8,9 @@ draft: false
 
 I recently added the [abuild](https://gitlab.alpinelinux.org/alpine/abuild) and [atools](https://gitlab.alpinelinux.org/Leo/atools) Alpine packaging tooling (including `abuild rootbld` to build Alpine packages in a clean chroot) to the Arch-Linux [extra] repository.
 
-Thanks to that, these tooling can now be used from an Arch Linux system to maintain and build Alpine packages (in a clean chroot), without requiring to rely on a separate Alpine installation, such as a container or a VM. It enables the Alpine packaging workflow directly from an Arch Linux system, streamlining this process for Arch users that *also* contributes to Alpine Linux (like I do).
+Thanks to that, these tooling can now be used from an Arch Linux system to maintain and build Alpine packages (in a clean chroot), without requiring to rely on a separate Alpine installation, such as a container or a VM. It enables the Alpine packaging workflow directly from an Arch Linux system, streamlining the process of maintaining Alpine packages for Arch users that *also* contributes to Alpine Linux (like I do).
+
+Of course, due to technical differences between Alpine and Arch Linux (e.g. in terms of package manager, init system and C library implementation), building Alpine packages on an Arch system outside of an Alpine clean chroot is not possible. As such, when **building** Alpine packages on an Arch system, only `abuild rootbld` is relevant to use.
 
 ## Environment setup to perform Alpine packaging from Arch Linux
 
@@ -31,7 +33,7 @@ See the [Arch wiki abuild page](https://wiki.archlinux.org/title/Abuild) for mor
 
 ## Basic Alpine packaging workflow from Arch Linux
 
-With the above setup, I'm able to perform my basic and regular Alpine packaging workflow directly from my Arch Linux system:
+With the above setup, I'm able to perform my usual basic Alpine packaging workflow directly from my Arch Linux system:
 
 ```bash
 newapkbuild "package_name" && cd "package_name" # Create a new port for a package and `cd` into it
@@ -42,8 +44,6 @@ abuild checksum # Generate / upgrade checksum for the source(s) contained in the
 abuild rootbld # Build the package in an Alpine clean chroot
 ```
 
-Of course, due to technical differences between Alpine and Arch Linux (e.g. in terms of package manager, init system and C library implementation), building Alpine packages on an Arch system outside of an Alpine clean chroot is not possible. As such, when building Alpine packages on an Arch system, only `abuild rootbld` is relevant to use.
-
-I was initially using an Alpine container to access the necessary tooling to perform my Alpine packaging workflow, but this method had some flaws. Indeed, apart from the fact that working inside a container is not as comfortable as working from my actual system; building packages in a clean chroot using `abuild rootbld` inside a Docker container eventually requires some [additional setup](https://wiki.alpinelinux.org/wiki/Build_with_abuild_rootbld_in_Docker_container), and `fakeroot` (used during the packages build process) currently has some issues when used inside containers which, for instance, cause it to be *extremely* slow (see [this](https://github.com/moby/moby/issues/45436) and [this](https://github.com/moby/moby/issues/38814) bug reports).
+I was initially using an Alpine container to access the necessary tooling to perform my Alpine packaging workflow, but this method had some flaws. Indeed, in addition to the fact that working from a container is not as comfortable as working from my actual system; building packages in a clean chroot using `abuild rootbld` inside a Docker container eventually requires some [additional setup](https://wiki.alpinelinux.org/wiki/Build_with_abuild_rootbld_in_Docker_container), and `fakeroot` (used during the packages build process) currently has some issues when used inside containers which, for instance, cause it to be *extremely* slow (see [this](https://github.com/moby/moby/issues/45436) and [this](https://github.com/moby/moby/issues/38814) bug reports).
 
 Being able to run such Alpine packaging tooling directly from my Arch Linux system streamlines the packaging workflow I use to maintain [my Alpine packages](https://pkgs.alpinelinux.org/packages?name=&branch=edge&repo=&arch=&maintainer=Robin+Candau) (and hopefully the one of other Arch users & Alpine contributors too :v:).
