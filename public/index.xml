@@ -16,7 +16,7 @@
       
         <description>&lt;h2 id=&#34;alpine-packaging-tooling-are-now-available-in-the-arch-linux-extra-repository&#34;&gt;Alpine packaging tooling are now available in the Arch Linux [extra] repository!&lt;/h2&gt;
 &lt;p&gt;I recently added the &lt;a href=&#34;https://gitlab.alpinelinux.org/alpine/abuild&#34;&gt;abuild&lt;/a&gt; and &lt;a href=&#34;https://gitlab.alpinelinux.org/Leo/atools&#34;&gt;atools&lt;/a&gt; Alpine packaging tooling (including &lt;code&gt;abuild rootbld&lt;/code&gt; to build Alpine packages in a clean chroot) to the Arch-Linux [extra] repository.&lt;/p&gt;
-&lt;p&gt;Thanks to that, these tooling can now be used from an Arch Linux system to maintain and build Alpine packages (in a clean chroot), without requiring to rely on a separate Alpine installation, such as a container or a VM. It enables the Alpine packaging workflow directly from an Arch Linux system, streamlining the process of maintaining Alpine packages for Arch users that &lt;em&gt;also&lt;/em&gt; contributes to Alpine Linux (like I do).&lt;/p&gt;</description>
+&lt;p&gt;Thanks to that, these tooling can now be used from an Arch Linux system to maintain and build Alpine packages, without requiring to rely on a separate Alpine installation, such as a container or a VM. It enables the Alpine packaging workflow directly from an Arch Linux system, streamlining the process of maintaining Alpine packages for Arch users that &lt;em&gt;also&lt;/em&gt; contributes to Alpine Linux (like I do).&lt;/p&gt;</description>
       
     </item>
     
