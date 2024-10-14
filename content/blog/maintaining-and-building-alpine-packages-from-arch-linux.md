@@ -20,7 +20,7 @@ Install the [abuild](https://archlinux.org/packages/extra/x86_64/abuild/) and [a
 sudo pacman -S abuild atools
 ```
 
-To be able to build Alpine packages in a clean chroot with `abuild rootbld`, you need to generate a public / private rsa key pair with the `abuild-keygen` tool and add your user to the `abuild` group (which is created when installing the [abuild package](which is created when installing the abuild package)):
+To be able to build Alpine packages in a clean chroot with `abuild rootbld`, you need to generate a public / private rsa key pair with the `abuild-keygen` tool and add your user to the `abuild` group (which is created when installing the [abuild package](https://archlinux.org/packages/extra/x86_64/abuild/)):
 
 ```bash
 abuild-keygen -a -i
