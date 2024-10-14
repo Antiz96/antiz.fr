@@ -210,7 +210,7 @@ This enables the Alpine packaging workflow directly from Arch Linux, allowing Ar
 
     ,
         "url" : "https:\/\/antiz.fr\/blog\/maintaining-and-building-alpine-packages-from-arch-linux\/",
-        "wordCount" : "465",
+        "wordCount" : "466",
         "genre" : [ ],
         "keywords" : [ ]
     }
@@ -444,7 +444,7 @@ On my side, I&rsquo;ve set it up in my <code>~/.bashrc</code>, like so:</p>
 </span></span><span style="display:flex;"><span>abuild checksum <span style="color:#75715e"># Generate / upgrade checksum for the source(s) contained in the APKBUILD source array</span>
 </span></span><span style="display:flex;"><span>abuild rootbld <span style="color:#75715e"># Build the package in an Alpine clean chroot</span>
 </span></span></code></pre></div><p>That&rsquo;s it!</p>
-<p>I was initially using an Alpine container to access the necessary tooling to perform my Alpine packaging workflow, but it had some flaws. Indeed, apart from the fact that working inside a container is not as handy as working from my actual system; building packages in a clean chroot using <code>abuild rootbld</code> inside a Docker container eventually requires some <a href="https://wiki.alpinelinux.org/wiki/Build_with_abuild_rootbld_in_Docker_container">additional setup</a>, and <code>fakeroot</code> (used during packages build) has some issues when used inside containers which, for instance, cause it to be <em>extremely</em> slow (see <a href="https://github.com/moby/moby/issues/45436">this</a> and <a href="https://github.com/moby/moby/issues/38814">this</a> bug reports).</p>
+<p>I was initially using an Alpine container to access the necessary tooling to perform my Alpine packaging workflow, but this method had some flaws. Indeed, apart from the fact that working inside a container is not as handy as working from my actual system; building packages in a clean chroot using <code>abuild rootbld</code> inside a Docker container eventually requires some <a href="https://wiki.alpinelinux.org/wiki/Build_with_abuild_rootbld_in_Docker_container">additional setup</a>, and <code>fakeroot</code> (used during packages build) has some issues when used inside containers which, for instance, cause it to be <em>extremely</em> slow (see <a href="https://github.com/moby/moby/issues/45436">this</a> and <a href="https://github.com/moby/moby/issues/38814">this</a> bug reports).</p>
 <p>Being able to run such Alpine packaging tooling directly from my Arch Linux system streamlines the packaging workflow I use to maintain <a href="https://pkgs.alpinelinux.org/packages?name=&amp;branch=edge&amp;repo=&amp;arch=&amp;maintainer=Robin+Candau">my Alpine packages</a> (and hopefully the one of other Arch users &amp; Alpine contributors too &#x270c;&#xfe0f;).</p>
 </div>
     <div class="post__footer">
