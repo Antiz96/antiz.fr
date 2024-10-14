@@ -128,7 +128,7 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Maintaining and building Alpine packages from Arch Linux">
   <meta name="twitter:description" content="Alpine packaging tooling are now available in the Arch Linux [extra] repository! I recently added the abuild and atools Alpine packaging tooling (including abuild rootbld to build Alpine packages in a clean chroot) to the Arch-Linux [extra] repository.
-This enables the Alpine packaging workflow directly from Arch Linux, allowing Arch users that also contributes to Alpine Linux (like I do) to run some Alpine packaging commands / tools, such as newapkbuild, apkbuild-lint, apkbuild-fixer, abuild checksum, abuild rootbld, …, without the necessity to rely on an separate Alpine installation (e.g. a container / chroot or a VM).">
+Thanks to that, these tooling can now be used from an Arch Linux system to maintain and build Alpine packages (in a clean chroot), without requiring to rely on a separate Alpine installation, such as a container or a VM. It enables the Alpine packaging workflow directly from an Arch Linux system, streamlining this process for Arch users that also contributes to Alpine Linux (like I do).">
 
 
 
@@ -137,7 +137,7 @@ This enables the Alpine packaging workflow directly from Arch Linux, allowing Ar
   <meta property="og:site_name" content="Robin Candau">
   <meta property="og:title" content="Maintaining and building Alpine packages from Arch Linux">
   <meta property="og:description" content="Alpine packaging tooling are now available in the Arch Linux [extra] repository! I recently added the abuild and atools Alpine packaging tooling (including abuild rootbld to build Alpine packages in a clean chroot) to the Arch-Linux [extra] repository.
-This enables the Alpine packaging workflow directly from Arch Linux, allowing Arch users that also contributes to Alpine Linux (like I do) to run some Alpine packaging commands / tools, such as newapkbuild, apkbuild-lint, apkbuild-fixer, abuild checksum, abuild rootbld, …, without the necessity to rely on an separate Alpine installation (e.g. a container / chroot or a VM).">
+Thanks to that, these tooling can now be used from an Arch Linux system to maintain and build Alpine packages (in a clean chroot), without requiring to rely on a separate Alpine installation, such as a container or a VM. It enables the Alpine packaging workflow directly from an Arch Linux system, streamlining this process for Arch users that also contributes to Alpine Linux (like I do).">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="blog">
@@ -160,7 +160,7 @@ This enables the Alpine packaging workflow directly from Arch Linux, allowing Ar
         "alternativeHeadline": "",
         "description": "
       
-        \u003ch2 id=\u0022alpine-packaging-tooling-are-now-available-in-the-arch-linux-extra-repository\u0022\u003eAlpine packaging tooling are now available in the Arch Linux [extra] repository!\u003c\/h2\u003e\n\u003cp\u003eI recently added the \u003ca href=\u0022https:\/\/gitlab.alpinelinux.org\/alpine\/abuild\u0022\u003eabuild\u003c\/a\u003e and \u003ca href=\u0022https:\/\/gitlab.alpinelinux.org\/Leo\/atools\u0022\u003eatools\u003c\/a\u003e Alpine packaging tooling (including \u003ccode\u003eabuild rootbld\u003c\/code\u003e to build Alpine packages in a clean chroot) to the Arch-Linux [extra] repository.\u003c\/p\u003e\n\u003cp\u003eThis enables the Alpine packaging workflow directly from Arch Linux, allowing Arch users that \u003cem\u003ealso\u003c\/em\u003e contributes to Alpine Linux (like I do) to run some Alpine packaging commands \/ tools, such as \u003ccode\u003enewapkbuild\u003c\/code\u003e, \u003ccode\u003eapkbuild-lint\u003c\/code\u003e, \u003ccode\u003eapkbuild-fixer\u003c\/code\u003e, \u003ccode\u003eabuild checksum\u003c\/code\u003e, \u003ccode\u003eabuild rootbld\u003c\/code\u003e, \u0026hellip;, without the necessity to rely on an separate Alpine installation (e.g. a container \/ chroot or a VM).\u003c\/p\u003e
+        \u003ch2 id=\u0022alpine-packaging-tooling-are-now-available-in-the-arch-linux-extra-repository\u0022\u003eAlpine packaging tooling are now available in the Arch Linux [extra] repository!\u003c\/h2\u003e\n\u003cp\u003eI recently added the \u003ca href=\u0022https:\/\/gitlab.alpinelinux.org\/alpine\/abuild\u0022\u003eabuild\u003c\/a\u003e and \u003ca href=\u0022https:\/\/gitlab.alpinelinux.org\/Leo\/atools\u0022\u003eatools\u003c\/a\u003e Alpine packaging tooling (including \u003ccode\u003eabuild rootbld\u003c\/code\u003e to build Alpine packages in a clean chroot) to the Arch-Linux [extra] repository.\u003c\/p\u003e\n\u003cp\u003eThanks to that, these tooling can now be used from an Arch Linux system to maintain and build Alpine packages (in a clean chroot), without requiring to rely on a separate Alpine installation, such as a container or a VM. It enables the Alpine packaging workflow directly from an Arch Linux system, streamlining this process for Arch users that \u003cem\u003ealso\u003c\/em\u003e contributes to Alpine Linux (like I do).\u003c\/p\u003e
 
 
       
@@ -210,7 +210,7 @@ This enables the Alpine packaging workflow directly from Arch Linux, allowing Ar
 
     ,
         "url" : "https:\/\/antiz.fr\/blog\/maintaining-and-building-alpine-packages-from-arch-linux\/",
-        "wordCount" : "472",
+        "wordCount" : "533",
         "genre" : [ ],
         "keywords" : [ ]
     }
@@ -423,27 +423,24 @@ This enables the Alpine packaging workflow directly from Arch Linux, allowing Ar
         </ul>
       <h2 id="alpine-packaging-tooling-are-now-available-in-the-arch-linux-extra-repository">Alpine packaging tooling are now available in the Arch Linux [extra] repository!</h2>
 <p>I recently added the <a href="https://gitlab.alpinelinux.org/alpine/abuild">abuild</a> and <a href="https://gitlab.alpinelinux.org/Leo/atools">atools</a> Alpine packaging tooling (including <code>abuild rootbld</code> to build Alpine packages in a clean chroot) to the Arch-Linux [extra] repository.</p>
-<p>This enables the Alpine packaging workflow directly from Arch Linux, allowing Arch users that <em>also</em> contributes to Alpine Linux (like I do) to run some Alpine packaging commands / tools, such as <code>newapkbuild</code>, <code>apkbuild-lint</code>, <code>apkbuild-fixer</code>, <code>abuild checksum</code>, <code>abuild rootbld</code>, &hellip;, without the necessity to rely on an separate Alpine installation (e.g. a container / chroot or a VM).</p>
+<p>Thanks to that, these tooling can now be used from an Arch Linux system to maintain and build Alpine packages (in a clean chroot), without requiring to rely on a separate Alpine installation, such as a container or a VM. It enables the Alpine packaging workflow directly from an Arch Linux system, streamlining this process for Arch users that <em>also</em> contributes to Alpine Linux (like I do).</p>
 <h2 id="environment-setup-to-perform-alpine-packaging-from-arch-linux">Environment setup to perform Alpine packaging from Arch Linux</h2>
 <p>Install the <a href="https://archlinux.org/packages/extra/x86_64/abuild/">abuild</a> and <a href="https://archlinux.org/packages/extra/x86_64/atools/">atools</a> packages:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo pacman -S abuild atools
-</span></span></code></pre></div><p>To be able to build packages in a clean chroot with <code>abuild rootbld</code>, you need to generate a public / private rsa key pair with <code>abuild-keygen</code>, install the <a href="https://archlinux.org/packages/extra/any/alpine-keyring/">alpine-keyring package</a> (which is an optional dependency for the <a href="https://archlinux.org/packages/extra/x86_64/abuild/">abuild package</a>) and add your user to the <code>abuild</code> group:</p>
+</span></span></code></pre></div><p>To be able to build Alpine packages in a clean chroot with <code>abuild rootbld</code>, you need to generate a public / private rsa key pair with the <code>abuild-keygen</code> tool and add your user to the <code>abuild</code> group (which is created when installing the [abuild package](which is created when installing the abuild package)):</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>abuild-keygen -a -i
-</span></span><span style="display:flex;"><span>sudo pacman -S --asdeps alpine-keyring
-</span></span><span style="display:flex;"><span>sudo usermod -aG abuild <span style="color:#e6db74">&#34;your_user&#34;</span> <span style="color:#75715e"># Requires a logout / login to take effect</span>
-</span></span></code></pre></div><p>Packages built in a clean chroot using <code>abuild rootbld</code> are located into <code>~/packages</code> by default, but that path can be customized with the <code>-P</code> option (e.g. <code>abuild -P /path/to/directory rootbld</code>) or with the <code>$REPODEST</code> environment variable.<br>
-On my side, I&rsquo;ve set it up in my <code>~/.bashrc</code>, like so:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>export REPODEST<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>HOME<span style="color:#e6db74">}</span><span style="color:#e6db74">/Documents/Alpine-Linux/Packages&#34;</span>
-</span></span></code></pre></div><p>See the <a href="https://wiki.alpinelinux.org/wiki/Creating_an_Alpine_package#Setup_your_system_and_account">Alpine wiki</a> for more details.</p>
+</span></span><span style="display:flex;"><span>sudo usermod -aG abuild <span style="color:#e6db74">&#34;username&#34;</span> <span style="color:#75715e"># Requires a logout / login to take effect</span>
+</span></span></code></pre></div><p>One can optionally edit the <code>/etc/abuild.conf</code> configuration file to their liking and requirements. For instance, the paths used to store downloaded sources (<code>/var/cache/distfiles</code> by default) and built packages (<code>~/packages</code> by default) can be customized by modifying the <code>SRCDEST</code> and <code>REPODEST</code> parameters respectively in that configuration file.</p>
+<p>See the <a href="https://wiki.archlinux.org/title/Abuild">Arch wiki abuild page</a> for more details.</p>
 <h2 id="basic-alpine-packaging-workflow-from-arch-linux">Basic Alpine packaging workflow from Arch Linux</h2>
 <p>With the above setup, I&rsquo;m able to perform my basic and regular Alpine packaging workflow directly from my Arch Linux system:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>newapkbuild <span style="color:#e6db74">&#34;package_name&#34;</span> <span style="color:#f92672">&amp;&amp;</span> cd <span style="color:#e6db74">&#34;package_name&#34;</span> <span style="color:#75715e"># Create a new port for a package and `cd` into it</span>
-</span></span><span style="display:flex;"><span>vim APKBUILD <span style="color:#75715e"># Edit the APKUILD</span>
+</span></span><span style="display:flex;"><span>vim APKBUILD <span style="color:#75715e"># Edit the APKBUILD</span>
 </span></span><span style="display:flex;"><span>apkbuild-lint APKBUILD <span style="color:#75715e"># Run the apkbuild linter</span>
 </span></span><span style="display:flex;"><span>apkbuild-fixer APKBUILD <span style="color:#75715e"># Attempt to automatically fix potential warnings raised by `apkbuild-lint`</span>
 </span></span><span style="display:flex;"><span>abuild checksum <span style="color:#75715e"># Generate / upgrade checksum for the source(s) contained in the APKBUILD source array</span>
 </span></span><span style="display:flex;"><span>abuild rootbld <span style="color:#75715e"># Build the package in an Alpine clean chroot</span>
-</span></span></code></pre></div><p>That&rsquo;s it!</p>
+</span></span></code></pre></div><p>Of course, due to technical differences between Alpine and Arch Linux (e.g. in terms of package manager, init system and C library implementation), building Alpine packages on an Arch system outside of an Alpine clean chroot is not possible. As such, when building Alpine packages on an Arch system, only <code>abuild rootbld</code> is relevant to use.</p>
 <p>I was initially using an Alpine container to access the necessary tooling to perform my Alpine packaging workflow, but this method had some flaws. Indeed, apart from the fact that working inside a container is not as comfortable as working from my actual system; building packages in a clean chroot using <code>abuild rootbld</code> inside a Docker container eventually requires some <a href="https://wiki.alpinelinux.org/wiki/Build_with_abuild_rootbld_in_Docker_container">additional setup</a>, and <code>fakeroot</code> (used during the packages build process) currently has some issues when used inside containers which, for instance, cause it to be <em>extremely</em> slow (see <a href="https://github.com/moby/moby/issues/45436">this</a> and <a href="https://github.com/moby/moby/issues/38814">this</a> bug reports).</p>
 <p>Being able to run such Alpine packaging tooling directly from my Arch Linux system streamlines the packaging workflow I use to maintain <a href="https://pkgs.alpinelinux.org/packages?name=&amp;branch=edge&amp;repo=&amp;arch=&amp;maintainer=Robin+Candau">my Alpine packages</a> (and hopefully the one of other Arch users &amp; Alpine contributors too &#x270c;&#xfe0f;).</p>
 </div>
