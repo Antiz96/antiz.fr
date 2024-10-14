@@ -8,7 +8,8 @@ draft: false
 
 I recently added the [abuild](https://gitlab.alpinelinux.org/alpine/abuild) and [atools](https://gitlab.alpinelinux.org/Leo/atools) Alpine packaging tooling to the Arch-Linux [extra] repository.
 
-Thanks to that, these tooling can now be used from an Arch Linux system to maintain and build Alpine packages (in a clean chroot), without requiring to rely on a separate Alpine installation, such as a container or a VM. It enables the Alpine packaging workflow directly from an Arch Linux system, streamlining the process of maintaining Alpine packages for Arch users that *also* contributes to Alpine Linux (like I do).
+Thanks to that, these tools can now be used to maintain and build Alpine packages (in a clean chroot) from an Arch Linux system, without requiring to rely on a separate Alpine installation, such as a container or a VM.  
+By enabling the Alpine packaging workflow directly from an Arch Linux system, this streamlines the process of maintaining Alpine packages for Arch users that *also* contribute to Alpine Linux (like I do).
 
 Of course, due to technical differences between Alpine and Arch Linux (e.g. in terms of package manager, init system and C library implementation), building Alpine packages on an Arch system outside of an Alpine clean chroot is not possible. As such, when **building** Alpine packages on an Arch system, only `abuild rootbld` is relevant to use.
 
