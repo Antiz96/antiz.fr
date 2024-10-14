@@ -210,7 +210,7 @@ This enables the Alpine packaging workflow directly from Arch Linux, allowing Ar
 
     ,
         "url" : "https:\/\/antiz.fr\/blog\/maintaining-and-building-alpine-packages-from-arch-linux\/",
-        "wordCount" : "466",
+        "wordCount" : "469",
         "genre" : [ ],
         "keywords" : [ ]
     }
@@ -427,7 +427,7 @@ This enables the Alpine packaging workflow directly from Arch Linux, allowing Ar
 <h2 id="environment-setup-to-perform-alpine-packaging-from-arch-linux">Environment setup to perform Alpine packaging from Arch Linux</h2>
 <p>Install the <a href="https://archlinux.org/packages/extra/x86_64/abuild/">abuild</a> and <a href="https://archlinux.org/packages/extra/x86_64/atools/">atools</a> packages:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo pacman -S abuild atools
-</span></span></code></pre></div><p>To be able to build packages in a clean chroot with <code>abuild rootbld</code>, you need to generate a public / private rsa key pair with <code>abuild-keygen</code>, install the <code>alpine-keyring</code> package (optional dependency for the <a href="https://archlinux.org/packages/extra/x86_64/abuild/">abuild package</a>) and add your user to the <code>abuild</code> group:</p>
+</span></span></code></pre></div><p>To be able to build packages in a clean chroot with <code>abuild rootbld</code>, you need to generate a public / private rsa key pair with <code>abuild-keygen</code>, install the <a href="https://archlinux.org/packages/extra/any/alpine-keyring/">alpine-keyring package</a> (which is an optional dependency for the <a href="https://archlinux.org/packages/extra/x86_64/abuild/">abuild package</a>) and add your user to the <code>abuild</code> group:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>abuild-keygen -a -i
 </span></span><span style="display:flex;"><span>sudo pacman -S --asdeps alpine-keyring
 </span></span><span style="display:flex;"><span>sudo usermod -aG abuild <span style="color:#e6db74">&#34;your_user&#34;</span> <span style="color:#75715e"># Requires a logout / login to take effect</span>
