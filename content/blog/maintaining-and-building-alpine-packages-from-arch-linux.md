@@ -1,6 +1,6 @@
 ---
 title: "Maintaining and building Alpine packages from Arch Linux"
-date: 2024-10-14:10:42+02:00
+date: 2024-10-14T10:42:00+02:00
 draft: false
 ---
 
