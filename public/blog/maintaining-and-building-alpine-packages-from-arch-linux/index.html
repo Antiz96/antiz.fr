@@ -210,7 +210,7 @@ This enables the Alpine packaging workflow directly from Arch Linux, allowing Ar
 
     ,
         "url" : "https:\/\/antiz.fr\/blog\/maintaining-and-building-alpine-packages-from-arch-linux\/",
-        "wordCount" : "467",
+        "wordCount" : "465",
         "genre" : [ ],
         "keywords" : [ ]
     }
@@ -437,7 +437,7 @@ On my side, I&rsquo;ve set it up in my <code>~/.bashrc</code>, like so:</p>
 </span></span></code></pre></div><p>See the <a href="https://wiki.alpinelinux.org/wiki/Creating_an_Alpine_package#Setup_your_system_and_account">Alpine wiki</a> for more details.</p>
 <h2 id="basic-alpine-packaging-workflow-from-arch-linux">Basic Alpine packaging workflow from Arch Linux</h2>
 <p>With the above setup, I&rsquo;m able to perform my basic and regular Alpine packaging workflow directly from my Arch Linux system:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>newapkbuild <span style="color:#e6db74">&#34;package_name&#34;</span> <span style="color:#f92672">&amp;&amp;</span> cd <span style="color:#e6db74">&#34;package_name&#34;</span> <span style="color:#75715e"># Create a new port for a package (if required) and `cd` into it</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>newapkbuild <span style="color:#e6db74">&#34;package_name&#34;</span> <span style="color:#f92672">&amp;&amp;</span> cd <span style="color:#e6db74">&#34;package_name&#34;</span> <span style="color:#75715e"># Create a new port for a package and `cd` into it</span>
 </span></span><span style="display:flex;"><span>vim APKBUILD <span style="color:#75715e"># Edit the APKUILD</span>
 </span></span><span style="display:flex;"><span>apkbuild-lint APKBUILD <span style="color:#75715e"># Run the apkbuild linter</span>
 </span></span><span style="display:flex;"><span>apkbuild-fixer APKBUILD <span style="color:#75715e"># Attempt to automatically fix potential warnings raised by `apkbuild-lint`</span>
