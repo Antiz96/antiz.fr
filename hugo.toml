@@ -10,7 +10,7 @@ summaryLength = 50
 [params]
 	title = "Robin Candau"
 	author = "Robin Candau"
-	description = "Linux system & DevOps engineer passionate by skate, music, (craft) beer and, obviously, Linux!"
+	description = "Linux system & DevOps engineer passionate about skateboarding, music, cycling and, obviously, Linux!"
 	profilePicture = "images/pfp.jpg"
 	contentratio = 0.7
 	customCss = ["css/custom.css"]
@@ -21,6 +21,11 @@ summaryLength = 50
 	icon = "fab fa-github"
 	title = "GitHub"
 	url = "https://github.com/Antiz96"
+
+	[[params.socialIcons]]
+	icon = "fab fa-gitlab"
+	title = "Arch Linux GitLab"
+	url = "https://gitlab.archlinux.org/antiz"
 
 	[[params.socialIcons]]
 	icon = "fab fa-mastodon"

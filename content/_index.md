@@ -7,7 +7,7 @@ draft: false
 # Hey!
 
 My name is Robin Candau.  
-I'm a french Linux system & DevOps engineer passionate by skate, music, (craft) beer and, obviously, Linux!
+I'm a french Linux system & DevOps engineer passionate about skateboarding, music, cycling and, obviously, Linux!
 
 This website serves as a central place to get general & contact info about me, as well as writing some [blog posts](https://antiz.fr/blog/) when I feel like it.
 
