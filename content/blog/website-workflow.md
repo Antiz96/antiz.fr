@@ -4,7 +4,7 @@ date: 2023-07-24T13:20:26+02:00
 draft: false
 ---
 
-EDIT: This article is slitghly outdated as the workflow I use to maintain this website has evolved and improved over time (but it still gives a fairly good idea of a simple but effective CI / CD workflow one could apply to their projects). I'll eventually write a V2 of that article at some point.
+EDIT: This article is slitghly outdated as the workflow I use to maintain this website has evolved and improved over time. I'll eventually write a V2 of that article at some point.
 
 ## The website
 
