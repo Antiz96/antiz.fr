@@ -18,7 +18,7 @@ Here are the main projects I actively contribute to:
 
 ### Arch Linux
 
-![alt text](images/arch_linux-logo.png "Arch Linux logo")
+![alt text](images/index/arch_linux-logo.png "Arch Linux logo")
 
 [Arch Linux](https://archlinux.org) is a lightweight and flexible Linux distribution that focuses on simplicity, modernity, pragmatism, user centrality and versatility.
 
@@ -32,7 +32,7 @@ Here are the main projects I actively contribute to:
 
 ### Alpine Linux
 
-![alt text](images/alpine_linux-logo.png "Alpine Linux logo")
+![alt text](images/index/alpine_linux-logo.png "Alpine Linux logo")
 
 [Alpine Linux](https://www.alpinelinux.org) is a security-oriented, lightweight Linux distribution based on musl libc and busybox.
 
@@ -40,7 +40,7 @@ Here are the main projects I actively contribute to:
 
 ### Arch-Update
 
-![alt text](images/arch_update-logo.png "Arch-Update logo")
+![alt text](images/index/arch_update-logo.png "Arch-Update logo")
 
 [Arch-Update](https://github.com/Antiz96/arch-update) is an update notifier & applier for Arch Linux that assists you with important pre / post update tasks.
 
