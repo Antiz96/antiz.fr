@@ -1,8 +1,6 @@
 name: CD
 on:
   pull_request:
-    branches:
-      - main
   push:
     branches:
       - main
@@ -21,7 +19,6 @@ jobs:
           ref: ${{ github.event.pull_request.head.ref }}
 
   Build:
-    if: github.event_name == 'pull_request'
     needs: Checkout
     runs-on:
       - self-hosted
@@ -50,7 +47,7 @@ jobs:
           fi
 
   Deploy:
-    needs: Checkout
+    needs: Build
     runs-on:
       - self-hosted
       - CI-CD
@@ -63,6 +60,6 @@ jobs:
           elif [ "$(git rev-parse --abbrev-ref HEAD)" == "main" ]; then
                   /opt/github-runner/antiz.fr/deploy_website.sh prod
           else
-                  echo "Invalid branch, make sure you opened your pull request from the 'dev' branch"
+                  echo "Invalid branch, nothing to deploy"
                   exit 1
           fi
