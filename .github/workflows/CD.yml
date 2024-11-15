@@ -47,6 +47,7 @@ jobs:
       - self-hosted
       - CI-CD
 
+    steps:
       - name: Deploy website
         run: |
           if [ "$(git rev-parse --abbrev-ref HEAD)" == "dev" ]; then
