@@ -55,5 +55,5 @@ jobs:
                   /opt/github-runner/antiz.fr/deploy_website.sh prod
           else
                   echo "Invalid branch, make sure you opened your pull request from the 'dev' branch"
-		  exit 1
+                  exit 1
           fi
