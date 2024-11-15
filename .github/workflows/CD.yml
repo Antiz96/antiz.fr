@@ -1,8 +1,15 @@
 name: CD
-on: pull_request
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
 
 jobs:
   Build:
+    if: github.event_name == 'pull_request'
     runs-on:
       - self-hosted
       - CI-CD
@@ -33,4 +40,20 @@ jobs:
                   git push
           else
                   echo "No changes to commit"
+          fi
+
+  Deploy:
+    runs-on:
+      - self-hosted
+      - CI-CD
+
+      - name: Deploy website
+        run: |
+          if [ "$(git rev-parse --abbrev-ref HEAD)" == "dev" ]; then
+                  /opt/github-runner/antiz.fr/deploy_website.sh dev
+          elif [ "$(git rev-parse --abbrev-ref HEAD)" == "main" ]; then
+                  /opt/github-runner/antiz.fr/deploy_website.sh prod
+          else
+                  echo "Invalid branch, make sure you opened your pull request from the 'dev' branch"
+		  exit 1
           fi
