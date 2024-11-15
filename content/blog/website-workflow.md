@@ -48,8 +48,8 @@ It allows to automatically deploy the website by remotely triggering the dedicat
 
 Under the hood, this Jenkins job runs a simple [Ansible](https://www.ansible.com/) playbook (see that playbook [here](https://github.com/Antiz96/Linux-Server/blob/main/Ansible-Playbooks/roles/update_antiz.fr/tasks/main.yml)) that aims to update the website's sources on the targeted environment against the related GitHub branch (`dev` branch --> development environment, `main` branch --> production environment).
 
-When opening a pull request from the `dev` branch to the `main` branch, the "Deploy" stage of my GitHub CD pipeline automatically triggers the related Jenkins job (which itself triggers the related Ansible playbook) targeting my `dev` environment, so my changes gets automatically deployed and I can review them on my development environment.
+When opening a pull request from the `dev` branch to the `main` branch on the GitHub side, the "Deploy" stage of the "CD" pipeline remotely triggers the Jenkins job targeting the `dev` environment. My changes are thus automatically deployed and I can review them on my development environment.
 
-Once I reviewed the changes on my development environment and they are ready to go to production, I can just merge the pull request to the `main` branch which will [trigger a new run of the CD pipeline](https://github.com/Antiz96/antiz.fr/blob/main/.github/workflows/CD.yml#L4-L6) with the "Deploy" stage targeting the `prod` environment this time!
+Once I reviewed the changes on my development environment and they are ready to go to production, I can just merge the pull request to the `main` branch which will [trigger a new run of the "CD" pipeline](https://github.com/Antiz96/antiz.fr/blob/main/.github/workflows/CD.yml#L4-L6) with the "Deploy" stage targeting the `prod` environment this time!
 
 This workflow may evolve and be improved over time but it's a good example of a simple; yet effective, flexible and reliable automated CI / CD workflow you can use to manage your projects! :smile:
