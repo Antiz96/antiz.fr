@@ -4,6 +4,8 @@ date: 2023-07-24T13:20:26+02:00
 draft: false
 ---
 
+EDIT: This article is slitghly outdated as the workflow I use to maintain this website has evolved and improved over time. I'll eventually write a V2 of that article at some point.
+
 ## The website
 
 This website is built with the [HUGO](https://gohugo.io/) static website generator using the [anatole](https://github.com/lxndrblz/anatole) theme.  
@@ -34,7 +36,7 @@ The [test job](https://github.com/Antiz96/antiz.fr/blob/main/.github/workflows/C
 
 ### CD
 
-Once both of the above CI jobs succeeded (meaning the website has been successfully built, pushed to the dev branch of the repository, and the tests went through without any error), I launch a job on my [Jenkins](https://www.jenkins.io/) server targeting the dev environment:
+Once both of the above CI jobs succeeded (meaning the website has been successfully built, pushed to the dev branch of the repository, and the tests went through without any error), I launch a job on my [Jenkins](https://www.jenkins.io/) server targeting the dev environment *(edit: the trigger of that job is now automated via GitHub actions as well):
 
 ![alt_text](../../images/Jenkins_Update_Website_Job_Dev.png "Jenkins - Update Website Job Dev")
 

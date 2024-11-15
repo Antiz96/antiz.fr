@@ -1,8 +1,12 @@
 name: CD
-on: pull_request
+on:
+  pull_request:
+  push:
+    branches:
+      - main
 
 jobs:
-  Build:
+  Checkout:
     runs-on:
       - self-hosted
       - CI-CD
@@ -14,6 +18,13 @@ jobs:
           token: ${{ secrets.BUILD_WEBSITE_TOKEN }}
           ref: ${{ github.event.pull_request.head.ref }}
 
+  Build:
+    needs: Checkout
+    runs-on:
+      - self-hosted
+      - CI-CD
+
+    steps:
       - name: Init theme submodule
         run: git submodule update --init
 
@@ -33,4 +44,22 @@ jobs:
                   git push
           else
                   echo "No changes to commit"
+          fi
+
+  Deploy:
+    needs: Build
+    runs-on:
+      - self-hosted
+      - CI-CD
+
+    steps:
+      - name: Deploy website
+        run: |
+          if [ "$(git rev-parse --abbrev-ref HEAD)" == "dev" ]; then
+                  /opt/github-runner/antiz.fr/deploy_website.sh dev
+          elif [ "$(git rev-parse --abbrev-ref HEAD)" == "main" ]; then
+                  /opt/github-runner/antiz.fr/deploy_website.sh prod
+          else
+                  echo "Invalid branch, nothing to deploy"
+                  exit 1
           fi
