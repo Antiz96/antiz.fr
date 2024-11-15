@@ -387,10 +387,13 @@ After a quick thought, I understood that a power outage occurred during the nigh
           <div class="post__content">
             <a class="" href="/blog/website-workflow/" title="The automated workflow I use to manage this website"><h3>The automated workflow I use to manage this website</h3></a>
             <div class="post__footer">24 July 2023</div>
-            <p><p>EDIT: This article is slitghly outdated as the workflow I use to maintain this website has evolved and improved over time. I&rsquo;ll eventually write a V2 of that article at some point.</p>
-<h2 id="the-website">The website</h2>
+            <p><h2 id="the-website">The website</h2>
 <p>This website is built with the <a href="https://gohugo.io/">HUGO</a> static website generator using the <a href="https://github.com/lxndrblz/anatole">anatole</a> theme.<br>
-The website&rsquo;s source code is hosted in <a href="https://github.com/Antiz96/antiz.fr/">this GitHub repository</a>.</p></p>
+The website&rsquo;s source code is hosted in <a href="https://github.com/Antiz96/antiz.fr/">this GitHub repository</a>.</p>
+<h2 id="automated-ci--cd-workflow">Automated CI / CD workflow</h2>
+<p>I make my changes <em>(e.g. creating an new article, update the theme, add new parameters to the website, etc&hellip;)</em> locally on my computer inside the git repository in the <code>dev</code> branch.<br>
+Every changes I made (e.g. creating a new article, update the theme, add new parameters to the website, &hellip;) are done in my local git repository on the <a href="https://github.com/Antiz96/antiz.fr/tree/dev"><code>dev</code> branch</a>.<br>
+Once the changes are pushed to the above GitHub repository, I create a pull request from the <code>dev</code> branch to the main one, which triggers CI / CD pipelines (which run on my own self-hosted runners):</p></p>
             <p>[...]</p>
             <a class="custom-readmore" href="/blog/website-workflow/" title="The automated workflow I use to manage this website">Read More</a>
           </div>
