@@ -22,6 +22,7 @@ jobs:
 
   Build:
     if: github.event_name == 'pull_request'
+    needs: Checkout
     runs-on:
       - self-hosted
       - CI-CD
@@ -49,6 +50,7 @@ jobs:
           fi
 
   Deploy:
+    needs: Checkout
     runs-on:
       - self-hosted
       - CI-CD
