@@ -42,7 +42,7 @@ Once the "Build" stage has finished successfully, the "Deploy" stage is triggere
 
 ![alt_text](../../images/website-workflow/CD_Job_Deploy_Stage_Steps.png "Website Workflow - CD Job Deploy Stage Steps")
 
-It allows to automatically deploy the website by remotely triggering the related job on my [Jenkins](https://www.jenkins.io/) server for my website deployment. This Jenkins job can either target my `dev` or `prod` environment (the former being hosted on a virtual server in my homelab, the latter being hosted on a VPS), thanks to a dedicated parameter.
+It allows to automatically deploy the website by remotely triggering the dedicated related job on my [Jenkins](https://www.jenkins.io/) server. This Jenkins job can either target my `dev` or `prod` environment for the deployment (the former being hosted on a virtual server in my homelab, the latter being hosted on a VPS), thanks to a dedicated parameter.
 
 ![alt_text](../../images/website-workflow/Jenkins_Job_Parameters.png "Website Workflow - Jenkins Job Parameters")
 
