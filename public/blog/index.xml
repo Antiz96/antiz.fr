@@ -59,7 +59,7 @@ After a quick thought, I understood that a power outage occurred during the nigh
 &lt;p&gt;This website is built with the &lt;a href=&#34;https://gohugo.io/&#34;&gt;HUGO&lt;/a&gt; static website generator using the &lt;a href=&#34;https://github.com/lxndrblz/anatole&#34;&gt;anatole&lt;/a&gt; theme.&lt;br&gt;
 The website&amp;rsquo;s source code is hosted in &lt;a href=&#34;https://github.com/Antiz96/antiz.fr/&#34;&gt;this GitHub repository&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;automated-ci--cd-workflow&#34;&gt;Automated CI / CD workflow&lt;/h2&gt;
-&lt;p&gt;Every changes I made (e.g. creating a new article, update the theme, add new parameters to the website, &amp;hellip;) are done in my local git repository on the &lt;a href=&#34;https://github.com/Antiz96/antiz.fr/tree/dev&#34;&gt;&lt;code&gt;dev&lt;/code&gt; branch&lt;/a&gt;.&lt;br&gt;
+&lt;p&gt;Every changes I make (e.g. creating a new article, update the theme, add new parameters to the website, &amp;hellip;) are done in my local git repository on the &lt;a href=&#34;https://github.com/Antiz96/antiz.fr/tree/dev&#34;&gt;&lt;code&gt;dev&lt;/code&gt; branch&lt;/a&gt;.&lt;br&gt;
 Once the changes are pushed to GitHub, I create a pull request from the &lt;code&gt;dev&lt;/code&gt; branch to the main branch, which triggers CI / CD pipelines (running on my own self-hosted runners):&lt;/p&gt;</description>
       
     </item>
