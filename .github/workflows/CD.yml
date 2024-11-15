@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  Checkout:
+  Build:
     runs-on:
       - self-hosted
       - CI-CD
@@ -18,13 +18,6 @@ jobs:
           token: ${{ secrets.BUILD_WEBSITE_TOKEN }}
           ref: ${{ github.event.pull_request.head.ref }}
 
-  Build:
-    needs: Checkout
-    runs-on:
-      - self-hosted
-      - CI-CD
-
-    steps:
       - name: Init theme submodule
         run: git submodule update --init
 
