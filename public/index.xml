@@ -55,7 +55,10 @@ After a quick thought, I understood that a power outage occurred during the nigh
       
       <guid>https://antiz.fr/blog/website-workflow/</guid>
       
-        <description>&lt;p&gt;EDIT: This article is slitghly outdated as the workflow I use to maintain this website has evolved and improved over time (but it still gives a fairly good idea of a simple but effective CI / CD workflow one could apply to their projects). I&amp;rsquo;ll eventually write a V2 of that article at some point.&lt;/p&gt;</description>
+        <description>&lt;p&gt;EDIT: This article is slitghly outdated as the workflow I use to maintain this website has evolved and improved over time. I&amp;rsquo;ll eventually write a V2 of that article at some point.&lt;/p&gt;
+&lt;h2 id=&#34;the-website&#34;&gt;The website&lt;/h2&gt;
+&lt;p&gt;This website is built with the &lt;a href=&#34;https://gohugo.io/&#34;&gt;HUGO&lt;/a&gt; static website generator using the &lt;a href=&#34;https://github.com/lxndrblz/anatole&#34;&gt;anatole&lt;/a&gt; theme.&lt;br&gt;
+The website&amp;rsquo;s source code is hosted in &lt;a href=&#34;https://github.com/Antiz96/antiz.fr/&#34;&gt;this GitHub repository&lt;/a&gt;.&lt;/p&gt;</description>
       
     </item>
     
