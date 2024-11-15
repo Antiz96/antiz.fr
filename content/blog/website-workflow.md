@@ -11,9 +11,8 @@ The website's source code is hosted in [this GitHub repository](https://github.c
 
 ## Automated CI / CD workflow
 
-I make my changes *(e.g. creating an new article, update the theme, add new parameters to the website, etc...)* locally on my computer inside the git repository in the `dev` branch.  
 Every changes I made (e.g. creating a new article, update the theme, add new parameters to the website, ...) are done in my local git repository on the [`dev` branch](https://github.com/Antiz96/antiz.fr/tree/dev).  
-Once the changes are pushed to the above GitHub repository, I create a pull request from the `dev` branch to the main one, which triggers CI / CD pipelines (which run on my own self-hosted runners):
+Once the changes are pushed to GitHub, I create a pull request from the `dev` branch to the main one, which triggers CI / CD pipelines (which run on my own self-hosted runners):
 
 ![alt_text](../../images/website-workflow/CI_CD_Jobs.png "Website Workflow - CI_CD Jobs")
 
