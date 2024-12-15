@@ -4,7 +4,7 @@ date: 2023-02-16T13:11:49+01:00
 draft: false
 ---
 
-# Hey!
+# Hey! :wave:
 
 My name is Robin Candau.  
 I'm a french Linux system & DevOps engineer passionate about skateboarding, music, cycling and, obviously, Linux!
