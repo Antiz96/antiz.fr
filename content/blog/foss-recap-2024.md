@@ -110,9 +110,9 @@ So here is a recap of all the noticeable FOSS related work I was able to work on
    - Improvements to the way Arch news are fetched and displayed to users.
    - Add basic shell completions for `bash`, `zsh` and `fish`.
    - Add a clickable and dynamic systray applet allowing to quickly see the list of pending updates, run an update check and run `arch-update`.
-   - Add support to identify `systemd` services that need a post-upgrade restart and allow users to do so (in addition of checking pending kernel upgrade requiring a reboot).
-   - Add support for `run0` (in addition of `sudo` & `doas`)
-   - Add support for `pikaur` (in addition of `yay` & `paru`)
+   - Add support for identifying `systemd` services that need a post-upgrade restart and allow users to do so (in addition of checking pending kernel upgrade requiring a reboot).
+   - Add support for `run0` (in addition of `sudo` & `doas`).
+   - Add support for `pikaur` (in addition of `yay` & `paru`).
    - And a lot more...
 
 ## Other
