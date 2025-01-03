@@ -21,7 +21,7 @@ So here is a recap of all the noticeable FOSS related work I was able to work on
 
 - I added a few packages stacks to the [extra] repository, most notably some [XFCE related packages](https://fosstodon.org/@Antiz/113175508877546208) and the [nwg-shell packages](https://github.com/nwg-piotr/nwg-shell/discussions/375).
 
-- I added [Alpine Linux](https://alpinelinux.org/) packaging tooling to the Arch Linux [extra] repository, [allowing to maintain Alpine packages directly from an Arch system](https://antiz.fr/blog/maintaining-and-building-alpine-packages-from-arch-linux/).
+- I added Alpine Linux packaging tooling to the Arch Linux [extra] repository, [allowing to maintain Alpine packages directly from an Arch system](https://antiz.fr/blog/maintaining-and-building-alpine-packages-from-arch-linux/).
 
 ### Testing Team
 
@@ -103,7 +103,7 @@ So here is a recap of all the noticeable FOSS related work I was able to work on
 
 ## Arch-Update
 
-- [Arch-Update](https://github.com/Antiz96/arch-update) got 34 new [releases](https://github.com/Antiz96/arch-update/releases) in 2024 (including 2 major ones), 15 new [contributors](https://github.com/Antiz96/arch-update/graphs/contributors) and a lot of new features, most notably:
+- Arch-Update got 34 new [releases](https://github.com/Antiz96/arch-update/releases) in 2024 (including 2 major ones), 15 new [contributors](https://github.com/Antiz96/arch-update/graphs/contributors) and a lot of new features, most notably:
 
    - Add support for colored output.
    - Add support for an `arch-update.conf` configuration file (allowing to enable / disable and modify certain options).
