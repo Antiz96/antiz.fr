@@ -6,7 +6,7 @@ draft: false
 
 Fellow Arch Linux mate [kpcyrd](https://github.com/kpcyrd) recently published a ["2024 recap" blog post](https://vulns.xyz/2024/12/2024-wrapped/) which (in addition of being a really cool, interesting and impressive read) inspired me to right my own.
 
-So here is a recap of all the noticeable FOSS related work I was able to work on / achieve in 2024. :smile:
+So here is a recap of all the noticeable FOSS related stuff I had the chance to work on & achieve in 2024. :smile:
 
 ## Arch Linux
 
@@ -129,7 +129,7 @@ So here is a recap of all the noticeable FOSS related work I was able to work on
 
 That's it!
 
-Obviously, the point isn't to "show off" or anything, but writing this recap was actually quite fun and I'm personally very happy & proud about everything I had the chance to work on and achieve this year!  
+Obviously, the point isn't to "show off" or anything, but writing this recap was actually quite fun and I'm personally very happy & proud about everything I had the chance to work on & achieve this year!  
 I actually intend to write a similar retrospective for the years to come. I have a few objectives set for 2025 and some work started already. :smiley:
 
 I'd like to conclude by thanking everybody who contributed one way or another to the above accomplishments and to my work in general!  
