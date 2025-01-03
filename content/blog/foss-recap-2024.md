@@ -6,7 +6,7 @@ draft: false
 
 Fellow Arch mate [kpcyrd](https://github.com/kpcyrd) recently published a ["2024 recap" blog post](https://vulns.xyz/2024/12/2024-wrapped/) which (in addition of being a really cool, interesting and impressive read) inspired me to right my own.
 
-So here is a recap of all the noticeable FOSS related work I was able to work on / achieve in 2024. :smile: 
+So here is a recap of all the noticeable FOSS related work I was able to work on / achieve in 2024. :smile:
 
 ## Arch Linux
 
@@ -14,8 +14,8 @@ So here is a recap of all the noticeable FOSS related work I was able to work on
 
 - I pushed a total of 1653 packages to Arch Linux repositories.
 
-    - Most of which being packages updates (including some stack updates, like [XFCE 4.20](https://archlinux.org/todo/xfce-420-update/)). 
-    - The top five packages being [python-sentry_sdk](https://sentry.io/for/python/) (49), [jenkins](https://www.jenkins.io/) (53), [fastfetch](https://github.com/fastfetch-cli/fastfetch) (57), [hugo](https://gohugo.io/) (58) & [limine](https://limine-bootloader.org/) (63).
+   - Most of which being packages updates (including some stack updates, like [XFCE 4.20](https://archlinux.org/todo/xfce-420-update/)).
+   - The top five packages being [python-sentry_sdk](https://sentry.io/for/python/) (49), [jenkins](https://www.jenkins.io/) (53), [fastfetch](https://github.com/fastfetch-cli/fastfetch) (57), [hugo](https://gohugo.io/) (58) & [limine](https://limine-bootloader.org/) (63).
 
 - I reworked / improved a few packages stacks, most notably the [Mate](https://archlinux.org/todo/general-mate-packages-rework/) & [XFCE](https://archlinux.org/todo/general-xfce-packages-rework/) ones.
 
@@ -35,8 +35,8 @@ So here is a recap of all the noticeable FOSS related work I was able to work on
 
 - I made a few contributions to the Arch Linux infrastructure:
 
-    - [Switch to the `http2` directive in `nginx` configurations](https://gitlab.archlinux.org/archlinux/infrastructure/-/merge_requests/833).
-    - [Fix some inconsistencies in ansible playbooks / roles](https://gitlab.archlinux.org/archlinux/infrastructure/-/merge_requests/899).
+   - [Switch to the `http2` directive in `nginx` configurations](https://gitlab.archlinux.org/archlinux/infrastructure/-/merge_requests/833).
+   - [Fix some inconsistencies in ansible playbooks / roles](https://gitlab.archlinux.org/archlinux/infrastructure/-/merge_requests/899).
 
 ### Increasing the default vm.max_map_count value
 
@@ -46,23 +46,23 @@ So here is a recap of all the noticeable FOSS related work I was able to work on
 
 - I got the following features merged and included in `pkgctl`:
 
-    - [Make `pkgctl version upgrade` also upgrade checksum entries in PKGBUILDs](https://gitlab.archlinux.org/archlinux/devtools/-/merge_requests/236).
-    - [Introduce the `pkgctl repo clean` command](https://gitlab.archlinux.org/archlinux/devtools/-/merge_requests/250).
-    - [Add a warning in `pkgctl release` if the nvchecker integration is not set](https://gitlab.archlinux.org/archlinux/devtools/-/merge_requests/275).
-    
+   - [Make `pkgctl version upgrade` also upgrade checksum entries in PKGBUILDs](https://gitlab.archlinux.org/archlinux/devtools/-/merge_requests/236).
+   - [Introduce the `pkgctl repo clean` command](https://gitlab.archlinux.org/archlinux/devtools/-/merge_requests/250).
+   - [Add a warning in `pkgctl release` if the nvchecker integration is not set](https://gitlab.archlinux.org/archlinux/devtools/-/merge_requests/275).
+
 - I got the following features proposition opened:
 
-    - [Introduce the `--version-upgrade` argument to `pkgctl build`](https://gitlab.archlinux.org/archlinux/devtools/-/merge_requests/261).
-    - [Add a visual diff & confirmation before applying changes when running `pkgctl version upgrade`](https://gitlab.archlinux.org/archlinux/devtools/-/merge_requests/274).
-    - [Ship the 0BSD LICENSE file for packages sources within the `devtools` package and have `pkgctl release` fail if it isn't present in the repo when releasing new packages updates](https://gitlab.archlinux.org/archlinux/devtools/-/merge_requests/288).
+   - [Introduce the `--version-upgrade` argument to `pkgctl build`](https://gitlab.archlinux.org/archlinux/devtools/-/merge_requests/261).
+   - [Add a visual diff & confirmation before applying changes when running `pkgctl version upgrade`](https://gitlab.archlinux.org/archlinux/devtools/-/merge_requests/274).
+   - [Ship the 0BSD LICENSE file for packages sources within the `devtools` package and have `pkgctl release` fail if it isn't present in the repo when releasing new packages updates](https://gitlab.archlinux.org/archlinux/devtools/-/merge_requests/288).
 
 ### Archlinux-Contrib
 
 - I made [several contributions](https://github.com/archlinux/contrib/commits?author=Antiz96) to the archlinux-contrib scripts, most notably:
 
-    - [Various improvements to the `rebuild-todo` output and default behavior](https://github.com/archlinux/contrib/pull/74).
-    - [Add support for offloaded builds in `rebuild-todo` (via `pkgctl --offload`)](https://github.com/archlinux/contrib/pull/75).
-    - [Add a configurable list of ignored services to `checkservices`](https://github.com/archlinux/contrib/pull/78).
+   - [Various improvements to the `rebuild-todo` output and default behavior](https://github.com/archlinux/contrib/pull/74).
+   - [Add support for offloaded builds in `rebuild-todo` (via `pkgctl --offload`)](https://github.com/archlinux/contrib/pull/75).
+   - [Add a configurable list of ignored services to `checkservices`](https://github.com/archlinux/contrib/pull/78).
 
 ### Arch Summit Organization
 
@@ -84,7 +84,7 @@ So here is a recap of all the noticeable FOSS related work I was able to work on
 
 ### Staff
 
-- Together with [rgacogne](https://github.com/rgacogne), we sponsored [mh4ckt3mh4ckt1c4s](https://github.com/mh4ckt3mh4ckt1c4s)'s [application as an Arch Package Maintainer](https://lists.archlinux.org/archives/list/aur-general@lists.archlinux.org/message/YBWSCOKHQ4OX64M7WQOUKXDHLROVH5WZ/) which was accepted.
+- Together with [rgacogne](https://github.com/rgacogne), we sponsored [mh4ckt3mh4ckt1c4s](https://github.com/mh4ckt3mh4ckt1c4s)'s [application as an Arch Package Maintainer](https://lists.archlinux.org/archives/list/aur-general@lists.archlinux.org/message/YBWSCOKHQ4OX64M7WQOUKXDHLROVH5WZ/) which was [accepted](https://lists.archlinux.org/archives/list/aur-general@lists.archlinux.org/message/PDYDEFMJEHAYEVZHLY2WA277LODRRED4/).
 
 ### AUR moderation
 
@@ -93,35 +93,35 @@ So here is a recap of all the noticeable FOSS related work I was able to work on
 ## Alpine Linux
 
 ### Packaging
-    
+
 - I pushed 34 commits to Alpine's [aports](https://gitlab.alpinelinux.org/alpine/aports).
 
-    - Most of which being aports (packages) updates.
-    - Still a total of 7 new aports (packages) pushed to Alpine's repositories.
-    
+   - Most of which being aports (packages) updates.
+   - Still a total of 7 new aports (packages) pushed to Alpine's repositories.
+
 - I raised some [packaging related issues](https://gitlab.alpinelinux.org/alpine/aports/-/issues/16316).
 
 ## Arch-Update
 
 - [Arch-Update](https://github.com/Antiz96/arch-update) got 34 new [releases](https://github.com/Antiz96/arch-update/releases) in 2024 (including 2 major ones), 15 new [contributors](https://github.com/Antiz96/arch-update/graphs/contributors) and a lot of new features, most notably:
 
-    - Add support for colored output.
-    - Add support for an `arch-update.conf` configuration file (allowing to enable / disable and modify certain options).
-    - Improvements to the way Arch news are fetched and displayed to users.
-    - Add basic shell completions for `bash`, `zsh` and `fish`.
-    - Add a clickable and dynamic systray applet allowing to quickly see the list of pending updates, run an update check and run `arch-update`.
-    - Add support to identify `systemd` services that need a post-upgrade restart and allow users to do so (in addition of checking pending kernel upgrade requiring a reboot).
-    - Add support for `run0` (in addition of `sudo` & `doas`)
-    - Add support for `pikaur` (in addition of `yay` & `paru`)
-    - And a lot more...
+   - Add support for colored output.
+   - Add support for an `arch-update.conf` configuration file (allowing to enable / disable and modify certain options).
+   - Improvements to the way Arch news are fetched and displayed to users.
+   - Add basic shell completions for `bash`, `zsh` and `fish`.
+   - Add a clickable and dynamic systray applet allowing to quickly see the list of pending updates, run an update check and run `arch-update`.
+   - Add support to identify `systemd` services that need a post-upgrade restart and allow users to do so (in addition of checking pending kernel upgrade requiring a reboot).
+   - Add support for `run0` (in addition of `sudo` & `doas`)
+   - Add support for `pikaur` (in addition of `yay` & `paru`)
+   - And a lot more...
 
 ## Other
 
 - I attended to some FOSS related events:
- 
-    - FOSDEM.
-    - Arch Summit.
-    - Local event about DevOps & Infrastructure, during which I gave a talk about `pkgctl` *(no recording unfortunately)*.
+
+   - FOSDEM.
+   - Arch Summit.
+   - Local event about DevOps & Infrastructure, during which I gave a talk about `pkgctl` *(no recording unfortunately)*.
 
 - I wrote 2 [blog posts](https://antiz.fr/blog/).
 
@@ -130,7 +130,7 @@ So here is a recap of all the noticeable FOSS related work I was able to work on
 That's it!
 
 Obviously, the point isn't to "show off" or anything, but writing this recap was actually quite fun and I'm personally very happy & proud about everything I had the chance to work on and achieve this year!  
-I actually intend to write a similar retrospective for the years to come. I have a few objectives set for 2025 and some work started already. :smiley: 
+I actually intend to write a similar retrospective for the years to come. I have a few objectives set for 2025 and some work started already. :smiley:
 
 I'd like to conclude by thanking everybody who contributed one way or another to the above accomplishments and to my work in general!  
 Also, happy new year everyone! :tada:
