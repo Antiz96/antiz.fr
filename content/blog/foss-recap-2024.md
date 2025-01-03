@@ -84,7 +84,7 @@ So here is a recap of all the noticeable FOSS related work I was able to work on
 
 ### Staff
 
-- Together with [rgacogne](https://github.com/rgacogne), we sponsored [mh4ckt3mh4ckt1c4s](https://github.com/mh4ckt3mh4ckt1c4s)'s [application as an Arch Package Maintainer](https://lists.archlinux.org/archives/list/aur-general@lists.archlinux.org/message/YBWSCOKHQ4OX64M7WQOUKXDHLROVH5WZ/) which was [accepted](https://lists.archlinux.org/archives/list/aur-general@lists.archlinux.org/message/PDYDEFMJEHAYEVZHLY2WA277LODRRED4/).
+- Together with [rgacogne](https://github.com/rgacogne), we sponsored [mh4ckt3mh4ckt1c4s](https://github.com/mh4ckt3mh4ckt1c4s)'s [application to become a Package Maintainer](https://lists.archlinux.org/archives/list/aur-general@lists.archlinux.org/message/YBWSCOKHQ4OX64M7WQOUKXDHLROVH5WZ/) which was [accepted](https://lists.archlinux.org/archives/list/aur-general@lists.archlinux.org/message/PDYDEFMJEHAYEVZHLY2WA277LODRRED4/).
 
 ### AUR moderation
 
