@@ -1,0 +1,626 @@
+<!doctype html>
+<html
+  dir="ltr"
+  lang="en"
+  data-theme=""
+  
+    class="html theme--light"
+  
+><head>
+  <meta charset="utf-8" />
+  <title>
+    Robin Candau
+        |
+        FOSS Recap 2024
+      
+
+    
+
+  </title>
+
+  <meta name="generator" content="Hugo 0.140.1"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="author" content="Robin Candau" />
+  <meta
+    name="description"
+    content="Linux system &amp; DevOps engineer passionate about skateboarding, music, cycling and, obviously, Linux!"
+  />
+  
+  
+    
+    
+    <link
+      rel="stylesheet"
+      href="/scss/main.min.1cac29897bb941adf4246700acb99deffbfdf35a02ffc4ae81484456ebe430c3.css"
+      integrity="sha256-HKwpiXu5Qa30JGcArLmd7/v981oC/8SugUhEVuvkMMM="
+      crossorigin="anonymous"
+      type="text/css"
+    />
+  
+
+  
+  <link
+    rel="stylesheet"
+    href="/css/markupHighlight.min.73ccfdf28df555e11009c13c20ced067af3cb021504cba43644c705930428b00.css"
+    integrity="sha256-c8z98o31VeEQCcE8IM7QZ688sCFQTLpDZExwWTBCiwA="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+    
+    
+    <link
+      rel="stylesheet"
+      href="/css/custom.min.12eb7037bf07e9b3c877c4d2aad88722dbeeeb31ae96aba510fa53899abb61b0.css"
+      integrity="sha256-EutwN78H6bPId8TSqtiHItvu6zGulqulEPpTiZq7YbA="
+      crossorigin="anonymous"
+      media="screen"
+    />
+  
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/fontawesome.min.137b1cf3cea9a8adb7884343a9a5ddddf4280f59153f74dc782fb7f7bf0d0519.css"
+    integrity="sha256-E3sc886pqK23iENDqaXd3fQoD1kVP3TceC&#43;3978NBRk="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/solid.min.e65dc5b48fb5f39b142360c57c3a215744c94e56c755c929cc3e88fe12aab4d3.css"
+    integrity="sha256-5l3FtI&#43;185sUI2DFfDohV0TJTlbHVckpzD6I/hKqtNM="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/regular.min.6f4f16d58da1c82c0c3a3436e021a3d39b4742f741192c546e73e947eacfd92f.css"
+    integrity="sha256-b08W1Y2hyCwMOjQ24CGj05tHQvdBGSxUbnPpR&#43;rP2S8="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/brands.min.e10425ad768bc98ff1fb272a0ac8420f9d1ba22f0612c08ff1010c95080ffe7e.css"
+    integrity="sha256-4QQlrXaLyY/x&#43;ycqCshCD50boi8GEsCP8QEMlQgP/n4="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+
+  <link rel="canonical" href="https://antiz.fr/blog/foss-recap-2024/" />
+
+  
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/anatole-header.min.f9132794301a01ff16550ed66763482bd848f62243d278f5e550229a158bfd32.js"
+    integrity="sha256-&#43;RMnlDAaAf8WVQ7WZ2NIK9hI9iJD0nj15VAimhWL/TI="
+    crossorigin="anonymous"
+  ></script>
+
+  
+    
+    
+    <script
+      type="text/javascript"
+      src="/js/anatole-theme-switcher.min.d6d329d93844b162e8bed1e915619625ca91687952177552b9b3e211014a2957.js"
+      integrity="sha256-1tMp2ThEsWLovtHpFWGWJcqRaHlSF3VSubPiEQFKKVc="
+      crossorigin="anonymous"
+    ></script>
+  
+
+  
+
+  
+
+
+  
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="FOSS Recap 2024">
+  <meta name="twitter:description" content="Fellow Arch Linux mate kpcyrd recently published a “2024 recap” blog post which (in addition of being a really cool, interesting and impressive read) inspired me to right my own.
+So here is a recap of all the noticeable FOSS related work I was able to work on / achieve in 2024. 😄">
+
+
+
+  
+  <meta property="og:url" content="https://antiz.fr/blog/foss-recap-2024/">
+  <meta property="og:site_name" content="Robin Candau">
+  <meta property="og:title" content="FOSS Recap 2024">
+  <meta property="og:description" content="Fellow Arch Linux mate kpcyrd recently published a “2024 recap” blog post which (in addition of being a really cool, interesting and impressive read) inspired me to right my own.
+So here is a recap of all the noticeable FOSS related work I was able to work on / achieve in 2024. 😄">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2025-01-03T18:40:00+02:00">
+    <meta property="article:modified_time" content="2025-01-03T18:40:00+02:00">
+
+
+
+  
+  
+  
+  
+  <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "articleSection": "blog",
+        "name": "FOSS Recap 2024",
+        "headline": "FOSS Recap 2024",
+        "alternativeHeadline": "",
+        "description": "
+      
+        \u003cp\u003eFellow Arch Linux mate \u003ca href=\u0022https:\/\/github.com\/kpcyrd\u0022\u003ekpcyrd\u003c\/a\u003e recently published a \u003ca href=\u0022https:\/\/vulns.xyz\/2024\/12\/2024-wrapped\/\u0022\u003e\u0026ldquo;2024 recap\u0026rdquo; blog post\u003c\/a\u003e which (in addition of being a really cool, interesting and impressive read) inspired me to right my own.\u003c\/p\u003e\n\u003cp\u003eSo here is a recap of all the noticeable FOSS related work I was able to work on \/ achieve in 2024. \u0026#x1f604;\u003c\/p\u003e
+
+
+      
+
+
+    ",
+        "inLanguage": "en-us",
+        "isFamilyFriendly": "true",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/antiz.fr\/blog\/foss-recap-2024\/"
+        },
+        "author" : {
+            "@type": "Person",
+            "name": "Robin Candau"
+        },
+        "creator" : {
+            "@type": "Person",
+            "name": "Robin Candau"
+        },
+        "accountablePerson" : {
+            "@type": "Person",
+            "name": "Robin Candau"
+        },
+        "copyrightHolder" : {
+            "@type": "Person",
+            "name": "Robin Candau"
+        },
+        "copyrightYear" : "2025",
+        "dateCreated": "2025-01-03T18:40:00.00Z",
+        "datePublished": "2025-01-03T18:40:00.00Z",
+        "dateModified": "2025-01-03T18:40:00.00Z",
+        "publisher":{
+            "@type":"Organization",
+            "name": "Robin Candau",
+            "url": "https://antiz.fr/",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https:\/\/antiz.fr\/favicon-32x32.png",
+                "width":"32",
+                "height":"32"
+            }
+        },
+        "image": 
+      [
+      ]
+
+    ,
+        "url" : "https:\/\/antiz.fr\/blog\/foss-recap-2024\/",
+        "wordCount" : "935",
+        "genre" : [ ],
+        "keywords" : [ ]
+    }
+  </script>
+
+
+</head>
+<body class="body">
+    <div class="wrapper">
+      <aside
+        
+          class="wrapper__sidebar"
+        
+      ><div
+  class="sidebar
+    animated fadeInDown
+  "
+>
+  <div class="sidebar__content">
+    <div class="sidebar__introduction">
+      <img
+        class="sidebar__introduction-profileimage"
+        src="/images/pfp.jpg"
+        alt="profile picture"
+      />
+      
+        <div class="sidebar__introduction-title">
+          <a href="/">Robin Candau</a>
+        </div>
+      
+      <div class="sidebar__introduction-description">
+        <p>Linux system & DevOps engineer passionate about skateboarding, music, cycling and, obviously, Linux!</p>
+      </div>
+    </div>
+    <ul class="sidebar__list">
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://github.com/Antiz96"
+            target="_blank"
+            rel="noopener me"
+            aria-label="GitHub"
+            title="GitHub"
+          >
+            <i class="fab fa-github fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://gitlab.archlinux.org/antiz"
+            target="_blank"
+            rel="noopener me"
+            aria-label="Arch Linux GitLab"
+            title="Arch Linux GitLab"
+          >
+            <i class="fab fa-gitlab fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://fosstodon.org/@Antiz"
+            target="_blank"
+            rel="noopener me"
+            aria-label="Mastodon"
+            title="Mastodon"
+          >
+            <i class="fab fa-mastodon fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://www.linkedin.com/in/robin-candau-3083a2173/?locale=en_US"
+            target="_blank"
+            rel="noopener me"
+            aria-label="LinkedIn"
+            title="LinkedIn"
+          >
+            <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+        <li class="sidebar__list-item">
+          <a
+            href="mailto:robincandau@protonmail.com"
+            target="_blank"
+            rel="noopener me"
+            aria-label="Mail"
+            title="Mail"
+          >
+            <i class="fas fa-envelope fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://keyserver.ubuntu.com/pks/lookup?search=D33FAA16B937F3B2&amp;fingerprint=on&amp;op=index"
+            target="_blank"
+            rel="noopener me"
+            aria-label="OpenPGP Key"
+            title="OpenPGP Key"
+          >
+            <i class="fas fa-key fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+    </ul>
+  </div><footer class="footer footer__sidebar">
+  <ul class="footer__list">
+    <li class="footer__item">
+      &copy;
+      
+        Robin Candau
+        2025
+      
+    </li>
+    
+  </ul>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.1248fa75275e5ef0cbef27e8c1e27dc507c445ae3a2c7d2ed0be0809555dac64.js"
+    integrity="sha256-Ekj6dSdeXvDL7yfoweJ9xQfERa46LH0u0L4ICVVdrGQ="
+    crossorigin="anonymous"
+  ></script></div>
+</aside>
+      <main
+        
+          class="wrapper__main"
+        
+      >
+        <header class="header"><div
+  class="
+    animated fadeInDown
+  "
+>
+  <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+  </a>
+  <nav class="nav">
+    <ul class="nav__list" id="navMenu">
+      
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/"
+              
+              title=""
+              >Home</a
+            >
+          </li>
+        
+
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/blog/"
+              
+              title=""
+              >Blog</a
+            >
+          </li>
+        
+
+      
+    </ul>
+    <ul class="nav__list nav__list--end">
+      
+      
+        <li class="nav__list-item">
+          <div class="themeswitch">
+            <a title="Switch Theme">
+              <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a>
+          </div>
+        </li>
+      
+    </ul>
+  </nav>
+</div>
+</header>
+  <div
+    class="post 
+      animated fadeInDown
+    "
+  >
+    
+    <div class="post__content">
+      
+        <h1>FOSS Recap 2024</h1>
+      
+      
+        <ul class="post__meta">
+          <li class="post__meta-item">
+            <em class="fas fa-calendar-day post__meta-icon"></em>
+            <span class="post__meta-text"
+              >
+                
+                  Fri, Jan 3, 2025
+                
+
+              
+            </span>
+          </li>
+          <li class="post__meta-item">
+            <em class="fas fa-stopwatch post__meta-icon"></em>
+            <span class="post__meta-text">5-minute read</span>
+          </li>
+        </ul>
+      <p>Fellow Arch Linux mate <a href="https://github.com/kpcyrd">kpcyrd</a> recently published a <a href="https://vulns.xyz/2024/12/2024-wrapped/">&ldquo;2024 recap&rdquo; blog post</a> which (in addition of being a really cool, interesting and impressive read) inspired me to right my own.</p>
+<p>So here is a recap of all the noticeable FOSS related work I was able to work on / achieve in 2024. &#x1f604;</p>
+<h2 id="arch-linux">Arch Linux</h2>
+<h3 id="packaging">Packaging</h3>
+<ul>
+<li>
+<p>I pushed a total of 1653 packages to Arch Linux repositories.</p>
+<ul>
+<li>Most of which being packages updates (including some stack updates, like <a href="https://archlinux.org/todo/xfce-420-update/">XFCE 4.20</a>).</li>
+<li>The top five packages being <a href="https://sentry.io/for/python/">python-sentry_sdk</a> (49), <a href="https://www.jenkins.io/">jenkins</a> (53), <a href="https://github.com/fastfetch-cli/fastfetch">fastfetch</a> (57), <a href="https://gohugo.io/">hugo</a> (58) &amp; <a href="https://limine-bootloader.org/">limine</a> (63).</li>
+</ul>
+</li>
+<li>
+<p>I reworked / improved a few packages stacks, most notably the <a href="https://archlinux.org/todo/general-mate-packages-rework/">Mate</a> &amp; <a href="https://archlinux.org/todo/general-xfce-packages-rework/">XFCE</a> ones.</p>
+</li>
+<li>
+<p>I added a few packages stacks to the [extra] repository, most notably some <a href="https://fosstodon.org/@Antiz/113175508877546208">XFCE related packages</a> and the <a href="https://github.com/nwg-piotr/nwg-shell/discussions/375">nwg-shell packages</a>.</p>
+</li>
+<li>
+<p>I added Alpine Linux packaging tooling to the Arch Linux [extra] repository, <a href="https://antiz.fr/blog/maintaining-and-building-alpine-packages-from-arch-linux/">allowing to maintain Alpine packages directly from an Arch system</a>.</p>
+</li>
+</ul>
+<h3 id="testing-team">Testing Team</h3>
+<ul>
+<li>
+<p>Together with <a href="https://github.com/christian-heusel">gromit</a>, we published a <em>successful</em> <a href="https://lists.archlinux.org/archives/list/arch-general@lists.archlinux.org/message/PHG5Z2PZHUYYZDAJG634L77N7A5TUTY4/">call for participation</a> to the Arch Linux testing team.</p>
+</li>
+<li>
+<p>Together with <a href="https://github.com/christian-heusel">gromit</a>, we created around 120 new testing accounts.</p>
+</li>
+<li>
+<p>Aside from the usual Arch Linux testing, I helped testing some kernel and systemd pre-releases (respectively packaged by <a href="https://github.com/christian-heusel">gromit</a> and <a href="https://github.com/eworm-de">eworm</a>).</p>
+</li>
+</ul>
+<h3 id="infrastructure">Infrastructure</h3>
+<ul>
+<li>
+<p>I made a few contributions to the Arch Linux infrastructure:</p>
+<ul>
+<li><a href="https://gitlab.archlinux.org/archlinux/infrastructure/-/merge_requests/833">Switch to the <code>http2</code> directive in <code>nginx</code> configurations</a>.</li>
+<li><a href="https://gitlab.archlinux.org/archlinux/infrastructure/-/merge_requests/899">Fix some inconsistencies in ansible playbooks / roles</a>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="increasing-the-default-vmmax_map_count-value">Increasing the default vm.max_map_count value</h3>
+<ul>
+<li>After being inspired by several other Linux distributions doing the same change, I wrote a proposal to <a href="https://lists.archlinux.org/archives/list/arch-dev-public@lists.archlinux.org/thread/5GU7ZUFI25T2IRXIQ62YYERQKIPE3U6E/">increase the default <code>vm.max_map_count</code> value in Arch Linux</a>. The change was accepted and <a href="https://gitlab.archlinux.org/archlinux/packaging/packages/filesystem/-/commit/ae65041b78700196e07c2b626b5c9b226014827c">implemented within the <code>filesystem</code> package</a>. A related <a href="https://archlinux.org/news/increasing-the-default-vmmax_map_count-value/">Arch News</a> has been published.</li>
+</ul>
+<h3 id="devtools--pkgctl-arch-linux-packaging-tooling">Devtools / pkgctl (Arch Linux packaging tooling)</h3>
+<ul>
+<li>
+<p>I got the following features merged and included in <code>pkgctl</code>:</p>
+<ul>
+<li><a href="https://gitlab.archlinux.org/archlinux/devtools/-/merge_requests/236">Make <code>pkgctl version upgrade</code> also upgrade checksum entries in PKGBUILDs</a>.</li>
+<li><a href="https://gitlab.archlinux.org/archlinux/devtools/-/merge_requests/250">Introduce the <code>pkgctl repo clean</code> command</a>.</li>
+<li><a href="https://gitlab.archlinux.org/archlinux/devtools/-/merge_requests/275">Add a warning in <code>pkgctl release</code> if the nvchecker integration is not set</a>.</li>
+</ul>
+</li>
+<li>
+<p>I got the following features proposition opened:</p>
+<ul>
+<li><a href="https://gitlab.archlinux.org/archlinux/devtools/-/merge_requests/261">Introduce the <code>--version-upgrade</code> argument to <code>pkgctl build</code></a>.</li>
+<li><a href="https://gitlab.archlinux.org/archlinux/devtools/-/merge_requests/274">Add a visual diff &amp; confirmation before applying changes when running <code>pkgctl version upgrade</code></a>.</li>
+<li><a href="https://gitlab.archlinux.org/archlinux/devtools/-/merge_requests/288">Ship the 0BSD LICENSE file for packages sources within the <code>devtools</code> package and have <code>pkgctl release</code> fail if it isn&rsquo;t present in the repo when releasing new packages updates</a>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="archlinux-contrib">Archlinux-Contrib</h3>
+<ul>
+<li>
+<p>I made <a href="https://github.com/archlinux/contrib/commits?author=Antiz96">several contributions</a> to the archlinux-contrib scripts, most notably:</p>
+<ul>
+<li><a href="https://github.com/archlinux/contrib/pull/74">Various improvements to the <code>rebuild-todo</code> output and default behavior</a>.</li>
+<li><a href="https://github.com/archlinux/contrib/pull/75">Add support for offloaded builds in <code>rebuild-todo</code> (via <code>pkgctl --offload</code>)</a>.</li>
+<li><a href="https://github.com/archlinux/contrib/pull/78">Add a configurable list of ignored services to <code>checkservices</code></a>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="arch-summit-organization">Arch Summit Organization</h3>
+<ul>
+<li>I was a part of the organization committee of the 2024 edition of the Arch Summit (a yearly event during which Arch staff meet, socialize and work on multiple subjects), which was held in Hamburg (Germany) with 32 attendees.</li>
+</ul>
+<h3 id="nvchecker-poc">Nvchecker PoC</h3>
+<ul>
+<li>Together with <a href="https://github.com/klausenbusk">klausenbusk</a> and <a href="https://github.com/christian-heusel">gromit</a>, we worked on a proof of concept that aims to streamline and automate new upstream releases tracking for Arch Linux package maintainers. This is still a work in progress, see the <a href="https://pkgbuild.com/~antiz/Nvchecker_PoC/">presentation made during the Arch Summit</a> for more details.</li>
+</ul>
+<h3 id="rfcs">RFCs</h3>
+<ul>
+<li>
+<p>Together with <a href="https://github.com/dvzrv/">dvzrv</a>, we wrote an RFC about <a href="https://rfc.archlinux.page/0043-streamline-the-rfc-writing-process/">streamlining the RFC writing process</a> which got accepted and implemented.</p>
+</li>
+<li>
+<p>Together with <a href="https://github.com/dvzrv/">dvzrv</a>, we wrote an RFC which aims to <a href="https://gitlab.archlinux.org/archlinux/rfcs/-/merge_requests/46">establish some standards for our package sources and digital signatures</a>. This RFC was shared to the <a href="https://lore.kernel.org/distributions/04612379-9624-4284-a0cf-6242ceb2d20a@archlinux.org/T/#u">distribution mailing list</a> and is still in the &ldquo;discussion&rdquo; phase.</p>
+</li>
+</ul>
+<h3 id="mediator-role">Mediator role</h3>
+<ul>
+<li>Together with <a href="https://github.com/christian-heusel">gromit</a> and <a href="https://github.com/serebit/">serebit</a>, we were elected as <a href="https://rfc.archlinux.page/0009-mediation-program/">mediators</a> for a period of two years.</li>
+</ul>
+<h3 id="staff">Staff</h3>
+<ul>
+<li>Together with <a href="https://github.com/rgacogne">rgacogne</a>, we sponsored <a href="https://github.com/mh4ckt3mh4ckt1c4s">mh4ckt3mh4ckt1c4s</a>&rsquo;s <a href="https://lists.archlinux.org/archives/list/aur-general@lists.archlinux.org/message/YBWSCOKHQ4OX64M7WQOUKXDHLROVH5WZ/">application to become a Package Maintainer</a> which was <a href="https://lists.archlinux.org/archives/list/aur-general@lists.archlinux.org/message/PDYDEFMJEHAYEVZHLY2WA277LODRRED4/">accepted</a>.</li>
+</ul>
+<h3 id="aur-moderation">AUR moderation</h3>
+<ul>
+<li>I, more or less actively, participated to the <a href="https://wiki.archlinux.org/title/Arch_User_Repository">AUR</a> moderation throughout the whole year.</li>
+</ul>
+<h2 id="alpine-linux">Alpine Linux</h2>
+<h3 id="packaging-1">Packaging</h3>
+<ul>
+<li>
+<p>I pushed 34 commits to Alpine&rsquo;s <a href="https://gitlab.alpinelinux.org/alpine/aports">aports</a>.</p>
+<ul>
+<li>Most of which being aports (packages) updates.</li>
+<li>Still a total of 7 new aports (packages) pushed to Alpine&rsquo;s repositories.</li>
+</ul>
+</li>
+<li>
+<p>I raised some <a href="https://gitlab.alpinelinux.org/alpine/aports/-/issues/16316">packaging related issues</a>.</p>
+</li>
+</ul>
+<h2 id="arch-update">Arch-Update</h2>
+<ul>
+<li>
+<p>Arch-Update got 34 new <a href="https://github.com/Antiz96/arch-update/releases">releases</a> in 2024 (including 2 major ones), 15 new <a href="https://github.com/Antiz96/arch-update/graphs/contributors">contributors</a> and a lot of new features, most notably:</p>
+<ul>
+<li>Add support for colored output.</li>
+<li>Add support for an <code>arch-update.conf</code> configuration file (allowing to enable / disable and modify certain options).</li>
+<li>Improvements to the way Arch news are fetched and displayed to users.</li>
+<li>Add basic shell completions for <code>bash</code>, <code>zsh</code> and <code>fish</code>.</li>
+<li>Add a clickable and dynamic systray applet allowing to quickly see the list of pending updates, run an update check and run <code>arch-update</code>.</li>
+<li>Add support for identifying <code>systemd</code> services that need a post-upgrade restart and allow users to do so (in addition of checking pending kernel upgrade requiring a reboot).</li>
+<li>Add support for <code>run0</code> (in addition of <code>sudo</code> &amp; <code>doas</code>).</li>
+<li>Add support for <code>pikaur</code> (in addition of <code>yay</code> &amp; <code>paru</code>).</li>
+<li>And a lot more&hellip;</li>
+</ul>
+</li>
+</ul>
+<h2 id="other">Other</h2>
+<ul>
+<li>
+<p>I attended to some FOSS related events:</p>
+<ul>
+<li>FOSDEM.</li>
+<li>Arch Summit.</li>
+<li>Local event about DevOps &amp; Infrastructure, during which I gave a talk about <code>pkgctl</code> <em>(no recording unfortunately)</em>.</li>
+</ul>
+</li>
+<li>
+<p>I wrote 2 <a href="https://antiz.fr/blog/">blog posts</a>.</p>
+</li>
+<li>
+<p>I donated a few bucks to <a href="https://github.com/Antiz96?tab=sponsoring">some people</a> I value the work and have / had the privilege to collaborate with.</p>
+</li>
+</ul>
+<p>That&rsquo;s it!</p>
+<p>Obviously, the point isn&rsquo;t to &ldquo;show off&rdquo; or anything, but writing this recap was actually quite fun and I&rsquo;m personally very happy &amp; proud about everything I had the chance to work on and achieve this year!<br>
+I actually intend to write a similar retrospective for the years to come. I have a few objectives set for 2025 and some work started already. &#x1f603;</p>
+<p>I&rsquo;d like to conclude by thanking everybody who contributed one way or another to the above accomplishments and to my work in general!<br>
+Also, happy new year everyone! &#x1f389;</p>
+</div>
+    <div class="post__footer">
+      
+
+      
+    </div>
+
+    
+  </div>
+
+      </main>
+    </div><footer class="footer footer__base">
+  <ul class="footer__list">
+    <li class="footer__item">
+      &copy;
+      
+        Robin Candau
+        2025
+      
+    </li>
+    
+  </ul>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.1248fa75275e5ef0cbef27e8c1e27dc507c445ae3a2c7d2ed0be0809555dac64.js"
+    integrity="sha256-Ekj6dSdeXvDL7yfoweJ9xQfERa46LH0u0L4ICVVdrGQ="
+    crossorigin="anonymous"
+  ></script></body>
+</html>

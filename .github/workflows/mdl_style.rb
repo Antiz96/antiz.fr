@@ -8,5 +8,8 @@ exclude_tag :line_length
 exclude_rule 'MD002'
 exclude_rule 'MD041'
 
+# Allow having multiple headers with the same content
+exclude_rule 'MD024'
+
 # Allow punctuation in headers
 exclude_rule 'MD026'

@@ -6,7 +6,19 @@
     <description>Recent content in Blog on Robin Candau</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 14 Oct 2024 10:42:00 +0200</lastBuildDate><atom:link href="https://antiz.fr/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 03 Jan 2025 18:40:00 +0200</lastBuildDate><atom:link href="https://antiz.fr/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>FOSS Recap 2024</title>
+      <link>https://antiz.fr/blog/foss-recap-2024/</link>
+      <pubDate>Fri, 03 Jan 2025 18:40:00 +0200</pubDate>
+      
+      <guid>https://antiz.fr/blog/foss-recap-2024/</guid>
+      
+        <description><p>Fellow Arch Linux mate <a href="https://github.com/kpcyrd">kpcyrd</a> recently published a <a href="https://vulns.xyz/2024/12/2024-wrapped/">&ldquo;2024 recap&rdquo; blog post</a> which (in addition of being a really cool, interesting and impressive read) inspired me to right my own.</p>
+<p>So here is a recap of all the noticeable FOSS related work I was able to work on / achieve in 2024. &#x1f604;</p></description>
+      
+    </item>
+    
     <item>
       <title>Maintaining and building Alpine packages from Arch Linux</title>
       <link>https://antiz.fr/blog/maintaining-and-building-alpine-packages-from-arch-linux/</link>
