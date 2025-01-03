@@ -4,7 +4,7 @@ date: 2025-01-03T18:40:00+02:00
 draft: false
 ---
 
-Fellow Arch mate [kpcyrd](https://github.com/kpcyrd) recently published a ["2024 recap" blog post](https://vulns.xyz/2024/12/2024-wrapped/) which (in addition of being a really cool, interesting and impressive read) inspired me to right my own.
+Fellow Arch Linux mate [kpcyrd](https://github.com/kpcyrd) recently published a ["2024 recap" blog post](https://vulns.xyz/2024/12/2024-wrapped/) which (in addition of being a really cool, interesting and impressive read) inspired me to right my own.
 
 So here is a recap of all the noticeable FOSS related work I was able to work on / achieve in 2024. :smile:
 
