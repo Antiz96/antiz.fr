@@ -210,7 +210,7 @@ So here is a recap of all the noticeable FOSS related stuff I had the chance to 
 
     ,
         "url" : "https:\/\/antiz.fr\/blog\/foss-recap-2024\/",
-        "wordCount" : "936",
+        "wordCount" : "973",
         "genre" : [ ],
         "keywords" : [ ]
     }
@@ -465,6 +465,9 @@ So here is a recap of all the noticeable FOSS related stuff I had the chance to 
 </li>
 <li>
 <p>Aside from the usual Arch Linux testing, I helped testing some kernel and systemd pre-releases (respectively packaged by <a href="https://github.com/christian-heusel">gromit</a> and <a href="https://github.com/eworm-de">eworm</a>).</p>
+<ul>
+<li>That helped discovering critical bugs upfront. For instance, I was able to <a href="https://gitlab.archlinux.org/archlinux/mkinitcpio/mkinitcpio/-/issues/270">report a bug leading to an unbootable system in <code>mkinitcpio</code></a> due to an incoming change in <code>systemd</code> v256 (which I discovered when testing <code>systemd</code> v256-rc2).</li>
+</ul>
 </li>
 </ul>
 <h3 id="infrastructure">Infrastructure</h3>

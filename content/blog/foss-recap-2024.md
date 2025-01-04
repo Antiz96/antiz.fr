@@ -31,6 +31,8 @@ So here is a recap of all the noticeable FOSS related stuff I had the chance to 
 
 - Aside from the usual Arch Linux testing, I helped testing some kernel and systemd pre-releases (respectively packaged by [gromit](https://github.com/christian-heusel) and [eworm](https://github.com/eworm-de)).
 
+   - That helped discovering critical bugs upfront. For instance, I was able to [report a bug leading to an unbootable system in `mkinitcpio`](https://gitlab.archlinux.org/archlinux/mkinitcpio/mkinitcpio/-/issues/270) due to an incoming change in `systemd` v256 (which I discovered when testing `systemd` v256-rc2).
+
 ### Infrastructure
 
 - I made a few contributions to the Arch Linux infrastructure:
