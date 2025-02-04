@@ -63,7 +63,7 @@ So here is a recap of all the noticeable FOSS related stuff I had the chance to 
 - I made [numerous contributions](https://gitlab.archlinux.org/pacman/pacman-contrib/-/merge_requests?author_username=antiz&scope=all&sort=merged_at_desc&state=merged) to pacman-contrib, most notably:
 
    - [Add the `-c / --change` option to `checkupdates` which only watch for new available updates since the last run](https://gitlab.archlinux.org/pacman/pacman-contrib/-/merge_requests/40).
-   - [Preserve colored output when priting the list of pending updates with `checkupdates`](https://gitlab.archlinux.org/pacman/pacman-contrib/-/merge_requests/42).
+   - [Preserve colored output when printing the list of pending updates with `checkupdates`](https://gitlab.archlinux.org/pacman/pacman-contrib/-/merge_requests/42).
    - [Add support for SPDX license identifier in PKGBUILD vim syntax highlighting](https://gitlab.archlinux.org/pacman/pacman-contrib/-/merge_requests/46).
 
 ### Archlinux-Contrib
