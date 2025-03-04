@@ -28,7 +28,7 @@ The main projects I actively contribute to are:
 
 - AUR Package maintainer and moderator: In addition of maintaining packages in the official repositories, I'm also maintaining [some packages](https://aur.archlinux.org/packages?O=0&SeB=M&K=Antiz&outdated=&SB=p&SO=d&PP=50&submit=Go) in the AUR (a [community-driven repository](https://wiki.archlinux.org/title/Arch_User_Repository) maintained by Arch users) and I participate to its moderation.
 
-- Various other contributions: I’m also contributing to numerous other parts of the Arch Linux project as whole, such as some of our tools (e.g. [pacman-contrib](https://gitlab.archlinux.org/pacman/pacman-contrib), [devtools / pkgctl](https://gitlab.archlinux.org/archlinux/devtools), [archlinux-contrib](https://github.com/archlinux/contrib)), [reproducible builds](https://reproducible.archlinux.org/), [infrastructure](https://gitlab.archlinux.org/archlinux/infrastructure), [submitting RFCs](https://gitlab.archlinux.org/archlinux/rfcs), interacting with the community...
+- Various other contributions: I’m also contributing to numerous other parts of the Arch Linux project as whole, such as some of our tools (e.g. [pacman-contrib](https://gitlab.archlinux.org/pacman/pacman-contrib), [devtools / pkgctl](https://gitlab.archlinux.org/archlinux/devtools), [archlinux-contrib](https://github.com/archlinux/contrib)), [reproducible builds](https://reproducible.archlinux.org/), [infrastructure](https://gitlab.archlinux.org/archlinux/infrastructure), [Arch Wiki](https://wiki.archlinux.org), [submitting RFCs](https://gitlab.archlinux.org/archlinux/rfcs), interacting with the community...
 
 ### Alpine Linux
 
