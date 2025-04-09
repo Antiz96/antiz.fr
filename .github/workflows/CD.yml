@@ -46,7 +46,7 @@ jobs:
       - CI-CD
 
     steps:
-      - name: Get branch
+      - name: Deploy website
         run: |
           if [ "${{ github.event_name }}" == "pull_request" ]; then
                   BRANCH_NAME="${{ github.event.pull_request.head.ref }}"
@@ -54,8 +54,6 @@ jobs:
                   BRANCH_NAME="${{ github.ref_name }}"
           fi
 
-      - name: Deploy website
-        run: |
           if [ "$BRANCH_NAME" == "dev" ]; then
                   /opt/github-runner/antiz.fr/deploy_website.sh dev
           elif [ "$BRANCH_NAME" == "main" ]; then
