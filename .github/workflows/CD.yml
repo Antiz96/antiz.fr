@@ -55,8 +55,10 @@ jobs:
           fi
 
           if [ "$BRANCH_NAME" == "dev" ]; then
+                  echo "Deploy dev"
                   /opt/github-runner/antiz.fr/deploy_website.sh dev
           elif [ "$BRANCH_NAME" == "main" ]; then
+                  echo "Deploy prod"
                   /opt/github-runner/antiz.fr/deploy_website.sh prod
           else
                   echo "Invalid branch, nothing to deploy"
