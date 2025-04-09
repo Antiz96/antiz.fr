@@ -48,9 +48,10 @@ jobs:
     steps:
       - name: Deploy website
         run: |
-          if [ "$(git rev-parse --abbrev-ref HEAD)" == "dev" ]; then
+          BRANCH_NAME="${{ github.event.pull_request.head.ref }}"
+          if [ "$BRANCH_NAME" == "dev" ]; then
                   /opt/github-runner/antiz.fr/deploy_website.sh dev
-          elif [ "$(git rev-parse --abbrev-ref HEAD)" == "main" ]; then
+          elif [ "$BRANCH_NAME" == "main" ]; then
                   /opt/github-runner/antiz.fr/deploy_website.sh prod
           else
                   echo "Invalid branch, nothing to deploy"
