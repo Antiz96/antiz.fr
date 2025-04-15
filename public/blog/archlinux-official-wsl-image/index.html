@@ -1,0 +1,502 @@
+<!doctype html>
+<html
+  dir="ltr"
+  lang="en"
+  data-theme=""
+  
+    class="html theme--light"
+  
+><head>
+  <meta charset="utf-8" />
+  <title>
+    Robin Candau
+        |
+        Arch Linux now has an official WSL image
+      
+
+    
+
+  </title>
+
+  <meta name="generator" content="Hugo 0.146.4"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="author" content="Robin Candau" />
+  <meta
+    name="description"
+    content="Linux system &amp; DevOps engineer passionate about skateboarding, music, cycling and, obviously, Linux!"
+  />
+  
+  
+    
+    
+    <link
+      rel="stylesheet"
+      href="/scss/main.min.1cac29897bb941adf4246700acb99deffbfdf35a02ffc4ae81484456ebe430c3.css"
+      integrity="sha256-HKwpiXu5Qa30JGcArLmd7/v981oC/8SugUhEVuvkMMM="
+      crossorigin="anonymous"
+      type="text/css"
+    />
+  
+
+  
+  <link
+    rel="stylesheet"
+    href="/css/markupHighlight.min.73ccfdf28df555e11009c13c20ced067af3cb021504cba43644c705930428b00.css"
+    integrity="sha256-c8z98o31VeEQCcE8IM7QZ688sCFQTLpDZExwWTBCiwA="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+    
+    
+    <link
+      rel="stylesheet"
+      href="/css/custom.min.12eb7037bf07e9b3c877c4d2aad88722dbeeeb31ae96aba510fa53899abb61b0.css"
+      integrity="sha256-EutwN78H6bPId8TSqtiHItvu6zGulqulEPpTiZq7YbA="
+      crossorigin="anonymous"
+      media="screen"
+    />
+  
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/fontawesome.min.137b1cf3cea9a8adb7884343a9a5ddddf4280f59153f74dc782fb7f7bf0d0519.css"
+    integrity="sha256-E3sc886pqK23iENDqaXd3fQoD1kVP3TceC&#43;3978NBRk="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/solid.min.e65dc5b48fb5f39b142360c57c3a215744c94e56c755c929cc3e88fe12aab4d3.css"
+    integrity="sha256-5l3FtI&#43;185sUI2DFfDohV0TJTlbHVckpzD6I/hKqtNM="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/regular.min.6f4f16d58da1c82c0c3a3436e021a3d39b4742f741192c546e73e947eacfd92f.css"
+    integrity="sha256-b08W1Y2hyCwMOjQ24CGj05tHQvdBGSxUbnPpR&#43;rP2S8="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/brands.min.e10425ad768bc98ff1fb272a0ac8420f9d1ba22f0612c08ff1010c95080ffe7e.css"
+    integrity="sha256-4QQlrXaLyY/x&#43;ycqCshCD50boi8GEsCP8QEMlQgP/n4="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+
+  <link rel="canonical" href="https://antiz.fr/blog/archlinux-official-wsl-image/" />
+
+  
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/anatole-header.min.f9132794301a01ff16550ed66763482bd848f62243d278f5e550229a158bfd32.js"
+    integrity="sha256-&#43;RMnlDAaAf8WVQ7WZ2NIK9hI9iJD0nj15VAimhWL/TI="
+    crossorigin="anonymous"
+  ></script>
+
+  
+    
+    
+    <script
+      type="text/javascript"
+      src="/js/anatole-theme-switcher.min.d6d329d93844b162e8bed1e915619625ca91687952177552b9b3e211014a2957.js"
+      integrity="sha256-1tMp2ThEsWLovtHpFWGWJcqRaHlSF3VSubPiEQFKKVc="
+      crossorigin="anonymous"
+    ></script>
+  
+
+  
+
+  
+
+
+  
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Arch Linux now has an official WSL image">
+  <meta name="twitter:description" content="…and it is officially (re)distributed by Microsoft!
+A few months ago, the eventuality of building and providing an official Arch Linux WSL image (Windows Subsystem for Linux - a Microsoft solution allowing to run Linux environments within Windows) was brought to the table within the Arch Linux staff.
+This subject was actually explored a few years back but got turned down due to multiple concerns and lack of interest at the time. But WSL have come a long way since then and minds evolved to the point where people were generally willing to reconsider it.">
+
+
+
+  
+  <meta property="og:url" content="https://antiz.fr/blog/archlinux-official-wsl-image/">
+  <meta property="og:site_name" content="Robin Candau">
+  <meta property="og:title" content="Arch Linux now has an official WSL image">
+  <meta property="og:description" content="…and it is officially (re)distributed by Microsoft!
+A few months ago, the eventuality of building and providing an official Arch Linux WSL image (Windows Subsystem for Linux - a Microsoft solution allowing to run Linux environments within Windows) was brought to the table within the Arch Linux staff.
+This subject was actually explored a few years back but got turned down due to multiple concerns and lack of interest at the time. But WSL have come a long way since then and minds evolved to the point where people were generally willing to reconsider it.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2025-04-15T15:40:00+02:00">
+    <meta property="article:modified_time" content="2025-04-15T15:40:00+02:00">
+
+
+
+  
+  
+  
+  
+  <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "articleSection": "blog",
+        "name": "Arch Linux now has an official WSL image",
+        "headline": "Arch Linux now has an official WSL image",
+        "alternativeHeadline": "",
+        "description": "
+      
+        \u003cp\u003e\u003cem\u003e\u0026hellip;and it is officially (re)distributed by Microsoft!\u003c\/em\u003e\u003c\/p\u003e\n\u003cp\u003eA few months ago, the eventuality of building and providing an official Arch Linux \u003ca href=\u0022https:\/\/learn.microsoft.com\/en-us\/windows\/wsl\/about\u0022\u003eWSL\u003c\/a\u003e image (Windows Subsystem for Linux - a Microsoft solution allowing to run Linux environments within Windows) was brought to the table within the Arch Linux staff.\u003c\/p\u003e\n\u003cp\u003eThis subject was actually explored a few years back but got turned down due to multiple concerns and lack of interest at the time. But \u003ccode\u003eWSL\u003c\/code\u003e have come a long way since then and minds evolved to the point where people were generally willing to reconsider it.\u003c\/p\u003e
+
+
+      
+
+
+    ",
+        "inLanguage": "en-us",
+        "isFamilyFriendly": "true",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/antiz.fr\/blog\/archlinux-official-wsl-image\/"
+        },
+        "author" : {
+            "@type": "Person",
+            "name": "Robin Candau"
+        },
+        "creator" : {
+            "@type": "Person",
+            "name": "Robin Candau"
+        },
+        "accountablePerson" : {
+            "@type": "Person",
+            "name": "Robin Candau"
+        },
+        "copyrightHolder" : {
+            "@type": "Person",
+            "name": "Robin Candau"
+        },
+        "copyrightYear" : "2025",
+        "dateCreated": "2025-04-15T15:40:00.00Z",
+        "datePublished": "2025-04-15T15:40:00.00Z",
+        "dateModified": "2025-04-15T15:40:00.00Z",
+        "publisher":{
+            "@type":"Organization",
+            "name": "Robin Candau",
+            "url": "https://antiz.fr/",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https:\/\/antiz.fr\/favicon-32x32.png",
+                "width":"32",
+                "height":"32"
+            }
+        },
+        "image": 
+      [
+      ]
+
+    ,
+        "url" : "https:\/\/antiz.fr\/blog\/archlinux-official-wsl-image\/",
+        "wordCount" : "947",
+        "genre" : [ ],
+        "keywords" : [ ]
+    }
+  </script>
+
+
+</head>
+<body class="body">
+    <div class="wrapper">
+      <aside
+        
+          class="wrapper__sidebar"
+        
+      ><div
+  class="sidebar
+    animated fadeInDown
+  "
+>
+  <div class="sidebar__content">
+    <div class="sidebar__introduction">
+      <img
+        class="sidebar__introduction-profileimage"
+        src="/images/pfp.jpg"
+        alt="profile picture"
+      />
+      
+        <div class="sidebar__introduction-title">
+          <a href="/">Robin Candau</a>
+        </div>
+      
+      <div class="sidebar__introduction-description">
+        <p>Linux system & DevOps engineer passionate about skateboarding, music, cycling and, obviously, Linux!</p>
+      </div>
+    </div>
+    <ul class="sidebar__list">
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://github.com/Antiz96"
+            target="_blank"
+            rel="noopener me"
+            aria-label="GitHub"
+            title="GitHub"
+          >
+            <i class="fab fa-github fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://gitlab.archlinux.org/antiz"
+            target="_blank"
+            rel="noopener me"
+            aria-label="Arch Linux GitLab"
+            title="Arch Linux GitLab"
+          >
+            <i class="fab fa-gitlab fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://fosstodon.org/@Antiz"
+            target="_blank"
+            rel="noopener me"
+            aria-label="Mastodon"
+            title="Mastodon"
+          >
+            <i class="fab fa-mastodon fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://www.linkedin.com/in/robin-candau/?locale=en_US"
+            target="_blank"
+            rel="noopener me"
+            aria-label="LinkedIn"
+            title="LinkedIn"
+          >
+            <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+        <li class="sidebar__list-item">
+          <a
+            href="mailto:robincandau@protonmail.com"
+            target="_blank"
+            rel="noopener me"
+            aria-label="Mail"
+            title="Mail"
+          >
+            <i class="fas fa-envelope fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://keyserver.ubuntu.com/pks/lookup?search=D33FAA16B937F3B2&amp;fingerprint=on&amp;op=index"
+            target="_blank"
+            rel="noopener me"
+            aria-label="OpenPGP Key"
+            title="OpenPGP Key"
+          >
+            <i class="fas fa-key fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+    </ul>
+  </div><footer class="footer footer__sidebar">
+  <ul class="footer__list">
+    <li class="footer__item">
+      &copy;
+      
+        Robin Candau
+        2025
+      
+    </li>
+    
+  </ul>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.1248fa75275e5ef0cbef27e8c1e27dc507c445ae3a2c7d2ed0be0809555dac64.js"
+    integrity="sha256-Ekj6dSdeXvDL7yfoweJ9xQfERa46LH0u0L4ICVVdrGQ="
+    crossorigin="anonymous"
+  ></script></div>
+</aside>
+      <main
+        
+          class="wrapper__main"
+        
+      >
+        <header class="header"><div
+  class="
+    animated fadeInDown
+  "
+>
+  <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+  </a>
+  <nav class="nav">
+    <ul class="nav__list" id="navMenu">
+      
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/"
+              
+              title=""
+              >Home</a
+            >
+          </li>
+        
+
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/blog/"
+              
+              title=""
+              >Blog</a
+            >
+          </li>
+        
+
+      
+    </ul>
+    <ul class="nav__list nav__list--end">
+      
+      
+        <li class="nav__list-item">
+          <div class="themeswitch">
+            <a title="Switch Theme">
+              <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a>
+          </div>
+        </li>
+      
+    </ul>
+  </nav>
+</div>
+</header>
+  <div
+    class="post 
+      animated fadeInDown
+    "
+  >
+    
+    <div class="post__content">
+      
+        <h1>Arch Linux Now Has an Official WSL Image</h1>
+      
+      
+        <ul class="post__meta">
+          <li class="post__meta-item">
+            <em class="fas fa-calendar-day post__meta-icon"></em>
+            <span class="post__meta-text"
+              >
+                
+                  Tue, Apr 15, 2025
+                
+
+              
+            </span>
+          </li>
+          <li class="post__meta-item">
+            <em class="fas fa-stopwatch post__meta-icon"></em>
+            <span class="post__meta-text">5-minute read</span>
+          </li>
+        </ul>
+      <p><em>&hellip;and it is officially (re)distributed by Microsoft!</em></p>
+<p>A few months ago, the eventuality of building and providing an official Arch Linux <a href="https://learn.microsoft.com/en-us/windows/wsl/about">WSL</a> image (Windows Subsystem for Linux - a Microsoft solution allowing to run Linux environments within Windows) was brought to the table within the Arch Linux staff.</p>
+<p>This subject was actually explored a few years back but got turned down due to multiple concerns and lack of interest at the time. But <code>WSL</code> have come a long way since then and minds evolved to the point where people were generally willing to reconsider it.</p>
+<h2 id="wsl-for-what-for-who">WSL? For what, for who?</h2>
+<p>Despite being employed as a Linux system engineer, I personally never had the chance to work for a company that allowed me to run Linux on my workstation yet&hellip; The usage of Windows always was <em>hardly</em> required by their &ldquo;internal policy&rdquo; (whatever that means). It&rsquo;s unfortunately pretty safe to say that I&rsquo;m not the only person in that situation.
+In such case, <code>WSL</code> act as pretty acceptable and reliable workaround (from my experience at least), allowing one to run a Linux environment in a fairly transparent way directly from a Windows system and providing a direct access to every Linux tools, <em>hopefully</em> without getting in the way of eventual companies restrictions.</p>
+<p>More generally speaking, <code>WSL</code> provides an easy and straightforward way to get access to a full Linux environment, allowing to perform Linux development / testing or simply to try &amp; run a Linux distribution directly from Windows; increasing its discoverability &amp; accessibility.</p>
+<p>However, the lack of official Arch Linux image for <code>WSL</code> <em>at the time</em> either suggested the use of a different distribution or implied users to rely on unofficial <code>WSL</code> images for Arch Linux, which quality may vary.</p>
+<p>As I&rsquo;m currently relying on <code>WSL</code> for my dayjob, when it appeared that we (Arch Linux) were willing to re-discuss the subject, I naturally expressed my interest and started exploring it.</p>
+<h2 id="writing-specifications-and-submit-an-official-proposal">Writing specifications and submit an official proposal</h2>
+<p>Coincidentally, <a href="https://fedoraproject.org/">Fedora</a> also started exploring creating WSL images around the same time. Their <a href="https://fedoraproject.org/wiki/Changes/FedoraWSL">related change request</a> was a huge inspiration for me to define specifications and act on some unresolved questions. So, thanks Fedora people! &#x1f499;</p>
+<p>After listing <em>most</em> specifications, I shared them through a <a href="https://lists.archlinux.org/archives/list/arch-dev-public@lists.archlinux.org/thread/73A4BK7YK4BJBVXGMN2I5CROQAWI53VZ/">mail thread in the Arch-Dev-Public mailing list</a> to collect some thoughts and estimate the overall interest around an Arch Linux WSL image. To my <em>pleasant</em> surprise, this mail thread has generated quite some attractions with a majority of positive feedback, both from users and staff!</p>
+<p>I therefore proceeded to submit an official proposal for it, including every settled specifications, through a related <a href="https://gitlab.archlinux.org/archlinux/rfcs/-/merge_requests/50">RFC</a> (Request For Comments - the mechanism we use at Arch Linux to officially propose and discuss significant changes to our distribution). This RFC was later officially accepted and <a href="https://rfc.archlinux.page/0050-arch-linux-wsl-image/">published</a>.</p>
+<h2 id="implementation-and-collaboration-with-microsoft-for-official-redistribution">Implementation and collaboration with Microsoft for official redistribution</h2>
+<p>With the proposal officially accepted, it was time to start the implementation.</p>
+<p>I&rsquo;m not gonna detail the whole process here but, in a nutshell, we created <a href="https://gitlab.archlinux.org/archlinux/archlinux-wsl">a dedicated repository on our GitLab instance</a> to which I added every files and scripts needed to build an Arch Linux <code>WSL</code> image from scratch. The build system is partly inspired by the way we build our <a href="https://hub.docker.com/_/archlinux/">Docker image</a>, as a <code>WSL</code> image basically consists of a <code>rootFS</code> with additional specific <code>WSL</code> related configurations / files.
+I then set up a scheduled <a href="https://gitlab.archlinux.org/archlinux/archlinux-wsl/-/blob/main/.gitlab-ci.yml?ref_type=heads">GitLab CI</a> within the repo to automatically build an image, run a series of automated tests against it and publicly release it monthly <em>(which goes along the release schedule of our ISO)</em>.</p>
+<p>We also &ldquo;re-opened&rdquo; the <a href="https://wiki.archlinux.org/title/Install_Arch_Linux_on_WSL">Arch Wiki page dedicated to install on WSL</a>, so everyone can share documentation, tips &amp; tricks and troubleshooting steps about this official WSL image (this page was formerly &ldquo;closed&rdquo; back we initially claimed that Arch Linux on <code>WSL</code> wasn&rsquo;t officially supported on our side).</p>
+<p>In parallel, I <a href="https://github.com/microsoft/WSL/issues/12551">established contact with Microsoft&rsquo;s WSL team</a> to ask if they were eventually interested referencing our image in the list of WSL&rsquo;s officially supported Linux distributions (and discuss some specifications with them), to which <a href="https://github.com/microsoft/WSL/issues/12551#issuecomment-2635150613">they responded <em>very</em> positively</a>!
+In collaboration with the Microsoft&rsquo;s WSL team, we therefore <a href="https://github.com/microsoft/WSL/pull/12818">added the official Arch Linux WSL image to their official Linux distribution manifest</a>:</p>
+<p><img src="images/archlinux-wsl-image/wsl-distributions-list.png" alt="alt text" title="WSL official Linux distributions list"></p>
+<p>This allows users to download and install the latest Arch Linux <code>WSL</code> image from a Windows system with WSL installed in a fully automated way via a single <code>PowerShell</code> command: <code>wsl --install archlinux</code>! 🥳🎉</p>
+<h2 id="final-thoughts">Final thoughts</h2>
+<p>I am <em>really</em> happy and proud that we managed to get this through! Not only on the Arch Linux side itself (as the subject raised much more resilience and concerns the first time it was raised a few years back) but also on the Microsoft who showed a very helpful and cooperative approach toward our effort!
+I hope that this official Arch Linux <code>WSL</code> image will be useful to a some people and will be beneficial for Arch Linux discoverability and accessibility.</p>
+<p>I&rsquo;d like to take this conclusion as an occasion to thank:</p>
+<ul>
+<li>Microsoft for showing interest in including an official Arch Linux image in their <code>WSL</code> distribution manifest.</li>
+<li><a href="https://github.com/klausenbusk">klausenbusk</a> for helping in <a href="https://gitlab.archlinux.org/archlinux/infrastructure/-/merge_requests/924">setting up the mirroring of the image</a>.</li>
+<li><a href="https://github.com/heftig">heftig</a> for accepting to add the <a href="https://gitlab.archlinux.org/archlinux/packaging/packages/mesa/-/issues/25">dzn / microsoft experimental driver to our mesa package</a>, allowing to improve the user experience.</li>
+<li><a href="https://wiki.archlinux.org/title/User:Nl6720">nl6720</a> for providing precious help and hint with the dedicated documentation on the Arch Wiki page.</li>
+<li><a href="https://github.com/mhegreberg">mhegreberg</a> for jumping in as an Arch Linux community member, offering his help to maintain this image.</li>
+<li>Everyone who shared thoughts &amp; showed interest in the related mail thread &amp; the related RFC as well as everyone that helped along the way regarding the implementation and the documentation in the Wiki.</li>
+</ul>
+</div>
+    <div class="post__footer">
+      
+
+      
+    </div>
+
+    
+  </div>
+
+      </main>
+    </div><footer class="footer footer__base">
+  <ul class="footer__list">
+    <li class="footer__item">
+      &copy;
+      
+        Robin Candau
+        2025
+      
+    </li>
+    
+  </ul>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.1248fa75275e5ef0cbef27e8c1e27dc507c445ae3a2c7d2ed0be0809555dac64.js"
+    integrity="sha256-Ekj6dSdeXvDL7yfoweJ9xQfERa46LH0u0L4ICVVdrGQ="
+    crossorigin="anonymous"
+  ></script></body>
+</html>
