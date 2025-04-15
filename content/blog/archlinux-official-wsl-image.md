@@ -41,7 +41,7 @@ We also "re-opened" the [Arch Wiki page dedicated to install on WSL](https://wik
 In parallel, I [established contact with Microsoft's WSL team](https://github.com/microsoft/WSL/issues/12551) to ask if they were eventually interested to reference our image in the list of WSL's officially supported Linux distributions, to which [they responded *very* positively](https://github.com/microsoft/WSL/issues/12551#issuecomment-2635150613)!  
 In collaboration with the Microsoft's WSL team, we therefore [added the official Arch Linux WSL image to their official Linux distribution manifest](https://github.com/microsoft/WSL/pull/12818):
 
-![alt text](images/archlinux-wsl-image/wsl-distributions-list.png "WSL official Linux distributions list")
+![alt text](../../images/archlinux-wsl-image/wsl-distributions-list.png "WSL official Linux distributions list")
 
 This allows users to download and install the latest Arch Linux `WSL` image from a Windows system with WSL installed in a fully automated way via a single `PowerShell` command! 🥳🎉
 
