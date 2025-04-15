@@ -212,7 +212,7 @@ This subject was actually explored a few years back but got turned down due to m
 
     ,
         "url" : "https:\/\/antiz.fr\/blog\/archlinux-official-wsl-image\/",
-        "wordCount" : "958",
+        "wordCount" : "954",
         "genre" : [ ],
         "keywords" : [ ]
     }
@@ -440,7 +440,7 @@ This subject was actually explored a few years back but got turned down due to m
 <p>This subject was actually explored a few years back but got turned down due to multiple concerns and lack of interest at the time. But <code>WSL</code> have come a long way since then and minds evolved to the point where people were generally willing to reconsider it.</p>
 <h2 id="wsl-for-what-for-who">WSL? For what, for who?</h2>
 <p>Despite being employed as a Linux system engineer, I personally never had the chance to work for a company that allowed me to run Linux on my workstation yet&hellip; The usage of Windows always was <em>hardly</em> required by their &ldquo;internal policy&rdquo; (whatever that means). It&rsquo;s unfortunately pretty safe to say that I&rsquo;m not the only person in that situation.<br>
-In such case, <code>WSL</code> acts as a pretty acceptable and reliable workaround (from my experience), allowing one to run a Linux environment in a fairly transparent way directly from a Windows system; providing a direct access to every Linux tools, <em>hopefully</em> without getting in the way of eventual companies requirements / restrictions.</p>
+In such case, <code>WSL</code> acts as a pretty decent and reliable workaround (from my experience), allowing one to run a Linux environment in a fairly transparent way directly from a Windows system; providing a direct access to every Linux tools, <em>hopefully</em> without getting in the way of potential companies&rsquo; requirements / restrictions.</p>
 <p>More generally speaking, <code>WSL</code> provides an easy and straightforward way to get access to a full Linux environment, allowing to perform Linux development / testing or simply to try &amp; run a Linux distribution directly from Windows; increasing its discoverability &amp; accessibility.</p>
 <p>However, the lack of official Arch Linux image for <code>WSL</code> <em>at the time</em> either suggested the use of a different distribution or implied users to rely on unofficial <code>WSL</code> images for Arch Linux, which quality may vary.</p>
 <p>As I&rsquo;m currently relying on <code>WSL</code> for my dayjob, when it appeared that we (Arch Linux) were willing to re-discuss the subject, I naturally expressed my interest and started exploring it.</p>
@@ -452,23 +452,23 @@ In such case, <code>WSL</code> acts as a pretty acceptable and reliable workarou
 <p>With the proposal officially accepted, it was time to start the implementation.</p>
 <p>I&rsquo;m not gonna detail the whole process here but, in a nutshell, we created <a href="https://gitlab.archlinux.org/archlinux/archlinux-wsl">a dedicated repository on our GitLab instance</a> to which I added every files and scripts needed to build an Arch Linux <code>WSL</code> image from scratch. The build system is partly inspired by the way we build our <a href="https://hub.docker.com/_/archlinux/">Docker image</a>, as a <code>WSL</code> image basically consists of a <code>rootFS</code> with additional specific <code>WSL</code> related configurations / files.<br>
 I then set up a scheduled <a href="https://gitlab.archlinux.org/archlinux/archlinux-wsl/-/blob/main/.gitlab-ci.yml?ref_type=heads">GitLab CI</a> within the repo to automatically build an image, run a series of automated tests against it and publicly release it monthly <em>(which goes along the release schedule of our ISO)</em>.</p>
-<p>We also &ldquo;re-opened&rdquo; the <a href="https://wiki.archlinux.org/title/Install_Arch_Linux_on_WSL">Arch Wiki page dedicated to install on WSL</a>, so everyone can share documentation, tips &amp; tricks and troubleshooting steps about this official WSL image (this page was formerly &ldquo;closed&rdquo; back we initially claimed that Arch Linux on <code>WSL</code> wasn&rsquo;t officially supported on our side).</p>
+<p>We also &ldquo;re-opened&rdquo; the <a href="https://wiki.archlinux.org/title/Install_Arch_Linux_on_WSL">Arch Wiki page dedicated to install on WSL</a>, so everyone can share documentation, tips &amp; tricks and troubleshooting steps about this official WSL image (this page was formerly &ldquo;closed&rdquo; back we initially claimed that Arch Linux on <code>WSL</code> wasn&rsquo;t officially supported).</p>
 <p>In parallel, I <a href="https://github.com/microsoft/WSL/issues/12551">established contact with Microsoft&rsquo;s WSL team</a> to ask if they were eventually interested to reference our image in the list of WSL&rsquo;s officially supported Linux distributions, to which <a href="https://github.com/microsoft/WSL/issues/12551#issuecomment-2635150613">they responded <em>very</em> positively</a>!<br>
-In collaboration with the Microsoft&rsquo;s WSL team, we therefore <a href="https://github.com/microsoft/WSL/pull/12818">added the official Arch Linux WSL image to their official Linux distribution manifest</a>:</p>
+In collaboration with the Microsoft&rsquo;s WSL team, we therefore <a href="https://github.com/microsoft/WSL/pull/12818">added the Arch Linux WSL image to the official WSL Linux distributions manifest</a>:</p>
 <p><img src="../../images/archlinux-wsl-image/wsl-distributions-list.png" alt="alt text" title="WSL official Linux distributions list"></p>
 <p>This allows users to download and install the latest Arch Linux <code>WSL</code> image from a Windows system with WSL installed in a fully automated way via a single <code>PowerShell</code> command! 🥳🎉</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>wsl --install archlinux
 </span></span></code></pre></div><h2 id="final-thoughts">Final thoughts</h2>
-<p>I am <em>really</em> happy and proud that we managed to get this through! Not only on the Arch Linux side itself (as the subject raised much more resilience and concerns the first time it was raised a few years back) but also on the Microsoft who showed a very helpful and cooperative approach toward our effort!<br>
+<p>I am <em>really</em> happy and proud that we managed to get this through! Not only on the Arch Linux side itself (as the subject raised much more resilience and concerns the first time it was raised a few years back) but also on the Microsoft one, who showed a very helpful and cooperative approach toward our effort!<br>
 I hope that this official Arch Linux <code>WSL</code> image will be useful to some people and will be beneficial for Arch Linux&rsquo;s discoverability and accessibility.</p>
 <p>I&rsquo;d like to take this conclusion as an occasion to thank:</p>
 <ul>
 <li>Fedora for <em>coincidentally</em> studying those intricaties around the same time as I did (which helped a lot)! 😄</li>
-<li>Microsoft for showing interest in including our Arch Linux image in their official <code>WSL</code> distribution manifest.</li>
+<li>Microsoft for showing interest in including our Arch Linux image to their official <code>WSL</code> Linux distributions manifest.</li>
 <li><a href="https://github.com/klausenbusk">klausenbusk</a> for helping in <a href="https://gitlab.archlinux.org/archlinux/infrastructure/-/merge_requests/924">setting up the mirroring of the image</a>.</li>
-<li><a href="https://github.com/heftig">heftig</a> for accepting to add the <a href="https://gitlab.archlinux.org/archlinux/packaging/packages/mesa/-/issues/25">dzn / microsoft experimental driver to our mesa package</a>, allowing to improve the user experience.</li>
-<li><a href="https://wiki.archlinux.org/title/User:Nl6720">nl6720</a> for providing precious help and hint with the dedicated documentation on the Arch Wiki page.</li>
-<li><a href="https://github.com/mhegreberg">mhegreberg</a> for jumping in as an Arch Linux community member, offering his help to maintain this image.</li>
+<li><a href="https://github.com/heftig">heftig</a> for adding the <a href="https://gitlab.archlinux.org/archlinux/packaging/packages/mesa/-/issues/25">dzn / microsoft experimental driver to our mesa package</a>, allowing to improve the user experience.</li>
+<li><a href="https://wiki.archlinux.org/title/User:Nl6720">nl6720</a> for providing precious help and hints with the related documentation on the Arch Wiki.</li>
+<li><a href="https://github.com/mhegreberg">mhegreberg</a> for jumping in as an Arch Linux community member, offering help to maintain this WSL image.</li>
 <li>Everyone who shared thoughts &amp; showed interest in the related mail thread &amp; the related RFC as well as everyone that helped along the way regarding the implementation and the documentation in the Wiki.</li>
 </ul>
 </div>
