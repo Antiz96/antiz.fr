@@ -45,7 +45,7 @@ In collaboration with the Microsoft's WSL team, we therefore [added the official
 
 This allows users to download and install the latest Arch Linux `WSL` image from a Windows system with WSL installed in a fully automated way via a single `PowerShell` command! 🥳🎉
 
-```
+```powershell
 wsl --install archlinux
 ```
 
