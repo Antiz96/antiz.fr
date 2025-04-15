@@ -6,7 +6,20 @@
     <description>Recent content in Blog on Robin Candau</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 03 Jan 2025 18:40:00 +0200</lastBuildDate><atom:link href="https://antiz.fr/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 15 Apr 2025 15:40:00 +0200</lastBuildDate><atom:link href="https://antiz.fr/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Arch Linux now has an official WSL image</title>
+      <link>https://antiz.fr/blog/archlinux-official-wsl-image/</link>
+      <pubDate>Tue, 15 Apr 2025 15:40:00 +0200</pubDate>
+      
+      <guid>https://antiz.fr/blog/archlinux-official-wsl-image/</guid>
+      
+        <description>&lt;p&gt;&lt;em&gt;&amp;hellip;and it is officially (re)distributed by Microsoft!&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;A few months ago, the eventuality of building and providing an official Arch Linux &lt;a href=&#34;https://learn.microsoft.com/en-us/windows/wsl/about&#34;&gt;WSL&lt;/a&gt; image (Windows Subsystem for Linux - a Microsoft solution allowing to run Linux environments within Windows) was brought to the table within the Arch Linux staff.&lt;/p&gt;
+&lt;p&gt;This subject was actually explored a few years back but got turned down due to multiple concerns and lack of interest at the time. But &lt;code&gt;WSL&lt;/code&gt; have come a long way since then and minds evolved to the point where people were generally willing to reconsider it.&lt;/p&gt;</description>
+      
+    </item>
+    
     <item>
       <title>FOSS Recap 2024</title>
       <link>https://antiz.fr/blog/foss-recap-2024/</link>
