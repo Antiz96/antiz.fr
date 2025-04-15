@@ -1,12 +1,12 @@
 ---
-title: "Arch Linux now has an official WSL image
+title: "Arch Linux now has an official WSL image"
 date: 2025-04-15T15:40:00+02:00
 draft: false
 ---
 
 *...and it is officially (re)distributed by Microsoft!*
 
-A few months ago, the eventuality of building and providing an official Arch Linux [WSL](https://learn.microsoft.com/en-us/windows/wsl/about) image (**W**indows **S**ubsystem for **L**inux - a Microsoft solution allowing to run Linux environments within Windows) was brought to the table within the Arch Linux staff.
+A few months ago, the eventuality of building and providing an official Arch Linux [WSL](https://learn.microsoft.com/en-us/windows/wsl/about) image (Windows Subsystem for Linux - a Microsoft solution allowing to run Linux environments within Windows) was brought to the table within the Arch Linux staff.
 
 This subject was actually explored a few years back but got turned down due to multiple concerns and lack of interest at the time. But `WSL` have come a long way since then and minds evolved to the point where people were generally willing to reconsider it.
 
@@ -27,7 +27,7 @@ Coincidentally, [Fedora](https://fedoraproject.org/) also started exploring crea
 
 After listing *most* specifications, I shared them through a [mail thread in the Arch-Dev-Public mailing list](https://lists.archlinux.org/archives/list/arch-dev-public@lists.archlinux.org/thread/73A4BK7YK4BJBVXGMN2I5CROQAWI53VZ/) to collect some thoughts and estimate the overall interest around an Arch Linux WSL image. To my *pleasant* surprise, this mail thread has generated quite some attractions with a majority of positive feedback, both from users and staff!
 
-I therefore proceeded to submit an official proposal for it, including every settled specifications, through a related [RFC](https://gitlab.archlinux.org/archlinux/rfcs/-/merge_requests/50) (**R**equest **F**or **C**omments - the mechanism we use at Arch Linux to officially propose and discuss significant changes to our distribution). This RFC was later officially accepted and [published](https://rfc.archlinux.page/0050-arch-linux-wsl-image/).
+I therefore proceeded to submit an official proposal for it, including every settled specifications, through a related [RFC](https://gitlab.archlinux.org/archlinux/rfcs/-/merge_requests/50) (Request For Comments - the mechanism we use at Arch Linux to officially propose and discuss significant changes to our distribution). This RFC was later officially accepted and [published](https://rfc.archlinux.page/0050-arch-linux-wsl-image/).
 
 ## Implementation and collaboration with Microsoft for official redistribution
 
@@ -54,7 +54,7 @@ I'd like to take this conclusion as an occasion to thank:
 
 - Microsoft for showing interest in including an official Arch Linux image in their `WSL` distribution manifest.
 - [klausenbusk](https://github.com/klausenbusk) for helping in [setting up the mirroring of the image](https://gitlab.archlinux.org/archlinux/infrastructure/-/merge_requests/924).
-- [heftig](https://github.com/heftig) for accepting to add the [dzn / microsoft expiremental driver to our mesa package](https://gitlab.archlinux.org/archlinux/packaging/packages/mesa/-/issues/25), allowing to improve the user experience.
+- [heftig](https://github.com/heftig) for accepting to add the [dzn / microsoft experimental driver to our mesa package](https://gitlab.archlinux.org/archlinux/packaging/packages/mesa/-/issues/25), allowing to improve the user experience.
 - [nl6720](https://wiki.archlinux.org/title/User:Nl6720) for providing precious help and hint with the dedicated documentation on the Arch Wiki page.
 - [mhegreberg](https://github.com/mhegreberg) for jumping in as an Arch Linux community member, offering his help to maintain this image.
 - Everyone who shared thoughts & showed interest in the related mail thread & the related RFC as well as everyone that helped along the way regarding the implementation and the documentation in the Wiki.
