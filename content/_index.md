@@ -6,7 +6,7 @@ draft: false
 
 # Hey! :wave:
 
-My name is Robin Candau.  
+My name is Robin Candau (also known as Antiz).  
 I'm a french Linux system & DevOps engineer passionate about skateboarding, music, cycling and, obviously, Linux!
 
 This website serves as a central place to get general & contact info about me, as well as writing some [blog posts](https://antiz.fr/blog/) when I feel like it.
