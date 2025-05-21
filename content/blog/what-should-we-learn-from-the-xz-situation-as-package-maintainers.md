@@ -20,7 +20,7 @@ The other reason why package maintainers often rely on such custom made tarballs
 
 While these custom made tarballs are often more convenient for us package maintainers (as explained above), they are also less transparent by nature. Indeed, it's way harder (and more involved) to review and audit a custom made tarball compared to a publicly and easily accessible online git repo. And identifying differences in the content of the tarball compared to the content of the “raw” sources is not enough on its own, as this is often actually expected (since these custom made tarballs usually include the prerequisites needed to properly compile & package the software compared to the “raw” sources).
 
-It’s undeniable that if the xz malicious code was present in the “raw” sources themselves, it would have been detected way faster and more easily (which is why it was only injected in the custom made tarball as a way to obfuscate it). My personal take on that is, *when possible,* we should prefer using a more transparent source (over a more convenient one) which is more trustworthy.
+It’s undeniable that if the xz malicious code was present in the “raw” sources themselves, it would have been detected way faster and more easily (which is why it was only injected in the custom made tarball as a way to obfuscate it). My personal take on that is, *when possible,* we should prefer using a more transparent source (over a more convenient one), which is more trustworthy.
 
 ## What about the GPG signature, though?
 
