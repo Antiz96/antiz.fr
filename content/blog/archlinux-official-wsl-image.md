@@ -57,7 +57,7 @@ I hope that this official Arch Linux `WSL` image will be useful to some people a
 I'd like to take this conclusion as an occasion to thank:
 
 - Fedora for *coincidentally* studying those intricaties around the same time as I did (which helped a lot)! 😄
-- Microsoft for showing interest in including our Arch Linux image to their official `WSL` Linux distributions manifest.
+- Microsoft's WSL team for showing interest in including our Arch Linux image to their official `WSL` Linux distributions manifest.
 - [klausenbusk](https://github.com/klausenbusk) for helping in [setting up the mirroring of the image](https://gitlab.archlinux.org/archlinux/infrastructure/-/merge_requests/924).
 - [heftig](https://github.com/heftig) for adding the [dzn / microsoft experimental driver to our mesa package](https://gitlab.archlinux.org/archlinux/packaging/packages/mesa/-/issues/25), allowing to improve the user experience.
 - [nl6720](https://wiki.archlinux.org/title/User:Nl6720) for providing precious help and hints with the related documentation on the Arch Wiki.
