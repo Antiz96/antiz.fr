@@ -12,7 +12,7 @@ This subject was actually explored a few years back but got turned down due to m
 
 ## WSL? For what, for who?
 
-Despite being employed as a Linux system engineer, I personally never had the chance to work for a company that allowed me to run Linux on my workstation yet... The usage of Windows was always required by their "internal policy" (whatever that means). It's unfortunately pretty safe to say that I'm not the only person in that situation.  
+Despite being employed as a Linux system engineer, I personally never had the chance to work for a company that allowed me to run Linux on my workstation yet... The usage of Windows was always required by their "internal policy". It's unfortunately pretty safe to say that I'm not the only person in that situation.  
 In such case, `WSL` acts as a pretty decent and reliable workaround (from my experience), allowing one to run a Linux environment in a fairly transparent way directly from a Windows system; providing a direct access to every Linux tools, *hopefully* without getting in the way of potential companies' requirements / restrictions.
 
 More generally speaking, `WSL` provides an easy and straightforward way to get access to a full Linux environment, allowing to perform Linux development / testing or simply to try & run a Linux distribution directly from Windows; increasing its discoverability & accessibility.
