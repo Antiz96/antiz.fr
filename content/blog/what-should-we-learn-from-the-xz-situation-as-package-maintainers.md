@@ -47,7 +47,7 @@ While package maintainers can make changes on their sides to bring more transpar
 
 Ideally, such questions as “should I prefer a signed source or a transparent one?” shouldn’t be a thing. Objectively, only signed VCS objects (e.g. git tags) or signed auto-generated git forge's source tarballs are fully trustworthy.
 
-So, for eventual upstream developers passing by: If you don’t already, please consider signing tags and / or auto-generated source tarballs (as well as providing a trust path for signatures, such as a MAINTAINERS file, ideally) and make sure to provide every information needed to work with your sources in case any additional pre-steps may be required.
+So, for eventual upstream developers passing by: If you don’t already, please consider signing tags and / or auto-generated source tarballs (as well as providing a trust path for signatures, such as a MAINTAINERS file, ideally) and make sure to provide every information needed to work with your sources in case any additional pre-steps may be required.  
 *(I started [doing this](https://github.com/Antiz96/arch-update/blob/main/MAINTAINERS.md) myself for the few projects I’m developing* :grinning:*).*
 
 I’m aware that it might not always be as easy as it sounds and, of course, specific cases are a thing. I’m just exposing what the ideal situation would be. :smile:
