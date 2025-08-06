@@ -9,11 +9,11 @@ draft: false
 My name is Robin Candau (also known as Antiz).  
 I'm a french Linux system & DevOps engineer passionate about skateboarding, music, cycling and, obviously, Linux!
 
-This website serves as a central place to get general & contact info about me, as well as writing some [blog posts](https://antiz.fr/blog/) when I feel like it.
+This website serves as a central place to share general information about me and my work, as well as publishing some [blog posts](https://antiz.fr/blog/) when I feel like it.
 
 ## Projects
 
-As a general open source enthusiast, I contribute to many open source projects and I’m always willing to help, share and learn in the process!  
+As an open source enthusiast, I contribute to many open source projects and I’m always willing to help, share and learn in the process!  
 The main projects I actively contribute to are:
 
 ### Arch Linux
