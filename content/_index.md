@@ -22,7 +22,7 @@ The main projects I actively contribute to are:
 
 [Arch Linux](https://archlinux.org) is a lightweight and flexible Linux distribution that focuses on simplicity, modernity, pragmatism, user centrality and versatility.
 
-- Package Maintainer: As [part of the Arch Linux Package Maintainers](https://archlinux.org/people/package-maintainers/#Antiz), I contribute to the development of the distribution by maintaining [packages](https://archlinux.org/packages/?sort=&q=&maintainer=Antiz) in Arch's official repositories.
+- Package Maintainer: As part of the [Arch Linux Package Maintainers](https://archlinux.org/people/package-maintainers/#Antiz), I contribute to the development of the distribution by maintaining [packages](https://archlinux.org/packages/?sort=&q=&maintainer=Antiz) in Arch's official repositories.
 
 - DevOps: As part of the DevOps team, I contribute to the maintenance of the [Arch Linux infrastructure](https://gitlab.archlinux.org/archlinux/infrastructure).
 
