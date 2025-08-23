@@ -22,15 +22,17 @@ The main projects I actively contribute to are:
 
 [Arch Linux](https://archlinux.org) is a lightweight and flexible Linux distribution that focuses on simplicity, modernity, pragmatism, user centrality and versatility.
 
-- Package Maintainer: As [part of the Arch Linux staff](https://archlinux.org/people/package-maintainers/#Antiz), I contribute to the development of the distribution by maintaining [packages](https://archlinux.org/packages/?sort=&q=&maintainer=Antiz) in Arch's official repositories.
+- Package Maintainer: As [part of the Arch Linux Package Maintainers](https://archlinux.org/people/package-maintainers/#Antiz), I contribute to the development of the distribution by maintaining [packages](https://archlinux.org/packages/?sort=&q=&maintainer=Antiz) in Arch's official repositories.
+
+- DevOps: As part of the DevOps team, I contribute to the maintenance of the [Arch Linux infrastructure](https://gitlab.archlinux.org/archlinux/infrastructure).
+
+- WSL image maintainer: I maintain the [official Arch Linux WSL image](https://gitlab.archlinux.org/archlinux/archlinux-wsl).
 
 - Testing team member and coordinator: As a [testing team](https://wiki.archlinux.org/title/Arch_Testing_Team) member, I test & verify packages submitted to the Arch Linux testing repositories before they get promoted to the stable ones. I’m also in charge of on-boarding new testing team members.
 
 - AUR Package maintainer and moderator: In addition of maintaining packages in the official repositories, I'm also maintaining [some packages](https://aur.archlinux.org/packages?O=0&SeB=M&K=Antiz&outdated=&SB=p&SO=d&PP=50&submit=Go) in the AUR (a [community-driven repository](https://wiki.archlinux.org/title/Arch_User_Repository) maintained by Arch users) and I participate to its moderation.
 
-- WSL image maintainer: I maintain the [official Arch Linux WSL image](https://gitlab.archlinux.org/archlinux/archlinux-wsl).
-
-- Various other contributions: I’m also contributing to numerous other parts of the Arch Linux project as whole, such as some of our tools (e.g. [pacman-contrib](https://gitlab.archlinux.org/pacman/pacman-contrib), [devtools / pkgctl](https://gitlab.archlinux.org/archlinux/devtools), [archlinux-contrib](https://github.com/archlinux/contrib)), [reproducible builds](https://reproducible.archlinux.org/), [infrastructure](https://gitlab.archlinux.org/archlinux/infrastructure), [Arch Wiki](https://wiki.archlinux.org), [submitting RFCs](https://gitlab.archlinux.org/archlinux/rfcs), interacting with the community...
+- Various other contributions: I’m also contributing to numerous other parts of the Arch Linux project as whole, such as some of our tools (e.g. [pacman-contrib](https://gitlab.archlinux.org/pacman/pacman-contrib), [devtools / pkgctl](https://gitlab.archlinux.org/archlinux/devtools), [archlinux-contrib](https://github.com/archlinux/contrib)), [reproducible builds](https://reproducible.archlinux.org/), [Arch Wiki](https://wiki.archlinux.org), [submitting RFCs](https://gitlab.archlinux.org/archlinux/rfcs), interacting with the community...
 
 ### Alpine Linux
 
