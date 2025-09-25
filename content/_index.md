@@ -34,6 +34,14 @@ The main projects I actively contribute to are:
 
 - Various other contributions: I’m also contributing to numerous other parts of the Arch Linux project as whole, such as some of our tools (e.g. [pacman-contrib](https://gitlab.archlinux.org/pacman/pacman-contrib), [devtools / pkgctl](https://gitlab.archlinux.org/archlinux/devtools), [archlinux-contrib](https://github.com/archlinux/contrib)), [reproducible builds](https://reproducible.archlinux.org/), [Arch Wiki](https://wiki.archlinux.org), [submitting RFCs](https://gitlab.archlinux.org/archlinux/rfcs), interacting with the community...
 
+### Reproducible Builds
+
+![alt text](images/index/reproducible_builds-logo.png "Reproducible Builds logo")
+
+[Reproducible Builds](https://reproducible-builds.org/) are a set of software development practices that create an independently-verifiable path from source to binary code.
+
+- Contributor: I regularly submit upstream and downstream patches in regards to Reproducible Builds, some of them being covered in `reproducible-builds.org`'s [monthly news](https://reproducible-builds.org/news/).
+
 ### Alpine Linux
 
 ![alt text](images/index/alpine_linux-logo.png "Alpine Linux logo")
