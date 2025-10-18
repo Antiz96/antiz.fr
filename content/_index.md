@@ -56,4 +56,4 @@ The main projects I actively contribute to are:
 
 [Arch-Update](https://github.com/Antiz96/arch-update) is an update notifier & applier for Arch Linux that assists you with important pre / post update tasks.
 
-- Developer / Maintainer: Arch-Update is one of the Open Source projects I develop and maintain over on [GitHub](https://github.com/Antiz96)
+- Developer / Maintainer: Arch-Update is one of the Open Source projects I develop and maintain over on [GitHub](https://github.com/Antiz96).
