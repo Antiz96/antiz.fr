@@ -40,7 +40,7 @@ The main projects I actively contribute to are:
 
 [Reproducible Builds](https://reproducible-builds.org/) are a set of software development practices that create an independently-verifiable path from source to binary code.
 
-- Contributor: I regularly submit upstream and downstream patches in regards to Reproducible Builds, some of them being covered in `reproducible-builds.org`'s [monthly news](https://reproducible-builds.org/news/).
+- Contributor: I regularly submit upstream and downstream patches in regards to Reproducible Builds, [some of them](https://salsa.debian.org/reproducible-builds/reproducible-website/-/commits/master?author=Robin%20Candau) being covered in `reproducible-builds.org`'s [monthly news](https://reproducible-builds.org/news/).
 
 ### Alpine Linux
 
