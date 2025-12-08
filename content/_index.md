@@ -7,7 +7,11 @@ draft: false
 # Hey! :wave:
 
 My name is Robin Candau (also known as Antiz).  
-I'm a french Linux system & DevOps engineer passionate about skateboarding, music, cycling and, obviously, Linux!
+I'm a French Linux systems & DevOps engineer passionate about music, cycling, skateboarding and the Linux ecosystem!
+
+I'm interested in Linux system development, packaging, infrastructure, reproducible builds and supply chain security.
+
+I'm primarily involved in [Arch Linux](https://archlinux.org/), fulfilling [multiple roles](https://archlinux.org/people/package-maintainers/#Antiz) within the Arch Linux Staff, but I also contribute to [Reproducible Builds](https://reproducible-builds.org/) and [Alpine Linux](https://alpinelinux.org/) (see below for details).
 
 This website serves as a central place to share general information about me and my work, as well as publishing some [blog posts](https://antiz.fr/blog/) when I feel like it.
 
