@@ -80,7 +80,7 @@ So here is a recap of all the noticeable FOSS related stuff I had the chance to 
 
 ### Nvchecker PoC
 
-- Together with [klausenbusk](https://github.com/klausenbusk) and [gromit](https://github.com/christian-heusel), we worked on a proof of concept that aims to streamline and automate new upstream releases tracking for Arch Linux package maintainers. This is still a work in progress, see the [presentation made during the Arch Summit](https://pkgbuild.com/~antiz/presentations/Nvchecker_PoC/) for more details.
+- Together with [klausenbusk](https://github.com/klausenbusk) and [gromit](https://github.com/christian-heusel), we worked on a proof of concept that aims to streamline and automate new upstream releases tracking for Arch Linux package maintainers. This is still a work in progress, see the [presentation made during the Arch Summit](https://pkgbuild.com/~antiz/talks/Nvchecker_PoC/) for more details.
 
 ### RFCs
 
