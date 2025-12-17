@@ -8,6 +8,18 @@
     <language>en-us</language>
     <lastBuildDate>Thu, 16 Feb 2023 13:11:49 +0100</lastBuildDate><atom:link href="https://antiz.fr/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>The Arch Linux WSL image is now reproducible</title>
+      <link>https://antiz.fr/blog/the-archlinux-wsl-image-is-now-reproducible/</link>
+      <pubDate>Wed, 17 Dec 2025 20:00:00 +0200</pubDate>
+      
+      <guid>https://antiz.fr/blog/the-archlinux-wsl-image-is-now-reproducible/</guid>
+      
+        <description>&lt;p&gt;I&amp;rsquo;m happy to share a great milestone I worked on and that we&amp;rsquo;ve been able to recently reach: The &lt;a href=&#34;https://gitlab.archlinux.org/archlinux/archlinux-wsl&#34;&gt;Arch Linux WSL image&lt;/a&gt; is now &lt;a href=&#34;https://reproducible-builds.org/&#34;&gt;bit-for-bit reproducible&lt;/a&gt;!&lt;/p&gt;
+&lt;p&gt;I attended this year&amp;rsquo;s &lt;a href=&#34;https://reproducible-builds.org/events/vienna2025/&#34;&gt;Reproducible Builds Summit in Vienna&lt;/a&gt; during which I had the occasion to discuss with Holger Levsen &lt;em&gt;(a.k.a. h01ger - Debian member / contributor and part of the Reproducible Build Core team)&lt;/em&gt; about reproducible &lt;code&gt;releng&lt;/code&gt; images (like OCI images, ISOs, etc&amp;hellip;). He shared really interesting insights and relevant advice to me on that front, and I decided to give it a try with &lt;a href=&#34;https://antiz.fr/blog/archlinux-official-wsl-image/&#34;&gt;the Arch Linux WSL image I worked on earlier this year&lt;/a&gt;.&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
       <title>Arch Linux now has an official WSL image</title>
       <link>https://antiz.fr/blog/archlinux-official-wsl-image/</link>
       <pubDate>Tue, 15 Apr 2025 15:40:00 +0200</pubDate>

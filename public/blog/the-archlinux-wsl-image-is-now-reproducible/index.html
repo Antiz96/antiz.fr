@@ -1,0 +1,578 @@
+<!doctype html>
+<html
+  dir="ltr"
+  lang="en"
+  data-theme=""
+  
+    class="html theme--light"
+  
+><head>
+  <meta charset="utf-8" />
+  <title>
+    Robin Candau
+        |
+        The Arch Linux WSL image is now reproducible
+      
+
+    
+
+  </title>
+
+  <meta name="generator" content="Hugo 0.152.2"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="author" content="Robin Candau" />
+  <meta
+    name="description"
+    content="Linux system &amp; DevOps engineer passionate about skateboarding, music, cycling and, obviously, Linux!"
+  />
+  
+  
+        <link rel="stylesheet" href="/css/anatole.min.49bfd2dbac6030a3a24fe7cb768d3d0dd9d223458e88f7d6cf5fe7aa806aaa2d.css" integrity="sha256-Sb/S26xgMKOiT&#43;fLdo09DdnSI0WOiPfWz1/nqoBqqi0=" crossorigin="anonymous" />
+      
+  <link
+    rel="stylesheet"
+    href="/css/markupHighlight.min.73ccfdf28df555e11009c13c20ced067af3cb021504cba43644c705930428b00.css"
+    integrity="sha256-c8z98o31VeEQCcE8IM7QZ688sCFQTLpDZExwWTBCiwA="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+    
+    
+    <link
+      rel="stylesheet"
+      href="/css/custom.min.12eb7037bf07e9b3c877c4d2aad88722dbeeeb31ae96aba510fa53899abb61b0.css"
+      integrity="sha256-EutwN78H6bPId8TSqtiHItvu6zGulqulEPpTiZq7YbA="
+      crossorigin="anonymous"
+      media="screen"
+    />
+  
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/fontawesome.min.137b1cf3cea9a8adb7884343a9a5ddddf4280f59153f74dc782fb7f7bf0d0519.css"
+    integrity="sha256-E3sc886pqK23iENDqaXd3fQoD1kVP3TceC&#43;3978NBRk="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/solid.min.e65dc5b48fb5f39b142360c57c3a215744c94e56c755c929cc3e88fe12aab4d3.css"
+    integrity="sha256-5l3FtI&#43;185sUI2DFfDohV0TJTlbHVckpzD6I/hKqtNM="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/regular.min.6f4f16d58da1c82c0c3a3436e021a3d39b4742f741192c546e73e947eacfd92f.css"
+    integrity="sha256-b08W1Y2hyCwMOjQ24CGj05tHQvdBGSxUbnPpR&#43;rP2S8="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/brands.min.e10425ad768bc98ff1fb272a0ac8420f9d1ba22f0612c08ff1010c95080ffe7e.css"
+    integrity="sha256-4QQlrXaLyY/x&#43;ycqCshCD50boi8GEsCP8QEMlQgP/n4="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+
+  <link rel="canonical" href="https://antiz.fr/blog/the-archlinux-wsl-image-is-now-reproducible/" />
+  
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/anatole-header.min.f9132794301a01ff16550ed66763482bd848f62243d278f5e550229a158bfd32.js"
+    integrity="sha256-&#43;RMnlDAaAf8WVQ7WZ2NIK9hI9iJD0nj15VAimhWL/TI="
+    crossorigin="anonymous"
+  ></script>
+
+  
+    
+    
+    <script
+      type="text/javascript"
+      src="/js/anatole-theme-switcher.min.8724ddf9268dee451060f191961647573c7f592fbccc6d858746236b3f915813.js"
+      integrity="sha256-hyTd&#43;SaN7kUQYPGRlhZHVzx/WS&#43;8zG2Fh0Yjaz&#43;RWBM="
+      crossorigin="anonymous"
+    ></script>
+  
+
+  
+
+  
+
+  
+
+
+  
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="The Arch Linux WSL image is now reproducible">
+  <meta name="twitter:description" content="I’m happy to share a great milestone I worked on and that we’ve been able to recently reach: The Arch Linux WSL image is now bit-for-bit reproducible!
+I attended this year’s Reproducible Builds Summit in Vienna during which I had the occasion to discuss with Holger Levsen (a.k.a. h01ger - Debian member / contributor and part of the Reproducible Build Core team) about reproducible releng images (like OCI images, ISOs, etc…). He shared really interesting insights and relevant advice to me on that front, and I decided to give it a try with the Arch Linux WSL image I worked on earlier this year.">
+
+
+
+  
+  <meta property="og:url" content="https://antiz.fr/blog/the-archlinux-wsl-image-is-now-reproducible/">
+  <meta property="og:site_name" content="Robin Candau">
+  <meta property="og:title" content="The Arch Linux WSL image is now reproducible">
+  <meta property="og:description" content="I’m happy to share a great milestone I worked on and that we’ve been able to recently reach: The Arch Linux WSL image is now bit-for-bit reproducible!
+I attended this year’s Reproducible Builds Summit in Vienna during which I had the occasion to discuss with Holger Levsen (a.k.a. h01ger - Debian member / contributor and part of the Reproducible Build Core team) about reproducible releng images (like OCI images, ISOs, etc…). He shared really interesting insights and relevant advice to me on that front, and I decided to give it a try with the Arch Linux WSL image I worked on earlier this year.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2025-12-17T20:00:00+02:00">
+    <meta property="article:modified_time" content="2025-12-17T20:00:00+02:00">
+
+
+
+  
+  
+  
+  
+  <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "articleSection": "blog",
+        "name": "The Arch Linux WSL image is now reproducible",
+        "headline": "The Arch Linux WSL image is now reproducible",
+        "alternativeHeadline": "",
+        "description": "
+      
+        \u003cp\u003eI\u0026rsquo;m happy to share a great milestone I worked on and that we\u0026rsquo;ve been able to recently reach: The \u003ca href=\u0022https:\/\/gitlab.archlinux.org\/archlinux\/archlinux-wsl\u0022\u003eArch Linux WSL image\u003c\/a\u003e is now \u003ca href=\u0022https:\/\/reproducible-builds.org\/\u0022\u003ebit-for-bit reproducible\u003c\/a\u003e!\u003c\/p\u003e\n\u003cp\u003eI attended this year\u0026rsquo;s \u003ca href=\u0022https:\/\/reproducible-builds.org\/events\/vienna2025\/\u0022\u003eReproducible Builds Summit in Vienna\u003c\/a\u003e during which I had the occasion to discuss with Holger Levsen \u003cem\u003e(a.k.a. h01ger - Debian member \/ contributor and part of the Reproducible Build Core team)\u003c\/em\u003e about reproducible \u003ccode\u003ereleng\u003c\/code\u003e images (like OCI images, ISOs, etc\u0026hellip;). He shared really interesting insights and relevant advice to me on that front, and I decided to give it a try with \u003ca href=\u0022https:\/\/antiz.fr\/blog\/archlinux-official-wsl-image\/\u0022\u003ethe Arch Linux WSL image I worked on earlier this year\u003c\/a\u003e.\u003c\/p\u003e
+
+
+      
+
+
+    ",
+        "license": "",
+        
+        "inLanguage": "en-us",
+        "isFamilyFriendly": "true",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/antiz.fr\/blog\/the-archlinux-wsl-image-is-now-reproducible\/"
+        },
+        "author" : {
+            "@type": "Person",
+            "name": "Robin Candau"
+        },
+        "creator" : {
+            "@type": "Person",
+            "name": "Robin Candau"
+        },
+        "accountablePerson" : {
+            "@type": "Person",
+            "name": "Robin Candau"
+        },
+        "copyrightHolder" : {
+            "@type": "Person",
+            "name": "Robin Candau"
+        },
+        "dateCreated": "2025-12-17T20:00:00.00Z",
+        "datePublished": "2025-12-17T20:00:00.00Z",
+        "dateModified": "2025-12-17T20:00:00.00Z",
+        "publisher":{
+            "@type":"Organization",
+            "name": "Robin Candau",
+            "url": "https://antiz.fr/",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https:\/\/antiz.fr\/favicon-32x32.png",
+                "width":"32",
+                "height":"32"
+            }
+        },
+        "image": 
+      [
+      ]
+
+    ,
+        "url" : "https:\/\/antiz.fr\/blog\/the-archlinux-wsl-image-is-now-reproducible\/",
+        "wordCount" : "1132",
+        "genre" : [ ],
+        "keywords" : [ ]
+    }
+  </script>
+
+
+
+
+  
+  
+  
+</head>
+<body class="body">
+    <div class="wrapper">
+      <aside
+        
+          class="wrapper__sidebar"
+        
+      ><div
+  class="sidebar
+    animated fadeInDown
+  "
+>
+  <div class="sidebar__content">
+    <div class="sidebar__introduction">
+      <img
+        class="sidebar__introduction-profileimage"
+        src="/images/pfp.jpg"
+        alt="profile picture"
+      />
+      
+        <div class="sidebar__introduction-title">
+          <a href="/">Robin Candau</a>
+        </div>
+      
+      <div class="sidebar__introduction-description">
+        <p>Linux system & DevOps engineer passionate about skateboarding, music, cycling and, obviously, Linux!</p>
+      </div>
+    </div>
+    <ul class="sidebar__list">
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://github.com/Antiz96"
+            target="_blank"
+            rel="noopener me"
+            aria-label="GitHub"
+            title="GitHub"
+          >
+            <i class="fab fa-github fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://gitlab.archlinux.org/antiz"
+            target="_blank"
+            rel="noopener me"
+            aria-label="Arch Linux GitLab"
+            title="Arch Linux GitLab"
+          >
+            <i class="fab fa-gitlab fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://fosstodon.org/@Antiz"
+            target="_blank"
+            rel="noopener me"
+            aria-label="Mastodon"
+            title="Mastodon"
+          >
+            <i class="fab fa-mastodon fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://www.linkedin.com/in/robin-candau/?locale=en_US"
+            target="_blank"
+            rel="noopener me"
+            aria-label="LinkedIn"
+            title="LinkedIn"
+          >
+            <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+        <li class="sidebar__list-item">
+          <a
+            href="mailto:robincandau@protonmail.com"
+            target="_blank"
+            rel="noopener me"
+            aria-label="Mail"
+            title="Mail"
+          >
+            <i class="fas fa-envelope fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://keyserver.ubuntu.com/pks/lookup?search=D33FAA16B937F3B2&amp;fingerprint=on&amp;op=index"
+            target="_blank"
+            rel="noopener me"
+            aria-label="OpenPGP Key"
+            title="OpenPGP Key"
+          >
+            <i class="fas fa-key fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+    </ul>
+  </div><footer class="footer footer__sidebar">
+  <ul class="footer__list">
+    <li class="footer__item">
+      &copy;
+      
+        Robin Candau
+        2025
+      
+    </li>
+    
+  </ul>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.9531b4a2217a70c5a1fce89c1f81c9ebbdd586708fcd4130b417320c7230c8d6.js"
+    integrity="sha256-lTG0oiF6cMWh/OicH4HJ673VhnCPzUEwtBcyDHIwyNY="
+    crossorigin="anonymous"
+  ></script></div>
+</aside>
+      <main
+        
+          class="wrapper__main"
+        
+      >
+        <header class="header"><div
+  class="
+    animated fadeInDown
+  "
+>
+  <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+  </a>
+  <nav class="nav">
+    <ul class="nav__list" id="navMenu">
+      
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/"
+              
+              title=""
+              >Home</a
+            >
+          </li>
+        
+
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/blog/"
+              
+              title=""
+              >Blog</a
+            >
+          </li>
+        
+
+      
+    </ul>
+    <ul class="nav__list nav__list--end">
+      
+      
+        <li class="nav__list-item">
+          <div class="themeswitch">
+            <a title="Switch Theme">
+              <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a>
+          </div>
+        </li>
+      
+    </ul>
+  </nav>
+</div>
+</header>
+  <div
+    class="post 
+      animated fadeInDown
+    "
+  >
+    
+    <div class="post__content">
+      
+        <h1>The Arch Linux WSL Image Is Now Reproducible</h1>
+      
+      
+        <ul class="post__meta">
+          <li class="post__meta-item">
+            <em class="fas fa-calendar-day post__meta-icon"></em>
+            <span class="post__meta-text"
+              >
+                
+                  Wed, Dec 17, 2025
+                
+
+              
+            </span>
+          </li>
+          <li class="post__meta-item">
+            <em class="fas fa-stopwatch post__meta-icon"></em>
+            <span class="post__meta-text">6-minute read</span>
+          </li>
+        </ul>
+      <p>I&rsquo;m happy to share a great milestone I worked on and that we&rsquo;ve been able to recently reach: The <a href="https://gitlab.archlinux.org/archlinux/archlinux-wsl">Arch Linux WSL image</a> is now <a href="https://reproducible-builds.org/">bit-for-bit reproducible</a>!</p>
+<p>I attended this year&rsquo;s <a href="https://reproducible-builds.org/events/vienna2025/">Reproducible Builds Summit in Vienna</a> during which I had the occasion to discuss with Holger Levsen <em>(a.k.a. h01ger - Debian member / contributor and part of the Reproducible Build Core team)</em> about reproducible <code>releng</code> images (like OCI images, ISOs, etc&hellip;). He shared really interesting insights and relevant advice to me on that front, and I decided to give it a try with <a href="https://antiz.fr/blog/archlinux-official-wsl-image/">the Arch Linux WSL image I worked on earlier this year</a>.</p>
+<p>I therefore started working on this with <a href="https://hegreberg.io/">Mark Hegreberg</a>&rsquo;s assistance (who is the co-maintainer for the WSL image).<br>
+Here are the issues we faced and the fixes we applied:</p>
+<h2 id="installing-packages-from-an-archived-repo-snapshot">Installing packages from an archived repo snapshot</h2>
+<p>To ensure that the same exact versions / releases of packages get installed in the image across builds, we defined an archived snapshot of our repositories (via our <a href="https://archive.archlinux.org">https://archive.archlinux.org</a> - <a href="https://wiki.archlinux.org/title/Arch_Linux_Archive">Arch Linux Archive</a> service) as the source to download packages during the build.<br>
+The chosen date of the daily archived repo snapshot is based against the version of the built image (which is also date based). The same date is also used as the <code>[SOURCE_DATE_EPOCH](https://reproducible-builds.org/docs/source-date-epoch/)</code> (SDE) timestamp (see below points for usage).</p>
+<h2 id="normalize-filesystem-mtime-with-source_date_epoch">Normalize filesystem <code>mtime</code> with <code>SOURCE_DATE_EPOCH</code></h2>
+<p>With SDE now set in our build script, we normalize files modification times (<code>mtime</code>) inside the built root filesystem (rootFS) used as the image base against it as a post-build operation:</p>
+<pre tabindex="0"><code>find &#34;$BUILDDIR&#34; -exec touch --no-dereference --date=&#34;@$SOURCE_DATE_EPOCH&#34; {} +
+</code></pre><p>This avoids non-deterministic timestamps stored in the rootFS, such as:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>│ ├── file list
+</span></span><span style="display:flex;"><span>│ │ @@ -1,582 +1,582 @@
+</span></span><span style="display:flex;"><span>│ │ -drwxr-xr-x   0        0        0        0 2025-12-15 17:01:30.944371 ./var/
+</span></span><span style="display:flex;"><span>│ │ +drwxr-xr-x   0        0        0        0 2025-12-15 17:03:31.247635 ./var/
+</span></span></code></pre></div><h2 id="get-rid-of-pacman-logs-during-build-because-of-timestamps-recording">Get rid of Pacman logs during build (because of timestamps recording)</h2>
+<p>Pacman records each operation with its associated timestamp in its log file (<code>/var/log/pacman.log</code>).<br>
+Since we don&rsquo;t particularly need Pacman logs to be recorded during the image build, we simply redirected them to <code>/dev/null/</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pacman <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    <span style="color:#f92672">[</span>...<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>    --logfile /dev/null <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    <span style="color:#f92672">[</span>...<span style="color:#f92672">]</span>
+</span></span></code></pre></div><p>This avoids non-deterministic timestamps stored in Pacman&rsquo;s log file, such as:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>│ ├── ./var/log/pacman.log
+</span></span><span style="display:flex;"><span>│ │ @@ -1,125 +1,125 @@
+</span></span><span style="display:flex;"><span>│ │ -[2025-12-14T00:11:43+0000] [ALPM] installed filesystem (2025.10.12-1)
+</span></span><span style="display:flex;"><span>│ │ +[2025-12-14T00:13:28+0000] [ALPM] installed filesystem (2025.10.12-1)
+</span></span></code></pre></div><h2 id="normalize-packages-installation-date-in-pacmans-local-package-db">Normalize packages&rsquo; installation date in Pacman&rsquo;s local package DB</h2>
+<p>Pacman records packages&rsquo; installation date.<br>
+Fortunately, <a href="https://vdwaa.nl/">Jelle van der Waa</a> recently brought <a href="https://gitlab.archlinux.org/pacman/pacman/-/commit/f4bdb77470528019aaba4d8b">support in Pacman for honoring SDE on that front</a>. With the related commit being included in our latest pacman package release, simply exporting SDE in our build script was enough to normalize packages&rsquo; installation date in Pacman&rsquo;s local package database.</p>
+<p>This avoid non-deterministic timestamps in the metadata included in the local package database, such as:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>│ ├── ./var/lib/pacman/local/iana-etc-20251114-1/desc
+</span></span><span style="display:flex;"><span>│ │ @@ -16,15 +16,15 @@
+</span></span><span style="display:flex;"><span>│ │  %ARCH%
+</span></span><span style="display:flex;"><span>│ │  any
+</span></span><span style="display:flex;"><span>│ │
+</span></span><span style="display:flex;"><span>│ │  %BUILDDATE%
+</span></span><span style="display:flex;"><span>│ │  1763578803
+</span></span><span style="display:flex;"><span>│ │
+</span></span><span style="display:flex;"><span>│ │  %INSTALLDATE%
+</span></span><span style="display:flex;"><span>│ │ **-1765650975**
+</span></span><span style="display:flex;"><span>│ │ **+1765651076**
+</span></span><span style="display:flex;"><span>│ │
+</span></span><span style="display:flex;"><span>│ │  %PACKAGER%
+</span></span><span style="display:flex;"><span>│ │  Jelle van der Waa &lt;jelle@archlinux.org&gt;
+</span></span><span style="display:flex;"><span>│ │
+</span></span><span style="display:flex;"><span>│ │  %SIZE%
+</span></span><span style="display:flex;"><span>│ │  4198552
+</span></span></code></pre></div><h2 id="delete-pacman-keyring">Delete Pacman keyring</h2>
+<p>Pacman OpenPGP keys (generated with <code>pacman-key</code>) are obviously always different across builds.<br>
+Fortunately, WSL has a built-in <a href="https://learn.microsoft.com/en-us/windows/wsl/build-custom-distro#add-the-wsl-distribution-configuration-file">&ldquo;oobe&rdquo; (Out Of the Box Experience) mechanism</a> which allows to automatically run a script at the first boot of the image. We therefore took advantage of this mechanism to completely delete the Pacman&rsquo;s keyring as a post-build operation and automatically recreate it at the first boot of the image via the &ldquo;oobe&rdquo; script (by running <code>pacman-key --init &amp;&amp; pacman-key --populate archlinux</code> from it).</p>
+<p>This avoid non-deterministic data in the Pacman keyring, such as:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>│ ├── ./etc/pacman.d/gnupg/pubring.gpg
+</span></span><span style="display:flex;"><span>│ │┄ xxd not available in path. Falling back to Python hexlify.
+</span></span><span style="display:flex;"><span>│ │ @@ -1,45 +1,45 @@
+</span></span><span style="display:flex;"><span>│ │ -99020d0469408f04011000b9a3a76a44cdaaa630398dd297705ffb5b9906dca5
+</span></span><span style="display:flex;"><span>[...]
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>│ ├── ./etc/pacman.d/gnupg/tofu.db
+</span></span><span style="display:flex;"><span>│ │ ├── sqlite3 {} .dump
+</span></span><span style="display:flex;"><span>│ │ │ @@ -7,13 +7,13 @@
+</span></span><span style="display:flex;"><span>│ │ │    fingerprint TEXT, email TEXT, user_id TEXT, time INTEGER,
+</span></span><span style="display:flex;"><span>│ │ │    policy INTEGER CHECK (policy in (1, 2, 3, 4, 5)),
+</span></span><span style="display:flex;"><span>│ │ │    conflict STRING, effective_policy INTEGER DEFAULT 0 CHECK (effective_policy in (0, 1, 2, 3, 4, 5)),
+</span></span><span style="display:flex;"><span>│ │ │    unique (fingerprint, email));
+</span></span><span style="display:flex;"><span>│ │ │  CREATE TABLE signatures  (binding INTEGER NOT NULL, sig_digest TEXT,  origin TEXT, sig_time INTEGER, time INTEGER,  primary key (binding, sig_digest, origin));
+</span></span><span style="display:flex;"><span>│ │ │  CREATE TABLE encryptions (binding INTEGER NOT NULL,  time INTEGER);
+</span></span><span style="display:flex;"><span>│ │ │  CREATE TABLE ultimately_trusted_keys (keyid);
+</span></span><span style="display:flex;"><span>│ │ │ -INSERT INTO ultimately_trusted_keys VALUES(&#39;0AE7DE748E9EC852&#39;);
+</span></span><span style="display:flex;"><span>│ │ │ +INSERT INTO ultimately_trusted_keys VALUES(&#39;3653096D0D4F06F3&#39;);
+</span></span><span style="display:flex;"><span>│ │ │  CREATE INDEX bindings_fingerprint_email
+</span></span><span style="display:flex;"><span>│ │ │   on bindings (fingerprint, email);
+</span></span><span style="display:flex;"><span>│ │ │  CREATE INDEX bindings_email on bindings (email);
+</span></span><span style="display:flex;"><span>│ │ │  CREATE INDEX encryptions_binding on encryptions (binding);
+</span></span><span style="display:flex;"><span>│ │ │  COMMIT;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>│ ├── ./etc/pacman.d/gnupg/trustdb.gpg
+</span></span><span style="display:flex;"><span>│ │┄ xxd not available in path. Falling back to Python hexlify.
+</span></span><span style="display:flex;"><span>│ │ @@ -1,46 +1,46 @@
+</span></span><span style="display:flex;"><span>│ │ -01677067030301050102000069408f07697c67e1000000000000000000000000
+</span></span><span style="display:flex;"><span>│ │ +01677067030301050102000069408f76697c67e1000000000000000000000000
+</span></span><span style="display:flex;"><span>[...]
+</span></span></code></pre></div><h2 id="normalize-tar-archives-mtime-with-source_date_epoch-and-ordering">Normalize tar archives <code>mtime</code> (with <code>SOURCE_DATE_EPOCH</code>) and ordering</h2>
+<p>The rootFS for the WSL image is archived with <code>tar</code>, to which we added a few options to normalize modification times (against SDE) as well as ordering to avoid non-determinism on those fronts:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>tar <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    <span style="color:#f92672">[</span>...<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>    --mtime<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;@</span>$SOURCE_DATE_EPOCH<span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --clamp-mtime <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --sort<span style="color:#f92672">=</span>name <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    <span style="color:#f92672">[</span>...<span style="color:#f92672">]</span>
+</span></span></code></pre></div><h2 id="delete-tar-archives-atime--ctime">Delete tar archives <code>atime</code> &amp; <code>ctime</code></h2>
+<p>Finally, we got rid of tar&rsquo;s access times (<code>atime</code>) &amp; creation times <code>ctime</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>tar <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    <span style="color:#f92672">[</span>...<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>    --pax-option<span style="color:#f92672">=</span>delete<span style="color:#f92672">=</span>atime,delete<span style="color:#f92672">=</span>ctime <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    <span style="color:#f92672">[</span>...<span style="color:#f92672">]</span>
+</span></span></code></pre></div><p>This avoids non-deterministic timestamps in the archive&rsquo;s metadata, such as:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>--- /builds/archlinux/archlinux-wsl/workdir/output/archlinux-2025.12.16.154822.wsl
+</span></span><span style="display:flex;"><span>+++ /builds/archlinux/archlinux-wsl/repro/output/archlinux-2025.12.16.154822.wsl
+</span></span><span style="display:flex;"><span>├── archlinux-2025.12.16.154822.wsl-content
+</span></span><span style="display:flex;"><span>│┄ xxd not available in path. Falling back to Python hexlify.
+</span></span><span style="display:flex;"><span>│ @@ -1,25 +1,25 @@
+</span></span><span style="display:flex;"><span>│  2e2f506178486561646572732f2e000000000000000000000000000000000000
+</span></span><span style="display:flex;"><span>│  0000000000000000000000000000000000000000000000000000000000000000
+</span></span><span style="display:flex;"><span>│  0000000000000000000000000000000000000000000000000000000000000000
+</span></span><span style="display:flex;"><span>│  0000000030303030363434003030303030303000303030303030300030303030
+</span></span><span style="display:flex;"><span>│ -3030303030363100313531323031323034303000303130333333002078000000
+</span></span><span style="display:flex;"><span>│ +3030303030363200313531323031323034303000303130333334002078000000
+</span></span></code></pre></div><h2 id="conclusion">Conclusion</h2>
+<p>If you want to see more details about the actual implementation of that work, you can take a look at the related merge requests:</p>
+<ul>
+<li><a href="https://gitlab.archlinux.org/archlinux/archlinux-wsl/-/merge_requests/74">https://gitlab.archlinux.org/archlinux/archlinux-wsl/-/merge_requests/74</a>: Addition of a dedicated CI stage to test the image reproducibility status</li>
+<li><a href="https://gitlab.archlinux.org/archlinux/archlinux-wsl/-/merge_requests/76">https://gitlab.archlinux.org/archlinux/archlinux-wsl/-/merge_requests/76</a>: Implementation of the above fixes to make the image reproducible</li>
+</ul>
+<p>A follow up good news is that, since it&rsquo;s built in a similar way, most of those fixes should also apply to our <a href="https://gitlab.archlinux.org/archlinux/archlinux-docker">Docker image</a> ; with the exception of the <a href="#delete-pacman-keyring">Pacman keyring related issue</a> which will need to be dealt with differently, <em>somehow&hellip;</em> (since, as far as I know, OCIi / Docker images doesn&rsquo;t have any built-in / straightforward mechanism to run a script or commands automatically at first boot, similar to the WSL &ldquo;oobe&rdquo; mechanism).</p>
+<p>In any case, I particularly happy about this achievement which represents a meaningful milestone regarding our global &ldquo;reproducible builds&rdquo; related efforts and is encouraging for future related work on our other releng images!</p>
+<p>I once again would like to thank Holger for his precious tips &amp; advice, and Mark for his valuable help with some of the issues we faced as well as testing.</p>
+</div>
+    <div class="post__footer">
+      
+
+      
+    </div>
+
+    
+  </div>
+
+      </main>
+    </div><footer class="footer footer__base">
+  <ul class="footer__list">
+    <li class="footer__item">
+      &copy;
+      
+        Robin Candau
+        2025
+      
+    </li>
+    
+  </ul>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.9531b4a2217a70c5a1fce89c1f81c9ebbdd586708fcd4130b417320c7230c8d6.js"
+    integrity="sha256-lTG0oiF6cMWh/OicH4HJ673VhnCPzUEwtBcyDHIwyNY="
+    crossorigin="anonymous"
+  ></script></body>
+</html>
