@@ -14,7 +14,7 @@ Here are the issues we faced and the related fixes we applied:
 ## Install packages from an archived repo snapshot
 
 To ensure that the same exact versions / releases of packages get installed in the image across builds, we defined an archived snapshot of our repositories (via our <https://archive.archlinux.org> / [Arch Linux Archive](https://wiki.archlinux.org/title/Arch_Linux_Archive) service) as the source to download packages during the build.  
-The chosen date of the daily archived repo snapshot is based against the version of the built image (which is date based itself). The same date is also used as the `[SOURCE_DATE_EPOCH`](https://reproducible-builds.org/docs/source-date-epoch/) (SDE) timestamp (see below points for SDE usage).
+The chosen date of the daily archived repo snapshot is based against the version of the built image (which is date based itself). The same date is also used as the [`SOURCE_DATE_EPOCH`](https://reproducible-builds.org/docs/source-date-epoch/) (SDE) timestamp (see below points for SDE usage).
 
 ## Normalize filesystem `mtime` with `SOURCE_DATE_EPOCH`
 
