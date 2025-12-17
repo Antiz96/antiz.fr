@@ -20,7 +20,7 @@ The chosen date of the daily archived repo snapshot is based against the version
 
 With SDE now set in our build script, we normalize files modification times (`mtime`) inside the built root filesystem (rootFS) used as the image base against it as a post-build operation:
 
-```
+```bash
 find "$BUILDDIR" -exec touch --no-dereference --date="@$SOURCE_DATE_EPOCH" {} +
 ```
 
@@ -54,7 +54,7 @@ This avoids non-deterministic timestamps stored in Pacman's log file, such as:
 │ │ +[2025-12-14T00:13:28+0000] [ALPM] installed filesystem (2025.10.12-1)
 ```
 
-## Normalize packages' installation date in Pacman's local package DB 
+## Normalize packages' installation date in Pacman's local package DB
 
 Pacman records packages' installation date.  
 Fortunately, [Jelle van der Waa](https://vdwaa.nl/) recently brought [support in Pacman for honoring SDE on that front](https://gitlab.archlinux.org/pacman/pacman/-/commit/f4bdb77470528019aaba4d8b). With the related commit being included in our latest pacman package release, simply exporting SDE in our build script was enough to normalize packages' installation date in Pacman's local package database.
