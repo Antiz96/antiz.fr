@@ -18,7 +18,7 @@ The chosen date of the daily archived repo snapshot is based against the version
 
 ## Normalize filesystem `mtime` with `SOURCE_DATE_EPOCH`
 
-With SDE now set in our [build script](https://gitlab.archlinux.org/archlinux/archlinux-wsl/-/blob/main/scripts/build-image.sh), we normalized files modification times (`mtime`) inside the root filesystem (rootFS) used as the image base against it as a post-build operation:
+With SDE now set in our [build script](https://gitlab.archlinux.org/archlinux/archlinux-wsl/-/blob/main/scripts/build-image.sh), we normalized files modification times (`mtime`) inside the root filesystem (rootFS) used as the image base in a post-build operation:
 
 ```bash
 find "$BUILDDIR" -exec touch --no-dereference --date="@$SOURCE_DATE_EPOCH" {} +
