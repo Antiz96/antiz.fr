@@ -439,8 +439,8 @@ Here are the issues we faced and the fixes we applied:</p>
 The chosen date of the daily archived repo snapshot is based against the version of the built image (which is also date based). The same date is also used as the <code>[SOURCE_DATE_EPOCH](https://reproducible-builds.org/docs/source-date-epoch/)</code> (SDE) timestamp (see below points for usage).</p>
 <h2 id="normalize-filesystem-mtime-with-source_date_epoch">Normalize filesystem <code>mtime</code> with <code>SOURCE_DATE_EPOCH</code></h2>
 <p>With SDE now set in our build script, we normalize files modification times (<code>mtime</code>) inside the built root filesystem (rootFS) used as the image base against it as a post-build operation:</p>
-<pre tabindex="0"><code>find &#34;$BUILDDIR&#34; -exec touch --no-dereference --date=&#34;@$SOURCE_DATE_EPOCH&#34; {} +
-</code></pre><p>This avoids non-deterministic timestamps stored in the rootFS, such as:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>find <span style="color:#e6db74">&#34;</span>$BUILDDIR<span style="color:#e6db74">&#34;</span> -exec touch --no-dereference --date<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;@</span>$SOURCE_DATE_EPOCH<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">{}</span> +
+</span></span></code></pre></div><p>This avoids non-deterministic timestamps stored in the rootFS, such as:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>│ ├── file list
 </span></span><span style="display:flex;"><span>│ │ @@ -1,582 +1,582 @@
 </span></span><span style="display:flex;"><span>│ │ -drwxr-xr-x   0        0        0        0 2025-12-15 17:01:30.944371 ./var/
