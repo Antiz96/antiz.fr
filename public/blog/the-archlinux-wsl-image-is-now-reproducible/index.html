@@ -202,7 +202,7 @@ I attended this year’s Reproducible Builds Summit in Vienna during which I had
 
     ,
         "url" : "https:\/\/antiz.fr\/blog\/the-archlinux-wsl-image-is-now-reproducible\/",
-        "wordCount" : "1140",
+        "wordCount" : "1129",
         "genre" : [ ],
         "keywords" : [ ]
     }
@@ -438,21 +438,21 @@ Here are the issues we faced and the related fixes we applied:</p>
 <p>To ensure that the same exact versions / releases of packages get installed in the image across builds, we defined an archived snapshot of our repositories (via our <a href="https://archive.archlinux.org">https://archive.archlinux.org</a> / <a href="https://wiki.archlinux.org/title/Arch_Linux_Archive">Arch Linux Archive</a> service) as the source to download packages during the build.<br>
 The chosen date of the daily archived repo snapshot is based against the version of the built image (which is date based itself). The same date is also used as the <a href="https://reproducible-builds.org/docs/source-date-epoch/"><code>SOURCE_DATE_EPOCH</code></a> (SDE) timestamp (see below points for SDE usage).</p>
 <h2 id="normalize-filesystem-mtime-with-source_date_epoch">Normalize filesystem <code>mtime</code> with <code>SOURCE_DATE_EPOCH</code></h2>
-<p>With SDE now set in our <a href="https://gitlab.archlinux.org/archlinux/archlinux-wsl/-/blob/main/scripts/build-image.sh">build script</a>, we normalized files modification times (<code>mtime</code>) inside the root filesystem (rootFS) used as the image base against it as a post-build operation:</p>
+<p>With SDE now set in our <a href="https://gitlab.archlinux.org/archlinux/archlinux-wsl/-/blob/main/scripts/build-image.sh">build script</a>, we normalized files modification times (<code>mtime</code>) inside the root filesystem (rootFS) used as the image base in a post-build operation:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>find <span style="color:#e6db74">&#34;</span>$BUILDDIR<span style="color:#e6db74">&#34;</span> -exec touch --no-dereference --date<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;@</span>$SOURCE_DATE_EPOCH<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">{}</span> +
-</span></span></code></pre></div><p>This avoids non-deterministic timestamps stored in the rootFS, such as:</p>
+</span></span></code></pre></div><p>This avoids non-deterministic timestamps in the rootFS, such as:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>│ ├── file list
 </span></span><span style="display:flex;"><span>│ │ @@ -1,582 +1,582 @@
 </span></span><span style="display:flex;"><span>│ │ -drwxr-xr-x   0        0        0        0 2025-12-15 17:01:30.944371 ./var/
 </span></span><span style="display:flex;"><span>│ │ +drwxr-xr-x   0        0        0        0 2025-12-15 17:03:31.247635 ./var/
 </span></span></code></pre></div><h2 id="suppress-pacman-logs-during-build">Suppress Pacman logs during build</h2>
 <p>Pacman records each operation with its associated timestamp in its log file (<code>/var/log/pacman.log</code>).<br>
-Since we don&rsquo;t particularly need Pacman logs to be recorded during the image build, we simply redirected them to <code>/dev/null/</code>:</p>
+Since we don&rsquo;t particularly need Pacman logs to be recorded during the image build, we simply redirected them to <code>/dev/null</code>:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pacman <span style="color:#ae81ff">\
 </span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    <span style="color:#f92672">[</span>...<span style="color:#f92672">]</span>
 </span></span><span style="display:flex;"><span>    --logfile /dev/null <span style="color:#ae81ff">\
 </span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    <span style="color:#f92672">[</span>...<span style="color:#f92672">]</span>
-</span></span></code></pre></div><p>This avoids non-deterministic timestamps stored in Pacman&rsquo;s log file, such as:</p>
+</span></span></code></pre></div><p>This avoids non-deterministic timestamps in Pacman&rsquo;s log file, such as:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>│ ├── ./var/log/pacman.log
 </span></span><span style="display:flex;"><span>│ │ @@ -1,125 +1,125 @@
 </span></span><span style="display:flex;"><span>│ │ -[2025-12-14T00:11:43+0000] [ALPM] installed filesystem (2025.10.12-1)
@@ -479,8 +479,8 @@ Fortunately, <a href="https://vdwaa.nl/">Jelle van der Waa</a> recently brought 
 </span></span><span style="display:flex;"><span>│ │  %SIZE%
 </span></span><span style="display:flex;"><span>│ │  4198552
 </span></span></code></pre></div><h2 id="delete-pacman-keyring">Delete Pacman keyring</h2>
-<p>Pacman OpenPGP keys (generated with <code>pacman-key</code>) are obviously always different across each generations / builds.<br>
-Fortunately, WSL has a built-in <a href="https://learn.microsoft.com/en-us/windows/wsl/build-custom-distro#add-the-wsl-distribution-configuration-file">&ldquo;oobe&rdquo; (Out Of the Box Experience) mechanism</a> which allows to automatically run a script at the first boot of the image. We therefore took advantage of this mechanism by completely deleting Pacman&rsquo;s keyring as a post-build operation and have it automatically recreated it at the first boot of the image via the &ldquo;oobe&rdquo; script (by running <code>pacman-key --init &amp;&amp; pacman-key --populate archlinux</code> from it).</p>
+<p>Pacman OpenPGP keys (generated with <code>pacman-key</code>) are <em>obviously</em> always different across each generations / builds.<br>
+Fortunately, WSL has a built-in <a href="https://learn.microsoft.com/en-us/windows/wsl/build-custom-distro#add-the-wsl-distribution-configuration-file">&ldquo;oobe&rdquo; (Out Of the Box Experience) mechanism</a> which allows to automatically run a script at the first boot of the image. We therefore took advantage of this mechanism by completely deleting Pacman&rsquo;s keyring as a post-build operation and have it automatically re-generated at the first boot of the image via the &ldquo;oobe&rdquo; script (by running <code>pacman-key --init &amp;&amp; pacman-key --populate archlinux</code> from it).</p>
 <p>This avoid non-deterministic data in the Pacman keyring, such as:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>│ ├── ./etc/pacman.d/gnupg/pubring.gpg
 </span></span><span style="display:flex;"><span>│ │┄ xxd not available in path. Falling back to Python hexlify.
@@ -537,14 +537,14 @@ Fortunately, WSL has a built-in <a href="https://learn.microsoft.com/en-us/windo
 </span></span><span style="display:flex;"><span>│ -3030303030363100313531323031323034303000303130333333002078000000
 </span></span><span style="display:flex;"><span>│ +3030303030363200313531323031323034303000303130333334002078000000
 </span></span></code></pre></div><h2 id="conclusion">Conclusion</h2>
-<p>If you want to see more details about the actual implementation of that work, you can take a look at the related merge requests:</p>
+<p>If you want to see more details about the actual implementation, you can take a look at the related merge requests:</p>
 <ul>
 <li><a href="https://gitlab.archlinux.org/archlinux/archlinux-wsl/-/merge_requests/74">https://gitlab.archlinux.org/archlinux/archlinux-wsl/-/merge_requests/74</a>: Addition of a dedicated CI stage to test the image reproducibility status.</li>
 <li><a href="https://gitlab.archlinux.org/archlinux/archlinux-wsl/-/merge_requests/76">https://gitlab.archlinux.org/archlinux/archlinux-wsl/-/merge_requests/76</a>: Implementation of the above fixes to make the image reproducible.</li>
 </ul>
-<p>A follow up good news is that, since it&rsquo;s built in a similar way, most of those fixes should also apply to our <a href="https://gitlab.archlinux.org/archlinux/archlinux-docker">Docker image</a> ; with the exception of the <a href="#delete-pacman-keyring">Pacman keyring related issue</a> which will need to be dealt with differently, <em>somehow&hellip;</em> (since, as far as I know, OCI / Docker images doesn&rsquo;t have any built-in &amp; straightforward mechanism similar to the WSL &ldquo;oobe&rdquo; one to run a script or commands automatically at first boot).</p>
-<p>In any case, I am particularly happy about this achievement, which represents a meaningful milestone regarding our global &ldquo;reproducible builds&rdquo; related efforts and is also encouraging for future related work on our other releng images!</p>
-<p>I once again would like to thank Holger for his precious tips &amp; advice, and Mark for his valuable help with some of the issues we faced as well as with testing.</p>
+<p>A follow up good news is that, since it&rsquo;s built in a similar way, most of those fixes should also apply to our <a href="https://gitlab.archlinux.org/archlinux/archlinux-docker">Docker image</a> ; with the exception of the <a href="#delete-pacman-keyring">Pacman keyring related issue</a> which will need to be dealt with differently, <em>somehow&hellip;</em> (since, as far as I know, OCI / Docker images doesn&rsquo;t have any built-in &amp; straightforward mechanism similar to the WSL &ldquo;oobe&rdquo; one to automatically execute a given script at first boot).</p>
+<p>I am particularly happy about this achievement, which represents a meaningful milestone regarding our global &ldquo;reproducible builds&rdquo; related efforts and is also encouraging for future related work on our other releng images!</p>
+<p>I once again would like to thank Holger for his precious tips &amp; advice, and Mark for his valuable help with some of the issues we faced as well as with testing. &#x1f64f;</p>
 </div>
     <div class="post__footer">
       
