@@ -202,7 +202,7 @@ I attended this year’s Reproducible Builds Summit in Vienna during which I had
 
     ,
         "url" : "https:\/\/antiz.fr\/blog\/the-archlinux-wsl-image-is-now-reproducible\/",
-        "wordCount" : "1129",
+        "wordCount" : "1130",
         "genre" : [ ],
         "keywords" : [ ]
     }
@@ -446,7 +446,7 @@ The chosen date of the daily archived repo snapshot is based against the version
 </span></span><span style="display:flex;"><span>│ │ -drwxr-xr-x   0        0        0        0 2025-12-15 17:01:30.944371 ./var/
 </span></span><span style="display:flex;"><span>│ │ +drwxr-xr-x   0        0        0        0 2025-12-15 17:03:31.247635 ./var/
 </span></span></code></pre></div><h2 id="suppress-pacman-logs-during-build">Suppress Pacman logs during build</h2>
-<p>Pacman records each operation with its associated timestamp in its log file (<code>/var/log/pacman.log</code>).<br>
+<p>Pacman records each operation with the associated timestamp in its log file (<code>/var/log/pacman.log</code>).<br>
 Since we don&rsquo;t particularly need Pacman logs to be recorded during the image build, we simply redirected them to <code>/dev/null</code>:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pacman <span style="color:#ae81ff">\
 </span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    <span style="color:#f92672">[</span>...<span style="color:#f92672">]</span>
@@ -457,9 +457,9 @@ Since we don&rsquo;t particularly need Pacman logs to be recorded during the ima
 </span></span><span style="display:flex;"><span>│ │ @@ -1,125 +1,125 @@
 </span></span><span style="display:flex;"><span>│ │ -[2025-12-14T00:11:43+0000] [ALPM] installed filesystem (2025.10.12-1)
 </span></span><span style="display:flex;"><span>│ │ +[2025-12-14T00:13:28+0000] [ALPM] installed filesystem (2025.10.12-1)
-</span></span></code></pre></div><h2 id="normalize-packages-installation-date-in-pacmans-local-package-db">Normalize packages installation date in Pacman&rsquo;s local package DB</h2>
-<p>Pacman records installation date of packages in its local package database.<br>
-Fortunately, <a href="https://vdwaa.nl/">Jelle van der Waa</a> recently brought <a href="https://gitlab.archlinux.org/pacman/pacman/-/commit/f4bdb77470528019aaba4d8b">support for honoring SDE on that front in Pacman</a>. With the related commit being included in our latest pacman package release, simply exporting SDE in our build script was enough to normalize packages&rsquo; installation date in Pacman&rsquo;s local package database.</p>
+</span></span></code></pre></div><h2 id="normalize-packages-install-date-in-pacmans-local-package-db">Normalize packages install date in Pacman&rsquo;s local package DB</h2>
+<p>Pacman records the install date of packages in its local package database.<br>
+Fortunately, <a href="https://vdwaa.nl/">Jelle van der Waa</a> recently brought <a href="https://gitlab.archlinux.org/pacman/pacman/-/commit/f4bdb77470528019aaba4d8b">support for honoring SDE on that front in Pacman</a>. With the related commit being included in our latest pacman package release, simply exporting SDE in our build script was enough to normalize packages&rsquo; install dates in Pacman&rsquo;s local package database.</p>
 <p>This avoid non-deterministic timestamps in the packages metadata included in Pacman&rsquo;s local database, such as:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>│ ├── ./var/lib/pacman/local/iana-etc-20251114-1/desc
 </span></span><span style="display:flex;"><span>│ │ @@ -16,15 +16,15 @@
