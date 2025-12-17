@@ -24,7 +24,7 @@ With SDE now set in our [build script](https://gitlab.archlinux.org/archlinux/ar
 find "$BUILDDIR" -exec touch --no-dereference --date="@$SOURCE_DATE_EPOCH" {} +
 ```
 
-This avoids non-deterministic timestamps stored in the rootFS, such as:
+This avoids non-deterministic timestamps in the rootFS, such as:
 
 ```text
 │ ├── file list
@@ -36,7 +36,7 @@ This avoids non-deterministic timestamps stored in the rootFS, such as:
 ## Suppress Pacman logs during build
 
 Pacman records each operation with its associated timestamp in its log file (`/var/log/pacman.log`).  
-Since we don't particularly need Pacman logs to be recorded during the image build, we simply redirected them to `/dev/null/`:
+Since we don't particularly need Pacman logs to be recorded during the image build, we simply redirected them to `/dev/null`:
 
 ```bash
 pacman \
@@ -45,7 +45,7 @@ pacman \
     [...]
 ```
 
-This avoids non-deterministic timestamps stored in Pacman's log file, such as:
+This avoids non-deterministic timestamps in Pacman's log file, such as:
 
 ```text
 │ ├── ./var/log/pacman.log
@@ -83,8 +83,8 @@ This avoid non-deterministic timestamps in the packages metadata included in Pac
 
 ## Delete Pacman keyring
 
-Pacman OpenPGP keys (generated with `pacman-key`) are obviously always different across each generations / builds.  
-Fortunately, WSL has a built-in ["oobe" (Out Of the Box Experience) mechanism](https://learn.microsoft.com/en-us/windows/wsl/build-custom-distro#add-the-wsl-distribution-configuration-file) which allows to automatically run a script at the first boot of the image. We therefore took advantage of this mechanism by completely deleting Pacman's keyring as a post-build operation and have it automatically recreated it at the first boot of the image via the "oobe" script (by running `pacman-key --init && pacman-key --populate archlinux` from it).
+Pacman OpenPGP keys (generated with `pacman-key`) are *obviously* always different across each generations / builds.  
+Fortunately, WSL has a built-in ["oobe" (Out Of the Box Experience) mechanism](https://learn.microsoft.com/en-us/windows/wsl/build-custom-distro#add-the-wsl-distribution-configuration-file) which allows to automatically run a script at the first boot of the image. We therefore took advantage of this mechanism by completely deleting Pacman's keyring as a post-build operation and have it automatically re-generated at the first boot of the image via the "oobe" script (by running `pacman-key --init && pacman-key --populate archlinux` from it).
 
 This avoid non-deterministic data in the Pacman keyring, such as:
 
@@ -167,13 +167,13 @@ This avoids non-deterministic timestamps in the archive's metadata, such as:
 
 ## Conclusion
 
-If you want to see more details about the actual implementation of that work, you can take a look at the related merge requests:
+If you want to see more details about the actual implementation, you can take a look at the related merge requests:
 
 - <https://gitlab.archlinux.org/archlinux/archlinux-wsl/-/merge_requests/74>: Addition of a dedicated CI stage to test the image reproducibility status.
 - <https://gitlab.archlinux.org/archlinux/archlinux-wsl/-/merge_requests/76>: Implementation of the above fixes to make the image reproducible.
 
-A follow up good news is that, since it's built in a similar way, most of those fixes should also apply to our [Docker image](https://gitlab.archlinux.org/archlinux/archlinux-docker) ; with the exception of the [Pacman keyring related issue](#delete-pacman-keyring) which will need to be dealt with differently, *somehow...* (since, as far as I know, OCI / Docker images doesn't have any built-in & straightforward mechanism similar to the WSL "oobe" one to run a script or commands automatically at first boot).
+A follow up good news is that, since it's built in a similar way, most of those fixes should also apply to our [Docker image](https://gitlab.archlinux.org/archlinux/archlinux-docker) ; with the exception of the [Pacman keyring related issue](#delete-pacman-keyring) which will need to be dealt with differently, *somehow...* (since, as far as I know, OCI / Docker images doesn't have any built-in & straightforward mechanism similar to the WSL "oobe" one to automatically execute a given script at first boot).
 
-In any case, I am particularly happy about this achievement, which represents a meaningful milestone regarding our global "reproducible builds" related efforts and is also encouraging for future related work on our other releng images!
+I am particularly happy about this achievement, which represents a meaningful milestone regarding our global "reproducible builds" related efforts and is also encouraging for future related work on our other releng images!
 
-I once again would like to thank Holger for his precious tips & advice, and Mark for his valuable help with some of the issues we faced as well as with testing.
+I once again would like to thank Holger for his precious tips & advice, and Mark for his valuable help with some of the issues we faced as well as with testing. :pray:
