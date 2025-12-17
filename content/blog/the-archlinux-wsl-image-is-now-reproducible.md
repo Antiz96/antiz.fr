@@ -8,17 +8,17 @@ I'm happy to share a great milestone I worked on and that we've been able to rec
 
 I attended this year's [Reproducible Builds Summit in Vienna](https://reproducible-builds.org/events/vienna2025/) during which I had the occasion to discuss with Holger Levsen *(a.k.a. h01ger - Debian member / contributor and part of the Reproducible Build Core team)* about reproducible `releng` images (like OCI images, ISOs, etc...). He shared really interesting insights and relevant advice to me on that front, and I decided to give it a try with [the Arch Linux WSL image I worked on earlier this year](https://antiz.fr/blog/archlinux-official-wsl-image/).
 
-I therefore started working on this with [Mark Hegreberg](https://hegreberg.io/)'s assistance (who is the co-maintainer for the WSL image).  
-Here are the issues we faced and the fixes we applied:
+I therefore started working on this with [Mark Hegreberg](https://hegreberg.io/)'s assistance (who is the co-maintainer for this WSL image).  
+Here are the issues we faced and the related fixes we applied:
 
-## Installing packages from an archived repo snapshot
+## Install packages from an archived repo snapshot
 
-To ensure that the same exact versions / releases of packages get installed in the image across builds, we defined an archived snapshot of our repositories (via our <https://archive.archlinux.org> - [Arch Linux Archive](https://wiki.archlinux.org/title/Arch_Linux_Archive) service) as the source to download packages during the build.  
-The chosen date of the daily archived repo snapshot is based against the version of the built image (which is also date based). The same date is also used as the `[SOURCE_DATE_EPOCH](https://reproducible-builds.org/docs/source-date-epoch/)` (SDE) timestamp (see below points for usage).
+To ensure that the same exact versions / releases of packages get installed in the image across builds, we defined an archived snapshot of our repositories (via our <https://archive.archlinux.org> / [Arch Linux Archive](https://wiki.archlinux.org/title/Arch_Linux_Archive) service) as the source to download packages during the build.  
+The chosen date of the daily archived repo snapshot is based against the version of the built image (which is date based itself). The same date is also used as the `[SOURCE_DATE_EPOCH`](https://reproducible-builds.org/docs/source-date-epoch/) (SDE) timestamp (see below points for SDE usage).
 
 ## Normalize filesystem `mtime` with `SOURCE_DATE_EPOCH`
 
-With SDE now set in our build script, we normalize files modification times (`mtime`) inside the built root filesystem (rootFS) used as the image base against it as a post-build operation:
+With SDE now set in our [build script](https://gitlab.archlinux.org/archlinux/archlinux-wsl/-/blob/main/scripts/build-image.sh), we normalized files modification times (`mtime`) inside the root filesystem (rootFS) used as the image base against it as a post-build operation:
 
 ```bash
 find "$BUILDDIR" -exec touch --no-dereference --date="@$SOURCE_DATE_EPOCH" {} +
@@ -33,7 +33,7 @@ This avoids non-deterministic timestamps stored in the rootFS, such as:
 │ │ +drwxr-xr-x   0        0        0        0 2025-12-15 17:03:31.247635 ./var/
 ```
 
-## Get rid of Pacman logs during build (because of timestamps recording)
+## Suppress Pacman logs during build
 
 Pacman records each operation with its associated timestamp in its log file (`/var/log/pacman.log`).  
 Since we don't particularly need Pacman logs to be recorded during the image build, we simply redirected them to `/dev/null/`:
@@ -54,12 +54,12 @@ This avoids non-deterministic timestamps stored in Pacman's log file, such as:
 │ │ +[2025-12-14T00:13:28+0000] [ALPM] installed filesystem (2025.10.12-1)
 ```
 
-## Normalize packages' installation date in Pacman's local package DB
+## Normalize packages installation date in Pacman's local package DB
 
-Pacman records packages' installation date.  
-Fortunately, [Jelle van der Waa](https://vdwaa.nl/) recently brought [support in Pacman for honoring SDE on that front](https://gitlab.archlinux.org/pacman/pacman/-/commit/f4bdb77470528019aaba4d8b). With the related commit being included in our latest pacman package release, simply exporting SDE in our build script was enough to normalize packages' installation date in Pacman's local package database.
+Pacman records installation date of packages in its local package database.  
+Fortunately, [Jelle van der Waa](https://vdwaa.nl/) recently brought [support for honoring SDE on that front in Pacman](https://gitlab.archlinux.org/pacman/pacman/-/commit/f4bdb77470528019aaba4d8b). With the related commit being included in our latest pacman package release, simply exporting SDE in our build script was enough to normalize packages' installation date in Pacman's local package database.
 
-This avoid non-deterministic timestamps in the metadata included in the local package database, such as:
+This avoid non-deterministic timestamps in the packages metadata included in Pacman's local database, such as:
 
 ```text
 │ ├── ./var/lib/pacman/local/iana-etc-20251114-1/desc
@@ -71,8 +71,8 @@ This avoid non-deterministic timestamps in the metadata included in the local pa
 │ │  1763578803
 │ │
 │ │  %INSTALLDATE%
-│ │ **-1765650975**
-│ │ **+1765651076**
+│ │ -1765650975
+│ │ +1765651076
 │ │
 │ │  %PACKAGER%
 │ │  Jelle van der Waa <jelle@archlinux.org>
@@ -83,8 +83,8 @@ This avoid non-deterministic timestamps in the metadata included in the local pa
 
 ## Delete Pacman keyring
 
-Pacman OpenPGP keys (generated with `pacman-key`) are obviously always different across builds.  
-Fortunately, WSL has a built-in ["oobe" (Out Of the Box Experience) mechanism](https://learn.microsoft.com/en-us/windows/wsl/build-custom-distro#add-the-wsl-distribution-configuration-file) which allows to automatically run a script at the first boot of the image. We therefore took advantage of this mechanism to completely delete the Pacman's keyring as a post-build operation and automatically recreate it at the first boot of the image via the "oobe" script (by running `pacman-key --init && pacman-key --populate archlinux` from it).
+Pacman OpenPGP keys (generated with `pacman-key`) are obviously always different across each generations / builds.  
+Fortunately, WSL has a built-in ["oobe" (Out Of the Box Experience) mechanism](https://learn.microsoft.com/en-us/windows/wsl/build-custom-distro#add-the-wsl-distribution-configuration-file) which allows to automatically run a script at the first boot of the image. We therefore took advantage of this mechanism by completely deleting Pacman's keyring as a post-build operation and have it automatically recreated it at the first boot of the image via the "oobe" script (by running `pacman-key --init && pacman-key --populate archlinux` from it).
 
 This avoid non-deterministic data in the Pacman keyring, such as:
 
@@ -127,7 +127,7 @@ This avoid non-deterministic data in the Pacman keyring, such as:
 
 ## Normalize tar archives `mtime` (with `SOURCE_DATE_EPOCH`) and ordering
 
-The rootFS for the WSL image is archived with `tar`, to which we added a few options to normalize modification times (against SDE) as well as ordering to avoid non-determinism on those fronts:
+The rootFS for the WSL image is archived with `tar`, to which we added a few options to normalize modification times (against SDE) as well as ordering, to avoid non-determinism on those fronts:
 
 ```bash
 tar \
@@ -140,7 +140,7 @@ tar \
 
 ## Delete tar archives `atime` & `ctime`
 
-Finally, we got rid of tar's access times (`atime`) & creation times `ctime`:
+Finally, we got rid of tar's access times (`atime`) & creation times (`ctime`):
 
 ```bash
 tar \
@@ -169,11 +169,11 @@ This avoids non-deterministic timestamps in the archive's metadata, such as:
 
 If you want to see more details about the actual implementation of that work, you can take a look at the related merge requests:
 
-- <https://gitlab.archlinux.org/archlinux/archlinux-wsl/-/merge_requests/74>: Addition of a dedicated CI stage to test the image reproducibility status
-- <https://gitlab.archlinux.org/archlinux/archlinux-wsl/-/merge_requests/76>: Implementation of the above fixes to make the image reproducible
+- <https://gitlab.archlinux.org/archlinux/archlinux-wsl/-/merge_requests/74>: Addition of a dedicated CI stage to test the image reproducibility status.
+- <https://gitlab.archlinux.org/archlinux/archlinux-wsl/-/merge_requests/76>: Implementation of the above fixes to make the image reproducible.
 
-A follow up good news is that, since it's built in a similar way, most of those fixes should also apply to our [Docker image](https://gitlab.archlinux.org/archlinux/archlinux-docker) ; with the exception of the [Pacman keyring related issue](#delete-pacman-keyring) which will need to be dealt with differently, *somehow...* (since, as far as I know, OCIi / Docker images doesn't have any built-in / straightforward mechanism to run a script or commands automatically at first boot, similar to the WSL "oobe" mechanism).
+A follow up good news is that, since it's built in a similar way, most of those fixes should also apply to our [Docker image](https://gitlab.archlinux.org/archlinux/archlinux-docker) ; with the exception of the [Pacman keyring related issue](#delete-pacman-keyring) which will need to be dealt with differently, *somehow...* (since, as far as I know, OCI / Docker images doesn't have any built-in & straightforward mechanism similar to the WSL "oobe" one to run a script or commands automatically at first boot).
 
-In any case, I particularly happy about this achievement which represents a meaningful milestone regarding our global "reproducible builds" related efforts and is encouraging for future related work on our other releng images!
+In any case, I am particularly happy about this achievement, which represents a meaningful milestone regarding our global "reproducible builds" related efforts and is also encouraging for future related work on our other releng images!
 
-I once again would like to thank Holger for his precious tips & advice, and Mark for his valuable help with some of the issues we faced as well as testing.
+I once again would like to thank Holger for his precious tips & advice, and Mark for his valuable help with some of the issues we faced as well as with testing.
