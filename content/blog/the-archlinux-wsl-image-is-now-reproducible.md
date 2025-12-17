@@ -35,7 +35,7 @@ This avoids non-deterministic timestamps in the rootFS, such as:
 
 ## Suppress Pacman logs during build
 
-Pacman records each operation with its associated timestamp in its log file (`/var/log/pacman.log`).  
+Pacman records each operation with the associated timestamp in its log file (`/var/log/pacman.log`).  
 Since we don't particularly need Pacman logs to be recorded during the image build, we simply redirected them to `/dev/null`:
 
 ```bash
@@ -54,10 +54,10 @@ This avoids non-deterministic timestamps in Pacman's log file, such as:
 │ │ +[2025-12-14T00:13:28+0000] [ALPM] installed filesystem (2025.10.12-1)
 ```
 
-## Normalize packages installation date in Pacman's local package DB
+## Normalize packages install date in Pacman's local package DB
 
-Pacman records installation date of packages in its local package database.  
-Fortunately, [Jelle van der Waa](https://vdwaa.nl/) recently brought [support for honoring SDE on that front in Pacman](https://gitlab.archlinux.org/pacman/pacman/-/commit/f4bdb77470528019aaba4d8b). With the related commit being included in our latest pacman package release, simply exporting SDE in our build script was enough to normalize packages' installation date in Pacman's local package database.
+Pacman records the install date of packages in its local package database.  
+Fortunately, [Jelle van der Waa](https://vdwaa.nl/) recently brought [support for honoring SDE on that front in Pacman](https://gitlab.archlinux.org/pacman/pacman/-/commit/f4bdb77470528019aaba4d8b). With the related commit being included in our latest pacman package release, simply exporting SDE in our build script was enough to normalize packages' install dates in Pacman's local package database.
 
 This avoid non-deterministic timestamps in the packages metadata included in Pacman's local database, such as:
 
