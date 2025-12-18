@@ -202,7 +202,7 @@ I attended this year’s Reproducible Builds Summit in Vienna during which I had
 
     ,
         "url" : "https:\/\/antiz.fr\/blog\/the-archlinux-wsl-image-is-now-reproducible\/",
-        "wordCount" : "1130",
+        "wordCount" : "1129",
         "genre" : [ ],
         "keywords" : [ ]
     }
@@ -460,7 +460,7 @@ Since we don&rsquo;t particularly need Pacman logs to be recorded during the ima
 </span></span></code></pre></div><h2 id="normalize-packages-install-date-in-pacmans-local-package-db">Normalize packages install date in Pacman&rsquo;s local package DB</h2>
 <p>Pacman records the install date of packages in its local package database.<br>
 Fortunately, <a href="https://vdwaa.nl/">Jelle van der Waa</a> recently brought <a href="https://gitlab.archlinux.org/pacman/pacman/-/commit/f4bdb77470528019aaba4d8b">support for honoring SDE on that front in Pacman</a>. With the related commit being included in our latest pacman package release, simply exporting SDE in our build script was enough to normalize packages&rsquo; install dates in Pacman&rsquo;s local package database.</p>
-<p>This avoid non-deterministic timestamps in the packages metadata included in Pacman&rsquo;s local database, such as:</p>
+<p>This avoids non-deterministic timestamps in the packages metadata included in Pacman&rsquo;s local database, such as:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>│ ├── ./var/lib/pacman/local/iana-etc-20251114-1/desc
 </span></span><span style="display:flex;"><span>│ │ @@ -16,15 +16,15 @@
 </span></span><span style="display:flex;"><span>│ │  %ARCH%
@@ -481,7 +481,7 @@ Fortunately, <a href="https://vdwaa.nl/">Jelle van der Waa</a> recently brought 
 </span></span></code></pre></div><h2 id="delete-pacman-keyring">Delete Pacman keyring</h2>
 <p>Pacman OpenPGP keys (generated with <code>pacman-key</code>) are <em>obviously</em> always different across each generations / builds.<br>
 Fortunately, WSL has a built-in <a href="https://learn.microsoft.com/en-us/windows/wsl/build-custom-distro#add-the-wsl-distribution-configuration-file">&ldquo;oobe&rdquo; (Out Of the Box Experience) mechanism</a> which allows to automatically run a script at the first boot of the image. We therefore took advantage of this mechanism by completely deleting Pacman&rsquo;s keyring as a post-build operation and have it automatically re-generated at the first boot of the image via the &ldquo;oobe&rdquo; script (by running <code>pacman-key --init &amp;&amp; pacman-key --populate archlinux</code> from it).</p>
-<p>This avoid non-deterministic data in the Pacman keyring, such as:</p>
+<p>This avoids non-deterministic data in the Pacman keyring, such as:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>│ ├── ./etc/pacman.d/gnupg/pubring.gpg
 </span></span><span style="display:flex;"><span>│ │┄ xxd not available in path. Falling back to Python hexlify.
 </span></span><span style="display:flex;"><span>│ │ @@ -1,45 +1,45 @@
@@ -539,10 +539,10 @@ Fortunately, WSL has a built-in <a href="https://learn.microsoft.com/en-us/windo
 </span></span></code></pre></div><h2 id="conclusion">Conclusion</h2>
 <p>If you want to see more details about the actual implementation, you can take a look at the related merge requests:</p>
 <ul>
-<li><a href="https://gitlab.archlinux.org/archlinux/archlinux-wsl/-/merge_requests/74">https://gitlab.archlinux.org/archlinux/archlinux-wsl/-/merge_requests/74</a>: Addition of a dedicated CI stage to test the image reproducibility status.</li>
+<li><a href="https://gitlab.archlinux.org/archlinux/archlinux-wsl/-/merge_requests/74">https://gitlab.archlinux.org/archlinux/archlinux-wsl/-/merge_requests/74</a>: Addition of a dedicated CI stage to test the image&rsquo;s reproducibility status.</li>
 <li><a href="https://gitlab.archlinux.org/archlinux/archlinux-wsl/-/merge_requests/76">https://gitlab.archlinux.org/archlinux/archlinux-wsl/-/merge_requests/76</a>: Implementation of the above fixes to make the image reproducible.</li>
 </ul>
-<p>A follow up good news is that, since it&rsquo;s built in a similar way, most of those fixes should also apply to our <a href="https://gitlab.archlinux.org/archlinux/archlinux-docker">Docker image</a> ; with the exception of the <a href="#delete-pacman-keyring">Pacman keyring related issue</a> which will need to be dealt with differently, <em>somehow&hellip;</em> (since, as far as I know, OCI / Docker images doesn&rsquo;t have any built-in &amp; straightforward mechanism similar to the WSL &ldquo;oobe&rdquo; one to automatically execute a given script at first boot).</p>
+<p>A follow up good news is that, since it&rsquo;s built in a similar way, most of those fixes should also apply to our <a href="https://gitlab.archlinux.org/archlinux/archlinux-docker">Docker image</a>; with the exception of the <a href="#delete-pacman-keyring">Pacman keyring related issue</a> which will need to be dealt with differently, <em>somehow&hellip;</em> (since, as far as I know, OCI / Docker images doesn&rsquo;t have any built-in &amp; straightforward mechanism similar to the WSL &ldquo;oobe&rdquo; one to automatically execute a given script at first boot).</p>
 <p>I am particularly happy about this achievement, which represents a meaningful milestone regarding our global &ldquo;reproducible builds&rdquo; related efforts and is also encouraging for future related work on our other releng images!</p>
 <p>I once again would like to thank Holger for his precious tips &amp; advice, and Mark for his valuable help with some of the issues we faced as well as with testing. &#x1f64f;</p>
 </div>

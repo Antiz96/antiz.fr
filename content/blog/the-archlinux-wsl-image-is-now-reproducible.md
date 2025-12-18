@@ -59,7 +59,7 @@ This avoids non-deterministic timestamps in Pacman's log file, such as:
 Pacman records the install date of packages in its local package database.  
 Fortunately, [Jelle van der Waa](https://vdwaa.nl/) recently brought [support for honoring SDE on that front in Pacman](https://gitlab.archlinux.org/pacman/pacman/-/commit/f4bdb77470528019aaba4d8b). With the related commit being included in our latest pacman package release, simply exporting SDE in our build script was enough to normalize packages' install dates in Pacman's local package database.
 
-This avoid non-deterministic timestamps in the packages metadata included in Pacman's local database, such as:
+This avoids non-deterministic timestamps in the packages metadata included in Pacman's local database, such as:
 
 ```text
 │ ├── ./var/lib/pacman/local/iana-etc-20251114-1/desc
@@ -86,7 +86,7 @@ This avoid non-deterministic timestamps in the packages metadata included in Pac
 Pacman OpenPGP keys (generated with `pacman-key`) are *obviously* always different across each generations / builds.  
 Fortunately, WSL has a built-in ["oobe" (Out Of the Box Experience) mechanism](https://learn.microsoft.com/en-us/windows/wsl/build-custom-distro#add-the-wsl-distribution-configuration-file) which allows to automatically run a script at the first boot of the image. We therefore took advantage of this mechanism by completely deleting Pacman's keyring as a post-build operation and have it automatically re-generated at the first boot of the image via the "oobe" script (by running `pacman-key --init && pacman-key --populate archlinux` from it).
 
-This avoid non-deterministic data in the Pacman keyring, such as:
+This avoids non-deterministic data in the Pacman keyring, such as:
 
 ```text
 │ ├── ./etc/pacman.d/gnupg/pubring.gpg
@@ -169,10 +169,10 @@ This avoids non-deterministic timestamps in the archive's metadata, such as:
 
 If you want to see more details about the actual implementation, you can take a look at the related merge requests:
 
-- <https://gitlab.archlinux.org/archlinux/archlinux-wsl/-/merge_requests/74>: Addition of a dedicated CI stage to test the image reproducibility status.
+- <https://gitlab.archlinux.org/archlinux/archlinux-wsl/-/merge_requests/74>: Addition of a dedicated CI stage to test the image's reproducibility status.
 - <https://gitlab.archlinux.org/archlinux/archlinux-wsl/-/merge_requests/76>: Implementation of the above fixes to make the image reproducible.
 
-A follow up good news is that, since it's built in a similar way, most of those fixes should also apply to our [Docker image](https://gitlab.archlinux.org/archlinux/archlinux-docker) ; with the exception of the [Pacman keyring related issue](#delete-pacman-keyring) which will need to be dealt with differently, *somehow...* (since, as far as I know, OCI / Docker images doesn't have any built-in & straightforward mechanism similar to the WSL "oobe" one to automatically execute a given script at first boot).
+A follow up good news is that, since it's built in a similar way, most of those fixes should also apply to our [Docker image](https://gitlab.archlinux.org/archlinux/archlinux-docker); with the exception of the [Pacman keyring related issue](#delete-pacman-keyring) which will need to be dealt with differently, *somehow...* (since, as far as I know, OCI / Docker images doesn't have any built-in & straightforward mechanism similar to the WSL "oobe" one to automatically execute a given script at first boot).
 
 I am particularly happy about this achievement, which represents a meaningful milestone regarding our global "reproducible builds" related efforts and is also encouraging for future related work on our other releng images!
 
