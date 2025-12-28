@@ -18,7 +18,7 @@
 
   </title>
 
-  <meta name="generator" content="Hugo 0.152.2"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="generator" content="Hugo 0.153.3"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <meta name="author" content="Robin Candau" />
   <meta
     name="description"
@@ -473,7 +473,7 @@ By default, a Wake On Lan packet is sent after 6 consecutive fails and there&rsq
 I chose to use those not too &ldquo;aggressive&rdquo; values by default so I can still shutdown my servers for maintenance purposes (for instance) without the script being triggered instantly and sending Wake On Lan packets right away. But you can, of course, modify those values to your liking!</p>
 <p>See the comments in the script to adapt it to your needs and environment.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Replace &#34;Server1/Server2&#34; by the DNS name or IP address of your servers.</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># If you use DNS names and your DNS server is running on the monitored servers (like it&#39;s the case for me), remember to fill in `/etc/hosts` accordingly.</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>

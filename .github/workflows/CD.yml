@@ -13,7 +13,7 @@ jobs:
 
     steps:
       - name: Clone repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with: 
           token: ${{ secrets.BUILD_WEBSITE_TOKEN }}
           ref: ${{ github.event.pull_request.head.ref }}
