@@ -3,11 +3,10 @@
   "git-submodules": {
     "enabled": true
   },
-
   "commitMessagePrefix": "chore(deps): ",
   "commitMessageAction": "update",
   "commitMessageTopic": "{{depName}}",
   "commitMessageExtra": "to {{newVersion}}",
-  "prTitle": "chore(deps): update {{depName}} to {{newVersion}}",
+  "prTitle": "chore(deps): update {{depName}} to {{newValue}}",
   "baseBranches": ["dev"]
 }
