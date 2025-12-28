@@ -18,7 +18,7 @@
 
   </title>
 
-  <meta name="generator" content="Hugo 0.152.2"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="generator" content="Hugo 0.153.3"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <meta name="author" content="Robin Candau" />
   <meta
     name="description"
@@ -449,9 +449,9 @@ The chosen date of the daily archived repo snapshot is based against the version
 <p>Pacman records each operation with the associated timestamp in its log file (<code>/var/log/pacman.log</code>).<br>
 Since we don&rsquo;t particularly need Pacman logs to be recorded during the image build, we simply redirected them to <code>/dev/null</code>:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pacman <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    <span style="color:#f92672">[</span>...<span style="color:#f92672">]</span>
+</span></span></span><span style="display:flex;"><span>    <span style="color:#f92672">[</span>...<span style="color:#f92672">]</span>
 </span></span><span style="display:flex;"><span>    --logfile /dev/null <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    <span style="color:#f92672">[</span>...<span style="color:#f92672">]</span>
+</span></span></span><span style="display:flex;"><span>    <span style="color:#f92672">[</span>...<span style="color:#f92672">]</span>
 </span></span></code></pre></div><p>This avoids non-deterministic timestamps in Pacman&rsquo;s log file, such as:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>│ ├── ./var/log/pacman.log
 </span></span><span style="display:flex;"><span>│ │ @@ -1,125 +1,125 @@
@@ -513,17 +513,17 @@ Fortunately, WSL has a built-in <a href="https://learn.microsoft.com/en-us/windo
 </span></span></code></pre></div><h2 id="normalize-tar-archives-mtime-with-source_date_epoch-and-ordering">Normalize tar archives <code>mtime</code> (with <code>SOURCE_DATE_EPOCH</code>) and ordering</h2>
 <p>The rootFS for the WSL image is archived with <code>tar</code>, to which we added a few options to normalize modification times (against SDE) as well as ordering, to avoid non-determinism on those fronts:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>tar <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    <span style="color:#f92672">[</span>...<span style="color:#f92672">]</span>
+</span></span></span><span style="display:flex;"><span>    <span style="color:#f92672">[</span>...<span style="color:#f92672">]</span>
 </span></span><span style="display:flex;"><span>    --mtime<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;@</span>$SOURCE_DATE_EPOCH<span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --clamp-mtime <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --sort<span style="color:#f92672">=</span>name <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    <span style="color:#f92672">[</span>...<span style="color:#f92672">]</span>
+</span></span></span><span style="display:flex;"><span>    --clamp-mtime <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>    --sort<span style="color:#f92672">=</span>name <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>    <span style="color:#f92672">[</span>...<span style="color:#f92672">]</span>
 </span></span></code></pre></div><h2 id="delete-tar-archives-atime--ctime">Delete tar archives <code>atime</code> &amp; <code>ctime</code></h2>
 <p>Finally, we got rid of tar&rsquo;s access times (<code>atime</code>) &amp; creation times (<code>ctime</code>):</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>tar <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    <span style="color:#f92672">[</span>...<span style="color:#f92672">]</span>
+</span></span></span><span style="display:flex;"><span>    <span style="color:#f92672">[</span>...<span style="color:#f92672">]</span>
 </span></span><span style="display:flex;"><span>    --pax-option<span style="color:#f92672">=</span>delete<span style="color:#f92672">=</span>atime,delete<span style="color:#f92672">=</span>ctime <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    <span style="color:#f92672">[</span>...<span style="color:#f92672">]</span>
+</span></span></span><span style="display:flex;"><span>    <span style="color:#f92672">[</span>...<span style="color:#f92672">]</span>
 </span></span></code></pre></div><p>This avoids non-deterministic timestamps in the archive&rsquo;s metadata, such as:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>--- /builds/archlinux/archlinux-wsl/workdir/output/archlinux-2025.12.16.154822.wsl
 </span></span><span style="display:flex;"><span>+++ /builds/archlinux/archlinux-wsl/repro/output/archlinux-2025.12.16.154822.wsl
