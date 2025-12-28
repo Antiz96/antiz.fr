@@ -7,6 +7,5 @@
   "commitMessageAction": "update",
   "commitMessageTopic": "{{depName}}",
   "commitMessageExtra": "to {{newVersion}}",
-  "prTitle": "chore(deps): update {{depName}} to {{newValue}}",
   "baseBranches": ["dev"]
 }
