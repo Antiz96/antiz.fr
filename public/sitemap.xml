@@ -3,7 +3,10 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://antiz.fr/blog/</loc>
-    <lastmod>2025-12-17T20:00:00+02:00</lastmod>
+    <lastmod>2026-01-02T21:30:00+02:00</lastmod>
+  </url><url>
+    <loc>https://antiz.fr/blog/foss-recap-2025/</loc>
+    <lastmod>2026-01-02T21:30:00+02:00</lastmod>
   </url><url>
     <loc>https://antiz.fr/blog/the-archlinux-wsl-image-is-now-reproducible/</loc>
     <lastmod>2025-12-17T20:00:00+02:00</lastmod>
@@ -13,9 +16,6 @@
   </url><url>
     <loc>https://antiz.fr/blog/foss-recap-2024/</loc>
     <lastmod>2025-01-03T18:40:00+02:00</lastmod>
-  </url><url>
-    <loc>https://antiz.fr/blog/foss-recap-2025/</loc>
-    <lastmod>2025-01-02T15:40:00+02:00</lastmod>
   </url><url>
     <loc>https://antiz.fr/blog/maintaining-and-building-alpine-packages-from-arch-linux/</loc>
     <lastmod>2024-10-14T10:42:00+02:00</lastmod>
