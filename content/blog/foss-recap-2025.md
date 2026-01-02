@@ -20,7 +20,7 @@ I also added some new packages to the repository, such as (but not limited to) [
 
 ### Bumpbuddy
 
-Together with [gromit](https://github.com/christian-heusel) and [klausenbusk](https://github.com/klausenbusk), we officially released & introduced [bumpbuddy](https://gitlab.archlinux.org/archlinux/bumpbuddy) (previously refered to as the "Nvchecker PoC").
+Together with [gromit](https://github.com/christian-heusel) and [klausenbusk](https://github.com/klausenbusk), we officially released & introduced [bumpbuddy](https://gitlab.archlinux.org/archlinux/bumpbuddy) (previously referred to as the "Nvchecker PoC").
 
 Bumpbuddy is a daemon watching for new upstream releases for our packages. It automatically opens GitLab issues for out of date packages and manages them autonomously (e.g. opened issues are automatically updated to match newer upstream releases and are automatically closed once the matching version is being pushed to the repository).
 
