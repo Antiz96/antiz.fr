@@ -19,7 +19,7 @@
 &lt;p&gt;See also the awesome recap of my FOSS mates and good friends: &lt;a href=&#34;https://vulns.xyz/2025/12/2025-wrapped/&#34;&gt;kpcyrd&lt;/a&gt;, &lt;a href=&#34;https://blog.orhun.dev/2025-wrapped/&#34;&gt;orhun&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;arch-linux&#34;&gt;Arch Linux&lt;/h2&gt;
 &lt;h3 id=&#34;packaging&#34;&gt;Packaging&lt;/h3&gt;
-&lt;p&gt;I pushed a total of 2277 packages to Arch Linux repositories, most of which being packages updates with the top five packages being &lt;a href=&#34;https://archlinux.org/packages/extra/any/python-sentry_sdk/&#34;&gt;python-sentry_sdk&lt;/a&gt; &amp;amp; &lt;a href=&#34;https://archlinux.org/packages/extra/x86_64/limine/&#34;&gt;limine&lt;/a&gt; (both 39), &lt;a href=&#34;https://archlinux.org/packages/extra/any/python-fastapi/&#34;&gt;python-fastapi&lt;/a&gt; (43), &lt;a href=&#34;https://archlinux.org/packages/extra/x86_64/hugo/&#34;&gt;hugo&lt;/a&gt; (50), &lt;a href=&#34;https://archlinux.org/packages/extra/x86_64/syd/&#34;&gt;syd&lt;/a&gt; (52) &amp;amp; &lt;a href=&#34;https://archlinux.org/packages/extra/any/jenkins/&#34;&gt;jenkins&lt;/a&gt; (53).&lt;/p&gt;</description>
+&lt;p&gt;I pushed a total of 2277 packages to Arch Linux repositories, most of them being packages updates with the top five packages being:&lt;/p&gt;</description>
       
     </item>
     
