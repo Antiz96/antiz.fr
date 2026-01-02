@@ -14,15 +14,26 @@ See also the awesome recap of my FOSS mates and good friends: [kpcyrd](https://v
 
 ### Packaging
 
-I pushed a total of 2277 packages to Arch Linux repositories, most of which being packages updates with the top five packages being [python-sentry_sdk](https://archlinux.org/packages/extra/any/python-sentry_sdk/) & [limine](https://archlinux.org/packages/extra/x86_64/limine/) (both 39), [python-fastapi](https://archlinux.org/packages/extra/any/python-fastapi/) (43), [hugo](https://archlinux.org/packages/extra/x86_64/hugo/) (50), [syd](https://archlinux.org/packages/extra/x86_64/syd/) (52) & [jenkins](https://archlinux.org/packages/extra/any/jenkins/) (53).
+I pushed a total of 2277 packages to Arch Linux repositories, most of them being packages updates with the top five packages being:
 
-I also added some new packages to the repository, such as (but not limited to) [act_runner](https://archlinux.org/packages/extra/x86_64/act_runner/), [atools-go](https://archlinux.org/packages/extra/x86_64/atools-go), [sshs](https://archlinux.org/packages/extra/x86_64/sshs/) and [wlr-sunclock](https://archlinux.org/packages/extra/x86_64/wlr-sunclock/).
+- [python-sentry_sdk](https://archlinux.org/packages/extra/any/python-sentry_sdk/) and [limine](https://archlinux.org/packages/extra/x86_64/limine/) (both 39)
+- [python-fastapi](https://archlinux.org/packages/extra/any/python-fastapi/) (43)
+- [hugo](https://archlinux.org/packages/extra/x86_64/hugo/) (50)
+- [syd](https://archlinux.org/packages/extra/x86_64/syd/) (52)
+- [jenkins](https://archlinux.org/packages/extra/any/jenkins/) (53)
+
+I also added some new packages to the repository, such as (but not limited to):
+
+- [act_runner](https://archlinux.org/packages/extra/x86_64/act_runner/)
+- [atools-go](https://archlinux.org/packages/extra/x86_64/atools-go)
+- [sshs](https://archlinux.org/packages/extra/x86_64/sshs/)
+- [wlr-sunclock](https://archlinux.org/packages/extra/x86_64/wlr-sunclock/).
 
 ### Bumpbuddy
 
-Together with [gromit](https://github.com/christian-heusel) and [klausenbusk](https://github.com/klausenbusk), we officially released & introduced [bumpbuddy](https://gitlab.archlinux.org/archlinux/bumpbuddy) (previously referred to as the "Nvchecker PoC").
+Together with [gromit](https://github.com/christian-heusel) and [klausenbusk](https://github.com/klausenbusk), we officially released and introduced [bumpbuddy](https://gitlab.archlinux.org/archlinux/bumpbuddy) (previously referred to as the "Nvchecker PoC").
 
-Bumpbuddy is a daemon watching for new upstream releases for our packages. It automatically opens GitLab issues for out of date packages and manages them autonomously (e.g. opened issues are automatically updated to match newer upstream releases and are automatically closed once the matching version is being pushed to the repository).
+Bumpbuddy is a daemon watching for new upstream releases for our packages. It automatically opens GitLab issues for out-of-date packages and manages them autonomously (e.g. opened issues are automatically updated to match newer upstream releases and are automatically closed once the matching version is being pushed to the repository).
 
 Aside from offering a centralized and automated way for tracking and reporting new upstream releases for Arch Linux package maintainers, it also provides a public place for anyone to discuss the state of a pending update or expose eventual blocking points.  
 This should hopefully allow for both more pro-active packages update and more transparency towards users eventually wondering about the progress of a specific update.
@@ -32,8 +43,8 @@ See bumpbuddy's [official announcement](https://lists.archlinux.org/archives/lis
 Some future work and mid / long term goals around bumpbuddy are in progress, such as (but not limited to):
 
 - [Providing a web report overview](https://gitlab.archlinux.org/archlinux/bumpbuddy/-/issues/10)
-- Manage packages' out of date status in Archweb and get rid of / replace the "flag out of date" button (which is manual, error prone, may be used abusively and lacks transparency)
-- Open merge requests rather than (or in addition of) GitLab issues, regarding our future goal of adopting a more gitops oriented packaging workflow
+- Manage packages' out-of-date status in Archweb and get rid of / replace the "Flag Package Out-of-Date" button (which is manual, error prone, may be used abusively and lacks transparency)
+- Open merge requests rather than (or in addition of) GitLab issues, regarding our future goal of adopting a more "GitOps" oriented packaging workflow
 
 ### Infrastructure
 
@@ -47,9 +58,9 @@ I officially [joined the Arch Linux DevOps team](https://lists.archlinux.org/arc
 
 ### WSL Image
 
-I worked on creating an [official Arch Linux WSL image](https://gitlab.archlinux.org/archlinux/archlinux-wsl) that has been [included in Microsoft's manifest of officially supported distributions for WSL](https://github.com/microsoft/WSL/pull/12818).
+I worked on creating an [official Arch Linux WSL image](https://gitlab.archlinux.org/archlinux/archlinux-wsl) that has been [included in Microsoft's manifest of officially supported WSL distributions](https://github.com/microsoft/WSL/pull/12818).
 
-Huge thanks to [Mark](https://hegreberg.io/) who offered his help as an Arch Linux community member to maintain this WSL image with me and later joined the Arch Linux Staff as an additional official maintainer for it. :handshake:
+Huge thanks to [Mark](https://hegreberg.io/) who offered his help as an Arch Linux community member to maintain this WSL image with me and that later integrated the Arch Linux Staff as an additional official maintainer for it. :handshake:
 
 For more details, see the [related Arch Linux RFC](https://rfc.archlinux.page/0050-arch-linux-wsl-image/), the [dedicated Arch Wiki page](https://wiki.archlinux.org/title/Install_Arch_Linux_on_WSL) and the [blog post I wrote earlier this year on the subject](https://antiz.fr/blog/archlinux-official-wsl-image/).
 
@@ -59,11 +70,13 @@ Together with [gromit](https://github.com/christian-heusel), we created around 7
 
 Aside from the usual testing, I helped testing some kernel and systemd pre-releases (respectively packaged by [gromit](https://github.com/christian-heusel) and [eworm](https://github.com/eworm-de)).
 
+I also brainstormed and expressed my support regarding [coruja](https://github.com/coruja-eu) (an Arch Linux Testing team member) proposal about [indexing a public list of Testing team members in Archweb](https://github.com/archlinux/archweb/issues/588), allowing for an easier collaboration between testers and package maintainers and, more importantly, give our testers some recognition by offering a public place to show / acknowledge their involvements in our beloved distribution. :smiling_face_with_three_hearts:
+
 ### Tools / Tooling
 
 #### BuildBTW
 
-I joined the [BuildBTW](https://gitlab.archlinux.org/archlinux/buildbtw) (future centralized Arch Linux build service) proof of concept as a tester. Aside from showing my appreciation toward the amazing work done so far, I had the occasion to open a improvements suggestions, such as:
+I joined the [BuildBTW](https://gitlab.archlinux.org/archlinux/buildbtw) (future [centralized Arch Linux build service](https://gitlab.archlinux.org/archlinux/rfcs/-/merge_requests/63)) proof of concept as a tester. Aside from showing my appreciation toward the amazing work done so far, I had the occasion to open some improvements suggestions, such as:
 
 - [Handle `.SRCINFO` updates automatically](https://gitlab.archlinux.org/archlinux/buildbtw/-/issues/148)
 - [Add additional info to the CLI and WebUI](https://gitlab.archlinux.org/archlinux/buildbtw/-/issues/149)
@@ -100,11 +113,11 @@ As mentioned earlier, I also wrote a proposal to add [Mark](https://hegreberg.io
 
 ### RFCs
 
-As mentioned earlier, I wrote an RFC about [providing an official WSL image for Arch Linux](https://rfc.archlinux.page/0050-arch-linux-wsl-image/).
+As mentioned earlier, I wrote an RFC about [providing an official WSL image for Arch Linux](https://rfc.archlinux.page/0050-arch-linux-wsl-image/), which was accepted.
 
 ### Ports
 
-I (alongside with community and other staff members) collaborated on an *work in progress* [Arch Linux aarch64 community port](https://gitlab.archlinux.org/archlinux/ports/aarch64), which *eventually* aims to be officially supported *at some point*.
+I (alongside community and other staff members) collaborated on an *work in progress* [Arch Linux aarch64 community port](https://gitlab.archlinux.org/archlinux/ports/aarch64), which *eventually* aims to be officially supported *at some point*.
 
 See the page for [Arch Linux Ports](https://ports.archlinux.page/) and the one [dedicated to aarch64](https://ports.archlinux.page/aarch64/) for more details.
 
@@ -116,7 +129,7 @@ I was a part of the organization committee of the 2025 edition of the Arch Summi
 
 I dived deeper into the Reproducible Builds efforts and community this year, joining the [Reproducible Summit in Vienna](https://reproducible-builds.org/events/vienna2025/) and making numerous reproducible builds related work / contributions:
 
-As mentioned earlier, I wrote the `greposcope` script (shipped in [archlinux-contrib](https://archlinux.org/packages/extra/any/archlinux-contrib/)), allowing to download `diffoscope` outputs of non-reproducible Arch Linux package and identify specific reproducible builds related issues.
+As mentioned earlier, I wrote the `greposcope` script (shipped in [archlinux-contrib](https://archlinux.org/packages/extra/any/archlinux-contrib/)), allowing to download `diffoscope` outputs of non-reproducible Arch Linux packages and identify specific reproducible builds related issues.
 
 I submitted several upstream and downstream patches in regards to Reproducible Builds, some of them being covered in `reproducible-builds.org`'s [monthly news](https://reproducible-builds.org/news/):
 
@@ -132,16 +145,16 @@ Together with [Mark](https://hegreberg.io/), we worked at making the Arch Linux 
 - [Merge request to add a dedicated CI stage to automatically test the WSL image reproducibility status](https://gitlab.archlinux.org/archlinux/archlinux-wsl/-/merge_requests/74)
 - [Merge request to implement the required changes to make the WSL image fully reproducible](https://gitlab.archlinux.org/archlinux/archlinux-wsl/-/merge_requests/76)
 - This was covered both in the [Arch Dev Public Mailing List](https://lists.archlinux.org/archives/list/arch-dev-public@lists.archlinux.org/thread/XDF2IIWNCZZR6KABH2OGSN7AVL7BBX25/) and the [Reproducible Builds Mailing List](https://lists.reproducible-builds.org/pipermail/rb-general/2025-December/003975.html), as well as in the `reproducible-builds.org`'s [December 2025 monthly news](https://reproducible-builds.org/reports/2025-12/#distribution-work)
-- I also wrote [a blog post on the subject](https://antiz.fr/blog/the-archlinux-wsl-image-is-now-reproducible/), including more details
+- I also wrote a more detailed [blog post on the subject](https://antiz.fr/blog/the-archlinux-wsl-image-is-now-reproducible/)
 - We intend to take advantage of our discoveries and achievement on that matter to work toward a bit-for-bit reproducible [Arch Linux Docker image](https://gitlab.archlinux.org/archlinux/archlinux-docker) in the near future
 
-I joined a work group to move the git hosting for the Reproducible Builds website from [Debian's GitLab / Salsa instance](https://salsa.debian.org/reproducible-builds/reproducible-website) to [Codeberg](https://codeberg.org/reproducible-builds/reproducible-website) (note that, I'm the time I'm writing these lines, the migration is still a work in progress and hasn't fully been done yet).
+I joined a work group to move the git hosting for the Reproducible Builds website from [Debian's GitLab / Salsa instance](https://salsa.debian.org/reproducible-builds/reproducible-website) to [Codeberg](https://codeberg.org/reproducible-builds/reproducible-website) (note that, at the time I'm writing these lines, the migration is still a work in progress and hasn't fully been done yet).
 
 ## Alpine Linux
 
 ### Packaging
 
-I pushed 47 commits to Alpine Linux [aports](https://gitlab.alpinelinux.org/alpine/aports), most of which being aports (packages) updates.
+I pushed 47 commits to Alpine Linux [aports](https://gitlab.alpinelinux.org/alpine/aports), most of them being aports (packages) updates.
 
 I also added a total of 8 new aports (packages) to Alpine Linux repositories:
 
@@ -156,7 +169,7 @@ I also added a total of 8 new aports (packages) to Alpine Linux repositories:
 
 ### Tooling
 
-I opened 3 merge request to `abuild` (Alpine Linux build tools) to submit some fixes and improvements to the `abump` script:
+I opened 3 merge requests to `abuild` (Alpine Linux build tools) to submit some fixes and improvements to the `abump` script:
 
 - [Fix a typo in the man page](https://gitlab.alpinelinux.org/alpine/abuild/-/merge_requests/479)
 - [Add support to extend the resulted commit message](https://gitlab.alpinelinux.org/alpine/abuild/-/merge_requests/477)
@@ -167,7 +180,7 @@ As mentioned earlier, I also added [atools-go](https://gitlab.alpinelinux.org/al
 
 ## Arch-Update
 
-Arch-Update got 49 new [releases](https://github.com/Antiz96/arch-update/releases) in 2025, 19 new [contributors](https://github.com/Antiz96/arch-update/graphs/contributors) and a lot of new features, including (but not limited to):
+Arch-Update got 49 new [releases](https://github.com/Antiz96/arch-update/releases), 19 new [contributors](https://github.com/Antiz96/arch-update/graphs/contributors) and a lot of new features, including (but not limited to):
 
 - A new shiny icon set
 - A dropdown submenu for each package sources (All, Package, AUR, Flatpak) in the systay applet right-click menu
@@ -175,9 +188,9 @@ Arch-Update got 49 new [releases](https://github.com/Antiz96/arch-update/release
 - A new `-s / --services` option to check for services requiring a post upgrade restart at any time, outside of the main "system upgrade" function
 - New click actions in desktop notifications allowing to directly run Arch-Update or dismiss the notification
 - A new feature opening the upstream project URL of a package pending for update in a web browser when its entry is clicked from the systray applet right-click menu (allowing one to easily check release notes, for instance)
-- Support for `sudo-rs` (in addition of `sudo`, `doas` & `run0`)
+- Support for `sudo-rs` (in addition of `sudo`, `doas` and `run0`)
 - Overall improvements regarding the Flatpak support / integration
-- Ease translation maintenance and contributions
+- Easier translation maintenance and contributions
 - New translations, including:
    - Chinese (simplified)
    - Chinese (traditional)
@@ -187,8 +200,8 @@ Arch-Update got 49 new [releases](https://github.com/Antiz96/arch-update/release
    - Spanish
    - Russian
 
-Arch-Update was also forked & adopted by [CachyOS](https://cachyos.org/) as [Cachy-Update](https://github.com/CachyOS/cachy-update/tree/main)! :rocket:  
-CachyOS users can enable it in the by checking the `Cachy Update enabled` check box under the `App/Tweaks` menu in the `CachyOS Hello` application. See the `Cachy-Update` entry in CachyOS's ["Updating The System" wiki page](https://wiki.cachyos.org/configuration/post_install_setup/#updating-the-system) for more details.
+Arch-Update was also forked and adopted by [CachyOS](https://cachyos.org/) as [Cachy-Update](https://github.com/CachyOS/cachy-update/tree/main)! :rocket:  
+CachyOS users can enable it by checking the "Cachy Update enabled" check box under the `App/Tweaks` menu in the `CachyOS Hello` application. See the `Cachy-Update` entry in CachyOS's ["Updating The System" wiki page](https://wiki.cachyos.org/configuration/post_install_setup/#updating-the-system) for more details.
 
 ## Other
 
@@ -208,11 +221,12 @@ I [submitted a talk](https://pretalx.fosdem.org/fosdem-2026/talk/review/DLVABWSF
 
 I installed [postmarketOS](https://postmarketos.org/) on a Samsung Galaxy S9+ and I also got 2 [pinetime](https://pine64.org/devices/pinetime/), can't wait to play around and hack on those! :sunglasses:
 
----
+--
 
 That's it!
 
-2025 was a pretty busy year and I'm once again very happy & proud about everything I had the chance to work on & achieve this year! :smiley:
+2025 was a pretty busy year and I'm once again very happy and proud about everything I had the chance to work on and achieve this year! :smiley:
 
-I'd like to conclude once again by thanking every awesome people I had the chance to meet, spend some time and work with this year. The above accomplishments probably wouldn't be a thing without them! :pray:
+I'd like to conclude once again by thanking every awesome people I had the chance to meet, spend some time and work with this year. The above accomplishments probably wouldn't have been a thing without them! :pray:
+
 Also, happy new year everyone! :hugs:
