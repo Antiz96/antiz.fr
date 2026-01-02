@@ -206,7 +206,7 @@ Arch Linux Packaging I pushed a total of 2277 packages to Arch Linux repositorie
 
     ,
         "url" : "https:\/\/antiz.fr\/blog\/foss-recap-2025\/",
-        "wordCount" : "1657",
+        "wordCount" : "1656",
         "genre" : [ ],
         "keywords" : [ ]
     }
@@ -452,11 +452,11 @@ Arch Linux Packaging I pushed a total of 2277 packages to Arch Linux repositorie
 <li><a href="https://archlinux.org/packages/extra/x86_64/act_runner/">act_runner</a></li>
 <li><a href="https://archlinux.org/packages/extra/x86_64/atools-go">atools-go</a></li>
 <li><a href="https://archlinux.org/packages/extra/x86_64/sshs/">sshs</a></li>
-<li><a href="https://archlinux.org/packages/extra/x86_64/wlr-sunclock/">wlr-sunclock</a>.</li>
+<li><a href="https://archlinux.org/packages/extra/x86_64/wlr-sunclock/">wlr-sunclock</a></li>
 </ul>
 <h3 id="bumpbuddy">Bumpbuddy</h3>
 <p>Together with <a href="https://github.com/christian-heusel">gromit</a> and <a href="https://github.com/klausenbusk">klausenbusk</a>, we officially released and introduced <a href="https://gitlab.archlinux.org/archlinux/bumpbuddy">bumpbuddy</a> (previously referred to as the &ldquo;Nvchecker PoC&rdquo;).</p>
-<p>Bumpbuddy is a daemon watching for new upstream releases for our packages. It automatically opens GitLab issues for out-of-date packages and manages them autonomously (e.g. opened issues are automatically updated to match newer upstream releases and are automatically closed once the matching version is being pushed to the repository).</p>
+<p>Bumpbuddy is a daemon watching for new upstream releases for our packages. It automatically opens GitLab issues for out-of-date packages and manages said issues autonomously (e.g. opened issues are automatically updated to match newer upstream releases and are automatically closed once the matching version is being pushed to the repository).</p>
 <p>Aside from offering a centralized and automated way for tracking and reporting new upstream releases for Arch Linux package maintainers, it also provides a public place for anyone to discuss the state of a pending update or expose eventual blocking points.<br>
 This should hopefully allow for both more pro-active packages update and more transparency towards users eventually wondering about the progress of a specific update.</p>
 <p>See bumpbuddy&rsquo;s <a href="https://lists.archlinux.org/archives/list/arch-dev-public@lists.archlinux.org/thread/3QINI22ULKMDVXG75P7QATV3E5GVMZR3/">official announcement</a> and <a href="https://gitlab.archlinux.org/archlinux/packaging/packages/python-fastapi/-/issues/30">automated GitLab issue example</a> for more details.</p>
@@ -517,7 +517,7 @@ This should hopefully allow for both more pro-active packages update and more tr
 <h3 id="rfcs">RFCs</h3>
 <p>As mentioned earlier, I wrote an RFC about <a href="https://rfc.archlinux.page/0050-arch-linux-wsl-image/">providing an official WSL image for Arch Linux</a>, which was accepted.</p>
 <h3 id="ports">Ports</h3>
-<p>I (alongside community and other staff members) collaborated on an <em>work in progress</em> <a href="https://gitlab.archlinux.org/archlinux/ports/aarch64">Arch Linux aarch64 community port</a>, which <em>eventually</em> aims to be officially supported <em>at some point</em>.</p>
+<p>I (alongside community and other staff members) collaborated on a <em>work in progress</em> <a href="https://gitlab.archlinux.org/archlinux/ports/aarch64">Arch Linux aarch64 community port</a>, which <em>eventually</em> aims to be officially supported <em>at some point</em>.</p>
 <p>See the page for <a href="https://ports.archlinux.page/">Arch Linux Ports</a> and the one <a href="https://ports.archlinux.page/aarch64/">dedicated to aarch64</a> for more details.</p>
 <h3 id="arch-summit-organization">Arch Summit Organization</h3>
 <p>I was a part of the organization committee of the 2025 edition of the Arch Summit (a yearly event during which Arch staff meet, socialize and work on multiple subjects), which was held in Hamburg (Germany) with 37 attendees.</p>
@@ -535,11 +535,11 @@ This should hopefully allow for both more pro-active packages update and more tr
 </ul>
 <p>Together with <a href="https://hegreberg.io/">Mark</a>, we worked at making the Arch Linux WSL image bit-for-bit reproducible:</p>
 <ul>
-<li><a href="https://gitlab.archlinux.org/archlinux/archlinux-wsl/-/merge_requests/74">Merge request to add a dedicated CI stage to automatically test the WSL image reproducibility status</a></li>
-<li><a href="https://gitlab.archlinux.org/archlinux/archlinux-wsl/-/merge_requests/76">Merge request to implement the required changes to make the WSL image fully reproducible</a></li>
+<li><a href="https://gitlab.archlinux.org/archlinux/archlinux-wsl/-/merge_requests/74">Merge request that added a dedicated CI stage to automatically test the WSL image reproducibility status</a></li>
+<li><a href="https://gitlab.archlinux.org/archlinux/archlinux-wsl/-/merge_requests/76">Merge request that implemented the required changes to make the WSL image fully reproducible</a></li>
 <li>This was covered both in the <a href="https://lists.archlinux.org/archives/list/arch-dev-public@lists.archlinux.org/thread/XDF2IIWNCZZR6KABH2OGSN7AVL7BBX25/">Arch Dev Public Mailing List</a> and the <a href="https://lists.reproducible-builds.org/pipermail/rb-general/2025-December/003975.html">Reproducible Builds Mailing List</a>, as well as in the <code>reproducible-builds.org</code>&rsquo;s <a href="https://reproducible-builds.org/reports/2025-12/#distribution-work">December 2025 monthly news</a></li>
 <li>I also wrote a more detailed <a href="https://antiz.fr/blog/the-archlinux-wsl-image-is-now-reproducible/">blog post on the subject</a></li>
-<li>We intend to take advantage of our discoveries and achievement on that matter to work toward a bit-for-bit reproducible <a href="https://gitlab.archlinux.org/archlinux/archlinux-docker">Arch Linux Docker image</a> in the near future</li>
+<li>We intend to take advantage of our discoveries and achievements on that matter to work toward a bit-for-bit reproducible <a href="https://gitlab.archlinux.org/archlinux/archlinux-docker">Arch Linux Docker image</a> in the near future</li>
 </ul>
 <p>I joined a work group to move the git hosting for the Reproducible Builds website from <a href="https://salsa.debian.org/reproducible-builds/reproducible-website">Debian&rsquo;s GitLab / Salsa instance</a> to <a href="https://codeberg.org/reproducible-builds/reproducible-website">Codeberg</a> (note that, at the time I&rsquo;m writing these lines, the migration is still a work in progress and hasn&rsquo;t fully been done yet).</p>
 <h2 id="alpine-linux">Alpine Linux</h2>
@@ -592,7 +592,7 @@ This should hopefully allow for both more pro-active packages update and more tr
 <p>Arch-Update was also forked and adopted by <a href="https://cachyos.org/">CachyOS</a> as <a href="https://github.com/CachyOS/cachy-update/tree/main">Cachy-Update</a>! &#x1f680;<br>
 CachyOS users can enable it by checking the &ldquo;Cachy Update enabled&rdquo; check box under the <code>App/Tweaks</code> menu in the <code>CachyOS Hello</code> application. See the <code>Cachy-Update</code> entry in CachyOS&rsquo;s <a href="https://wiki.cachyos.org/configuration/post_install_setup/#updating-the-system">&ldquo;Updating The System&rdquo; wiki page</a> for more details.</p>
 <h2 id="other">Other</h2>
-<p>I attended to some FOSS related events:</p>
+<p>I attended some FOSS related events:</p>
 <ul>
 <li><a href="https://archive.fosdem.org/2025/">FOSDEM</a></li>
 <li>Arch Summit</li>
@@ -605,12 +605,12 @@ CachyOS users can enable it by checking the &ldquo;Cachy Update enabled&rdquo; c
 <li><a href="https://antiz.fr/blog/the-archlinux-wsl-image-is-now-reproducible/">The Arch Linux WSL Image Is Now Reproducible</a></li>
 </ul>
 <p>I <a href="https://pretalx.fosdem.org/fosdem-2026/talk/review/DLVABWSFKHNWBF7NYCKMJ3UVSXHNLSQG">submitted a talk</a> for <a href="https://fosdem.org/2026/">FOSDEM 2026</a>, which was accepted! &#x1f973; &#x1f389;</p>
-<p>I installed <a href="https://postmarketos.org/">postmarketOS</a> on a Samsung Galaxy S9+ and I also got 2 <a href="https://pine64.org/devices/pinetime/">pinetime</a>, can&rsquo;t wait to play around and hack on those! &#x1f60e;</p>
+<p>I installed <a href="https://postmarketos.org/">postmarketOS</a> on a <a href="https://fosstodon.org/@Antiz/114082813412984878">Samsung Galaxy S9+</a> and I also got 2 <a href="https://pine64.org/devices/pinetime/">pinetime</a>, can&rsquo;t wait to play around and hack on those! &#x1f60e;</p>
 <p>&ndash;</p>
 <p>That&rsquo;s it!</p>
 <p>2025 was a pretty busy year and I&rsquo;m once again very happy and proud about everything I had the chance to work on and achieve this year! &#x1f603;</p>
 <p>I&rsquo;d like to conclude once again by thanking every awesome people I had the chance to meet, spend some time and work with this year. The above accomplishments probably wouldn&rsquo;t have been a thing without them! &#x1f64f;</p>
-<p>Also, happy new year everyone! &#x1f917;</p>
+<p>Happy new year everyone! &#x1f917;</p>
 </div>
     <div class="post__footer">
       

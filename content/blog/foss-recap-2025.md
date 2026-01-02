@@ -27,13 +27,13 @@ I also added some new packages to the repository, such as (but not limited to):
 - [act_runner](https://archlinux.org/packages/extra/x86_64/act_runner/)
 - [atools-go](https://archlinux.org/packages/extra/x86_64/atools-go)
 - [sshs](https://archlinux.org/packages/extra/x86_64/sshs/)
-- [wlr-sunclock](https://archlinux.org/packages/extra/x86_64/wlr-sunclock/).
+- [wlr-sunclock](https://archlinux.org/packages/extra/x86_64/wlr-sunclock/)
 
 ### Bumpbuddy
 
 Together with [gromit](https://github.com/christian-heusel) and [klausenbusk](https://github.com/klausenbusk), we officially released and introduced [bumpbuddy](https://gitlab.archlinux.org/archlinux/bumpbuddy) (previously referred to as the "Nvchecker PoC").
 
-Bumpbuddy is a daemon watching for new upstream releases for our packages. It automatically opens GitLab issues for out-of-date packages and manages them autonomously (e.g. opened issues are automatically updated to match newer upstream releases and are automatically closed once the matching version is being pushed to the repository).
+Bumpbuddy is a daemon watching for new upstream releases for our packages. It automatically opens GitLab issues for out-of-date packages and manages said issues autonomously (e.g. opened issues are automatically updated to match newer upstream releases and are automatically closed once the matching version is being pushed to the repository).
 
 Aside from offering a centralized and automated way for tracking and reporting new upstream releases for Arch Linux package maintainers, it also provides a public place for anyone to discuss the state of a pending update or expose eventual blocking points.  
 This should hopefully allow for both more pro-active packages update and more transparency towards users eventually wondering about the progress of a specific update.
@@ -117,7 +117,7 @@ As mentioned earlier, I wrote an RFC about [providing an official WSL image for 
 
 ### Ports
 
-I (alongside community and other staff members) collaborated on an *work in progress* [Arch Linux aarch64 community port](https://gitlab.archlinux.org/archlinux/ports/aarch64), which *eventually* aims to be officially supported *at some point*.
+I (alongside community and other staff members) collaborated on a *work in progress* [Arch Linux aarch64 community port](https://gitlab.archlinux.org/archlinux/ports/aarch64), which *eventually* aims to be officially supported *at some point*.
 
 See the page for [Arch Linux Ports](https://ports.archlinux.page/) and the one [dedicated to aarch64](https://ports.archlinux.page/aarch64/) for more details.
 
@@ -142,11 +142,11 @@ I submitted several upstream and downstream patches in regards to Reproducible B
 
 Together with [Mark](https://hegreberg.io/), we worked at making the Arch Linux WSL image bit-for-bit reproducible:
 
-- [Merge request to add a dedicated CI stage to automatically test the WSL image reproducibility status](https://gitlab.archlinux.org/archlinux/archlinux-wsl/-/merge_requests/74)
-- [Merge request to implement the required changes to make the WSL image fully reproducible](https://gitlab.archlinux.org/archlinux/archlinux-wsl/-/merge_requests/76)
+- [Merge request that added a dedicated CI stage to automatically test the WSL image reproducibility status](https://gitlab.archlinux.org/archlinux/archlinux-wsl/-/merge_requests/74)
+- [Merge request that implemented the required changes to make the WSL image fully reproducible](https://gitlab.archlinux.org/archlinux/archlinux-wsl/-/merge_requests/76)
 - This was covered both in the [Arch Dev Public Mailing List](https://lists.archlinux.org/archives/list/arch-dev-public@lists.archlinux.org/thread/XDF2IIWNCZZR6KABH2OGSN7AVL7BBX25/) and the [Reproducible Builds Mailing List](https://lists.reproducible-builds.org/pipermail/rb-general/2025-December/003975.html), as well as in the `reproducible-builds.org`'s [December 2025 monthly news](https://reproducible-builds.org/reports/2025-12/#distribution-work)
 - I also wrote a more detailed [blog post on the subject](https://antiz.fr/blog/the-archlinux-wsl-image-is-now-reproducible/)
-- We intend to take advantage of our discoveries and achievement on that matter to work toward a bit-for-bit reproducible [Arch Linux Docker image](https://gitlab.archlinux.org/archlinux/archlinux-docker) in the near future
+- We intend to take advantage of our discoveries and achievements on that matter to work toward a bit-for-bit reproducible [Arch Linux Docker image](https://gitlab.archlinux.org/archlinux/archlinux-docker) in the near future
 
 I joined a work group to move the git hosting for the Reproducible Builds website from [Debian's GitLab / Salsa instance](https://salsa.debian.org/reproducible-builds/reproducible-website) to [Codeberg](https://codeberg.org/reproducible-builds/reproducible-website) (note that, at the time I'm writing these lines, the migration is still a work in progress and hasn't fully been done yet).
 
@@ -205,7 +205,7 @@ CachyOS users can enable it by checking the "Cachy Update enabled" check box und
 
 ## Other
 
-I attended to some FOSS related events:
+I attended some FOSS related events:
 
 - [FOSDEM](https://archive.fosdem.org/2025/)
 - Arch Summit
@@ -219,7 +219,7 @@ I wrote 3 blog posts:
 
 I [submitted a talk](https://pretalx.fosdem.org/fosdem-2026/talk/review/DLVABWSFKHNWBF7NYCKMJ3UVSXHNLSQG) for [FOSDEM 2026](https://fosdem.org/2026/), which was accepted! :partying_face: :tada:
 
-I installed [postmarketOS](https://postmarketos.org/) on a Samsung Galaxy S9+ and I also got 2 [pinetime](https://pine64.org/devices/pinetime/), can't wait to play around and hack on those! :sunglasses:
+I installed [postmarketOS](https://postmarketos.org/) on a [Samsung Galaxy S9+](https://fosstodon.org/@Antiz/114082813412984878) and I also got 2 [pinetime](https://pine64.org/devices/pinetime/), can't wait to play around and hack on those! :sunglasses:
 
 --
 
@@ -229,4 +229,4 @@ That's it!
 
 I'd like to conclude once again by thanking every awesome people I had the chance to meet, spend some time and work with this year. The above accomplishments probably wouldn't have been a thing without them! :pray:
 
-Also, happy new year everyone! :hugs:
+Happy new year everyone! :hugs:
