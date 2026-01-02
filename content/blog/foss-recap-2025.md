@@ -70,7 +70,7 @@ Together with [gromit](https://github.com/christian-heusel), we created around 7
 
 Aside from the usual testing, I helped testing some kernel and systemd pre-releases (respectively packaged by [gromit](https://github.com/christian-heusel) and [eworm](https://github.com/eworm-de)).
 
-I also brainstormed and expressed my support regarding [coruja](https://github.com/coruja-eu) (an Arch Linux Testing team member) proposal about [indexing a public list of Testing team members in Archweb](https://github.com/archlinux/archweb/issues/588), allowing for an easier collaboration between testers and package maintainers and, more importantly, give our testers some recognition by offering a public place to show / acknowledge their involvements in our beloved distribution. :smiling_face_with_three_hearts:
+I also brainstormed and expressed my support regarding [coruja](https://github.com/coruja-eu) (an Arch Linux Testing team member) proposal about [indexing a public list of Testing team members in Archweb](https://github.com/archlinux/archweb/issues/588), allowing for an easier collaboration between testers and package maintainers and, more importantly, to give our testers some recognition by offering a public place to show / acknowledge their involvement in our beloved distribution. :smiling_face_with_three_hearts:
 
 ### Tools / Tooling
 
@@ -131,7 +131,7 @@ I dived deeper into the Reproducible Builds efforts and community this year, joi
 
 As mentioned earlier, I wrote the `greposcope` script (shipped in [archlinux-contrib](https://archlinux.org/packages/extra/any/archlinux-contrib/)), allowing to download `diffoscope` outputs of non-reproducible Arch Linux packages and identify specific reproducible builds related issues.
 
-I submitted several upstream and downstream patches in regards to Reproducible Builds, some of them being covered in `reproducible-builds.org`'s [monthly news](https://reproducible-builds.org/news/):
+I submitted several upstream and downstream patches in regards to Reproducible Builds, some of them being covered in the following `reproducible-builds.org`'s [monthly news](https://reproducible-builds.org/news/):
 
 - [February 2025](https://reproducible-builds.org/reports/2025-02/#upstream-patches)
 - [March 2025](https://reproducible-builds.org/reports/2025-03/#upstream-patches)
