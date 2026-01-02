@@ -8,6 +8,22 @@
     <language>en-us</language>
     <lastBuildDate>Thu, 16 Feb 2023 13:11:49 +0100</lastBuildDate><atom:link href="https://antiz.fr/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>FOSS Recap 2025</title>
+      <link>https://antiz.fr/blog/foss-recap-2025/</link>
+      <pubDate>Fri, 02 Jan 2026 21:30:00 +0200</pubDate>
+      
+      <guid>https://antiz.fr/blog/foss-recap-2025/</guid>
+      
+        <description>&lt;p&gt;Hey everyone! &amp;#x1f44b;&lt;/p&gt;
+&lt;p&gt;As done &lt;a href=&#34;https://antiz.fr/blog/foss-recap-2024/&#34;&gt;last year&lt;/a&gt;, here is a recap of all the noticeable FOSS related stuff I had the chance to work on and achieve in 2025. &amp;#x1f604;&lt;/p&gt;
+&lt;p&gt;See also the awesome recap of my FOSS mates and good friends: &lt;a href=&#34;https://vulns.xyz/2025/12/2025-wrapped/&#34;&gt;kpcyrd&lt;/a&gt;, &lt;a href=&#34;https://blog.orhun.dev/2025-wrapped/&#34;&gt;orhun&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;arch-linux&#34;&gt;Arch Linux&lt;/h2&gt;
+&lt;h3 id=&#34;packaging&#34;&gt;Packaging&lt;/h3&gt;
+&lt;p&gt;I pushed a total of 2277 packages to Arch Linux repositories, most of them being packages updates with the top five packages being:&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
       <title>The Arch Linux WSL image is now reproducible</title>
       <link>https://antiz.fr/blog/the-archlinux-wsl-image-is-now-reproducible/</link>
       <pubDate>Wed, 17 Dec 2025 20:00:00 +0200</pubDate>
