@@ -211,7 +211,7 @@ I attended to some FOSS related events:
 - Arch Summit
 - [Reproducible Build Summit](https://reproducible-builds.org/events/vienna2025/)
 
-I wrote 2 blog posts:
+I wrote 3 blog posts:
 
 - [FOSS Recap 2024](https://antiz.fr/blog/foss-recap-2024/)
 - [Arch Linux Now Has an Official WSL Image](https://antiz.fr/blog/archlinux-official-wsl-image/)
