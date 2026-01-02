@@ -70,7 +70,7 @@ Together with [gromit](https://github.com/christian-heusel), we created around 7
 
 Aside from the usual testing, I helped testing some kernel and systemd pre-releases (respectively packaged by [gromit](https://github.com/christian-heusel) and [eworm](https://github.com/eworm-de)).
 
-I also brainstormed and expressed my support regarding [coruja](https://github.com/coruja-eu) (an Arch Linux Testing team member) proposal about [indexing a public list of Testing team members in Archweb](https://github.com/archlinux/archweb/issues/588), allowing for an easier collaboration between testers and package maintainers and, more importantly, to give our testers some recognition by offering a public place to show / acknowledge their involvement in our beloved distribution. :smiling_face_with_three_hearts:
+I also brainstormed and expressed my support regarding [coruja](https://github.com/coruja-eu) (an Arch Linux Testing team member) proposal about [indexing a public list of Testing team members in Archweb](https://github.com/archlinux/archweb/issues/588), allowing for an easier collaboration between testers & package maintainers and, more importantly, to give our testers some recognition by offering a public place to show / acknowledge their involvement in our beloved distribution. :smiling_face_with_three_hearts:
 
 ### Tools / Tooling
 
