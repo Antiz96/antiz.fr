@@ -1,0 +1,629 @@
+<!doctype html>
+<html
+  dir="ltr"
+  lang="en"
+  data-theme=""
+  
+    class="html theme--light"
+  
+><head>
+  <meta charset="utf-8" />
+  <title>
+    Robin Candau
+        |
+        FOSS Recap 2025
+      
+
+    
+
+  </title>
+
+  <meta name="generator" content="Hugo 0.154.2"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="author" content="Robin Candau" />
+  <meta
+    name="description"
+    content="Linux system &amp; DevOps engineer passionate about skateboarding, music, cycling and, obviously, Linux!"
+  />
+  
+  
+        <link rel="stylesheet" href="/css/anatole.min.49bfd2dbac6030a3a24fe7cb768d3d0dd9d223458e88f7d6cf5fe7aa806aaa2d.css" integrity="sha256-Sb/S26xgMKOiT&#43;fLdo09DdnSI0WOiPfWz1/nqoBqqi0=" crossorigin="anonymous" />
+      
+  <link
+    rel="stylesheet"
+    href="/css/markupHighlight.min.73ccfdf28df555e11009c13c20ced067af3cb021504cba43644c705930428b00.css"
+    integrity="sha256-c8z98o31VeEQCcE8IM7QZ688sCFQTLpDZExwWTBCiwA="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+    
+    
+    <link
+      rel="stylesheet"
+      href="/css/custom.min.12eb7037bf07e9b3c877c4d2aad88722dbeeeb31ae96aba510fa53899abb61b0.css"
+      integrity="sha256-EutwN78H6bPId8TSqtiHItvu6zGulqulEPpTiZq7YbA="
+      crossorigin="anonymous"
+      media="screen"
+    />
+  
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/fontawesome.min.137b1cf3cea9a8adb7884343a9a5ddddf4280f59153f74dc782fb7f7bf0d0519.css"
+    integrity="sha256-E3sc886pqK23iENDqaXd3fQoD1kVP3TceC&#43;3978NBRk="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/solid.min.e65dc5b48fb5f39b142360c57c3a215744c94e56c755c929cc3e88fe12aab4d3.css"
+    integrity="sha256-5l3FtI&#43;185sUI2DFfDohV0TJTlbHVckpzD6I/hKqtNM="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/regular.min.6f4f16d58da1c82c0c3a3436e021a3d39b4742f741192c546e73e947eacfd92f.css"
+    integrity="sha256-b08W1Y2hyCwMOjQ24CGj05tHQvdBGSxUbnPpR&#43;rP2S8="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/brands.min.e10425ad768bc98ff1fb272a0ac8420f9d1ba22f0612c08ff1010c95080ffe7e.css"
+    integrity="sha256-4QQlrXaLyY/x&#43;ycqCshCD50boi8GEsCP8QEMlQgP/n4="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+
+  <link rel="canonical" href="https://antiz.fr/blog/foss-recap-2025/" />
+  
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/anatole-header.min.f9132794301a01ff16550ed66763482bd848f62243d278f5e550229a158bfd32.js"
+    integrity="sha256-&#43;RMnlDAaAf8WVQ7WZ2NIK9hI9iJD0nj15VAimhWL/TI="
+    crossorigin="anonymous"
+  ></script>
+
+  
+    
+    
+    <script
+      type="text/javascript"
+      src="/js/anatole-theme-switcher.min.8724ddf9268dee451060f191961647573c7f592fbccc6d858746236b3f915813.js"
+      integrity="sha256-hyTd&#43;SaN7kUQYPGRlhZHVzx/WS&#43;8zG2Fh0Yjaz&#43;RWBM="
+      crossorigin="anonymous"
+    ></script>
+  
+
+  
+
+  
+
+  
+
+
+  
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="FOSS Recap 2025">
+  <meta name="twitter:description" content="Hey everyone! 👋
+As done last year, here is a recap of all the noticeable FOSS related stuff I had the chance to work on and achieve in 2025. 😄
+See also the awesome recap of my FOSS mates and good friends: kpcyrd, orhun.
+Arch Linux Packaging I pushed a total of 2277 packages to Arch Linux repositories, most of which being packages updates with the top five packages being python-sentry_sdk &amp; limine (both 39), python-fastapi (43), hugo (50), syd (52) &amp; jenkins (53).">
+
+
+
+  
+  <meta property="og:url" content="https://antiz.fr/blog/foss-recap-2025/">
+  <meta property="og:site_name" content="Robin Candau">
+  <meta property="og:title" content="FOSS Recap 2025">
+  <meta property="og:description" content="Hey everyone! 👋
+As done last year, here is a recap of all the noticeable FOSS related stuff I had the chance to work on and achieve in 2025. 😄
+See also the awesome recap of my FOSS mates and good friends: kpcyrd, orhun.
+Arch Linux Packaging I pushed a total of 2277 packages to Arch Linux repositories, most of which being packages updates with the top five packages being python-sentry_sdk &amp; limine (both 39), python-fastapi (43), hugo (50), syd (52) &amp; jenkins (53).">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2025-01-02T15:40:00+02:00">
+    <meta property="article:modified_time" content="2025-01-02T15:40:00+02:00">
+
+
+
+  
+  
+  
+  
+  <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "articleSection": "blog",
+        "name": "FOSS Recap 2025",
+        "headline": "FOSS Recap 2025",
+        "alternativeHeadline": "",
+        "description": "
+      
+        \u003cp\u003eHey everyone! \u0026#x1f44b;\u003c\/p\u003e\n\u003cp\u003eAs done \u003ca href=\u0022https:\/\/antiz.fr\/blog\/foss-recap-2024\/\u0022\u003elast year\u003c\/a\u003e, here is a recap of all the noticeable FOSS related stuff I had the chance to work on and achieve in 2025. \u0026#x1f604;\u003c\/p\u003e\n\u003cp\u003eSee also the awesome recap of my FOSS mates and good friends: \u003ca href=\u0022https:\/\/vulns.xyz\/2025\/12\/2025-wrapped\/\u0022\u003ekpcyrd\u003c\/a\u003e, \u003ca href=\u0022https:\/\/blog.orhun.dev\/2025-wrapped\/\u0022\u003eorhun\u003c\/a\u003e.\u003c\/p\u003e\n\u003ch2 id=\u0022arch-linux\u0022\u003eArch Linux\u003c\/h2\u003e\n\u003ch3 id=\u0022packaging\u0022\u003ePackaging\u003c\/h3\u003e\n\u003cp\u003eI pushed a total of 2277 packages to Arch Linux repositories, most of which being packages updates with the top five packages being \u003ca href=\u0022https:\/\/archlinux.org\/packages\/extra\/any\/python-sentry_sdk\/\u0022\u003epython-sentry_sdk\u003c\/a\u003e \u0026amp; \u003ca href=\u0022https:\/\/archlinux.org\/packages\/extra\/x86_64\/limine\/\u0022\u003elimine\u003c\/a\u003e (both 39), \u003ca href=\u0022https:\/\/archlinux.org\/packages\/extra\/any\/python-fastapi\/\u0022\u003epython-fastapi\u003c\/a\u003e (43), \u003ca href=\u0022https:\/\/archlinux.org\/packages\/extra\/x86_64\/hugo\/\u0022\u003ehugo\u003c\/a\u003e (50), \u003ca href=\u0022https:\/\/archlinux.org\/packages\/extra\/x86_64\/syd\/\u0022\u003esyd\u003c\/a\u003e (52) \u0026amp; \u003ca href=\u0022https:\/\/archlinux.org\/packages\/extra\/any\/jenkins\/\u0022\u003ejenkins\u003c\/a\u003e (53).\u003c\/p\u003e
+
+
+      
+
+
+    ",
+        "license": "",
+        
+        "inLanguage": "en-us",
+        "isFamilyFriendly": "true",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/antiz.fr\/blog\/foss-recap-2025\/"
+        },
+        "author" : {
+            "@type": "Person",
+            "name": "Robin Candau"
+        },
+        "creator" : {
+            "@type": "Person",
+            "name": "Robin Candau"
+        },
+        "accountablePerson" : {
+            "@type": "Person",
+            "name": "Robin Candau"
+        },
+        "copyrightHolder" : {
+            "@type": "Person",
+            "name": "Robin Candau"
+        },
+        "dateCreated": "2025-01-02T15:40:00.00Z",
+        "datePublished": "2025-01-02T15:40:00.00Z",
+        "dateModified": "2025-01-02T15:40:00.00Z",
+        "publisher":{
+            "@type":"Organization",
+            "name": "Robin Candau",
+            "url": "https://antiz.fr/",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https:\/\/antiz.fr\/favicon-32x32.png",
+                "width":"32",
+                "height":"32"
+            }
+        },
+        "image": 
+      [
+      ]
+
+    ,
+        "url" : "https:\/\/antiz.fr\/blog\/foss-recap-2025\/",
+        "wordCount" : "1573",
+        "genre" : [ ],
+        "keywords" : [ ]
+    }
+  </script>
+
+
+
+
+  
+  
+  
+</head>
+<body class="body">
+    <div class="wrapper">
+      <aside
+        
+          class="wrapper__sidebar"
+        
+      ><div
+  class="sidebar
+    animated fadeInDown
+  "
+>
+  <div class="sidebar__content">
+    <div class="sidebar__introduction">
+      <img
+        class="sidebar__introduction-profileimage"
+        src="/images/pfp.jpg"
+        alt="profile picture"
+      />
+      
+        <div class="sidebar__introduction-title">
+          <a href="/">Robin Candau</a>
+        </div>
+      
+      <div class="sidebar__introduction-description">
+        <p>Linux system & DevOps engineer passionate about skateboarding, music, cycling and, obviously, Linux!</p>
+      </div>
+    </div>
+    <ul class="sidebar__list">
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://github.com/Antiz96"
+            target="_blank"
+            rel="noopener me"
+            aria-label="GitHub"
+            title="GitHub"
+          >
+            <i class="fab fa-github fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://gitlab.archlinux.org/antiz"
+            target="_blank"
+            rel="noopener me"
+            aria-label="Arch Linux GitLab"
+            title="Arch Linux GitLab"
+          >
+            <i class="fab fa-gitlab fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://fosstodon.org/@Antiz"
+            target="_blank"
+            rel="noopener me"
+            aria-label="Mastodon"
+            title="Mastodon"
+          >
+            <i class="fab fa-mastodon fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://www.linkedin.com/in/robin-candau/?locale=en_US"
+            target="_blank"
+            rel="noopener me"
+            aria-label="LinkedIn"
+            title="LinkedIn"
+          >
+            <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+        <li class="sidebar__list-item">
+          <a
+            href="mailto:robincandau@protonmail.com"
+            target="_blank"
+            rel="noopener me"
+            aria-label="Mail"
+            title="Mail"
+          >
+            <i class="fas fa-envelope fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://keyserver.ubuntu.com/pks/lookup?search=D33FAA16B937F3B2&amp;fingerprint=on&amp;op=index"
+            target="_blank"
+            rel="noopener me"
+            aria-label="OpenPGP Key"
+            title="OpenPGP Key"
+          >
+            <i class="fas fa-key fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+      
+    </ul>
+  </div><footer class="footer footer__sidebar">
+  <ul class="footer__list">
+    <li class="footer__item">
+      &copy;
+      
+        Robin Candau
+        2026
+      
+    </li>
+    
+  </ul>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.9531b4a2217a70c5a1fce89c1f81c9ebbdd586708fcd4130b417320c7230c8d6.js"
+    integrity="sha256-lTG0oiF6cMWh/OicH4HJ673VhnCPzUEwtBcyDHIwyNY="
+    crossorigin="anonymous"
+  ></script></div>
+</aside>
+      <main
+        
+          class="wrapper__main"
+        
+      >
+        <header class="header"><div
+  class="
+    animated fadeInDown
+  "
+>
+  <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+  </a>
+  <nav class="nav">
+    <ul class="nav__list" id="navMenu">
+      
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/"
+              
+              title=""
+              >Home</a
+            >
+          </li>
+        
+
+      
+        
+        
+          <li class="nav__list-item">
+            
+            <a
+              
+              href="/blog/"
+              
+              title=""
+              >Blog</a
+            >
+          </li>
+        
+
+      
+    </ul>
+    <ul class="nav__list nav__list--end">
+      
+      
+        <li class="nav__list-item">
+          <div class="themeswitch">
+            <a title="Switch Theme">
+              <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a>
+          </div>
+        </li>
+      
+    </ul>
+  </nav>
+</div>
+</header>
+  <div
+    class="post 
+      animated fadeInDown
+    "
+  >
+    
+    <div class="post__content">
+      
+        <h1>FOSS Recap 2025</h1>
+      
+      
+        <ul class="post__meta">
+          <li class="post__meta-item">
+            <em class="fas fa-calendar-day post__meta-icon"></em>
+            <span class="post__meta-text"
+              >
+                
+                  Thu, Jan 2, 2025
+                
+
+              
+            </span>
+          </li>
+          <li class="post__meta-item">
+            <em class="fas fa-stopwatch post__meta-icon"></em>
+            <span class="post__meta-text">8-minute read</span>
+          </li>
+        </ul>
+      <p>Hey everyone! &#x1f44b;</p>
+<p>As done <a href="https://antiz.fr/blog/foss-recap-2024/">last year</a>, here is a recap of all the noticeable FOSS related stuff I had the chance to work on and achieve in 2025. &#x1f604;</p>
+<p>See also the awesome recap of my FOSS mates and good friends: <a href="https://vulns.xyz/2025/12/2025-wrapped/">kpcyrd</a>, <a href="https://blog.orhun.dev/2025-wrapped/">orhun</a>.</p>
+<h2 id="arch-linux">Arch Linux</h2>
+<h3 id="packaging">Packaging</h3>
+<p>I pushed a total of 2277 packages to Arch Linux repositories, most of which being packages updates with the top five packages being <a href="https://archlinux.org/packages/extra/any/python-sentry_sdk/">python-sentry_sdk</a> &amp; <a href="https://archlinux.org/packages/extra/x86_64/limine/">limine</a> (both 39), <a href="https://archlinux.org/packages/extra/any/python-fastapi/">python-fastapi</a> (43), <a href="https://archlinux.org/packages/extra/x86_64/hugo/">hugo</a> (50), <a href="https://archlinux.org/packages/extra/x86_64/syd/">syd</a> (52) &amp; <a href="https://archlinux.org/packages/extra/any/jenkins/">jenkins</a> (53).</p>
+<p>I also added some new packages to the repository, such as (but not limited to) <a href="https://archlinux.org/packages/extra/x86_64/act_runner/">act_runner</a>, <a href="https://archlinux.org/packages/extra/x86_64/atools-go">atools-go</a>, <a href="https://archlinux.org/packages/extra/x86_64/sshs/">sshs</a> and <a href="https://archlinux.org/packages/extra/x86_64/wlr-sunclock/">wlr-sunclock</a>.</p>
+<h3 id="bumpbuddy">Bumpbuddy</h3>
+<p>Together with <a href="https://github.com/christian-heusel">gromit</a> and <a href="https://github.com/klausenbusk">klausenbusk</a>, we officially released &amp; introduced <a href="https://gitlab.archlinux.org/archlinux/bumpbuddy">bumpbuddy</a> (previously refered to as the &ldquo;Nvchecker PoC&rdquo;).</p>
+<p>Bumpbuddy is a daemon watching for new upstream releases for our packages. It automatically opens GitLab issues for out of date packages and manages them autonomously (e.g. opened issues are automatically updated to match newer upstream releases and are automatically closed once the matching version is being pushed to the repository).</p>
+<p>Aside from offering a centralized and automated way for tracking and reporting new upstream releases for Arch Linux package maintainers, it also provides a public place for anyone to discuss the state of a pending update or expose eventual blocking points.<br>
+This should hopefully allow for both more pro-active packages update and more transparency towards users eventually wondering about the progress of a specific update.</p>
+<p>See bumpbuddy&rsquo;s <a href="https://lists.archlinux.org/archives/list/arch-dev-public@lists.archlinux.org/thread/3QINI22ULKMDVXG75P7QATV3E5GVMZR3/">official announcement</a> and <a href="https://gitlab.archlinux.org/archlinux/packaging/packages/python-fastapi/-/issues/30">automated GitLab issue example</a> for more details.</p>
+<p>Some future work and mid / long term goals around bumpbuddy are in progress, such as (but not limited to):</p>
+<ul>
+<li><a href="https://gitlab.archlinux.org/archlinux/bumpbuddy/-/issues/10">Providing a web report overview</a></li>
+<li>Manage packages&rsquo; out of date status in Archweb and get rid of / replace the &ldquo;flag out of date&rdquo; button (which is manual, error prone, may be used abusively and lacks transparency)</li>
+<li>Open merge requests rather than (or in addition of) GitLab issues, regarding our future goal of adopting a more gitops oriented packaging workflow</li>
+</ul>
+<h3 id="infrastructure">Infrastructure</h3>
+<p>I officially <a href="https://lists.archlinux.org/archives/list/arch-devops@lists.archlinux.org/thread/NJWIMB5KNBOCTWVCGTQTO7OF6XHRKWHX/">joined the Arch Linux DevOps team</a> and made several contributions to the Arch Linux infrastructure, such as (but not limited to):</p>
+<ul>
+<li><a href="https://gitlab.archlinux.org/archlinux/infrastructure/-/merge_requests/921">Update package cache handling mechanism for Arch servers</a></li>
+<li><a href="https://gitlab.archlinux.org/archlinux/infrastructure/-/merge_requests/1006">Setup GoAccess on Nginx servers</a></li>
+<li><a href="https://gitlab.archlinux.org/archlinux/infrastructure/-/merge_requests/963">Add a dedicated server and IAC for bumpbuddy</a></li>
+<li><a href="https://gitlab.archlinux.org/archlinux/infrastructure/-/merge_requests/1031">Add a DevOps managed Fastly CDN mirror</a> (work done collaboratively with <a href="https://github.com/christian-heusel">gromit</a> and <a href="https://github.com/pitastrudl">pitastrudl</a>, see the related <a href="https://lists.archlinux.org/archives/list/arch-dev-public@lists.archlinux.org/thread/QRTTKZYECWFHKI5OFG6MVVLHKDPGQS5S/">public announcement</a> for more details)</li>
+<li><a href="https://gitlab.archlinux.org/archlinux/infrastructure/-/merge_requests/1092">Add metrics about the new Fastly CDN mirror to prometheus / grafana</a></li>
+</ul>
+<h3 id="wsl-image">WSL Image</h3>
+<p>I worked on creating an <a href="https://gitlab.archlinux.org/archlinux/archlinux-wsl">official Arch Linux WSL image</a> that has been <a href="https://github.com/microsoft/WSL/pull/12818">included in Microsoft&rsquo;s manifest of officially supported distributions for WSL</a>.</p>
+<p>Huge thanks to <a href="https://hegreberg.io/">Mark</a> who offered his help as an Arch Linux community member to maintain this WSL image with me and later joined the Arch Linux Staff as an additional official maintainer for it. &#x1f91d;</p>
+<p>For more details, see the <a href="https://rfc.archlinux.page/0050-arch-linux-wsl-image/">related Arch Linux RFC</a>, the <a href="https://wiki.archlinux.org/title/Install_Arch_Linux_on_WSL">dedicated Arch Wiki page</a> and the <a href="https://antiz.fr/blog/archlinux-official-wsl-image/">blog post I wrote earlier this year on the subject</a>.</p>
+<h3 id="testing-team">Testing Team</h3>
+<p>Together with <a href="https://github.com/christian-heusel">gromit</a>, we created around 70 new <a href="https://wiki.archlinux.org/title/Arch_Testing_Team">testing team accounts</a> this year.</p>
+<p>Aside from the usual testing, I helped testing some kernel and systemd pre-releases (respectively packaged by <a href="https://github.com/christian-heusel">gromit</a> and <a href="https://github.com/eworm-de">eworm</a>).</p>
+<h3 id="tools--tooling">Tools / Tooling</h3>
+<h4 id="buildbtw">BuildBTW</h4>
+<p>I joined the <a href="https://gitlab.archlinux.org/archlinux/buildbtw">BuildBTW</a> (future centralized Arch Linux build service) proof of concept as a tester. Aside from showing my appreciation toward the amazing work done so far, I had the occasion to open a improvements suggestions, such as:</p>
+<ul>
+<li><a href="https://gitlab.archlinux.org/archlinux/buildbtw/-/issues/148">Handle <code>.SRCINFO</code> updates automatically</a></li>
+<li><a href="https://gitlab.archlinux.org/archlinux/buildbtw/-/issues/149">Add additional info to the CLI and WebUI</a></li>
+</ul>
+<h4 id="devtools--pkgctl">Devtools / pkgctl</h4>
+<p>I made some contributions to our packaging tooling, such as:</p>
+<ul>
+<li><a href="https://gitlab.archlinux.org/archlinux/devtools/-/merge_requests/295"><code>pkgctl version</code>: Fail if the <code>cmd</code> source is used in <code>.nvchecker.toml</code></a></li>
+</ul>
+<h4 id="pacman-contrib">Pacman-Contrib</h4>
+<p>I made some contributions to pacman-contrib, such as:</p>
+<ul>
+<li><a href="https://gitlab.archlinux.org/pacman/pacman-contrib/-/merge_requests/53"><code>paccache</code>: Add support for passing extra argument to the systemd service via a centralized configuration file</a></li>
+<li><a href="https://gitlab.archlinux.org/pacman/pacman-contrib/-/merge_requests/64"><code>checkupdates</code>: Disable filesystem sandbox for compatibility with pacman v7.1.0</a></li>
+</ul>
+<h4 id="archlinux-contrib">Archlinux-Contrib</h4>
+<p>I made several contributions to archlinux-contrib, such as:</p>
+<ul>
+<li><a href="https://github.com/archlinux/contrib/pull/96">release: Update the release process</a></li>
+<li><a href="https://github.com/archlinux/contrib/pull/87"><code>rebuild-todo</code>: Add support for importing OpenPGP keys for packages source verification into the user&rsquo;s keyring (including for offloaded builds)</a></li>
+<li><a href="https://github.com/archlinux/contrib/pull/102"><code>rebuild-todo</code>: Add support for running builds with <code>--nocheck</code></a></li>
+<li><a href="https://github.com/archlinux/contrib/pull/89">Add <code>greposcope</code>: A script for downloading and searching patterns in diffoscope output of unreproducible Arch Linux packages</a></li>
+<li><a href="https://github.com/archlinux/contrib/pull/93"><code>checkservices</code>: Update help message to be less confusing</a></li>
+<li><a href="https://github.com/archlinux/contrib/pull/100"><code>checkservices</code>: Add support to run <code>pacdiff</code> with <code>--threeway</code></a></li>
+</ul>
+<h3 id="staff">Staff</h3>
+<p>Together with <a href="https://github.com/felixonmars">felixonmars</a>, we sponsored <a href="https://github.com/Integral-Tech">integral</a>&rsquo;s <a href="https://lists.archlinux.org/archives/list/aur-general@lists.archlinux.org/thread/VUSAFZ2LKX6L6WA7OMFSYCIOLB3WMLEM/">application to become a Package Maintainer</a>, which was <a href="https://lists.archlinux.org/archives/list/aur-general@lists.archlinux.org/message/CEZNF7O7HVCU7UUWH6Z334BE7GJGH52K/">accepted</a>.</p>
+<p>As mentioned earlier, I also wrote a proposal to add <a href="https://hegreberg.io/">Mark</a> to our staff as an additional maintainer for our WSL image, which was <a href="https://archlinux.org/people/support-staff/#mark">accepted</a>.</p>
+<h3 id="rfcs">RFCs</h3>
+<p>As mentioned earlier, I wrote an RFC about <a href="https://rfc.archlinux.page/0050-arch-linux-wsl-image/">providing an official WSL image for Arch Linux</a>.</p>
+<h3 id="ports">Ports</h3>
+<p>I (alongside with community and other staff members) collaborated on an <em>work in progress</em> <a href="https://gitlab.archlinux.org/archlinux/ports/aarch64">Arch Linux aarch64 community port</a>, which <em>eventually</em> aims to be officially supported <em>at some point</em>.</p>
+<p>See the page for <a href="https://ports.archlinux.page/">Arch Linux Ports</a> and the one <a href="https://ports.archlinux.page/aarch64/">dedicated to aarch64</a> for more details.</p>
+<h3 id="arch-summit-organization">Arch Summit Organization</h3>
+<p>I was a part of the organization committee of the 2025 edition of the Arch Summit (a yearly event during which Arch staff meet, socialize and work on multiple subjects), which was held in Hamburg (Germany) with 37 attendees.</p>
+<h2 id="reproducible-builds">Reproducible Builds</h2>
+<p>I dived deeper into the Reproducible Builds efforts and community this year, joining the <a href="https://reproducible-builds.org/events/vienna2025/">Reproducible Summit in Vienna</a> and making numerous reproducible builds related work / contributions:</p>
+<p>As mentioned earlier, I wrote the <code>greposcope</code> script (shipped in <a href="https://archlinux.org/packages/extra/any/archlinux-contrib/">archlinux-contrib</a>), allowing to download <code>diffoscope</code> outputs of non-reproducible Arch Linux package and identify specific reproducible builds related issues.</p>
+<p>I submitted several upstream and downstream patches in regards to Reproducible Builds, some of them being covered in <code>reproducible-builds.org</code>&rsquo;s <a href="https://reproducible-builds.org/news/">monthly news</a>:</p>
+<ul>
+<li><a href="https://reproducible-builds.org/reports/2025-02/#upstream-patches">February 2025</a></li>
+<li><a href="https://reproducible-builds.org/reports/2025-03/#upstream-patches">March 2025</a></li>
+<li><a href="https://reproducible-builds.org/reports/2025-06/#upstream-patches">June 2025</a></li>
+<li><a href="https://reproducible-builds.org/reports/2025-07/#upstream-patches">July 2025</a></li>
+<li><a href="https://reproducible-builds.org/reports/2025-08/#upstream-patches">August 2025</a></li>
+<li><a href="https://reproducible-builds.org/reports/2025-10/#upstream-patches">October 2025</a></li>
+</ul>
+<p>Together with <a href="https://hegreberg.io/">Mark</a>, we worked at making the Arch Linux WSL image bit-for-bit reproducible:</p>
+<ul>
+<li><a href="https://gitlab.archlinux.org/archlinux/archlinux-wsl/-/merge_requests/74">Merge request to add a dedicated CI stage to automatically test the WSL image reproducibility status</a></li>
+<li><a href="https://gitlab.archlinux.org/archlinux/archlinux-wsl/-/merge_requests/76">Merge request to implement the required changes to make the WSL image fully reproducible</a></li>
+<li>This was covered both in the <a href="https://lists.archlinux.org/archives/list/arch-dev-public@lists.archlinux.org/thread/XDF2IIWNCZZR6KABH2OGSN7AVL7BBX25/">Arch Dev Public Mailing List</a> and the <a href="https://lists.reproducible-builds.org/pipermail/rb-general/2025-December/003975.html">Reproducible Builds Mailing List</a>, as well as in <code>reproducible-builds.org</code>&rsquo;s <a href="https://reproducible-builds.org/reports/2025-12/#distribution-work">December 2025 monthly news</a></li>
+<li>I also wrote <a href="https://antiz.fr/blog/the-archlinux-wsl-image-is-now-reproducible/">a blog post on the subject</a>, including more details</li>
+</ul>
+<p>I joined a work group to move the git hosting for the Reproducible Builds website from <a href="https://salsa.debian.org/reproducible-builds/reproducible-website">Debian&rsquo;s GitLab / Salsa instance</a> to <a href="https://codeberg.org/reproducible-builds/reproducible-website">Codeberg</a> (note that, I&rsquo;m the time I&rsquo;m writing these lines, the migration is still a work in progress and hasn&rsquo;t fully been done yet).</p>
+<h2 id="alpine-linux">Alpine Linux</h2>
+<h3 id="packaging-1">Packaging</h3>
+<p>I pushed 47 commits to Alpine Linux <a href="https://gitlab.alpinelinux.org/alpine/aports">aports</a>, most of which being aports (packages) updates.</p>
+<p>I also added a total of 8 new aports (packages) to Alpine Linux repositories:</p>
+<ul>
+<li><a href="https://pkgs.alpinelinux.org/packages?name=sshs">sshs</a></li>
+<li><a href="https://pkgs.alpinelinux.org/packages?name=typobuster">typobuster</a></li>
+<li><a href="https://pkgs.alpinelinux.org/packages?name=nwg-look">nwg-look</a></li>
+<li><a href="https://pkgs.alpinelinux.org/packages?name=prometheus-fastly-exporter">prometheus-fastly-exporter</a></li>
+<li><a href="https://pkgs.alpinelinux.org/packages?name=wl-clip-persist">wl-clip-persist</a></li>
+<li><a href="https://pkgs.alpinelinux.org/packages?name=syd-tui">syd-tui</a></li>
+<li><a href="https://pkgs.alpinelinux.org/packages?name=pandora_box">pandora_box</a></li>
+<li><a href="https://pkgs.alpinelinux.org/packages?name=wlr-sunclock">wlr-sunclock</a></li>
+</ul>
+<h3 id="tooling">Tooling</h3>
+<p>I opened 3 merge request to <code>abuild</code> (Alpine Linux build tools) to submit some fixes and improvements to the <code>abump</code> script:</p>
+<ul>
+<li><a href="https://gitlab.alpinelinux.org/alpine/abuild/-/merge_requests/479">Fix a typo in the man page</a></li>
+<li><a href="https://gitlab.alpinelinux.org/alpine/abuild/-/merge_requests/477">Add support to extend the resulted commit message</a></li>
+<li><a href="https://gitlab.alpinelinux.org/alpine/abuild/-/merge_requests/478">Add support to push the resulted commit</a></li>
+<li><a href="https://gitlab.alpinelinux.org/alpine/abuild/-/merge_requests/476">Add support to build in a clean chroot via <code>abuild rootbld</code></a> (but I ended up closing it as a duplicated of <a href="https://gitlab.alpinelinux.org/alpine/abuild/-/merge_requests/468">this merge request</a>, which I somehow missed &#x1fae3;)</li>
+</ul>
+<p>As mentioned earlier, I also added <a href="https://gitlab.alpinelinux.org/alpine/infra/atools-go">atools-go</a> to the <a href="https://archlinux.org/packages/extra/x86_64/atools-go">Arch Linux repository</a>.</p>
+<h2 id="arch-update">Arch-Update</h2>
+<p>Arch-Update got 49 new <a href="https://github.com/Antiz96/arch-update/releases">releases</a> in 2025, 19 new <a href="https://github.com/Antiz96/arch-update/graphs/contributors">contributors</a> and a lot of new features, including (but not limited to):</p>
+<ul>
+<li>A new shiny icon set</li>
+<li>A dropdown submenu for each package sources (All, Package, AUR, Flatpak) in the systay applet right-click menu</li>
+<li>Support for disabling desktop notifications, AUR support and Flatpak support from the configuration file</li>
+<li>A new <code>-s / --services</code> option to check for services requiring a post upgrade restart at any time, outside of the main &ldquo;system upgrade&rdquo; function</li>
+<li>New click actions in desktop notifications allowing to directly run Arch-Update or dismiss the notification</li>
+<li>A new feature opening the upstream project URL of a package pending for update in a web browser when its entry is clicked from the systray applet right-click menu (allowing one to easily check release notes, for instance)</li>
+<li>Support for <code>sudo-rs</code> (in addition of <code>sudo</code>, <code>doas</code> &amp; <code>run0</code>)</li>
+<li>Overall improvements regarding the Flatpak support / integration</li>
+<li>Ease translation maintenance and contributions</li>
+<li>New translations, including:
+<ul>
+<li>Chinese (simplified)</li>
+<li>Chinese (traditional)</li>
+<li>Hungarian</li>
+<li>German</li>
+<li>Brazilian</li>
+<li>Spanish</li>
+<li>Russian</li>
+</ul>
+</li>
+</ul>
+<p>Arch-Update was also forked &amp; adopted by <a href="https://cachyos.org/">CachyOS</a> as <a href="https://github.com/CachyOS/cachy-update/tree/main">Cachy-Update</a>! &#x1f680;<br>
+CachyOS users can enable it in the by checking the <code>Cachy Update enabled</code> check box under the <code>App/Tweaks</code> menu in the <code>CachyOS Hello</code> application. See the <code>Cachy-Update</code> entry in CachyOS&rsquo;s <a href="https://wiki.cachyos.org/configuration/post_install_setup/#updating-the-system">&ldquo;Updating The System&rdquo; wiki page</a> for more details.</p>
+<h2 id="other">Other</h2>
+<p>I attended to some FOSS related events:</p>
+<ul>
+<li><a href="https://archive.fosdem.org/2025/">FOSDEM</a></li>
+<li>Arch Summit</li>
+<li><a href="https://reproducible-builds.org/events/vienna2025/">Reproducible Build Summit</a></li>
+</ul>
+<p>I wrote 2 blog posts:</p>
+<ul>
+<li><a href="https://antiz.fr/blog/foss-recap-2024/">FOSS Recap 2024</a></li>
+<li><a href="https://antiz.fr/blog/archlinux-official-wsl-image/">Arch Linux Now Has an Official WSL Image</a></li>
+<li><a href="https://antiz.fr/blog/the-archlinux-wsl-image-is-now-reproducible/">The Arch Linux WSL Image Is Now Reproducible</a></li>
+</ul>
+<p>I <a href="https://pretalx.fosdem.org/fosdem-2026/talk/review/DLVABWSFKHNWBF7NYCKMJ3UVSXHNLSQG">submitted a talk</a> for <a href="https://fosdem.org/2026/">FOSDEM 2026</a>, which was accepted! &#x1f973; &#x1f389;</p>
+<p>I installed <a href="https://postmarketos.org/">postmarketOS</a> on a Samsung Galaxy S9+ and I also got 2 <a href="https://pine64.org/devices/pinetime/">pinetime</a>, can&rsquo;t wait to play around and hack on those! &#x1f60e;</p>
+<hr>
+<p>That&rsquo;s it!</p>
+<p>2025 was a pretty busy year and I&rsquo;m once again very happy &amp; proud about everything I had the chance to work on &amp; achieve this year! &#x1f603;</p>
+<p>I&rsquo;d like to conclude once again by thanking every awesome people I had the chance to meet, spend some time and work with this year. The above accomplishments probably wouldn&rsquo;t be a thing without them! &#x1f64f;
+Also, happy new year everyone! &#x1f917;</p>
+</div>
+    <div class="post__footer">
+      
+
+      
+    </div>
+
+    
+  </div>
+
+      </main>
+    </div><footer class="footer footer__base">
+  <ul class="footer__list">
+    <li class="footer__item">
+      &copy;
+      
+        Robin Candau
+        2026
+      
+    </li>
+    
+  </ul>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.9531b4a2217a70c5a1fce89c1f81c9ebbdd586708fcd4130b417320c7230c8d6.js"
+    integrity="sha256-lTG0oiF6cMWh/OicH4HJ673VhnCPzUEwtBcyDHIwyNY="
+    crossorigin="anonymous"
+  ></script></body>
+</html>
