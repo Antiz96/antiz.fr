@@ -1,6 +1,6 @@
 ---
 title: "FOSS Recap 2025"
-date: 2025-01-02T15:40:00+02:00
+date: 2026-01-02T21:30:00+02:00
 draft: false
 ---
 
