@@ -131,8 +131,9 @@ Together with [Mark](https://hegreberg.io/), we worked at making the Arch Linux 
 
 - [Merge request to add a dedicated CI stage to automatically test the WSL image reproducibility status](https://gitlab.archlinux.org/archlinux/archlinux-wsl/-/merge_requests/74)
 - [Merge request to implement the required changes to make the WSL image fully reproducible](https://gitlab.archlinux.org/archlinux/archlinux-wsl/-/merge_requests/76)
-- This was covered both in the [Arch Dev Public Mailing List](https://lists.archlinux.org/archives/list/arch-dev-public@lists.archlinux.org/thread/XDF2IIWNCZZR6KABH2OGSN7AVL7BBX25/) and the [Reproducible Builds Mailing List](https://lists.reproducible-builds.org/pipermail/rb-general/2025-December/003975.html), as well as in `reproducible-builds.org`'s [December 2025 monthly news](https://reproducible-builds.org/reports/2025-12/#distribution-work)
+- This was covered both in the [Arch Dev Public Mailing List](https://lists.archlinux.org/archives/list/arch-dev-public@lists.archlinux.org/thread/XDF2IIWNCZZR6KABH2OGSN7AVL7BBX25/) and the [Reproducible Builds Mailing List](https://lists.reproducible-builds.org/pipermail/rb-general/2025-December/003975.html), as well as in the `reproducible-builds.org`'s [December 2025 monthly news](https://reproducible-builds.org/reports/2025-12/#distribution-work)
 - I also wrote [a blog post on the subject](https://antiz.fr/blog/the-archlinux-wsl-image-is-now-reproducible/), including more details
+- We intend to take advantage of our discoveries and achievement on that matter to work toward a bit-for-bit reproducible [Arch Linux Docker image](https://gitlab.archlinux.org/archlinux/archlinux-docker) in the near future
 
 I joined a work group to move the git hosting for the Reproducible Builds website from [Debian's GitLab / Salsa instance](https://salsa.debian.org/reproducible-builds/reproducible-website) to [Codeberg](https://codeberg.org/reproducible-builds/reproducible-website) (note that, I'm the time I'm writing these lines, the migration is still a work in progress and hasn't fully been done yet).
 
