@@ -169,7 +169,7 @@ I also added a total of 8 new aports (packages) to Alpine Linux repositories:
 
 ### Tooling
 
-I opened 3 merge requests to `abuild` (Alpine Linux build tools) to submit some fixes and improvements to the `abump` script:
+I opened 4 merge requests to `abuild` (Alpine Linux build tools) to submit some fixes and improvements to the `abump` script:
 
 - [Fix a typo in the man page](https://gitlab.alpinelinux.org/alpine/abuild/-/merge_requests/479)
 - [Add support to extend the resulted commit message](https://gitlab.alpinelinux.org/alpine/abuild/-/merge_requests/477)
