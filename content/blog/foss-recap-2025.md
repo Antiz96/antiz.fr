@@ -201,7 +201,7 @@ Arch-Update got 49 new [releases](https://github.com/Antiz96/arch-update/release
    - Russian
 
 Arch-Update was also forked and adopted by [CachyOS](https://cachyos.org/) as [Cachy-Update](https://github.com/CachyOS/cachy-update/tree/main)! :rocket:  
-CachyOS users can enable it by checking the "Cachy Update enabled" check box under the `App/Tweaks` menu in the `CachyOS Hello` application. See the `Cachy-Update` entry in CachyOS's ["Updating The System" wiki page](https://wiki.cachyos.org/configuration/post_install_setup/#updating-the-system) for more details.
+CachyOS users can enable it by checking the "Cachy Update enabled" check box under the `App/Tweaks` menu in the `CachyOS Hello` application. See the `Cachy-Update` entry in the CachyOS ["Updating The System" wiki page](https://wiki.cachyos.org/configuration/post_install_setup/#updating-the-system) for more details.
 
 ## Other
 
