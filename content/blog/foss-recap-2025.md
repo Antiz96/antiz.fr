@@ -217,7 +217,7 @@ I wrote 3 blog posts:
 - [Arch Linux Now Has an Official WSL Image](https://antiz.fr/blog/archlinux-official-wsl-image/)
 - [The Arch Linux WSL Image Is Now Reproducible](https://antiz.fr/blog/the-archlinux-wsl-image-is-now-reproducible/)
 
-I [submitted a talk](https://pretalx.fosdem.org/fosdem-2026/talk/review/DLVABWSFKHNWBF7NYCKMJ3UVSXHNLSQG) for [FOSDEM 2026](https://fosdem.org/2026/), which was accepted! :partying_face: :tada:
+I [submitted a talk](https://fosdem.org/2026/schedule/event/FFWA7E-transparent-sources-for-arch-linux-packages/) for [FOSDEM 2026](https://fosdem.org/2026/), which was accepted! :partying_face: :tada:
 
 I installed [postmarketOS](https://postmarketos.org/) on a [Samsung Galaxy S9+](https://fosstodon.org/@Antiz/114082813412984878) and I also got 2 [pinetime](https://pine64.org/devices/pinetime/), can't wait to play around and hack on those! :sunglasses:
 
