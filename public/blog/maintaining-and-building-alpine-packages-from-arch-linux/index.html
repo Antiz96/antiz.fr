@@ -7,8 +7,7 @@
     class="html theme--light"
   
 ><head>
-  <meta charset="utf-8" />
-  <title>
+  <meta charset="utf-8" /><title>
     Robin Candau
         |
         Maintaining and building Alpine packages from Arch Linux
@@ -18,7 +17,7 @@
 
   </title>
 
-  <meta name="generator" content="Hugo 0.154.5"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="generator" content="Hugo 0.157.0"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <meta name="author" content="Robin Candau" />
   <meta
     name="description"
@@ -141,8 +140,6 @@ Enabling the Alpine packaging workflow directly from an Arch Linux system stream
 
   
   
-  
-  
   <script type="application/ld+json">
     {
         "@context": "http://schema.org",
@@ -223,12 +220,12 @@ Enabling the Alpine packaging workflow directly from an Arch Linux system stream
         
           class="wrapper__sidebar"
         
-      ><div
-  class="sidebar
-    animated fadeInDown
-  "
->
-  <div class="sidebar__content">
+      ><div class="sidebar">
+  <div
+    class="sidebar__content 
+      animated fadeInDown
+    "
+  >
     <div class="sidebar__introduction">
       <img
         class="sidebar__introduction-profileimage"
@@ -332,7 +329,11 @@ Enabling the Alpine packaging workflow directly from an Arch Linux system stream
       
     </ul>
   </div><footer class="footer footer__sidebar">
-  <ul class="footer__list">
+  <ul
+    class="footer__list 
+      animated fadeInDown
+    "
+  >
     <li class="footer__item">
       &copy;
       
@@ -451,15 +452,15 @@ Enabling the Alpine packaging workflow directly from an Arch Linux system stream
 <p>Of course, due to technical differences between Alpine and Arch Linux (e.g. in terms of package manager, init system and C library implementation), building Alpine packages on an Arch system outside of an Alpine clean chroot is not possible. As such, when <strong>building</strong> Alpine packages on an Arch system, only <code>abuild rootbld</code> is relevant to use.</p>
 <h2 id="environment-setup-to-perform-alpine-packaging-from-arch-linux">Environment setup to perform Alpine packaging from Arch Linux</h2>
 <p>Install the <a href="https://archlinux.org/packages/extra/x86_64/abuild/">abuild</a> and <a href="https://archlinux.org/packages/extra/x86_64/atools/">atools</a> packages:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo pacman -S abuild atools
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo pacman -S abuild atools
 </span></span></code></pre></div><p>To be able to build Alpine packages in a clean chroot with <code>abuild rootbld</code>, you need to generate a public / private rsa key pair with the <code>abuild-keygen</code> tool and add your user to the <code>abuild</code> group (which is created when installing the <a href="https://archlinux.org/packages/extra/x86_64/abuild/">abuild package</a>):</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>abuild-keygen -a -i
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>abuild-keygen -a -i
 </span></span><span style="display:flex;"><span>sudo usermod -aG abuild <span style="color:#e6db74">&#34;username&#34;</span> <span style="color:#75715e"># Requires a logout / login to take effect</span>
 </span></span></code></pre></div><p>One can optionally edit the <code>/etc/abuild.conf</code> configuration file to their liking and requirements. For instance, the paths used to store downloaded sources (<code>/var/cache/distfiles</code> by default) and built packages (<code>~/packages</code> by default) can be customized by modifying the <code>SRCDEST</code> and <code>REPODEST</code> parameters respectively in that configuration file.</p>
 <p>See the <a href="https://wiki.archlinux.org/title/Abuild">Arch wiki abuild page</a> for more details.</p>
 <h2 id="basic-alpine-packaging-workflow-from-arch-linux">Basic Alpine packaging workflow from Arch Linux</h2>
 <p>With the above setup, I&rsquo;m able to perform my usual basic Alpine packaging workflow directly from my Arch Linux system:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>newapkbuild <span style="color:#e6db74">&#34;package_name&#34;</span> <span style="color:#f92672">&amp;&amp;</span> cd <span style="color:#e6db74">&#34;package_name&#34;</span> <span style="color:#75715e"># Create a new port for a package and `cd` into it</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>newapkbuild <span style="color:#e6db74">&#34;package_name&#34;</span> <span style="color:#f92672">&amp;&amp;</span> cd <span style="color:#e6db74">&#34;package_name&#34;</span> <span style="color:#75715e"># Create a new port for a package and `cd` into it</span>
 </span></span><span style="display:flex;"><span>vim APKBUILD <span style="color:#75715e"># Edit the APKBUILD</span>
 </span></span><span style="display:flex;"><span>apkbuild-lint APKBUILD <span style="color:#75715e"># Run the apkbuild linter</span>
 </span></span><span style="display:flex;"><span>apkbuild-fixer APKBUILD <span style="color:#75715e"># Attempt to automatically fix potential warnings raised by `apkbuild-lint`</span>
@@ -479,7 +480,11 @@ Enabling the Alpine packaging workflow directly from an Arch Linux system stream
 
       </main>
     </div><footer class="footer footer__base">
-  <ul class="footer__list">
+  <ul
+    class="footer__list 
+      animated fadeInDown
+    "
+  >
     <li class="footer__item">
       &copy;
       
