@@ -7,8 +7,7 @@
     class="html theme--light"
   
 ><head>
-  <meta charset="utf-8" />
-  <title>
+  <meta charset="utf-8" /><title>
     Robin Candau
         |
         Arch Linux now has an official WSL image
@@ -18,7 +17,7 @@
 
   </title>
 
-  <meta name="generator" content="Hugo 0.154.5"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="generator" content="Hugo 0.157.0"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <meta name="author" content="Robin Candau" />
   <meta
     name="description"
@@ -141,8 +140,6 @@ This subject was actually explored a few years back but got turned down due to m
 
   
   
-  
-  
   <script type="application/ld+json">
     {
         "@context": "http://schema.org",
@@ -223,12 +220,12 @@ This subject was actually explored a few years back but got turned down due to m
         
           class="wrapper__sidebar"
         
-      ><div
-  class="sidebar
-    animated fadeInDown
-  "
->
-  <div class="sidebar__content">
+      ><div class="sidebar">
+  <div
+    class="sidebar__content 
+      animated fadeInDown
+    "
+  >
     <div class="sidebar__introduction">
       <img
         class="sidebar__introduction-profileimage"
@@ -332,7 +329,11 @@ This subject was actually explored a few years back but got turned down due to m
       
     </ul>
   </div><footer class="footer footer__sidebar">
-  <ul class="footer__list">
+  <ul
+    class="footer__list 
+      animated fadeInDown
+    "
+  >
     <li class="footer__item">
       &copy;
       
@@ -466,7 +467,7 @@ I then set up a scheduled <a href="https://gitlab.archlinux.org/archlinux/archli
 In collaboration with the Microsoft&rsquo;s WSL team, we therefore <a href="https://github.com/microsoft/WSL/pull/12818">added the Arch Linux WSL image to the official WSL Linux distributions manifest</a>:</p>
 <p><img src="../../images/archlinux-wsl-image/wsl-distributions-list.png" alt="alt text" title="WSL official Linux distributions list"></p>
 <p>This allows users to download and install the latest Arch Linux <code>WSL</code> image from a Windows system with WSL installed in a fully automated way via a single <code>PowerShell</code> command! 🥳🎉</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>wsl --install archlinux
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>wsl --install archlinux
 </span></span></code></pre></div><h2 id="final-thoughts">Final thoughts</h2>
 <p>I am <em>really</em> happy and proud that we managed to get this through! Not only on the Arch Linux side itself (as the subject raised much more resilience and concerns the first time it was raised a few years back) but also on the Microsoft one, who showed a very helpful and cooperative approach toward our effort!<br>
 I hope that this official Arch Linux <code>WSL</code> image will be useful to some people and will be beneficial for Arch Linux&rsquo;s discoverability and accessibility.</p>
@@ -492,7 +493,11 @@ I hope that this official Arch Linux <code>WSL</code> image will be useful to so
 
       </main>
     </div><footer class="footer footer__base">
-  <ul class="footer__list">
+  <ul
+    class="footer__list 
+      animated fadeInDown
+    "
+  >
     <li class="footer__item">
       &copy;
       
