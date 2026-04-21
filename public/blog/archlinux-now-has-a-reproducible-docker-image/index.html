@@ -201,7 +201,7 @@ The reason for this is due to one noticeable caveat: to ensure reproducibility, 
 
     ,
         "url" : "https:\/\/antiz.fr\/blog\/archlinux-now-has-a-reproducible-docker-image\/",
-        "wordCount" : "507",
+        "wordCount" : "509",
         "genre" : [ ],
         "keywords" : [ ]
     }
@@ -476,9 +476,10 @@ Documentation to reproduce this Docker image is available <a href="https://gitla
 </span></span><span style="display:flex;"><span>File    var/cache/ldconfig/  2026-03-31 07:57:46 +0000 UTC    2026-03-31 07:59:21 +0000 UTC
 </span></span><span style="display:flex;"><span>File    proc/                2026-03-31 07:57:46 +0000 UTC    2026-03-31 07:59:21 +0000 UTC
 </span></span><span style="display:flex;"><span>File    dev/                 2026-03-31 07:57:46 +0000 UTC    2026-03-31 07:59:21 +0000 UTC
-</span></span></code></pre></div><p>You can check <a href="https://gitlab.archlinux.org/archlinux/archlinux-docker/-/merge_requests/96/diffs">the related change set in our archlinux-docker repository</a> for more details. Thanks to <a href="https://hegreberg.io/">Mark</a> for his help on that front!</p>
+</span></span></code></pre></div><p>You can check <a href="https://gitlab.archlinux.org/archlinux/archlinux-docker/-/merge_requests/96/diffs">the related change set in our archlinux-docker repository</a> for more details.<br>
+Thanks to <a href="https://hegreberg.io/">Mark</a> for his help on that front!</p>
 <p>This represents yet another meaningful achievement regarding our general &ldquo;reproducible builds&rdquo; efforts and I&rsquo;m already looking forward to the next step! &#x1f917;</p>
-<p>For what it&rsquo;s worth, I&rsquo;m eventually considering setting up a rebuilder for this Docker image (also for <a href="https://gitlab.archlinux.org/archlinux/archlinux-wsl/-/blob/main/REPRO.md">the WSL image</a> and future eventual reproducible images) on my server in order to periodically / automatically rebuild the latest image available, verify it&rsquo;s reproducibility status and sharing build logs / results publicly somewhere (if I find the time to get to it &#x1f47c;).</p>
+<p>For what it&rsquo;s worth, I&rsquo;m eventually considering setting up a rebuilder for this Docker image (as well as for <a href="https://gitlab.archlinux.org/archlinux/archlinux-wsl/-/blob/main/REPRO.md">the WSL image</a> and future eventual reproducible images) on my server in order to periodically / automatically rebuild the latest image available, verify it&rsquo;s reproducibility status and share build logs / results publicly somewhere (if I find the time to get to it &#x1f47c;).</p>
 </div>
     <div class="post__footer">
       
