@@ -47,8 +47,9 @@ File    proc/                2026-03-31 07:57:46 +0000 UTC    2026-03-31 07:59:2
 File    dev/                 2026-03-31 07:57:46 +0000 UTC    2026-03-31 07:59:21 +0000 UTC
 ```
 
-You can check [the related change set in our archlinux-docker repository](https://gitlab.archlinux.org/archlinux/archlinux-docker/-/merge_requests/96/diffs) for more details. Thanks to [Mark](https://hegreberg.io/) for his help on that front!
+You can check [the related change set in our archlinux-docker repository](https://gitlab.archlinux.org/archlinux/archlinux-docker/-/merge_requests/96/diffs) for more details.  
+Thanks to [Mark](https://hegreberg.io/) for his help on that front!
 
 This represents yet another meaningful achievement regarding our general "reproducible builds" efforts and I'm already looking forward to the next step! :hugs:
 
-For what it's worth, I'm eventually considering setting up a rebuilder for this Docker image (also for [the WSL image](https://gitlab.archlinux.org/archlinux/archlinux-wsl/-/blob/main/REPRO.md) and future eventual reproducible images) on my server in order to periodically / automatically rebuild the latest image available, verify it's reproducibility status and sharing build logs / results publicly somewhere (if I find the time to get to it :angel:).
+For what it's worth, I'm eventually considering setting up a rebuilder for this Docker image (as well as for [the WSL image](https://gitlab.archlinux.org/archlinux/archlinux-wsl/-/blob/main/REPRO.md) and future eventual reproducible images) on my server in order to periodically / automatically rebuild the latest image available, verify it's reproducibility status and share build logs / results publicly somewhere (if I find the time to get to it :angel:).
