@@ -4,7 +4,7 @@ date: 2026-04-21T22:30:00+02:00
 draft: false
 ---
 
-As a follow-up to the [related milestone achieved for our WSL image a few months ago](https://antiz.fr/blog/the-archlinux-wsl-image-is-now-reproducible/), I'm proud to share that Arch Linux now has a bit-for-bit reproducible Docker image!
+As a follow-up to the [similar milestone reached for our WSL image a few months ago](https://antiz.fr/blog/the-archlinux-wsl-image-is-now-reproducible/), I'm happy to share that Arch Linux now has a bit-for-bit reproducible Docker image!
 
 This bit-for-bit reproducible image is distributed under a new ["repro" tag](https://hub.docker.com/layers/archlinux/archlinux/repro).  
 The reason for this is due to one *noticeable* caveat: to ensure reproducibility, the pacman keys have to be stripped from the image, meaning that pacman is not usable *out of the box* in this image. While waiting to find a suitable solution to this technical constraint, we are therefore providing this reproducible image under a dedicated tag as a first milestone.
