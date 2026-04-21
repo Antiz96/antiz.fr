@@ -1,6 +1,6 @@
 ---
 title: "Arch Linux now has a bit-for-bit reproducible Docker image"
-date: 2026-04-20:00:00+02:00
+date: 2026-04-21T22:30:00+02:00
 draft: false
 ---
 
