@@ -10,7 +10,7 @@
   <meta charset="utf-8" /><title>
     Robin Candau
         |
-        The automated workflow I use to manage this website
+        Arch Linux now has a bit-for-bit reproducible Docker image
       
 
     
@@ -83,7 +83,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
 
-  <link rel="canonical" href="https://antiz.fr/blog/website-workflow/" />
+  <link rel="canonical" href="https://antiz.fr/blog/archlinux-now-has-a-reproducible-docker-image/" />
   
   
   
@@ -116,27 +116,25 @@
   
   
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="The automated workflow I use to manage this website">
-  <meta name="twitter:description" content="The website This website is built with the HUGO static website generator using the anatole theme.
-The website’s source code is hosted in this GitHub repository.
-Automated CI / CD workflow Every changes I make (e.g. creating a new article, update the theme, add new parameters to the website, …) are done in my local git repository on the dev branch.
-Once the changes are pushed to GitHub, I create a pull request from the dev branch to the main branch, which triggers CI / CD pipelines (running on my own self-hosted runners):">
+  <meta name="twitter:title" content="Arch Linux now has a bit-for-bit reproducible Docker image">
+  <meta name="twitter:description" content="As a follow-up to the similar milestone reached for our WSL image a few months ago, I’m happy to share that Arch Linux now has a bit-for-bit reproducible Docker image!
+This bit-for-bit reproducible image is distributed under a new “repro” tag.
+The reason for this is due to one noticeable caveat: to ensure reproducibility, the pacman keys have to be stripped from the image, meaning that pacman is not usable out of the box in this image. While waiting to find a suitable solution to this technical constraint, we are therefore providing this reproducible image under a dedicated tag as a first milestone.">
 
 
 
   
-  <meta property="og:url" content="https://antiz.fr/blog/website-workflow/">
+  <meta property="og:url" content="https://antiz.fr/blog/archlinux-now-has-a-reproducible-docker-image/">
   <meta property="og:site_name" content="Robin Candau">
-  <meta property="og:title" content="The automated workflow I use to manage this website">
-  <meta property="og:description" content="The website This website is built with the HUGO static website generator using the anatole theme.
-The website’s source code is hosted in this GitHub repository.
-Automated CI / CD workflow Every changes I make (e.g. creating a new article, update the theme, add new parameters to the website, …) are done in my local git repository on the dev branch.
-Once the changes are pushed to GitHub, I create a pull request from the dev branch to the main branch, which triggers CI / CD pipelines (running on my own self-hosted runners):">
+  <meta property="og:title" content="Arch Linux now has a bit-for-bit reproducible Docker image">
+  <meta property="og:description" content="As a follow-up to the similar milestone reached for our WSL image a few months ago, I’m happy to share that Arch Linux now has a bit-for-bit reproducible Docker image!
+This bit-for-bit reproducible image is distributed under a new “repro” tag.
+The reason for this is due to one noticeable caveat: to ensure reproducibility, the pacman keys have to be stripped from the image, meaning that pacman is not usable out of the box in this image. While waiting to find a suitable solution to this technical constraint, we are therefore providing this reproducible image under a dedicated tag as a first milestone.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2023-07-24T13:20:26+02:00">
-    <meta property="article:modified_time" content="2023-07-24T13:20:26+02:00">
+    <meta property="article:published_time" content="2026-04-21T22:30:00+02:00">
+    <meta property="article:modified_time" content="2026-04-21T22:30:00+02:00">
 
 
 
@@ -147,12 +145,12 @@ Once the changes are pushed to GitHub, I create a pull request from the dev bran
         "@context": "http://schema.org",
         "@type": "BlogPosting",
         "articleSection": "blog",
-        "name": "The automated workflow I use to manage this website",
-        "headline": "The automated workflow I use to manage this website",
+        "name": "Arch Linux now has a bit-for-bit reproducible Docker image",
+        "headline": "Arch Linux now has a bit-for-bit reproducible Docker image",
         "alternativeHeadline": "",
         "description": "
       
-        \u003ch2 id=\u0022the-website\u0022\u003eThe website\u003c\/h2\u003e\n\u003cp\u003eThis website is built with the \u003ca href=\u0022https:\/\/gohugo.io\/\u0022\u003eHUGO\u003c\/a\u003e static website generator using the \u003ca href=\u0022https:\/\/github.com\/lxndrblz\/anatole\u0022\u003eanatole\u003c\/a\u003e theme.\u003cbr\u003e\nThe website\u0026rsquo;s source code is hosted in \u003ca href=\u0022https:\/\/github.com\/Antiz96\/antiz.fr\/\u0022\u003ethis GitHub repository\u003c\/a\u003e.\u003c\/p\u003e\n\u003ch2 id=\u0022automated-ci--cd-workflow\u0022\u003eAutomated CI \/ CD workflow\u003c\/h2\u003e\n\u003cp\u003eEvery changes I make (e.g. creating a new article, update the theme, add new parameters to the website, \u0026hellip;) are done in my local git repository on the \u003ca href=\u0022https:\/\/github.com\/Antiz96\/antiz.fr\/tree\/dev\u0022\u003e\u003ccode\u003edev\u003c\/code\u003e branch\u003c\/a\u003e.\u003cbr\u003e\nOnce the changes are pushed to GitHub, I create a pull request from the \u003ccode\u003edev\u003c\/code\u003e branch to the main branch, which triggers CI \/ CD pipelines (running on my own self-hosted runners):\u003c\/p\u003e
+        \u003cp\u003eAs a follow-up to the \u003ca href=\u0022https:\/\/antiz.fr\/blog\/the-archlinux-wsl-image-is-now-reproducible\/\u0022\u003esimilar milestone reached for our WSL image a few months ago\u003c\/a\u003e, I\u0026rsquo;m happy to share that Arch Linux now has a bit-for-bit reproducible Docker image!\u003c\/p\u003e\n\u003cp\u003eThis bit-for-bit reproducible image is distributed under a new \u003ca href=\u0022https:\/\/hub.docker.com\/layers\/archlinux\/archlinux\/repro\u0022\u003e\u0026ldquo;repro\u0026rdquo; tag\u003c\/a\u003e.\u003cbr\u003e\nThe reason for this is due to one \u003cem\u003enoticeable\u003c\/em\u003e caveat: to ensure reproducibility, the pacman keys have to be stripped from the image, meaning that pacman is not usable \u003cem\u003eout of the box\u003c\/em\u003e in this image. While waiting to find a suitable solution to this technical constraint, we are therefore providing this reproducible image under a dedicated tag as a first milestone.\u003c\/p\u003e
 
 
       
@@ -165,7 +163,7 @@ Once the changes are pushed to GitHub, I create a pull request from the dev bran
         "isFamilyFriendly": "true",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/antiz.fr\/blog\/website-workflow\/"
+            "@id": "https:\/\/antiz.fr\/blog\/archlinux-now-has-a-reproducible-docker-image\/"
         },
         "author" : {
             "@type": "Person",
@@ -183,9 +181,9 @@ Once the changes are pushed to GitHub, I create a pull request from the dev bran
             "@type": "Person",
             "name": "Robin Candau"
         },
-        "dateCreated": "2023-07-24T13:20:26.00Z",
-        "datePublished": "2023-07-24T13:20:26.00Z",
-        "dateModified": "2023-07-24T13:20:26.00Z",
+        "dateCreated": "2026-04-21T22:30:00.00Z",
+        "datePublished": "2026-04-21T22:30:00.00Z",
+        "dateModified": "2026-04-21T22:30:00.00Z",
         "publisher":{
             "@type":"Organization",
             "name": "Robin Candau",
@@ -202,8 +200,8 @@ Once the changes are pushed to GitHub, I create a pull request from the dev bran
       ]
 
     ,
-        "url" : "https:\/\/antiz.fr\/blog\/website-workflow\/",
-        "wordCount" : "389",
+        "url" : "https:\/\/antiz.fr\/blog\/archlinux-now-has-a-reproducible-docker-image\/",
+        "wordCount" : "509",
         "genre" : [ ],
         "keywords" : [ ]
     }
@@ -427,7 +425,7 @@ Once the changes are pushed to GitHub, I create a pull request from the dev bran
     
     <div class="post__content">
       
-        <h1>The Automated Workflow I Use to Manage This Website</h1>
+        <h1>Arch Linux Now Has a Bit-for-Bit Reproducible Docker Image</h1>
       
       
         <ul class="post__meta">
@@ -436,7 +434,7 @@ Once the changes are pushed to GitHub, I create a pull request from the dev bran
             <span class="post__meta-text"
               >
                 
-                  Mon, Jul 24, 2023
+                  Tue, Apr 21, 2026
                 
 
               
@@ -444,39 +442,44 @@ Once the changes are pushed to GitHub, I create a pull request from the dev bran
           </li>
           <li class="post__meta-item">
             <em class="fas fa-stopwatch post__meta-icon"></em>
-            <span class="post__meta-text">2-minute read</span>
+            <span class="post__meta-text">3-minute read</span>
           </li>
         </ul>
-      <h2 id="the-website">The website</h2>
-<p>This website is built with the <a href="https://gohugo.io/">HUGO</a> static website generator using the <a href="https://github.com/lxndrblz/anatole">anatole</a> theme.<br>
-The website&rsquo;s source code is hosted in <a href="https://github.com/Antiz96/antiz.fr/">this GitHub repository</a>.</p>
-<h2 id="automated-ci--cd-workflow">Automated CI / CD workflow</h2>
-<p>Every changes I make (e.g. creating a new article, update the theme, add new parameters to the website, &hellip;) are done in my local git repository on the <a href="https://github.com/Antiz96/antiz.fr/tree/dev"><code>dev</code> branch</a>.<br>
-Once the changes are pushed to GitHub, I create a pull request from the <code>dev</code> branch to the main branch, which triggers CI / CD pipelines (running on my own self-hosted runners):</p>
-<p><img src="../../images/website-workflow/CI_CD_Jobs.png" alt="alt_text" title="Website Workflow - CI_CD Jobs"></p>
-<h3 id="ci">CI</h3>
-<p>The <a href="https://github.com/Antiz96/antiz.fr/blob/main/.github/workflows/CI.yml">CI pipeline</a> has one &ldquo;Test&rdquo; stage which, as the name implies, runs a bunch of tests (e.g. spellcheckers &amp; linters):</p>
-<p><img src="../../images/website-workflow/CI_Job.png" alt="alt_text" title="Website Workflow - CI Job"></p>
-<p><img src="../../images/website-workflow/CI_Job_Test_Stage_Steps.png" alt="alt_text" title="Website Workflow - CI Job Test Stage Steps"></p>
-<h3 id="cd">CD</h3>
-<p>The <a href="https://github.com/Antiz96/antiz.fr/blob/main/.github/workflows/CD.yml">CD pipeline</a> has two stages:</p>
-<p><img src="../../images/website-workflow/CD_Job.png" alt="alt_text" title="Website Workflow - CD Job"></p>
+      <p>As a follow-up to the <a href="https://antiz.fr/blog/the-archlinux-wsl-image-is-now-reproducible/">similar milestone reached for our WSL image a few months ago</a>, I&rsquo;m happy to share that Arch Linux now has a bit-for-bit reproducible Docker image!</p>
+<p>This bit-for-bit reproducible image is distributed under a new <a href="https://hub.docker.com/layers/archlinux/archlinux/repro">&ldquo;repro&rdquo; tag</a>.<br>
+The reason for this is due to one <em>noticeable</em> caveat: to ensure reproducibility, the pacman keys have to be stripped from the image, meaning that pacman is not usable <em>out of the box</em> in this image. While waiting to find a suitable solution to this technical constraint, we are therefore providing this reproducible image under a dedicated tag as a first milestone.</p>
+<p>In practice, that means that users will need to (re)generate the pacman keyring in the container before being able to install and update packages via <code>pacman</code>, by running: <code>pacman-key --init &amp;&amp; pacman-key --populate archlinux</code> (whether interactively at first start or from a <code>RUN</code> statement in a Dockerfile if using this image as base).<br>
+Distrobox users can run this as a pre-init hook: <code>distrobox create -n arch-repro -i docker.io/archlinux/archlinux:repro --pre-init-hooks &quot;pacman-key --init &amp;&amp; pacman-key --populate archlinux&quot;</code></p>
+<p>The bit-for-bit reproducibility of the image is confirmed by digest equality across builds (via <code>podman inspect --format '{{.Digest}}' &lt;image&gt;</code>) and by using <a href="https://github.com/reproducible-containers/diffoci">diffoci</a> to compare builds.<br>
+Documentation to reproduce this Docker image is available <a href="https://gitlab.archlinux.org/archlinux/archlinux-docker/-/blob/master/REPRO.md">here</a>.</p>
+<p>Building the base rootFS for the Docker image in a deterministic way was the main challenge, but it reuses <a href="https://gitlab.archlinux.org/archlinux/archlinux-wsl/-/commit/7c0340e26358048f3f8ee03b3ab3aea666751712">the same process as for our WSL image</a> (as both share the same rootFS build system).</p>
+<p>The main Docker-specific adjustments include (see also the related <code>diffoci</code> reports):</p>
 <ul>
-<li>The &ldquo;Build&rdquo; stage:</li>
+<li>Set <code>SOURCE_DATE_EPOCH</code> and honor it in the <code>org.opencontainers.image.created</code> LABEL in the Dockerfile</li>
 </ul>
-<p>The &ldquo;Build&rdquo; stage builds the website via <code>hugo</code> and then commits the built changes to my repository (still on the <code>dev</code> branch).</p>
-<p><img src="../../images/website-workflow/CD_Job_Build_Stage_Steps.png" alt="alt_text" title="Website Workflow - CD Job Build Stage Steps"></p>
-<ul>
-<li>The &ldquo;Deploy&rdquo; stage:</li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>TYPE    NAME                  INPUT-0    INPUT-1
+</span></span><span style="display:flex;"><span>Cfg     ctx:/config/config    ?          ?
+</span></span></code></pre></div><ul>
+<li>Remove the ldconfig auxiliary cache file (which introduces non-determinism) from the built image in the Dockerfile:</li>
 </ul>
-<p>Once the &ldquo;Build&rdquo; stage has finished successfully, the &ldquo;Deploy&rdquo; stage is triggered.</p>
-<p><img src="../../images/website-workflow/CD_Job_Deploy_Stage_Steps.png" alt="alt_text" title="Website Workflow - CD Job Deploy Stage Steps"></p>
-<p>It allows to automatically deploy the website by remotely triggering the dedicated related job on my <a href="https://www.jenkins.io/">Jenkins</a> server. This Jenkins job can either target my <code>dev</code> or <code>prod</code> environment for the deployment (the former being hosted on a virtual server in my homelab, the latter being hosted on a VPS), thanks to a dedicated parameter.</p>
-<p><img src="../../images/website-workflow/Jenkins_Job_Parameters.png" alt="alt_text" title="Website Workflow - Jenkins Job Parameters"></p>
-<p>Under the hood, this Jenkins job runs a simple <a href="https://www.ansible.com/">Ansible</a> playbook (see that playbook <a href="https://github.com/Antiz96/Linux-Server/blob/main/Ansible-Playbooks/roles/update_antiz.fr/tasks/main.yml">here</a>) that aims to update the website&rsquo;s sources on the targeted environment against the related GitHub branch (<code>dev</code> branch &ndash;&gt; development environment, <code>main</code> branch &ndash;&gt; production environment).</p>
-<p>When opening a pull request from the <code>dev</code> branch to the <code>main</code> branch on the GitHub side, the &ldquo;Deploy&rdquo; stage of the &ldquo;CD&rdquo; pipeline remotely triggers the Jenkins job targeting the <code>dev</code> environment. My changes are thus automatically deployed and I can review them on my development environment.</p>
-<p>Once I reviewed the changes on my development environment and they are ready to go to production, I can just merge the pull request to the <code>main</code> branch which will <a href="https://github.com/Antiz96/antiz.fr/blob/main/.github/workflows/CD.yml#L4-L6">trigger a new run of the &ldquo;CD&rdquo; pipeline</a> with the &ldquo;Deploy&rdquo; stage targeting the <code>prod</code> environment this time!</p>
-<p>This workflow may evolve and be improved over time but it&rsquo;s a good example of a simple; yet effective, flexible and reliable automated CI / CD workflow you can use to manage your projects! &#x1f604;</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>TYPE    NAME                            INPUT-0                                                             INPUT-1
+</span></span><span style="display:flex;"><span>File    var/cache/ldconfig/aux-cache    656b08db599dbbd9eb0ec663172392023285ed6598f74a55326a3d95cdd5f5d0    ffee92304701425a85c2aff3ade5668e64bf0cc381cfe0a5cd3c0f4935114195
+</span></span></code></pre></div><ul>
+<li>Normalize timestamps during <code>docker build</code> / <code>podman build</code> using the <code>--source-date-epoch=$SOURCE_DATE_EPOCH</code> and <code>--rewrite-timestamp</code> options:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>TYPE    NAME                 INPUT-0                          INPUT-1
+</span></span><span style="display:flex;"><span>File    etc/                 2026-03-31 07:57:46 +0000 UTC    2026-03-31 07:59:21 +0000 UTC
+</span></span><span style="display:flex;"><span>File    etc/ld.so.cache      2026-03-31 07:57:46 +0000 UTC    2026-03-31 07:59:21 +0000 UTC
+</span></span><span style="display:flex;"><span>File    etc/os-release       2026-03-31 07:57:46 +0000 UTC    2026-03-31 07:59:21 +0000 UTC
+</span></span><span style="display:flex;"><span>File    sys/                 2026-03-31 07:57:46 +0000 UTC    2026-03-31 07:59:21 +0000 UTC
+</span></span><span style="display:flex;"><span>File    var/cache/           2026-03-31 07:57:46 +0000 UTC    2026-03-31 07:59:21 +0000 UTC
+</span></span><span style="display:flex;"><span>File    var/cache/ldconfig/  2026-03-31 07:57:46 +0000 UTC    2026-03-31 07:59:21 +0000 UTC
+</span></span><span style="display:flex;"><span>File    proc/                2026-03-31 07:57:46 +0000 UTC    2026-03-31 07:59:21 +0000 UTC
+</span></span><span style="display:flex;"><span>File    dev/                 2026-03-31 07:57:46 +0000 UTC    2026-03-31 07:59:21 +0000 UTC
+</span></span></code></pre></div><p>You can check <a href="https://gitlab.archlinux.org/archlinux/archlinux-docker/-/merge_requests/96/diffs">the related change set in our archlinux-docker repository</a> for more details.<br>
+Thanks to <a href="https://hegreberg.io/">Mark</a> for his help on that front!</p>
+<p>This represents yet another meaningful achievement regarding our general &ldquo;reproducible builds&rdquo; efforts and I&rsquo;m already looking forward to the next step! &#x1f917;</p>
+<p>For what it&rsquo;s worth, I&rsquo;m eventually considering setting up a rebuilder for this Docker image (as well as for <a href="https://gitlab.archlinux.org/archlinux/archlinux-wsl/-/blob/main/REPRO.md">the WSL image</a> and future eventual reproducible images) on my server in order to periodically / automatically rebuild the latest image available, verify it&rsquo;s reproducibility status and share build logs / results publicly somewhere (if I find the time to get to it &#x1f47c;).</p>
 </div>
     <div class="post__footer">
       

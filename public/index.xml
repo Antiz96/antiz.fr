@@ -8,6 +8,19 @@
     <language>en-us</language>
     <lastBuildDate>Thu, 16 Feb 2023 13:11:49 +0100</lastBuildDate><atom:link href="https://antiz.fr/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Arch Linux now has a bit-for-bit reproducible Docker image</title>
+      <link>https://antiz.fr/blog/archlinux-now-has-a-reproducible-docker-image/</link>
+      <pubDate>Tue, 21 Apr 2026 22:30:00 +0200</pubDate>
+      
+      <guid>https://antiz.fr/blog/archlinux-now-has-a-reproducible-docker-image/</guid>
+      
+        <description>&lt;p&gt;As a follow-up to the &lt;a href=&#34;https://antiz.fr/blog/the-archlinux-wsl-image-is-now-reproducible/&#34;&gt;similar milestone reached for our WSL image a few months ago&lt;/a&gt;, I&amp;rsquo;m happy to share that Arch Linux now has a bit-for-bit reproducible Docker image!&lt;/p&gt;
+&lt;p&gt;This bit-for-bit reproducible image is distributed under a new &lt;a href=&#34;https://hub.docker.com/layers/archlinux/archlinux/repro&#34;&gt;&amp;ldquo;repro&amp;rdquo; tag&lt;/a&gt;.&lt;br&gt;
+The reason for this is due to one &lt;em&gt;noticeable&lt;/em&gt; caveat: to ensure reproducibility, the pacman keys have to be stripped from the image, meaning that pacman is not usable &lt;em&gt;out of the box&lt;/em&gt; in this image. While waiting to find a suitable solution to this technical constraint, we are therefore providing this reproducible image under a dedicated tag as a first milestone.&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
       <title>FOSS Recap 2025</title>
       <link>https://antiz.fr/blog/foss-recap-2025/</link>
       <pubDate>Fri, 02 Jan 2026 21:30:00 +0200</pubDate>
