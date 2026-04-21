@@ -7,7 +7,8 @@ draft: false
 As a follow-up to the [related milestone achieved for our WSL image a few months ago](https://antiz.fr/blog/the-archlinux-wsl-image-is-now-reproducible/), I'm proud to share that Arch Linux now has a bit-for-bit reproducible Docker image!
 
 This bit-for-bit reproducible image is distributed under a new ["repro" tag](https://hub.docker.com/layers/archlinux/archlinux/repro).  
-The reason for this is due to one *noticeable* caveat: to ensure reproducibility, the pacman keys have to be stripped from the image, meaning that pacman is not usable *out of the box* in this image. While waiting to find a suitable solution to this technical constraint, we are therefore providing this reproducible image under a dedicated tag as a first milestone.  
+The reason for this is due to one *noticeable* caveat: to ensure reproducibility, the pacman keys have to be stripped from the image, meaning that pacman is not usable *out of the box* in this image. While waiting to find a suitable solution to this technical constraint, we are therefore providing this reproducible image under a dedicated tag as a first milestone.
+
 In practice, that means that users will need to (re)generate the pacman keyring in the container before being able to install and update packages via `pacman`, by running `pacman-key --init && pacman-key --populate archlinux` (whether interactively at first start or from a `RUN` statement in a Dockerfile if using this image as base). Distrobox users can run this as a pre-init hook, for instance: `distrobox create -n arch-repro -i docker.io/archlinux/archlinux:repro --pre-init-hooks "pacman-key --init && pacman-key --populate archlinux"`.  
 
 The bit-for-bit reproducibility of the image is confirmed by digest equality across builds (`podman inspect --format '{{.Digest}}' <image>`) and by using [diffoci](https://github.com/reproducible-containers/diffoci) to compare builds.  
@@ -49,4 +50,4 @@ You can check [the related change set in our archlinux-docker repository](https:
 
 This represents yet another meaningful achievement regarding our general "reproducible builds" efforts and I'm already looking forward to the next step! :hugs:
 
-For what it's worth, I'm eventually considering setting up a rebuilder for this Docker image (and [the WSL one as well](https://gitlab.archlinux.org/archlinux/archlinux-wsl/-/blob/main/REPRO.md$)) on my server in order to periodically / automatically rebuild the latest image available, verify it's reproducibility status and sharing build logs / results publicly somewhere (if I find the time to get to it :angel:).
+For what it's worth, I'm eventually considering setting up a rebuilder for this Docker image (also for [the WSL image](https://gitlab.archlinux.org/archlinux/archlinux-wsl/-/blob/main/REPRO.md) and future eventual reproducible images) on my server in order to periodically / automatically rebuild the latest image available, verify it's reproducibility status and sharing build logs / results publicly somewhere (if I find the time to get to it :angel:).
