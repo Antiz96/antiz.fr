@@ -57,7 +57,7 @@ summaryLength = 50
 	[[params.socialIcons]]
 	# https://github.com/lxndrblz/anatole/issues/590
 	#icon = "fab fa-ko-fi"
-	icon = "fas fa-mug-shot"
+	icon = "fas fa-mug-hot"
 	title = "Ko-fi"
 	url = "https://ko-fi.com/Antiz96"
 
