@@ -35,13 +35,6 @@ summaryLength = 50
 	url = "https://fosstodon.org/@Antiz"
 
 	[[params.socialIcons]]
-	# https://github.com/lxndrblz/anatole/issues/590
-	#icon = "fab fa-ko-fi"
-	icon = "fas fa-mug-hot"
-	title = "Ko-fi"
-	url = "https://ko-fi.com/Antiz96"
-
-	[[params.socialIcons]]
 	icon = "fab fa-youtube"
 	title = "YouTube"
 	url = "https://www.youtube.com/@Antiz96"
@@ -60,6 +53,13 @@ summaryLength = 50
 	icon = "fas fa-key"
 	title = "OpenPGP Key"
 	url = "https://keyserver.ubuntu.com/pks/lookup?search=D33FAA16B937F3B2&fingerprint=on&op=index"
+
+	[[params.socialIcons]]
+	# https://github.com/lxndrblz/anatole/issues/590
+	#icon = "fab fa-ko-fi"
+	icon = "fas fa-mug-hot"
+	title = "Ko-fi"
+	url = "https://ko-fi.com/Antiz96"
 
 [menu]
 	[[menu.main]]
