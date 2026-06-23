@@ -45,6 +45,20 @@ abuild checksum # Generate / upgrade checksum for the source(s) contained in the
 abuild rootbld # Build the package in an Alpine clean chroot
 ```
 
+The `abump` script can be used to bump existing packages.
+
+For instance, the following command will bump the `pandora_box` APKBUILD to version `0.22.0` in a newly created git branch, build the package in a clean chroot, create a commit on successful build (including the link of the related upstream release in the commit message's body) and push said commit to the default `origin` git remote (see the [abump(1) man page](https://man.archlinux.org/man/abump.1) for an extensive list of available options and arguments):
+
+```bash
+abump --branch \
+    --rootbld \
+    --message "https://gitlab.exherbo.org/sydbox/sydbox/-/tags/pandora-0.22.0" \
+    --push origin \
+    pandora_box-0.22.0
+```
+
+## Conclusion
+
 I was initially using an Alpine container to access the necessary tooling to perform my Alpine packaging workflow, but this method had some flaws. Indeed, in addition to the fact that working from a container is not as comfortable as working from my actual system; building packages in a clean chroot using `abuild rootbld` inside a Docker container eventually requires some [additional setup](https://wiki.alpinelinux.org/wiki/Build_with_abuild_rootbld_in_Docker_container), and `fakeroot` (used during the packages build process) currently has some issues when used inside containers which, for instance, cause it to be *extremely* slow (see [this](https://github.com/moby/moby/issues/45436) and [this](https://github.com/moby/moby/issues/38814) bug reports).
 
 Being able to run such Alpine packaging tooling directly from my Arch Linux system streamlines the packaging workflow I use to maintain [my Alpine packages](https://pkgs.alpinelinux.org/packages?name=&branch=edge&repo=&arch=&maintainer=Robin+Candau) (and hopefully the one of other Arch users & Alpine contributors too :v:).
