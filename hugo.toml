@@ -23,9 +23,9 @@ summaryLength = 50
 	url = "https://github.com/Antiz96"
 
 	[[params.socialIcons]]
-	# https://github.com/lxndrblz/anatole/issues/590
-	#icon = "fab fa-arch-linux"
-	icon = "fab fa-linux"
+	# Using my own anatole fork including Font Awesome bumped to 7.3.0 until the following is merged and released
+	# https://github.com/lxndrblz/anatole/pull/593
+	icon = "fab fa-arch-linux"
 	title = "Arch Linux GitLab"
 	url = "https://gitlab.archlinux.org/antiz"
 
@@ -55,9 +55,9 @@ summaryLength = 50
 	url = "https://keyserver.ubuntu.com/pks/lookup?search=D33FAA16B937F3B2&fingerprint=on&op=index"
 
 	[[params.socialIcons]]
-	# https://github.com/lxndrblz/anatole/issues/590
-	#icon = "fab fa-ko-fi"
-	icon = "fas fa-mug-hot"
+	# Using my own anatole fork including Font Awesome bumped to 7.3.0 until the following is merged and released
+	# https://github.com/lxndrblz/anatole/pull/593
+	icon = "fab fa-ko-fi"
 	title = "Ko-fi"
 	url = "https://ko-fi.com/Antiz96"
 
