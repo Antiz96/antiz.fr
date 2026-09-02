@@ -47,7 +47,7 @@ summaryLength = 50
 	[[params.socialIcons]]
 	icon = "fas fa-envelope"
 	title = "Mail"
-	url = "mailto:robincandau@protonmail.com"
+	url = "mailto:robincandau@mailbox.org"
 
 	[[params.socialIcons]]
 	icon = "fas fa-key"
