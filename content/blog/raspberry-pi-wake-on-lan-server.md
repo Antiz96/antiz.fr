@@ -110,7 +110,7 @@ done
 
 Finally, we can create a systemd service to launch the script automatically at boot (given that your Linux distribution uses systemd as its init system. If not, check your init system's documentation).
 
-Here's the one I wrote, under `/usr/local/lib/systemd/system/monitor-servers-wakeonlan.service`:
+Here's the one I wrote, under `/etc/systemd/system/monitor-servers-wakeonlan.service`:
 
 ```text
 [Unit]
@@ -137,7 +137,7 @@ Since the script is launched via a systemd service, you can see the output in re
 $ sudo systemctl status monitor-servers-wakeonlan.service
 
 ● monitor-servers-wakeonlan.service - Run the script that monitors physical servers' responsiveness and power them back on if needed
-     Loaded: loaded (/usr/local/lib/systemd/system/monitor-servers-wakeonlan.service; enabled; preset: enabled)
+     Loaded: loaded (/etc/systemd/system/monitor-servers-wakeonlan.service; enabled; preset: enabled)
      Active: activating (start) since Wed 2023-09-20 14:15:24 CEST; 1 month 6 days ago
    Main PID: 492 (monitor-servers)
       Tasks: 2 (limit: 963)
