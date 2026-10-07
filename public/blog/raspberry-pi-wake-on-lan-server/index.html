@@ -17,7 +17,7 @@
 
   </title>
 
-  <meta name="generator" content="Hugo 0.166.0"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="generator" content="Hugo 0.167.0"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <meta name="author" content="Robin Candau" />
   <meta
     name="description"
@@ -538,7 +538,7 @@ I chose to use those not too &ldquo;aggressive&rdquo; values by default so I can
 </span></span><span style="display:flex;"><span>        sleep <span style="color:#ae81ff">300</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
 </span></span></code></pre></div><p>Finally, we can create a systemd service to launch the script automatically at boot (given that your Linux distribution uses systemd as its init system. If not, check your init system&rsquo;s documentation).</p>
-<p>Here&rsquo;s the one I wrote, under <code>/usr/local/lib/systemd/system/monitor-servers-wakeonlan.service</code>:</p>
+<p>Here&rsquo;s the one I wrote, under <code>/etc/systemd/system/monitor-servers-wakeonlan.service</code>:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>[Unit]
 </span></span><span style="display:flex;"><span>Description=Monitor physical servers responsiveness and power them back on if needed
 </span></span><span style="display:flex;"><span>After=network-online.target
@@ -555,7 +555,7 @@ I chose to use those not too &ldquo;aggressive&rdquo; values by default so I can
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo systemctl status monitor-servers-wakeonlan.service
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>● monitor-servers-wakeonlan.service - Run the script that monitors physical servers<span style="color:#960050;background-color:#1e0010">&#39;</span> responsiveness and power them back on <span style="color:#66d9ef">if</span> needed
-</span></span><span style="display:flex;"><span>     Loaded: loaded <span style="color:#f92672">(</span>/usr/local/lib/systemd/system/monitor-servers-wakeonlan.service; enabled; preset: enabled<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>     Loaded: loaded <span style="color:#f92672">(</span>/etc/systemd/system/monitor-servers-wakeonlan.service; enabled; preset: enabled<span style="color:#f92672">)</span>
 </span></span><span style="display:flex;"><span>     Active: activating <span style="color:#f92672">(</span>start<span style="color:#f92672">)</span> since Wed 2023-09-20 14:15:24 CEST; <span style="color:#ae81ff">1</span> month <span style="color:#ae81ff">6</span> days ago
 </span></span><span style="display:flex;"><span>   Main PID: <span style="color:#ae81ff">492</span> <span style="color:#f92672">(</span>monitor-servers<span style="color:#f92672">)</span>
 </span></span><span style="display:flex;"><span>      Tasks: <span style="color:#ae81ff">2</span> <span style="color:#f92672">(</span>limit: 963<span style="color:#f92672">)</span>
