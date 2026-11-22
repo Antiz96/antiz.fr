@@ -50,10 +50,10 @@ For instance, the following command will bump the `pandora_box` APKBUILD to vers
 
 ```bash
 abump --branch \
-    --rootbld \
-    --message "https://gitlab.exherbo.org/sydbox/sydbox/-/tags/pandora-0.22.0" \
-    --push origin \
-    pandora_box-0.22.0
+      --rootbld \
+      --message "https://gitlab.exherbo.org/sydbox/sydbox/-/tags/pandora-0.22.0" \
+      --push origin \
+      pandora_box-0.22.0
 ```
 
 ## Conclusion
