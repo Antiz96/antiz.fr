@@ -6,9 +6,9 @@ draft: false
 
 ## Alpine packaging tooling are now available in the Arch Linux [extra] repository!
 
-I recently added the [abuild](https://gitlab.alpinelinux.org/alpine/abuild) and [atools](https://gitlab.alpinelinux.org/Leo/atools) Alpine packaging tooling to the Arch Linux [extra] repository.
+I recently added the [abuild](https://gitlab.alpinelinux.org/alpine/abuild) and [atools](https://gitlab.alpinelinux.org/Leo/atools) (as well as the [atools-go](https://archlinux.org/packages/extra/x86_64/atools-go/) alternative) Alpine packaging tooling to the Arch Linux [extra] repository.
 
-Thanks to that, these tools can now be used to maintain and build Alpine packages (in a clean chroot) from an Arch Linux system, without requiring to rely on a separate Alpine installation, such as a container or a VM.  
+These tools can now be used to maintain and build Alpine packages (in a clean chroot) from an Arch Linux system, without requiring to rely on a separate Alpine installation, such as a container or a VM.  
 Enabling the Alpine packaging workflow directly from an Arch Linux system streamlines the process of maintaining Alpine packages for Arch users that *also* contribute to Alpine Linux (like I do).
 
 Of course, due to technical differences between Alpine and Arch Linux (e.g. in terms of package manager, init system and C library implementation), building Alpine packages on an Arch system outside of an Alpine clean chroot is not possible. As such, when **building** Alpine packages on an Arch system, only `abuild rootbld` is relevant to use.
@@ -21,14 +21,13 @@ Install the [abuild](https://archlinux.org/packages/extra/x86_64/abuild/) and [a
 sudo pacman -S abuild atools
 ```
 
-To be able to build Alpine packages in a clean chroot with `abuild rootbld`, you need to generate a public / private rsa key pair with the `abuild-keygen` tool and add your user to the `abuild` group (which is created when installing the [abuild package](https://archlinux.org/packages/extra/x86_64/abuild/)):
+To be able to build Alpine packages in a clean chroot with `abuild rootbld`, you need to generate a public / private rsa key pair with the `abuild-keygen` tool:
 
 ```bash
 abuild-keygen -a -i
-sudo usermod -aG abuild "username" # Requires a logout / login to take effect
 ```
 
-One can optionally edit the `/etc/abuild.conf` configuration file to their liking and requirements. For instance, the paths used to store downloaded sources (`/var/cache/distfiles` by default) and built packages (`~/packages` by default) can be customized by modifying the `SRCDEST` and `REPODEST` parameters respectively in that configuration file.
+One can optionally edit the `/etc/abuild.conf` configuration file to their liking and requirements. For instance, the paths used to store downloaded sources (`${XDG_CACHE_HOME:-$HOME/.cache}/abuild` by default) and built packages (`${XDG_DATA_HOME:-$HOME/.local/share}/abuild` by default) can be customized by modifying the `SRCDEST` and `REPODEST` parameters respectively in that configuration file.
 
 See the [Arch wiki abuild page](https://wiki.archlinux.org/title/Abuild) for more details.
 
@@ -51,10 +50,10 @@ For instance, the following command will bump the `pandora_box` APKBUILD to vers
 
 ```bash
 abump --branch \
-    --rootbld \
-    --message "https://gitlab.exherbo.org/sydbox/sydbox/-/tags/pandora-0.22.0" \
-    --push origin \
-    pandora_box-0.22.0
+      --rootbld \
+      --message "https://gitlab.exherbo.org/sydbox/sydbox/-/tags/pandora-0.22.0" \
+      --push origin \
+      pandora_box-0.22.0
 ```
 
 ## Conclusion
