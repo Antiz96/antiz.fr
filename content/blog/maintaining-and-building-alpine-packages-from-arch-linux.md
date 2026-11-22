@@ -6,7 +6,7 @@ draft: false
 
 ## Alpine packaging tooling are now available in the Arch Linux [extra] repository!
 
-I recently added the [abuild](https://gitlab.alpinelinux.org/alpine/abuild) and [atools](https://gitlab.alpinelinux.org/Leo/atools) (as well as the [atools-go alternative](https://archlinux.org/packages/extra/x86_64/atools-go/)) Alpine packaging tooling to the Arch Linux [extra] repository.
+I recently added the [abuild](https://gitlab.alpinelinux.org/alpine/abuild) and [atools](https://gitlab.alpinelinux.org/Leo/atools) (as well as the [atools-go](https://archlinux.org/packages/extra/x86_64/atools-go/) alternative) Alpine packaging tooling to the Arch Linux [extra] repository.
 
 These tools can now be used to maintain and build Alpine packages (in a clean chroot) from an Arch Linux system, without requiring to rely on a separate Alpine installation, such as a container or a VM.  
 Enabling the Alpine packaging workflow directly from an Arch Linux system streamlines the process of maintaining Alpine packages for Arch users that *also* contribute to Alpine Linux (like I do).
